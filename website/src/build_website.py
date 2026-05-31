@@ -353,6 +353,20 @@ def build_index() -> None:
 <div data-pagefind-body>
 <section class="book-hero" aria-labelledby="book-title">
   <h1 class="hero-title" id="book-title">{escape(BOOK_TITLE)}</h1>
+  <div class="author-row" aria-label="Author links">
+    <span>Authored by Bart Czernicki</span>
+    <div class="author-links">
+      <a href="https://www.linkedin.com/in/bartczernicki/" aria-label="Bart Czernicki on LinkedIn" target="_blank" rel="noopener noreferrer">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.53V9H7.1v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0Z"/></svg>
+      </a>
+      <a href="https://github.com/bartczernicki" aria-label="Bart Czernicki on GitHub" target="_blank" rel="noopener noreferrer">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.22c0 4.52 2.87 8.35 6.84 9.71.5.09.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.51.47-3.16-.62-3.36-1.19-.11-.29-.6-1.19-1.03-1.43-.35-.19-.85-.66-.01-.67.79-.01 1.35.74 1.54 1.05.9 1.55 2.34 1.11 2.91.85.09-.67.35-1.11.64-1.37-2.22-.26-4.55-1.14-4.55-5.05 0-1.11.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.71 0 0 .84-.27 2.75 1.05A9.28 9.28 0 0 1 12 6.99c.85 0 1.71.12 2.51.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.4.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.79-4.57 5.05.36.32.68.93.68 1.89 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.05 10.05 0 0 0 22 12.22C22 6.58 17.52 2 12 2Z"/></svg>
+      </a>
+      <a href="http://twitter.com/bartczernicki" aria-label="Bart Czernicki on X" target="_blank" rel="noopener noreferrer">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M18.9 2.25h3.68l-8.04 9.19L24 21.75h-7.4l-5.8-7.58-6.63 7.58H.49l8.6-9.83L0 2.25h7.59l5.24 6.93 6.07-6.93Zm-1.29 17.68h2.04L6.48 3.97H4.29l13.32 15.96Z"/></svg>
+      </a>
+    </div>
+  </div>
   <div class="book-hero-copy">
     <p class="lede">Interactive companion website to the Decision Intelligence with AI book.</p>
     <div class="hero-actions">
@@ -815,7 +829,7 @@ button:focus-visible {
   grid-template-columns: minmax(0, 1fr) minmax(280px, 520px);
   align-items: center;
   column-gap: clamp(28px, 5vw, 72px);
-  row-gap: clamp(22px, 4vw, 42px);
+  row-gap: 12px;
   min-height: 72vh;
   padding: clamp(38px, 7vw, 86px);
   border-bottom: 1px solid var(--line);
@@ -825,7 +839,39 @@ button:focus-visible {
   grid-column: 1 / -1;
   font-size: clamp(2rem, 4vw, 3.8rem);
 }
-.book-hero-copy { max-width: 760px; }
+.author-row {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 700;
+}
+.author-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.author-links a {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  color: var(--teal-dark);
+  text-decoration: none;
+}
+.author-links a:hover {
+  background: var(--panel-subtle);
+  color: var(--berry);
+}
+.author-links svg { display: block; }
+.book-hero-copy {
+  max-width: 760px;
+  margin-top: clamp(10px, 2vw, 24px);
+}
 .eyebrow {
   margin: 0 0 12px;
   color: var(--berry);
@@ -859,6 +905,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); }
   align-items: center;
   justify-content: center;
   min-height: 46px;
+  min-width: 164px;
   border-radius: 8px;
   padding: 0 18px;
   font-weight: 800;
@@ -992,6 +1039,28 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); }
   background: var(--code-bg);
   color: var(--code-text);
 }
+.notebook-content .highlight.hl-csharp pre {
+  color: #d4d4d4;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+.notebook-content .highlight.hl-csharp .k,
+.notebook-content .highlight.hl-csharp .kt { color: #569cd6; }
+.notebook-content .highlight.hl-csharp .s,
+.notebook-content .highlight.hl-csharp .s1,
+.notebook-content .highlight.hl-csharp .s2,
+.notebook-content .highlight.hl-csharp .se { color: #ce9178; }
+.notebook-content .highlight.hl-csharp .c,
+.notebook-content .highlight.hl-csharp .c1,
+.notebook-content .highlight.hl-csharp .cm { color: #6a9955; }
+.notebook-content .highlight.hl-csharp .n { color: #d4d4d4; }
+.notebook-content .highlight.hl-csharp .na,
+.notebook-content .highlight.hl-csharp .nf { color: #dcdcaa; }
+.notebook-content .highlight.hl-csharp .nn { color: #4ec9b0; }
+.notebook-content .highlight.hl-csharp .mi,
+.notebook-content .highlight.hl-csharp .mf { color: #b5cea8; }
+.notebook-content .highlight.hl-csharp .p,
+.notebook-content .highlight.hl-csharp .o { color: #c8c8c8; }
 .notebook-content h2,
 .notebook-content h3,
 .notebook-content h4 { position: relative; }
