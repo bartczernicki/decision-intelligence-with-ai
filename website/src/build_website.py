@@ -226,17 +226,21 @@ def sidebar(prefix: str, current_file: str) -> str:
       <span class="book-version">Version {escape(BOOK_VERSION)}</span>
     </span>
   </a>
+  <div class="sidebar-actions" data-pagefind-ignore="all">
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+      <span class="theme-toggle-icon" aria-hidden="true">☀</span>
+    </button>
+    <a class="source-link" href="https://github.com/bartczernicki/DecisionIntelligence.GenAI.Workshop" target="_blank" rel="noopener noreferrer">
+      <span>Source</span>
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.22c0 4.52 2.87 8.35 6.84 9.71.5.09.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.51.47-3.16-.62-3.36-1.19-.11-.29-.6-1.19-1.03-1.43-.35-.19-.85-.66-.01-.67.79-.01 1.35.74 1.54 1.05.9 1.55 2.34 1.11 2.91.85.09-.67.35-1.11.64-1.37-2.22-.26-4.55-1.14-4.55-5.05 0-1.11.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.71 0 0 .84-.27 2.75 1.05A9.28 9.28 0 0 1 12 6.99c.85 0 1.71.12 2.51.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.4.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.79-4.57 5.05.36.32.68.93.68 1.89 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.05 10.05 0 0 0 22 12.22C22 6.58 17.52 2 12 2Z"/>
+      </svg>
+    </a>
+  </div>
   <div class="pagefind-search-shell" data-pagefind-ignore="all">
     <span class="search-label">Search book</span>
     <pagefind-modal-trigger button-text="Search the book"></pagefind-modal-trigger>
     <pagefind-modal></pagefind-modal>
-  </div>
-  <div class="theme-switcher" data-pagefind-ignore="all">
-    <span class="search-label">Appearance</span>
-    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
-      <span class="theme-toggle-icon" aria-hidden="true">☀</span>
-      <span data-theme-toggle-label>Light mode</span>
-    </button>
   </div>
   <nav class="chapter-nav" aria-label="Chapters">
     {''.join(items)}
@@ -304,10 +308,24 @@ def page_shell(
 
 
 def build_index() -> None:
-    chapter_range = f"{CHAPTERS[0]['code'].upper()}-{CHAPTERS[-1]['code'].upper()}"
-    notebook_label = "notebook" if len(CHAPTERS) == 1 else "notebooks"
+    group_sections = []
+    current_group = None
     cards = []
     for chapter in CHAPTERS:
+        if chapter["group"] != current_group:
+            if current_group is not None:
+                group_sections.append(
+                    f"""
+  <section class="chapter-group-section" aria-labelledby="group-{slugify(current_group)}">
+    <h3 class="chapter-grid-heading" id="group-{slugify(current_group)}">{escape(current_group)}</h3>
+    <div class="chapter-grid">
+      {''.join(cards)}
+    </div>
+  </section>"""
+                )
+            current_group = chapter["group"]
+            cards = []
+
         data_title = escape(
             f"{chapter['code']} {chapter['title']} {chapter['description']}".lower(),
             quote=True,
@@ -315,18 +333,28 @@ def build_index() -> None:
         cards.append(
             f"""
 <a class="chapter-card" href="chapters/{chapter['file']}" data-title="{data_title}">
-  <span class="chapter-card-code">{chapter['code'].upper()}</span>
   <strong>{escape(chapter['title'])}</strong>
   <span>{escape(chapter['description'])}</span>
 </a>"""
         )
 
+    if current_group is not None:
+        group_sections.append(
+            f"""
+  <section class="chapter-group-section" aria-labelledby="group-{slugify(current_group)}">
+    <h3 class="chapter-grid-heading" id="group-{slugify(current_group)}">{escape(current_group)}</h3>
+    <div class="chapter-grid">
+      {''.join(cards)}
+    </div>
+  </section>"""
+        )
+
     body = f"""
 <div data-pagefind-body>
 <section class="book-hero" aria-labelledby="book-title">
+  <h1 class="hero-title" id="book-title">{escape(BOOK_TITLE)}</h1>
   <div class="book-hero-copy">
-    <h1 id="book-title">{escape(BOOK_TITLE)}</h1>
-    <p class="lede">A static reading edition of {len(CHAPTERS)} selected {notebook_label}, converted into chapter pages for easy browsing, printing, and sequential reading.</p>
+    <p class="lede">Interactive companion website to the Decision Intelligence with AI book.</p>
     <div class="hero-actions">
       <a class="primary-action" href="chapters/{CHAPTERS[0]['file']}">Start reading</a>
       <a class="secondary-action" href="#chapters">Browse chapters</a>
@@ -334,14 +362,11 @@ def build_index() -> None:
   </div>
   <img class="hero-image" src="{FRAMEWORK_URL}" alt="Decision Intelligence Framework">
 </section>
-<section id="chapters" class="chapter-grid-section" aria-labelledby="chapters-title">
+<section id="chapters" class="chapter-grid-section" aria-label="Contents">
   <div class="section-heading">
     <p class="eyebrow">Contents</p>
-    <h2 id="chapters-title">Chapters {chapter_range}</h2>
   </div>
-  <div class="chapter-grid">
-    {''.join(cards)}
-  </div>
+  {''.join(group_sections)}
 </section>
 </div>
 """
@@ -637,38 +662,53 @@ button:focus-visible {
   text-transform: uppercase;
 }
 
-.theme-switcher { margin: 0 0 18px; }
-.theme-toggle {
+.sidebar-actions {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  width: 100%;
-  min-height: 42px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 9px 12px;
-  background: var(--panel);
-  color: var(--teal-dark);
-  cursor: pointer;
-  font: inherit;
+  gap: 14px;
+  margin: -4px 0 20px;
+}
+.source-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink);
+  font-size: 1.42rem;
   font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+}
+.source-link:hover {
+  color: var(--teal-dark);
+}
+.source-link svg {
+  flex: 0 0 auto;
+}
+
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 999px;
+  padding: 0;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
 }
 .theme-toggle:hover {
-  border-color: var(--teal);
-  box-shadow: 0 1px 0 rgba(15, 118, 110, 0.12);
+  color: var(--teal-dark);
 }
 .theme-toggle-icon {
   display: inline-grid;
   place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 999px;
-  background: #e3f3ef;
-  color: var(--teal-dark);
+  font-size: 1.55rem;
+  line-height: 1;
 }
 :root[data-theme="dark"] .theme-toggle-icon {
-  background: #263b36;
+  color: var(--teal-dark);
 }
 
 .search-label {
@@ -707,7 +747,7 @@ button:focus-visible {
 }
 .chapter-group {
   color: var(--muted);
-  font-size: 0.74rem;
+  font-size: 0.8rem;
   font-weight: 800;
   line-height: 1.2;
   margin: 14px 10px 2px;
@@ -734,8 +774,7 @@ button:focus-visible {
   color: var(--teal-dark);
   box-shadow: 0 1px 0 rgba(15, 118, 110, 0.12);
 }
-.chapter-code,
-.chapter-card-code {
+.chapter-code {
   display: inline-grid;
   place-items: center;
   min-width: 36px;
@@ -746,8 +785,7 @@ button:focus-visible {
   font-size: 0.76rem;
   font-weight: 800;
 }
-:root[data-theme="dark"] .chapter-code,
-:root[data-theme="dark"] .chapter-card-code {
+:root[data-theme="dark"] .chapter-code {
   color: #1d4ed8;
 }
 
@@ -776,11 +814,16 @@ button:focus-visible {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 520px);
   align-items: center;
-  gap: clamp(28px, 5vw, 72px);
+  column-gap: clamp(28px, 5vw, 72px);
+  row-gap: clamp(22px, 4vw, 42px);
   min-height: 72vh;
   padding: clamp(38px, 7vw, 86px);
   border-bottom: 1px solid var(--line);
   background: linear-gradient(135deg, var(--panel) 0%, var(--panel-subtle) 54%, rgba(159, 18, 57, 0.08) 100%);
+}
+.hero-title {
+  grid-column: 1 / -1;
+  font-size: clamp(2rem, 4vw, 3.8rem);
 }
 .book-hero-copy { max-width: 760px; }
 .eyebrow {
@@ -833,6 +876,13 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); }
 .chapter-grid-section { padding: clamp(34px, 6vw, 74px); }
 .section-heading { max-width: 900px; margin-bottom: 24px; }
 .section-heading h2 { margin: 0; }
+.chapter-group-section + .chapter-group-section { margin-top: 34px; }
+.chapter-grid-heading {
+  color: var(--heading);
+  font-size: 1.3rem;
+  line-height: 1.2;
+  margin: 0 0 14px;
+}
 .chapter-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1055,7 +1105,6 @@ SITE_JS = r"""
   const navToggle = document.querySelector('.nav-toggle');
   const closeNav = document.querySelector('[data-close-nav]');
   const themeToggle = document.querySelector('[data-theme-toggle]');
-  const themeToggleLabel = document.querySelector('[data-theme-toggle-label]');
   const themeToggleIcon = document.querySelector('.theme-toggle-icon');
 
   function getInitialTheme() {
@@ -1071,8 +1120,13 @@ SITE_JS = r"""
   function applyTheme(theme, persist) {
     const normalized = theme === 'dark' ? 'dark' : 'light';
     document.documentElement.dataset.theme = normalized;
-    if (themeToggle) themeToggle.setAttribute('aria-pressed', String(normalized === 'dark'));
-    if (themeToggleLabel) themeToggleLabel.textContent = normalized === 'dark' ? 'Dark mode' : 'Light mode';
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-pressed', String(normalized === 'dark'));
+      themeToggle.setAttribute(
+        'aria-label',
+        normalized === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+      );
+    }
     if (themeToggleIcon) themeToggleIcon.textContent = normalized === 'dark' ? '☾' : '☀';
     if (persist) {
       try {

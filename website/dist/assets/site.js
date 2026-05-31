@@ -4,7 +4,6 @@
   const navToggle = document.querySelector('.nav-toggle');
   const closeNav = document.querySelector('[data-close-nav]');
   const themeToggle = document.querySelector('[data-theme-toggle]');
-  const themeToggleLabel = document.querySelector('[data-theme-toggle-label]');
   const themeToggleIcon = document.querySelector('.theme-toggle-icon');
 
   function getInitialTheme() {
@@ -20,8 +19,13 @@
   function applyTheme(theme, persist) {
     const normalized = theme === 'dark' ? 'dark' : 'light';
     document.documentElement.dataset.theme = normalized;
-    if (themeToggle) themeToggle.setAttribute('aria-pressed', String(normalized === 'dark'));
-    if (themeToggleLabel) themeToggleLabel.textContent = normalized === 'dark' ? 'Dark mode' : 'Light mode';
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-pressed', String(normalized === 'dark'));
+      themeToggle.setAttribute(
+        'aria-label',
+        normalized === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+      );
+    }
     if (themeToggleIcon) themeToggleIcon.textContent = normalized === 'dark' ? '☾' : '☀';
     if (persist) {
       try {
