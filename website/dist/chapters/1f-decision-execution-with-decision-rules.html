@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decision Execution with Decision Rules | Decision Intelligence</title>
+  <meta name="description" content="Reusable rules, heuristics, and domain-specific patterns for consistent decisions.">
+  <meta property="og:title" content="Decision Execution with Decision Rules | Decision Intelligence">
+  <meta property="og:description" content="Reusable rules, heuristics, and domain-specific patterns for consistent decisions.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Decision Execution with Decision Rules | Decision Intelligence">
+  <meta name="twitter:description" content="Reusable rules, heuristics, and domain-specific patterns for consistent decisions.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('di-theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../pagefind/pagefind-component-ui.css">
+  
+</head>
+<body data-page="1f-decision-execution-with-decision-rules.html">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <button class="nav-toggle" type="button" aria-label="Open chapter navigation" aria-expanded="false">Menu</button>
+  
+<aside class="book-sidebar" aria-label="Book navigation">
+  <a class="book-brand" href="../index.html">
+    <img src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceLogo.png" alt="Decision Intelligence logo">
+    <span>Decision Intelligence</span>
+  </a>
+  <div class="pagefind-search-shell" data-pagefind-ignore="all">
+    <span class="search-label">Search book</span>
+    <pagefind-modal-trigger button-text="Search the book"></pagefind-modal-trigger>
+    <pagefind-modal></pagefind-modal>
+  </div>
+  <div class="theme-switcher" data-pagefind-ignore="all">
+    <span class="search-label">Appearance</span>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+      <span class="theme-toggle-icon" aria-hidden="true">☀</span>
+      <span data-theme-toggle-label>Light mode</span>
+    </button>
+  </div>
+  <nav class="chapter-nav" aria-label="Chapters">
+    <a class="chapter-link" href="../index.html" data-title="contents overview"><span class="chapter-code">TOC</span><span>Contents</span></a><a class="chapter-link" href="../chapters/1a-introducing-decision-intelligence-framework.html" data-title="1a introducing the decision intelligence framework introducing decisions"><span class="chapter-code">1A</span><span>Introducing Decisions</span></a><a class="chapter-link" href="../chapters/1b-decision-framing.html" data-title="1b decision framing decision framing"><span class="chapter-code">1B</span><span>Decision Framing</span></a><a class="chapter-link" href="../chapters/1c-gathering-intelligence.html" data-title="1c gathering intelligence gathering intelligence"><span class="chapter-code">1C</span><span>Gathering Intelligence</span></a><a class="chapter-link" href="../chapters/1d-decision-execution.html" data-title="1d decision execution decision execution"><span class="chapter-code">1D</span><span>Decision Execution</span></a><a class="chapter-link" href="../chapters/1e-decision-execution-with-intuition.html" data-title="1e decision execution with intuition execution with intuition"><span class="chapter-code">1E</span><span>Execution with Intuition</span></a><a class="chapter-link active" href="../chapters/1f-decision-execution-with-decision-rules.html" data-title="1f decision execution with decision rules execution with decision rules"><span class="chapter-code">1F</span><span>Execution with Decision Rules</span></a><a class="chapter-link" href="../chapters/1g-decision-execution-with-quantitative-methods.html" data-title="1g decision execution with quantitative methods execution with quantitative methods"><span class="chapter-code">1G</span><span>Execution with Quantitative Methods</span></a><a class="chapter-link" href="../chapters/1h-decision-communication.html" data-title="1h decision communication decision communication"><span class="chapter-code">1H</span><span>Decision Communication</span></a><a class="chapter-link" href="../chapters/1i-applying-decision-intelligence-framework.html" data-title="1i applying the decision intelligence framework applying the framework"><span class="chapter-code">1I</span><span>Applying the Framework</span></a><a class="chapter-link" href="../chapters/1j-enterprise-decision-intelligence.html" data-title="1j enterprise decision intelligence enterprise decision intelligence"><span class="chapter-code">1J</span><span>Enterprise Decision Intelligence</span></a>
+  </nav>
+</aside>
+<div class="nav-backdrop" data-close-nav></div>
+
+  <main id="main-content" class="book-main">
+    
+<article class="chapter-page">
+  <div data-pagefind-body>
+  <header class="chapter-header">
+    <a class="back-link" href="../index.html">Back to contents</a>
+    <p class="eyebrow">Chapter 1F</p>
+    <h1>Decision Execution with Decision Rules</h1>
+    <p class="chapter-summary">Reusable rules, heuristics, and domain-specific patterns for consistent decisions.</p>
+  </header>
+  
+<nav class="chapter-toc" aria-label="Chapter table of contents">
+  <strong>On this page</strong>
+  <a class="toc-h3" href="#Introducing-Decision-Execution-with-Decision-Rules">Introducing Decision Execution with Decision Rules</a><a class="toc-h3" href="#Decision-Rules---Simple-Decision-Rules">Decision Rules - Simple Decision Rules</a><a class="toc-h4" href="#Simple-Decision-Rules-In-Daily-Life---Scenario:-Exploration-vs-Exploitation">Simple Decision Rules In Daily Life - Scenario: Exploration vs Exploitation</a><a class="toc-h4" href="#Simple-Decision-Rules-at-Work---Scenario:-Optimize-Sales-Performance-with-Price&#x27;s-Law">Simple Decision Rules at Work - Scenario: Optimize Sales Performance with Price&#x27;s Law</a><a class="toc-h3" href="#Decision-Rules---Domain-(Industry)-Specific">Decision Rules - Domain (Industry) Specific</a><a class="toc-h3" href="#Decision-Rules---Use-Data-for-Customized-Rules-Frameworks">Decision Rules - Use Data for Customized Rules Frameworks</a><a class="toc-h4" href="#Using-the-One-Rule-(OneR)-Algorithm-to-Create-the-simplest-Decision-Rule">Using the One Rule (OneR) Algorithm to Create the simplest Decision Rule</a><a class="toc-h3" href="#Decision-Rules---When-to-Use-&amp;-Apply">Decision Rules - When to Use &amp; Apply</a><a class="toc-h3" href="#Decision-Rules---Powered-by-Generative-AI-&amp;-Machine-Learning">Decision Rules - Powered by Generative AI &amp; Machine Learning</a><a class="toc-h3" href="#Decision-Rules---Materials-to-Deepen-Your-Understanding">Decision Rules - Materials to Deepen Your Understanding</a>
+</nav>
+
+  <section class="notebook-content">
+    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="display: flex; align-items: center;">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceLogo.png" style="margin-right: 10px;" width="60px"/>
+<span style="font-size: 1.5em; font-weight: bold;">Decision Intelligence – Decision Execution with Decision Rules</span>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Introducing-Decision-Execution-with-Decision-Rules">Introducing Decision Execution with Decision Rules<a class="anchor-link" href="#Introducing-Decision-Execution-with-Decision-Rules">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligence-DecisionExecution.png" style="display: block; margin: auto;" width="700px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>📜 <strong><em>"You have to have models in your head. And you’ve got to array your experience – both vicarious and direct – on this latticework of models. You may have noticed students who just try to remember and pound back what is remembered. Well, they fail in school and in life. You’ve got to hang experience on a latticework of models in your head."</em></strong></p>
+<p>-- <cite>Charlie Munger (American businessman, best known as the vice chairman of Berkshire Hathaway)</cite></p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I personally enjoy the quote above from Charlie Munger, as it highlights that intuition (experience) in important decisions is simply not enough. What is really needed is a "latticework" of models in your head. What does Charlie Munger mean by "models in your head"? Charlie Munger is not advocating about performing calculus or linear algebra in your head. Instead he advocates for the use of simple techniques, mental models, and rules of thumb that can be combined to enhance both decision-making quality and quantity. By applying these decision tools, you can develop the ability to tackle and solve a wider range of problems, leading to more effective and efficient decision-making.</p>
+<p>In the next sections the following decision rules  with scenarios will be explored:</p>
+<ul>
+<li>How we use can apply Decision Rules in daily decision-making</li>
+<li>Generic Decision Rules (apply to any type of problem)</li>
+<li>Domain Specific Rules (apply to specific domains / industries)</li>
+<li>Simple Decision Frameworks for Custom Decisions</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Decision-Rules---Simple-Decision-Rules">Decision Rules - Simple Decision Rules<a class="anchor-link" href="#Decision-Rules---Simple-Decision-Rules">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Below is a list of simple decision rules that can be used for quick decision-making. Notice <strong>these rules are generic and can be applied to many different domains, industries, fields</strong> etc. For example, the generic "10,000 Hour Rule" which suggests in order to become a master in any field requires 10,000 hours of study, practice or hands-on experience. This rule essentially can be applied to any practice. If you want to master software development, cooking, basketball, playing the piano etc. this rule provides you a rough time guideline to achieve this goal. Is this rule perfect? Of course not, some people may take a little less time, some might need more than 10,000 hours and some may never achieve "mastery" no matter how much they practice. Therefore, this rule is a great guide of the estimated time investment to master a field (10,000 hours or 4-8 years). This allows someone to <strong>plan your decisions accordingly</strong> to achieve this goal.</p>
+<p>There are many generic decision rules beyond what is illustrated in the table below. <strong>Generative AI can be instructed or supplied with a collection of these decision rules, how to apply them for decision-making. This means the burden of learning and memorizing all of these rules is on the GenAI assistant rather than the human!</strong></p>
+<blockquote>
+<p>📝 Note: In an enterprise decision system, you can supply the decision rules by including the type of rule, description of the rule, rule parameters as well as the decision instructions. This allows for the decision rules to be grouped and easily identified. For example, for "Sales Decision Rules" you would group them as such. Therefore, for sales related deicision Artificial Intelligence can pre-select these rules as considerations for use.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Generic - Simple Decision Rule</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">10,000 Hour Rule</td>
+<td style="text-align:left">A concept popularized by Malcolm Gladwell in his book <em>"Outliers: The Story of Success".</em> The rule suggests that achieving mastery in any field (industry) requires approximately 10,000 hours of deliberate practice.</td>
+</tr>
+<tr>
+<td style="text-align:left">Ben Franklin's Pro &amp; Con List</td>
+<td style="text-align:left">Invented by Ben Franklin, this simple decision-making process suggests a user make a list Pro and Con for a binary decision, sort each side by importance, cross off equal important pros vs cons. Whichever side (Pro or Con) has more items, then make that decision.</td>
+</tr>
+<tr>
+<td style="text-align:left">30 Minute Rule</td>
+<td style="text-align:left">Described by Ramit Sethi, the 30 minute emphasizes the importance of doing even a small amount of research to gain an advantage. For example, becoming familiar with the benefits of various credit cards, can make a significant difference in the outcome when selecting the right credit card in the long-term.</td>
+</tr>
+<tr>
+<td style="text-align:left">Price's Law</td>
+<td style="text-align:left">In any given domain (industry), half of the work is done by the square root of the total number of people who participate in that work. For example, if there are 100 people working on a project, roughly 10 of them will be responsible for half of the results.</td>
+</tr>
+<tr>
+<td style="text-align:left">Rule of Succession</td>
+<td style="text-align:left">Principle from probability theory, specifically Bayesian probability, that provides a method for predicting the likelihood of future events based on past observations. For example, can solve the question "What is the probability of the sun rising tomorrow?"</td>
+</tr>
+<tr>
+<td style="text-align:left">Ludic Fallacy</td>
+<td style="text-align:left">The term "ludic" comes from the Latin word "ludus," which means "game." The fallacy refers to the misguided belief that the structured and simplified probabilities and models used in games and formal settings can be applied directly to understand real-life complexities and uncertainties.</td>
+</tr>
+<tr>
+<td style="text-align:left">90% Rule</td>
+<td style="text-align:left">Only persue decision paths that are a "Hell Yeah!". If it is immediately apparent that the path forward offers the most chance of success, then this is the decision that should be selected. Can be quantified as the 90% rule, as only select decisions that have a 90% chance of succeedding.</td>
+</tr>
+<tr>
+<td style="text-align:left">Small Bets</td>
+<td style="text-align:left">This rule was popularized by Nicholas Taleb in his book <em>"Antifragile: Things That Gain from Disorder"</em>. It suggests to make small, reversible bets to test ideas and strategies. This allows you to learn and adapt without risking catastrophic losses.</td>
+</tr>
+<tr>
+<td style="text-align:left">Sample of One</td>
+<td style="text-align:left">This decision tactic recommends to consider even the smallest sample sizes, even a sample of one. Applied correctly, the "sample of one" rule statistically shows that the first influence or being able to "peek" at just one sample can provide a decision-making advantage.</td>
+</tr>
+<tr>
+<td style="text-align:left">Exploration vs Exploitation</td>
+<td style="text-align:left">Provides a trade-off between two competing strategies. Exploration involves trying new actions to discover potentially better options, while exploitation uses current knowledge to maximize immediate rewards. The key trade-off is between gaining new information (exploration) and optimizing based on known information (exploitation).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One of the most interesting decision rules on this list you may not be familiar about is the <strong>Ludic Fallacy</strong>. The ludic fallacy is a mistake about uncertainty. It is when you treat real life like a well-defined game of chance. Nassim Nicholas Taleb coined the term in his book "The Black Swan" to warn against basing our decision-making on dice, coins and other game setups. In a game or statistics, the rules are fixed and the randomness is clean. In life, the rules can be hidden and the odds can be unknown. Taleb says real life adds uncertainty about the rules of the game.</p>
+<p>In the book, Taleb introduces an interesting though experiment, where a coin is flipped 99 times and it lands heads each time. A question is asked what is the chance (probability) that the 100th flip will land heads? If you are a student of statistics, you are probably familiar with the "gambler's fallacy", which states that previous outcomes do not affect the next outcome. Therefore, the chance (probability) of heads is around 50%. Taleb introduces a character called "Fat Tony", who is a man of the street knowledge. His answer is based on "real life" judgement and something is fishy with that coin:  <em>"The coin gotta be loaded. It can't be a fair game."</em></p>
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/DecisionIntelligenceFramework/DecisionExecution-DecisionRules-LudicFallacy.png" style="display: block; margin: auto;" width="600px"/>
+<p>The "Ludic Fallacy" is basically a set up for using all simple decision rules, where you don't have perfect information and simple rules can provide meaningful decision drivers. So, how does one apply the "Ludic Fallacy" as a decision rule? If you cannot list the rules, the payoffs, and the odds, do not call it a game or try to apply statistics. Avoid fancy probability stories that depend on clean assumptions. Choose actions that still work when surprises show up.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Simple-Decision-Rules-In-Daily-Life---Scenario:-Exploration-vs-Exploitation">Simple Decision Rules In Daily Life - Scenario: Exploration vs Exploitation<a class="anchor-link" href="#Simple-Decision-Rules-In-Daily-Life---Scenario:-Exploration-vs-Exploitation">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionExecution-DecisionRules-Dinner.png" style="float: left;padding-right: 25px" width="450px"/>
+<p>Imagine you find yourself at dinner at a nice restaurant that you have dined several times before. The waiter presents the dinner menu and now is the time to decide on what you will select for your meal, drinks &amp; desert. This is a decision scenario that you have lilely come across many times in your life. Furthermore, while looking at the menu you have probably asked yourself this question:</p>
+<p>"<em>Should I try something new, or should I select a meal that I had before and is likely to be great?</em>".</p>
+<p><strong>If you have experienced this, you have inadvertently used the Exploration vs Exploitation decision rule!</strong> This specific rule provides a trade-off between two competing strategies. It's trade-offs are summarized in the table below. What is interesting about this rule is that you optimize this decision-rule even further in a couple of ways.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>You can extend this rule by setting a exploration vs exploitation coefficient. What this basically means is that you can quantify how much you woud like to explore versus exploit. Going back to the dinner restaurant scenario; you may make a decision that 75% of the time you will go with a proven dinner option, but you also want to leave some exploitation to try new things and do this 25% of the time. Adding this quantified rigor for a dinner decision is probably overkill. However, for decisions of higher importance, this optimization can be highly beneficial. For example, if you have an important task that you need to give to your team; you may select your proven team members for the task but also give others a career development opportunity to newer employees occasionally.</li>
+<li>Additional stastical analysis can be applied to this simple rule to track your exploits and your exploration. This allows you to optimize your decisions with actual statistics and math. <strong>For example, you may have decided to "try something new" of the menu 5 times and the experience was not as good as the proven items. When should you stop?</strong> This added statistical analysis can provide a probability that exploitation might be sub-optimal and should be curtailed. This optimization of the exploration vs exploitation rule is the foundation of <a href="https://en.wikipedia.org/wiki/Thompson_sampling"><strong>Thompson Sampling</strong></a>, which can be used to optimize many scenerios like the <a href="https://en.wikipedia.org/wiki/Multi-armed_bandit"><strong>Multi-Armed Bandit Gambling Problem</strong></a>.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"><strong>Exploration</strong></th>
+<th style="text-align:left"><strong>Exploitation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Definition</strong></td>
+<td style="text-align:left">Exploration involves trying out new actions or strategies to discover their potential benefits.</td>
+<td style="text-align:left">Exploitation involves choosing the best-known action or strategy to maximize immediate rewards.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Purpose</strong></td>
+<td style="text-align:left">The main goal is to gather information about unknown options that could lead to better results.</td>
+<td style="text-align:left">The main goal is to utilize the current or past knowledge to achieve the best possible decision outcome.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Example</strong></td>
+<td style="text-align:left">In a restaurant setting, this would mean trying out different dishes to find the best one.</td>
+<td style="text-align:left">In a restaurant setting, this would mean always ordering the dish you already know and love.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Pros</strong></td>
+<td style="text-align:left">Can lead to discovering superior options. Reduces the risk of missing out on better alternatives.</td>
+<td style="text-align:left">Maximizes immediate rewards based on known information. Lower risk and more predictable outcomes.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Cons</strong></td>
+<td style="text-align:left">Trying new options can be expensive or time-consuming without guaranteed benefits. Unknown actions may lead to unfavorable outcomes, increasing overall risk. Time and resources spent exploring could have been used to exploit known, rewarding options.</td>
+<td style="text-align:left">Focusing solely on known options can prevent the discovery of potentially superior alternatives. Over-reliance on current knowledge can lead to complacency and lack of innovation. Known options may yield decreasing rewards over time as conditions change or options become suboptimal.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Simple-Decision-Rules-at-Work---Scenario:-Optimize-Sales-Performance-with-Price's-Law">Simple Decision Rules at Work - Scenario: Optimize Sales Performance with Price's Law<a class="anchor-link" href="#Simple-Decision-Rules-at-Work---Scenario:-Optimize-Sales-Performance-with-Price's-Law">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/DecisionIntelligenceFramework/DecisionExecution-DecisionRules-PricesLawSalesTeam.png" style="display: block; margin: auto;" width="600px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Measuring sales performance is a crucial aspect of running a successful business. Accurately tracking and analyzing sales data helps companies understand their strengths and weaknesses, perform forecasts, identify trends, and make informed decisions that drive growth.</p>
+<p><a href="https://salesmetry.com/blog/2021/01/22/prices-law-competence-is-linear-incompetence-is-exponential/"><strong>Price's Law</strong></a> is a statistical principle that describes the distribution of productivity in organizations. It states that a small proportion of employees will produce a disproportionately large amount of output. In the context of sales performance, this law suggests that a small number of salespeople will be responsible for a significant portion of total sales. According to <strong>Price's Law</strong>, approximately 50% of the total output of a sales team will be generated by the square root of the total number of employees in the team. For example, if a sales team has 100 members, approximately 10 of them will generate 50% of the total sales. Conversely, if a sales team is large 10,000 about 100 salespeople will account for 50% of the sales outcomes. This means that <strong>Price's Law</strong> estimates overall top performance drops as the size of the sales team increases! To state this another way:</p>
+<ul>
+<li>In a sales team consisting of 100 sales members, 10 top performers will account for 50% of outcome; 10% of the sale force are top performers.</li>
+<li>In a sales team consisting of 1,000 sales members, 32 top performers will account for 50% of outcome; 3.2% of the sale force are top performers.</li>
+<li>In a sales team consisting of 10,000 sales members, 100 top performers will account for 50% of outcome; 1% of the sale force are top performers!</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/DecisionIntelligence-DecisionExecution-JordanPetersonQuote.png" style="display: block; margin: auto;" width="600px"/>
+<br/>
+<p>Basically, with a larger the sales team structure, less of them (as a percentage) are contributing to the overall sales success. <strong>Price's Law</strong> is one of the core reasons enterprise organizations split up their sales teams into various sales areas. For example, you may have a sales team focused on various technology domains, geographical regions or even industry verticals. This allows multiple top-performing teams to emerge across various sub-sales areas.</p>
+<p>Another quick way to operationalize <strong>Price's Law</strong> for sales performance is to use it to understand that a sales organization will naturally skew sales outcomes to the top performers. This is attributed to the nature of how sales accounts are allocated, the manifestation of "luck versus skill" and other conventions that govern sales. Furthermore, this principle has important implications for sales performance management. By understanding <strong>Price's Law</strong>, sales managers can focus their efforts on identifying and supporting the top-performing salespeople, who are likely to have the greatest impact on sales results. Additionally, <strong>Price's Law</strong> can be used to identify areas for improvement in sales performance. For example, if a large portion of sales are generated by a small number of salespeople, the manager may focus on developing and implementing training programs to improve the performance of the rest of the team.</p>
+<p>It is important to note that while <a href="https://salesmetry.com/blog/2021/01/22/prices-law-competence-is-linear-incompetence-is-exponential/"><strong>Price's Law</strong></a> can provide useful insights into sales performance, it's a statistical principle and should not be used as a rigid rule or the sole measure of sales performance. Other factors, such as market conditions, customer behavior, and product features, can also impact sales results and should be considered in sales performance evaluations. For more information, please consider watching this <a href="https://www.youtube.com/watch?v=8z3OZ7QuJE0"><strong>video presentation on Price's Law</strong></a>.</p>
+<p>Full Medium article: <a href="https://medium.com/@bartczernicki/measuring-sales-performance-using-simple-statistical-models-6b995f088f99">https://medium.com/@bartczernicki/measuring-sales-performance-using-simple-statistical-models-6b995f088f99</a></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Decision-Rules---Domain-(Industry)-Specific">Decision Rules - Domain (Industry) Specific<a class="anchor-link" href="#Decision-Rules---Domain-(Industry)-Specific">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There have been hundreds of simple decision rules created that are specific to various domains (industries). These domain rules can be more precise than generic rules as they specifically have been crafted on past domain (industry) historical patterns. Almost every domain (industry) has created "rules of thumb" for a variety of reasons to help people arrive at conclusions rapidly with little effort.</p>
+<p>Some potential concerns you might be thinking rather than applying these rules.</p>
+<ul>
+<li>"Can't one just calculate their calorie defecit instead of using the 10,000 step rule?"</li>
+<li>"Why not just hire a professional financial advisor rather than look at a simple rule of 4%?"</li>
+</ul>
+<p>Those objects are not looking at the purpose of these simple domain rules. These rules allow for quick guidance, recommendations without having to perform much calculation. For example, a nurtionist may recommend exercises for you that optimize healthy weight management. However, for days that you just want to ensure you are active (decide to take a walk at lunch, decide to take the stairs) a simple domain-specific rule like the 10,000 step rule might be quite handy paired with a fitness tracker.</p>
+<p>Notice the variety of domain (industry) specific rules below that encompasses a great variety of domains from fitness, finance, entertainment. Keeping track of all these domain specific rules is unfeasable. However, it is quite possible for a Generative AI system to gather these rules and have them available as tools for decison-making. Furthermore, these rules can easily be applied to decision-making with Generative AI as the GenAI models are either familiar with the rule already or the simple domain specific rule can be described to aid the decision-making process.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Domain (Industry)</th>
+<th style="text-align:left">Simple Decision Rule</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Fitness</td>
+<td style="text-align:left">10,000 Step Rule</td>
+<td style="text-align:left">A fitness rule that recommends 10,000 steps for a goal for a healthy and active day. This rule is popularized with fitness counters and smart watches, where simple step activity goals are recommended to the user.</td>
+</tr>
+<tr>
+<td style="text-align:left">Entertainment (Movies)</td>
+<td style="text-align:left">Box Office 2.5x Rule</td>
+<td style="text-align:left">A general rule that a movie needs to make 2.5x it's movie budget in order to break even. This rule includes estimates of marketing and other production costs. For example, if a movie cost 100 million dollars, in order to break even it would need to bring in 250 million from the box office alone.</td>
+</tr>
+<tr>
+<td style="text-align:left">Wealth Management</td>
+<td style="text-align:left">Rule of 4%</td>
+<td style="text-align:left">The 4% Rule is a guideline used in personal finance and retirement planning to help determine the amount of money one can safely withdraw from their retirement savings each year without running out of money over the course of a typical retirement. For example, a couple retiring with $1 million in savings will have 4% or $40,000/year they can use during their retirement.</td>
+</tr>
+<tr>
+<td style="text-align:left">Car Onwership</td>
+<td style="text-align:left">50% Rule</td>
+<td style="text-align:left">According to this rule, if the cost of repairing your car exceeds 50% of the car's current market value, it might be more practical to replace the car rather than invest in expensive repairs.</td>
+</tr>
+<tr>
+<td style="text-align:left">Economics</td>
+<td style="text-align:left">Scholte's Revenue Fallacy</td>
+<td style="text-align:left">A concept in economics that highlights a common misunderstanding about the relationship between revenue and costs in business operations. This fallacy occurs when business owners or managers mistakenly believe that simply increasing revenue will automatically lead to higher profits without considering the associated costs and the impact on overall profitability.</td>
+</tr>
+<tr>
+<td style="text-align:left">Business Strategy</td>
+<td style="text-align:left">SMART Goals</td>
+<td style="text-align:left">Optimize the number of corporate goals to a manageable number, such as 3-5 major goals per year. This ensures that the organization can maintain focus and allocate resources effectively without being overwhelmed.</td>
+</tr>
+<tr>
+<td style="text-align:left">Relationships</td>
+<td style="text-align:left">5:1 Ratio</td>
+<td style="text-align:left">Also known as "Gottman's Rule of Five", the rule states for every negative interaction (argument, criticism, etc.) in a marriage, there needs to be at least five positive interactions (loving words, gestures, intimacy, etc.) to maintain a strong and healthy relationship.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/DecisionIntelligenceFramework/DecisionExecution-DecisionRules-10000Steps.png" style="display: block; margin: auto;" width="600px"/>
+<p>Let's take a look at 10,000 steps/day rule. This rule is specific to the sports, fitness, walking etc. domains. In the illustration above, you can see the 10,000 steps/day rule applied as a specific decision threshhold for measuring what is considered an active day. The person above is walking on a sidewalk, checking their fitness tracker and comparing their current daily steps to the 10,000 steps/day rule. They may consider extending their walk another 10-15 minutes to achieve that decision threshhold of 10,000 steps in a day. These simple decision rules should be taken with a grain of salt. This specific rule uses a nice round "magic number" of 10,000 steps/day. Depending on your age, medical condition, fitness level, 10,000 steps/day may be too low or too high. For example, a high-performing athlete may be performing the equivelant of 20,000(+) steps/day almost every day. Conversely, a 90 year old person might get 3,000 steps per day.</p>
+<p>How do I use a decision rule like this? Even domain (industry) specific <strong>decision rules are meant to be used as directional decision rules</strong>. On average, 10,000 steps/day is considered an active fitness level for something most humans naturally do daily (walk). You aren't automatically "fit" just because you walk 10,000(+) steps/day consistently. However, if walking is your main form of fitness activity it is a good driver &amp; signal of being considered active.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Decision-Rules---Use-Data-for-Customized-Rules-Frameworks">Decision Rules - Use Data for Customized Rules Frameworks<a class="anchor-link" href="#Decision-Rules---Use-Data-for-Customized-Rules-Frameworks">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One of the superpowers of decision rules is how simple they are to remember and implement to execute decisions. There are a dozens of decision rules that are useful, but there aren't simple rules for every decision situation. Wouldn't it be great to have a process to create these new simple decision rules? It turns out there are algorithm frameworks where you can provide custom data and create new simple decision rules that are highly specific to almost any decision situation.</p>
+<p>Under the covers these "decision rule creating frameworks" use more complex math, statistics, Machine Learning and algorithms to create the simplified decision rules. You are using the more complex mathematics to crete a decision rule. That simple decision rule is what you will remember and re-use.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A great example of this is a complex system based on Machine Learning that was distilled into a simple decision rule is illustrated below. This decision rule can be used by judges to determine the likelihood recidivism (the chance of re-committing crimes). While the prior model (based on Machine Learning) could be highly accurate, it had over 50 inputs. If any input was incorrectly entered, it could cause a huge difference from the actual prediction. The other advantage of this decision rule is that it can be printed on a note card, no computers/cloud required! Therefore, this set of very simple decision rules (shown below) on a notecard can be quite easy to guide the decision by a judge for sentencing.</p>
+<blockquote>
+<p>📝 Note: Even though the final form of this decision rule is a paper notecard, this set of rules was derived using statistical analysis. Therefore, there is some complexity to create even simple decision rules. Even through AI can be used to create these custom decision rules, the final form can be memorized or even use simple paper form.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/DecisionIntelligenceFramework/DecisionExecution-DecisionRules-Recidivism.png" style="display: block; margin: auto;" width="600px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Rudin, C. (2018). <em>Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead</em>.<br/>
+arXiv. <a href="https://arxiv.org/abs/1811.10154">https://arxiv.org/abs/1811.10154</a></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Using-the-One-Rule-(OneR)-Algorithm-to-Create-the-simplest-Decision-Rule">Using the One Rule (OneR) Algorithm to Create the simplest Decision Rule<a class="anchor-link" href="#Using-the-One-Rule-(OneR)-Algorithm-to-Create-the-simplest-Decision-Rule">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/DecisionIntelligenceFramework/DecisionExecution-DecisionRules-OneRule.png" style="display: block; margin: auto;" width="600px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The simplest algorithm to create decision drivers is called the "One Rule (OneR) Classifier". This algorithm was created by Robert Holte in 1993 and it takes any custom labeled data and from that derives as single decision rule that based on a single predictor (column). As the illustration shows above, the OneR algorithm takes all the predictors (columns) splits them based on labels that maximize the splits and then selects the predictor that has the lowest error rate. Despite its simplicity, OneR often performs competitively with more complex algorithms and is commonly used as a decision baseline or as an educational tool to illustrate how rule-based learning works.</p>
+<p>This sounds like a mouthful, but the logic is quite simple:</p>
+<ul>
+<li>For each feature among all predictors (columns) in the dataset (loop over each column):<ul>
+<li>Initialize feature_error = 0 and an empty rule_table for this feature.</li>
+<li>For each feature value for the given feature:<ul>
+<li>Obtain the class labels (and class label counts) corresponding to those training examples.</li>
+<li>Select the class label with the highest frequency (count) as the majority class for that feature value.</li>
+<li>Add a rule to the rule table: if feature == value → predict majority class.</li>
+<li>Record the number of errors for this value as:
+errors_for_value = (# examples with this value) − (# examples in the majority class)
+Accumulate: feature_error += errors_for_value.</li>
+</ul>
+</li>
+<li>Compute the error of the feature as the total feature_error (sum over all its values).</li>
+<li>Store (feature, feature_error, rule_table).</li>
+</ul>
+</li>
+<li>Return the best feature, which is defined as the feature with the lowest error (and return its corresponding rule table as the OneR model).</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Lets take look at an example where we want to predict if a certain product will be returned. Take a note of the small data sample below of returned or not returned products.</p>
+<ul>
+<li>The data set consists of three columns. Two columns are predictors and a label.<ul>
+<li>Predictor 1: Product Type (type of product)</li>
+<li>Predictor 2: Price Range (price range decscription)</li>
+<li>Label 1: Returned (if the product has been returned Yes/No)</li>
+</ul>
+</li>
+<li>The Product Type and the Price Range predictors (columns) can be used to derive signals or patterns to identify if a product has been returned</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Product Type</th>
+<th>Price Range</th>
+<th>Returned</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clothing</td>
+<td>Low</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Clothing</td>
+<td>Low</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Clothing</td>
+<td>Medium</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Clothing</td>
+<td>Medium</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Clothing</td>
+<td>High</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Electronics</td>
+<td>High</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Electronics</td>
+<td>Medium</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Electronics</td>
+<td>Low</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Home Goods</td>
+<td>Low</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Home Goods</td>
+<td>Medium</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>Let's apply the OneR algorithm.</p>
+<p><strong>1) Get the majority splits for each predictor</strong></p>
+<ul>
+<li>For Product Type predictor<ul>
+<li>Clothing: Majority is Returned = Yes. 4 out of 5 Clothing are Returned = Yes</li>
+<li>Electronics: Majority is Returned = No. 2 out of 3 Electronics are Returned = No</li>
+<li>Home Goods: Majority is Returned = No. 2 out of 2 Homes Goods are Returned = No</li>
+</ul>
+</li>
+<li>For Price Range predictor<ul>
+<li>Low: Majority is Returned = Yes. 3 out of 4 Low are Returned = Yes</li>
+<li>Medium: Tied. 2 out of 4 are either Returned = Yes or Returned = No</li>
+<li>High: Majority is Returned = No. 2 out of 2 are Returned = No</li>
+</ul>
+</li>
+</ul>
+<p><strong>2) Count up the total errors from the above calculations</strong></p>
+<ul>
+<li>Product Type total errors: 2</li>
+<li>Price Range total errors: 3</li>
+</ul>
+<p><strong>3) Compare the total errors and select the predictor with the lowest one</strong></p>
+<ul>
+<li>Product Type has the lowest error rate</li>
+</ul>
+<p><strong>4) Create the final Decision Rule</strong></p>
+<ul>
+<li>Look at the <em>Product Type</em> predictor only, ignore other predictor(s)</li>
+<li>If (Product Type = Clothing) -&gt; forecast it will be Returned (Returned = Yes)</li>
+<li>If (Product Type = Electronics) -&gt; forecast it will be not Returned (Returned = No)</li>
+<li>If (Product Type = Home Goods) -&gt; forecast it will be not Returned (Returned = No)</li>
+</ul>
+<p><strong>5) Calculate the overall expected forecast performance based on the Decision Rule created</strong></p>
+<ul>
+<li>Training accuracy = (10 − 2) / 10 = 0.8 = 80% (2 mistakes out of 10). Add up the previous errors:<ul>
+<li>Clothing: Returned = Yes, 4 of 5</li>
+<li>Electronics: Returneed = No, 2 of 3</li>
+<li>Home Goods: Returned = No, 2 of 2</li>
+<li>Total Accuracy: (Total Correct) / (Total Rows) -&gt; 8 / 10 = 80%</li>
+<li>Total Error Rate: (Toal Incorrect) / (Total Rows) -&gt; 2 /10 = 20%</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this example, the OneR was used to create a completely custom decision rule specific to custom data. This OneR process is quite simple. In fact, it can be done by manually if the data set is small enough. What is interesting is that if:</p>
+<ol>
+<li>custom data is representative of actual future data you will see</li>
+<li>the patterns of returns continue</li>
+</ol>
+<p>You can achieve 80% accuracy on this simple model. That is usually "good enough" for a directional decision rule. This rules can be quite easy to remember, write down on a note card, hand on a magnetic wall etc.</p>
+<blockquote>
+<p>📝 Note: The OneR rule is one of the simplest algorithmic techniques to create custom decision rules. If you were able to follow along the simple process, this is what supervised learning in Machine Learning generally looks like. The algorithms, mathematics and statistics are much more complex in sophisticated Machine Learning algorithms.</p>
+</blockquote>
+<p>In many cases, a generic decision rule or a simple domain rule may not exist or it may not be a good fit for the decision you are considering. There are simple frameworks that exist that you can work out using simple math processes to arrive at a decision recommendation. Several potential frameworks are listed below that allow a decision-maker to bring a small curated data set and apply the selected process. These frameworks are ideal when you have a small (not Big Data) data set that can be processed by a spreadsheet software (Excel) or even in some cases by hand.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Decision Process</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Analytical Hierarchy Process (AHP)</td>
+<td style="text-align:left">The Analytical Hierarchy Process helps making complex decisions by breaking them down into simpler, more manageable parts. AHP involves defining the decision problem and setting a clear goal. The problem is structured into a hierarchy consisting of the overall goal, the criteria for making the decision, and the possible alternatives.</td>
+</tr>
+<tr>
+<td style="text-align:left">Linear Model (Russo)</td>
+<td style="text-align:left">In the Russo Linear Model, the decision-making process involves identifying the most important criteria relevant to the decision at hand. These criteria are then assigned weights based on their relative importance. Each alternative is evaluated against these criteria, and scores are assigned accordingly.</td>
+</tr>
+<tr>
+<td style="text-align:left">Probabilistic Decision Trees</td>
+<td style="text-align:left">A graphical representation of a limited amount of decision alternatives with their probabilities can illustrate the optimized payoff or maximum risk with each decision path.</td>
+</tr>
+<tr>
+<td style="text-align:left">Hypotheses Testing</td>
+<td style="text-align:left">Hypothesis testing is a statistical method used to make decisions based on data analysis. It involves formulating a hypothesis, which is a claim or assumption about a population parameter. This can help make decisions by assessing the strength of evidence against the null hypothesis (claim).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are much more complex statistical and machine learning techniques that can scale to thousands, millions or even billions of data points. In order to create decision rules with machine learning, a technique like supervised learning can be used. Supervised learning is when you have a set of data points/inputs paired with decision outcomes. Those can be sent to a statistical or machine learning algorithm that learns the data to outcome interactions using sophisticed math &amp; statistical algorithms. The output of that learning process is a "model". This model (specific to your decision use-case) can take new data points for a decision and output predictions (probabilities) or decision recommendations.</p>
+<p>In this workshop you will see examples machine learing models being used as agents that help Generative AI arrive at decision recommendations. This is a powerful technique to take advantage of existing or new investments in Machine Learning and pair them with Generative AI innovations.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Decision-Rules---When-to-Use-&amp;-Apply">Decision Rules - When to Use &amp; Apply<a class="anchor-link" href="#Decision-Rules---When-to-Use-&amp;-Apply">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As introduced so far, Decision Rules can be quite effective in decision-making. However, there are further ways to optimize the deployment of decision rules. Before explaining this optimization, we must define the types of enviornments decision rule execution excels at.</p>
+<p>Leonard Savage (considered to be one of the founders of modern Bayesian decision theory) claimed that there are environments where certain math techniques are much harder to apply. He defined the two decision environments as "small world" and "large world".</p>
+<ul>
+<li><strong>Small World:</strong> These environments are where the decision situation is fully understood, we have a near complete or complete understanding of the inputs, required calculations and outcomes. Basically, the entire decision environment collapses into a "small world".</li>
+<li><strong>Large World:</strong> These environments are where the decision situation is NOT fully understood, we DO NOT a complete understanding of the inputs, required calculations and outcomes. You cannot use traditional math or statistics to model these decisions as you do not know all the possibilities.</li>
+</ul>
+<p>Simple examples of <strong>small world decision situation</strong> is being able to make a decision on the lottery, flipping a coin, a game of cards. More advanced small world decision situations include trading strategies based on quantified risk portfolios. You may not have complete information, but you have advanced risk models that can quantify the risk. This is why "small world" decisions are analogous with risk, where you can effectively model the decision scenario with the math.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/DecisionIntelligence-DecisionExecution-GerdGigerenzerQuote.png" style="display: block; margin: auto;" width="600px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Gerg Gigerenzer</strong> agrees with Leonard Savage in when to apply decision rules (smart rules of thumb). However, he states it slighlty differently around the context of <strong>risk</strong> or <strong>uncertainty</strong>. In a risk decision scneario, good decision execution is better served by doing math. Conversely, in a *uncertainty" decision scenario, good decision execution is better served by decision rules (smart rules of thumb).</p>
+<p>How does this apply to enterprise decision-making systems? You can use this methodology to classify or build a decision scenario taxonomy, to be able to route decision execution based on the risk or uncertainty posture of the scenario.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Decision-Rules---Powered-by-Generative-AI-&amp;-Machine-Learning">Decision Rules - Powered by Generative AI &amp; Machine Learning<a class="anchor-link" href="#Decision-Rules---Powered-by-Generative-AI-&amp;-Machine-Learning">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Many humans, from simple decision-makers to Warren Buffet's lieutenant Charlie Munger, have mastered the art of using simple decision rules to aid in Decsision Execution over hundreds of years. However, this doesn't mean that Generative AI can't greatly optimize the use of simple decision rules. In the previous sections, I highlighted the different types of simple decision rules for Decision Execution. As you can see there are quite a lot of these rules. Furthermore, even if you can have a subset of these rules memorized, implementing the exact calculations in practical applications may not be straightforward. Finally, being able to select the perfect combination of simple decision rules isn't straightforward.</p>
+<p>Therefore, the four key areas Generative AI can can help with Decision Execution:</p>
+<ul>
+<li><strong>Searching for Simple Decision Rules:</strong> Generative AI can efficiently search and filter through extensive catalogs of decision rules, even when the rules are buried within large knowledge bases or unstructured documents. Generative AI models have been trained with massive amounts of data which include hundreds of useful decision rules. Furthermore, if those rules are not found in your favorite AI model, you can provide additional grounding or context to it.</li>
+<li><strong>How to Implement Simple Decision Rules:</strong> Even though simple decision rules, are meant to be simple, they can be tricky to use sometimes. Generative AI can generate detailed, step-by-step instructions for applying a given rule. It can explain the logic behind each step, clarify any necessary inputs or thresholds, and offer examples or analogies to increase comprehension. Additionally, AI can highlight common mistakes, edge cases, or exceptions, making the process of applying decision rules much more transparent and user-friendly. Basically, Generative AI can act as your guardrail from not implementing the decision rules well.</li>
+<li><strong>Recommending &amp; Selecting Simple Decision Rules for New Decisions:</strong> Generative AI can assess the strengths and limitations of various decision rules within the context of a specific decision, often simulating potential outcomes to identify the best-fit options. Furthermore, in more advanced implementations AI systems can combine multiple rules in the decision execution process.</li>
+<li><strong>Creating New Simple Decision Rules:</strong> Creating new Simple Decision Rules is probably one the biggest Generative AI superpowers. This can be as simple as simplifying several simple decision rules into one rule. However, Generative AI can go well beyond this. Generative AI can take data specific to your decision and build simple models or rules proxies for these decisions! Note: This is similar to building a Machine Learning model, but much more simplified for human decision-makers to internalize and apply. A good example is the OneRule algorithm that can take any data set and extract the "one rule to rule them all" simplifying a decision to a if statement with a decision threshhold.</li>
+</ul>
+<blockquote>
+<p>📝 Note: Throughout the workshop's later modules, Decision Execution with Simple Decision Rules will be illustrated with many Generative AI examples.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Decision-Rules---Materials-to-Deepen-Your-Understanding">Decision Rules - Materials to Deepen Your Understanding<a class="anchor-link" href="#Decision-Rules---Materials-to-Deepen-Your-Understanding">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>📢 This chapter (module) presents only a small sample of the full content found in the companion print book, “Decision Intelligence with Generative AI”, scheduled for release in 2026. In the meantime, the following materials are provided to help you deepen your understanding of the concepts covered here.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://m.media-amazon.com/images/I/91lYcUJ8JsL._SL1500_.jpg" style="float: right;padding-left: 25px; padding-right: 25px;" width="200px"/>
+<p><a href="https://www.amazon.com/Outliers-Story-Success-Malcolm-Gladwell/dp/0316017930/"><strong>"Outliers: The Story of Success"</strong></a> Malcolm Gladwell explores how success is shaped by a combination of effort, timing, and external factors. The 10,000-hour rule is a key heuristic, suggesting mastery requires around 10,000 hours of focused practice. Gladwell argues that success also depends on timing, cultural context, and opportunities, which play crucial roles in decision-making. Other decision heuristics include recognizing patterns of success influenced by environment and leveraging early advantages, illustrating that success is not solely based on individual effort but on how well one navigates opportunities.</p>
+<p>Example decision frameworks introduced in this book:</p>
+<ul>
+<li>10,000-Hour Rule: Mastery of any skill requires approximately 10,000 hours of dedicated practice. This heuristic highlights the importance of consistent effort over time.</li>
+<li>Timing and Opportunity: Success often hinges on being in the right place at the right time. Decisions can be guided by seizing opportunities that arise from specific historical or social contexts (e.g., Bill Gates and access to early computers).</li>
+<li>Cultural Legacy: The influence of cultural background on behavior and decision-making. People often inherit certain decision-making patterns or advantages based on cultural norms (e.g., rice farming cultures fostering hard work and precision.</li>
+<li>Accumulated Advantages (Matthew Effect): Small initial advantages can compound over time, leading to greater opportunities. Decisions early in life, like school placements or sports, can have long-term effects on success.</li>
+<li>Threshold Effect: After a certain point, additional talent or effort yields diminishing returns. This heuristic suggests that decisions should prioritize hitting essential thresholds rather than overemphasizing perfection.</li>
+<li>Practical Intelligence: This involves knowing how to navigate social situations and make smart, adaptive decisions based on context, which can be as important as raw intellect.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://m.media-amazon.com/images/I/81eUw-Icm4L._SL1500_.jpg" style="float: left;padding-left: 25px; padding-right: 25px;" width="200px"/>
+<p><a href="https://www.amazon.com/Antifragile-Things-That-Disorder-Incerto/dp/1400067820/"><strong>"Antifragile: Things That Gain from Disorder"</strong></a> by Nassim Nicholas Taleb introduces the concept of antifragility, which describes systems that not only withstand chaos and stress but actually benefit and grow stronger from them. Taleb contrasts antifragile entities with fragile ones, which are damaged by uncertainty and volatility. He explores how antifragility applies to various domains, including finance, health, and personal development, advocating for embracing uncertainty and learning from it. The book includes various mental models such as the Barbell Strategy (combining extremely safe and extremely risky investments), Hormesis (small doses of stress improve resilience), Via Negativa (improvement by removing negative elements), and the Lindy Effect (the longer something lasts, the longer it is likely to last). Overall, the book promotes a mindset that sees disorder as an opportunity for growth and improvement.</p>
+<blockquote>
+<p>📝 Note: This is a great read for introducing the power of simple decision heuristics and how they apply to global events and everyday life.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://m.media-amazon.com/images/I/61REPAilNTL._AC_UY436_QL65_.jpg" style="float: right;padding-left: 25px; padding-right: 25px;" width="200px"/>
+<p><a href="https://www.amazon.com/Quit-Power-Knowing-When-Walk/dp/0593422996/"><strong>"Quit: The Power of Knowing When to Walk Away"</strong></a> Annie Duke explains that quitting can be a smart and necessary part of making good decisions. She shows that people often keep pursuing goals even when it's not working, because they fear being labeled a quitter or don't want to waste what they've already invested. The book argues that knowing when to walk away is important and can lead to better outcomes. Annie Duke offers simple strategies to help people recognize the right time to quit and overcome the reluctance to do so.</p>
+</div>
+</div>
+</div>
+
+  </section>
+  </div>
+  <nav class="chapter-pager" aria-label="Chapter navigation">
+    <a class="pager-link" data-prev-chapter href="1e-decision-execution-with-intuition.html"><span>Previous</span><strong>Execution with Intuition</strong></a>
+    <a class="pager-link align-right" data-next-chapter href="1g-decision-execution-with-quantitative-methods.html"><span>Next</span><strong>Execution with Quantitative Methods</strong></a>
+  </nav>
+</article>
+
+  </main>
+  <script type="module" src="../pagefind/pagefind-component-ui.js"></script>
+  <script src="../assets/site.js"></script>
+</body>
+</html>

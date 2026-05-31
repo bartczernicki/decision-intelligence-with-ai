@@ -1,0 +1,46 @@
+# Decision Intelligence Static Website
+
+This folder contains the source automation and generated output for the static website built from notebooks `1a` through `1j`.
+
+## Folder Layout
+
+- `src/` contains the build and deploy scripts.
+- `dist/` contains the generated static website.
+
+## Build
+
+From the repository root:
+
+```bash
+python3 website/src/build_website.py
+```
+
+The build converts notebooks to HTML, wraps them in the static book shell, generates the Pagefind index, and validates local links.
+
+For compatibility, the root wrapper still works:
+
+```bash
+python3 scripts/build_website.py
+```
+
+## Test Locally
+
+```bash
+python3 -m http.server 8765 --directory website/dist
+```
+
+Open `http://127.0.0.1:8765/`. Pagefind search is intended to run from a static server, not directly from `file://`.
+
+## Deploy To Azure Blob Static Website
+
+Enable static website hosting on the storage account with `index.html` as the index document. Then deploy the contents of `website/dist/` to `$web`:
+
+```bash
+website/src/deploy_website.sh "<storage-account-name>" [resource-group]
+```
+
+The contents of `website/dist/` should land at the root of `$web`, so `$web/index.html`, `$web/assets/`, `$web/chapters/`, and `$web/pagefind/` are siblings.
+
+## Cache Guidance
+
+During active editing, keep `index.html` and chapter HTML on a short cache. Pagefind and asset files can use longer cache headers after content stabilizes, but regenerate Pagefind whenever notebook content changes.

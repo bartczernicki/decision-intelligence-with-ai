@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decision Execution with Quantitative Methods | Decision Intelligence</title>
+  <meta name="description" content="Using probability, measurement, and simulation to make better quantitative choices.">
+  <meta property="og:title" content="Decision Execution with Quantitative Methods | Decision Intelligence">
+  <meta property="og:description" content="Using probability, measurement, and simulation to make better quantitative choices.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Decision Execution with Quantitative Methods | Decision Intelligence">
+  <meta name="twitter:description" content="Using probability, measurement, and simulation to make better quantitative choices.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('di-theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../pagefind/pagefind-component-ui.css">
+  
+</head>
+<body data-page="1g-decision-execution-with-quantitative-methods.html">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <button class="nav-toggle" type="button" aria-label="Open chapter navigation" aria-expanded="false">Menu</button>
+  
+<aside class="book-sidebar" aria-label="Book navigation">
+  <a class="book-brand" href="../index.html">
+    <img src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceLogo.png" alt="Decision Intelligence logo">
+    <span>Decision Intelligence</span>
+  </a>
+  <div class="pagefind-search-shell" data-pagefind-ignore="all">
+    <span class="search-label">Search book</span>
+    <pagefind-modal-trigger button-text="Search the book"></pagefind-modal-trigger>
+    <pagefind-modal></pagefind-modal>
+  </div>
+  <div class="theme-switcher" data-pagefind-ignore="all">
+    <span class="search-label">Appearance</span>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+      <span class="theme-toggle-icon" aria-hidden="true">☀</span>
+      <span data-theme-toggle-label>Light mode</span>
+    </button>
+  </div>
+  <nav class="chapter-nav" aria-label="Chapters">
+    <a class="chapter-link" href="../index.html" data-title="contents overview"><span class="chapter-code">TOC</span><span>Contents</span></a><a class="chapter-link" href="../chapters/1a-introducing-decision-intelligence-framework.html" data-title="1a introducing the decision intelligence framework introducing decisions"><span class="chapter-code">1A</span><span>Introducing Decisions</span></a><a class="chapter-link" href="../chapters/1b-decision-framing.html" data-title="1b decision framing decision framing"><span class="chapter-code">1B</span><span>Decision Framing</span></a><a class="chapter-link" href="../chapters/1c-gathering-intelligence.html" data-title="1c gathering intelligence gathering intelligence"><span class="chapter-code">1C</span><span>Gathering Intelligence</span></a><a class="chapter-link" href="../chapters/1d-decision-execution.html" data-title="1d decision execution decision execution"><span class="chapter-code">1D</span><span>Decision Execution</span></a><a class="chapter-link" href="../chapters/1e-decision-execution-with-intuition.html" data-title="1e decision execution with intuition execution with intuition"><span class="chapter-code">1E</span><span>Execution with Intuition</span></a><a class="chapter-link" href="../chapters/1f-decision-execution-with-decision-rules.html" data-title="1f decision execution with decision rules execution with decision rules"><span class="chapter-code">1F</span><span>Execution with Decision Rules</span></a><a class="chapter-link active" href="../chapters/1g-decision-execution-with-quantitative-methods.html" data-title="1g decision execution with quantitative methods execution with quantitative methods"><span class="chapter-code">1G</span><span>Execution with Quantitative Methods</span></a><a class="chapter-link" href="../chapters/1h-decision-communication.html" data-title="1h decision communication decision communication"><span class="chapter-code">1H</span><span>Decision Communication</span></a><a class="chapter-link" href="../chapters/1i-applying-decision-intelligence-framework.html" data-title="1i applying the decision intelligence framework applying the framework"><span class="chapter-code">1I</span><span>Applying the Framework</span></a><a class="chapter-link" href="../chapters/1j-enterprise-decision-intelligence.html" data-title="1j enterprise decision intelligence enterprise decision intelligence"><span class="chapter-code">1J</span><span>Enterprise Decision Intelligence</span></a>
+  </nav>
+</aside>
+<div class="nav-backdrop" data-close-nav></div>
+
+  <main id="main-content" class="book-main">
+    
+<article class="chapter-page">
+  <div data-pagefind-body>
+  <header class="chapter-header">
+    <a class="back-link" href="../index.html">Back to contents</a>
+    <p class="eyebrow">Chapter 1G</p>
+    <h1>Decision Execution with Quantitative Methods</h1>
+    <p class="chapter-summary">Using probability, measurement, and simulation to make better quantitative choices.</p>
+  </header>
+  
+<nav class="chapter-toc" aria-label="Chapter table of contents">
+  <strong>On this page</strong>
+  <a class="toc-h3" href="#Introducing-Decision-Execution-with-Quantitative-Methods">Introducing Decision Execution with Quantitative Methods</a><a class="toc-h3" href="#The-Value-of-Quantitative-Methods-(Performing-Math)">The Value of Quantitative Methods (Performing Math)</a><a class="toc-h3" href="#Quantifying-Uncertainty-(Working-with-Probabilities)">Quantifying Uncertainty (Working with Probabilities)</a><a class="toc-h3" href="#Math-is-hard-for-Humans.-Like-Really-Hard!">Math is hard for Humans. Like Really Hard!</a><a class="toc-h3" href="#Arriving-at-Quantitative-Conclusions-using-Simulations">Arriving at Quantitative Conclusions using Simulations</a><a class="toc-h4" href="#Simulations-in-Decision-Forecasting">Simulations in Decision Forecasting</a><a class="toc-h4" href="#Introducing-the-Monte-Carlo:-Running-Thousands-of-%22What-If%22-Decision-Scenarios">Introducing the Monte Carlo: Running Thousands of &quot;What-If&quot; Decision Scenarios</a><a class="toc-h4" href="#Decision-Scenario:-Monte-Carlo-to-Determine-Total-Cost-of-Car-Ownership">Decision Scenario: Monte Carlo to Determine Total Cost of Car Ownership</a><a class="toc-h3" href="#Doing-the-Math-and-Measuring-Risk---Materials-to-Deepen-Your-Understanding">Doing the Math and Measuring Risk - Materials to Deepen Your Understanding</a>
+</nav>
+
+  <section class="notebook-content">
+    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="display: flex; align-items: center;">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceLogo.png" style="margin-right: 10px;" width="60px"/>
+<span style="font-size: 1.5em; font-weight: bold;">Decision Intelligence – Decision Execution with Quantitative Methods</span>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Introducing-Decision-Execution-with-Quantitative-Methods">Introducing Decision Execution with Quantitative Methods<a class="anchor-link" href="#Introducing-Decision-Execution-with-Quantitative-Methods">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligence-DecisionExecution.png" style="display: block; margin: auto;" width="700px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>📜 <strong><em>"Whenever we can replace human judgement by a formula, we should at least consider it."</em></strong></p>
+<p>-- <cite>"Thinking , Fast and Slow" (page 233) - Daniel Kahneman</cite></p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When faced with any decision, it’s often tempting to “go with something simple" to make the decision. Intuition and simple rules of thumb can serve us well, especially when time is short or we’re in a familiar environment. These instinctive decisions are fast and draw on our experience, but they have limits. Left unchecked, our gut feelings can introduce bias. Simple decision rules can often oversimplify a complex situation​. This is why the quote above from Daniel Kahneman is quite consequential. Basically, Daniel Kahneman is claimining whenever when we have the time or the decision is sufficiently important, we should consider using a formula (quantitative calculation based on math, probability or statistics).</p>
+<p>Quantitative methods offer a powerful complement to intuition and decision rules for decision execution. By bringing math, statistics and data into the decision-making process, we get a structured process to weigh decision options. Instead of relying on instinct or simple rules, we can analyze evidence, attach probabilities to possibilities, and objectively compare alternatives. This structured analysis makes it easier to verify assumptions and measure results, leading to clearer reasoning and better decision quality. While this might sound complex, the core idea is simple: by applying structured reasoning and calculated numbers, we reduce future uncertainty and make more informed choices.</p>
+<p>Another big advantage of quantitative decision-making is how it handles uncertainty and trade-offs. Real decisions often involve unknowns and future uncertainty, where a lone intuition might misjudge risks or focus on the wrong factors. Many research studies show quantitative methods consistently lead to higher-quality decisions. For example, one recent study found that data-driven organizations are three times more likely to significantly improve their decision making than those that rely on intuition alone​; even besting expert human judgement. Therefore, turning decision information into concrete values and probabilities, we greatly reduce uncertainty and gain confidence in the choices we make.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr/>
+<p><strong>📝 EXPLANATION</strong></p>
+<p>You have seen some simple math formulas in the previous <strong>"Decision Execution with Decision Rules"</strong> section. What is the difference between the math in this section? The calculations needed to be performed for Decision Rules are quite simple and the formulas have already been defined ready for use. For example, the "10,000 Step Decision Rule" is simply implemented by gathering information on the amount of daily steps and comparing it to the 10,000 step decision threshold. You are just plugging in gather information to a decision rule to execute a decision. Whereas using more advanced quantiative methods you may first use your own body composition to create an optimized formula that is different than 10,000 steps (9,550 steps). Decisions that are less defined require a breadth of more quantiative tools.</p>
+<hr/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Value-of-Quantitative-Methods-(Performing-Math)">The Value of Quantitative Methods (Performing Math)<a class="anchor-link" href="#The-Value-of-Quantitative-Methods-(Performing-Math)">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's do a quick primer on two fundemental forms of data you will work with when making decisions. There are two common types of data: quantitative and qualitative. Quantitative data is numerical and measurable. Examples of quantitative data are things like dollars, time, counts, percentages, and rates. These are things that you can perform math on (add things up, average them, compare trends). Qualitative data is descriptive. This includes things like comments, interview notes, observations, and themes. Because qualitative data is not numerical, it has less options for analysis. It can be counted, summarized, grouped into categories, to identify patterns to understand context and “why” something is happening. This is valuable, but does not have the same power as quantitative information.</p>
+<blockquote>
+<p>📝 Note: There is a special sub-type of qualitative data called ordinal data, which is qualitative data where there is a prescribed ranking or order. For example, ranks in the army would be considered ordinal as there an specific order: General, Colonel, Major, Captain, Lieutenant etc. In this resource, we will treat ordinal data sets simply as qualitative.</p>
+</blockquote>
+<p>Let's take a look at several analogous examples of qualitative vs quantitative data below:</p>
+<ul>
+<li>You can describe a rock concert qualitatively as "crowded" or more explicitly with the exact quantitative observed count of attendance (24,531)</li>
+<li>You can describe a movie that you have seen as "Enjoyable" or quantify the movie experience as 4.9 stars (out of 5)</li>
+<li>When you walk outside on a summer day, you describe the weather as "Hot" or you can look at your weather app and receive an exact quantified number like 90 degrees Farenheit (32 degrees Celcius)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/DecisionIntelligenceFramework/DecisionExecution-QuantMethods-QualitativeVsQuantitative.png" style="display: block; margin: auto;" width="600px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>These types of descriptive statistics have some value alone, but they begin having more impact when you can do additional math. For starters, simple qualitative data can be compared and counted. For example, you can count the number of "Hot" days in a year and the number of "Cold" days in a year. Furthermore, you can take those counts and compare how many more "Hot" days there were versus "Cold" days. Additionally, you can do analysis like order the days from "Cold" to "Hot" to get a distribution of weather descriptions for a full year. However, qualitative data analysis falls short when you want to start doing things like: "How much hotter was it today than yesterday?", "What is the percentage change of weather temperature from yesterday to today?". You can try to subract two "Hot", "Mild" or "Cold" weather days. However, what would the answer be? For example, what is the answer to this difference between a "Hot" and a "Cold" day: "Hot" Day - "Cold" Day? There is no answer as the question makes no sense. However, if you have quantitative measurements (temperature), that subtraction equation makes much more sense. For example, you can subtract: 90 degress Farenheit - 80 degrees Farenheit = 10 degrees Farenheit difference.</p>
+<p>Below are some simple examples of analysis you can perform with quantitative data that are hard or impossible to do meaningfully with only qualitative labels, but they’re straightforward with quantitative measurements like temperature:</p>
+<ul>
+<li>Day-to-day difference (subtraction). Example: 90°F today − 80°F yesterday = 10°F warmer.</li>
+<li>Percent change (relative difference). Example: (90 − 80) / 80 = 0.125 → 12.5% warmer than yesterday.</li>
+<li>Average temperature over a period. Example: Average high this week = (78 + 80 + 82 + 79 + 81 + 83 + 80) / 7 = 80.4°F.</li>
+<li>High–low range (spread) in a day or month. Example (day): 88°F high − 70°F low = 18°F range.</li>
+<li>Example (month). Max daily high 95°F − min daily high 72°F = 23°F spread.</li>
+<li>Trend over time (warming/cooling rate). Example: Average highs rose from 75°F last week to 80°F this week → +5°F week-over-week.</li>
+</ul>
+<p>When you have qualitative and/or quantitative data, you can beging performing analysis to make better decisions. Qualitative data helps decision making by allowing analysis by reading it, grouping it into themes, and counting what comes up most to understand the main priorities. Quantitative data helps decision making by giving you numbers you can measure and compare, so you can do math like totals, averages, trends and differences to see what is changing and which option performs better. Let's look at some simple examples:</p>
+<ul>
+<li>If your decision frame is to optimize value, you may observe the cost of two different price points for a product at different stores. Performing simple math allows you to compare the difference and select which store offers the optimal value. In that same decision context, if your decision frame is to optimize quality, you may look and count up the products that you observe to be built/grown/crafted better than others. You would accomplish this by grouping the observed higher quality products and comparing the counts for a decision factor.</li>
+<li>If your decision frame is to minimize risk, you might combine qualitative and quantitative signals. For example, you could read customer reviews to tag recurring issues (“breaks quickly,” “hard to return,” “inconsistent sizing”) and also compare the return rate or warranty claim rate across brands. A brand with fewer repeated complaint themes and a lower return rate can be considered the safer choice.</li>
+<li>If your decision frame is to increase revenue, you might compare conversion rates for two marketing messages (quantitative), and also review open-ended responses like “I didn’t understand the offer” or “pricing felt unclear” (qualitative). The numbers tell you which message wins; the comments tell you what to change to win by more. These combines signals can be used to optimize the decision path.</li>
+<li>When hiring a new employee, your decision frame might be to choose the best hire based on quality of fit. You may have candidates that are too expensive or candidates that don't fit your desired culture. Therefore, you might score candidates on a rubric (skills test score, years of experience, portfolio rating) and also analyze interview notes for themes (communication clarity, customer empathy, learning mindset). The quantitative rubric helps consistency; the qualitative themes help capture nuance that numbers miss.</li>
+</ul>
+<p>As you can see the above examples, highlight how you pair the proper decision frame, gather the appropriate qualitative/quantitative data points and do simple math to perform comparisions to optimize decisions with calculated information.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's illustrate this below with a simple example. We all have been grocery shopping. We optimize our decision selection based on the type of fruits and vegetables. Some make sense to optimize for value (price) and others make sense to optimize for (quality). For example, consider buying a bag of apples. Most instinctively will use the quality optimization decision frame, as even though there is nothing wrong with a couple bruises with apples, we like eating into a nice looking apple. Perhaps our kids won't eat "bad" apples. Therefore, the illustration below highlights how we approach the problem two different ways, but also use math based on that decision frame differently. For a quantitative decision frame optimizing cost (price), you simply use lower cost as the driver to make the selection of a bag of apples. Contrast that with a qualitative decision frame optimizing quality, you observe how many apples appear "consumable".</p>
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/DecisionIntelligenceFramework/DecisionExecution-QuantMethods-ApplesBuyingDecision.png" style="display: block; margin: auto;" width="600px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Quantifying-Uncertainty-(Working-with-Probabilities)">Quantifying Uncertainty (Working with Probabilities)<a class="anchor-link" href="#Quantifying-Uncertainty-(Working-with-Probabilities)">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/DecisionIntelligenceFramework/DecisionExecution-QuantMethods-PerceptionsOfProbability.png" style="display: block; margin: auto;" width="600px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Math-is-hard-for-Humans.-Like-Really-Hard!">Math is hard for Humans. Like Really Hard!<a class="anchor-link" href="#Math-is-hard-for-Humans.-Like-Really-Hard!">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Humans are naturally bad at math. While we’ve built complex mathematical systems and advanced sciences, our brains simply weren’t designed to handle numbers intuitively. Exceptinonal humans invented all of the mathematical advancements over thousands of years. To name one example, Isaac Newton before turning 26 years old came up with the laws of motion and invented calculus! However, most of us struggle with the basics: large numbers, fail at simple fractions, and often don't use probabilities correctly. Rather than talk about many different background reasons, let's illustrate this with some material examples.</p>
+<p>The most basic example in mathematics is counting numbers (1, 2, 3, 4, 5...). However, once we get to large numbers interesting things start to happen with being able to grasp the enormity of some extreme numbers. Studies have shown that people can’t truly internalize the difference between a million, a billion, and a trillion; leading to major misconceptions and poor decisions. Let's do a simple comparison of a million and a billion dollars. Let's hypothetically say that you have two bank accounts; one with a million dollars and one with a billion dollars. You could withdraw $100,000 each year from each bank account. The bank account with one million dollars would last 10 years before going to $0. Conversely, the bank account with a billion dollars (even with withdrawing the same monthly $100,000) would last 10,000 years! Did framing this comparison make you say "Wow"? Most people know a billion is much larger than a million and that they would prefer to have a billion dollars over a million dollars. However, most people can't grasp the size of the differences. However, this is where doing mathematical comparisons helps us grasp the information needed for decisions.</p>
+<p>One of the areas where these large numbers are hard to grasp the purchasing power of extreme wealth. In the same manner above, it would not be shocking for someone to understand that a very wealthy person can just buy a multiple very nice cars. However, when comparing spending power, that is when the differences can be illustrated. For example, one can compare a wealthy person’s spending on a Lamborghini to an average person spending $25 on lunch by simply looking at the proportion of their wealth or income that each expense represents. For a billionaire, **a $250,000 luxury car might be just 0.025% of their $1 billion net worth—the same way $25 is 0.025% of $100,000 (an average annual income)!!** In both cases, the purchase takes up the same tiny fraction of their total financial resources, making the Lamborghini feel as “affordable” to the billionaire as lunch does to the average person. To give another perspective a Lamborghini purchase to a billionaire is a simple as grocery list item. This comparison is called relative spending or spending as a percentage of wealth.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>These invoices below are vastly different mathematically. However, the relative spending comparison from a billionare to a middle-class person is equal!</p>
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/DecisionIntelligenceFramework/DecisionExecution-QuantMethods-Lambo.png" style="display: block; margin: auto;" width="600px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let take a look at how poor math skills &amp; decision-making translates into business impact. One famous &amp; humorous example where simple understanding of math has had dramatic impact in business is A&amp;W’s failed attempt to compete with McDonald’s Quarter Pounder. A&amp;W restaurants introduced a 1/3 pound burger at the same price, thinking customers would see the obvious value in more burger meat for the same cost. But instead, it led to a marketing flop. When A&amp;W conducted a focus group, <strong>a majority of consumers assumed that 1/3 was SMALLER than 1/4 because “4 is bigger than 3”</strong>! This famous example is sometimes hard to imagine is real, so A&amp;W have a dedicated web page confirming it's reality. A&amp;W has videos, case studies and even a dedicated brief about it: <a href="https://staging.awrestaurants.com/blog/memories-history/the-truth-about-aws-third-pound-burger-and-the-major-math-mix-up/">https://staging.awrestaurants.com/blog/memories-history/the-truth-about-aws-third-pound-burger-and-the-major-math-mix-up/</a>.</p>
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/DecisionIntelligenceFramework/DecisionExecution-QuantMethods-DecidingWhichBurger.png" style="display: block; margin: auto;" width="600px"/>
+<p>In fact, in later years A&amp;W used poor consumer math understanding to their advantage and introduced a marketing campaign of a 3/9" burger. As you probably know 3/9 is the same as 1/3. However, A&amp;W used the number 3/9 to show larger numbers in the fraction to burger enthusiasts to play on their perception that 3/9 is somehow a bigger burger and thus a better deal.</p>
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/AWBurgerThreeNinths.png" style="display: block; margin: auto;" width="600px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Arriving-at-Quantitative-Conclusions-using-Simulations">Arriving at Quantitative Conclusions using Simulations<a class="anchor-link" href="#Arriving-at-Quantitative-Conclusions-using-Simulations">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>📜 Dr. Strange: <strong><em>"I went forward in time... to view alternate futures. To see all the possible outcomes of the coming conflict."</em></strong></p>
+<p>📜 Quill: <strong><em>"How many did you see?"</em></strong></p>
+<p>📜 Dr. Strange: <strong><em>"14,000,605."</em></strong></p>
+<p>📜 Stark: <strong><em>"How many did we win?"</em></strong></p>
+<p>📜 Dr. Strange: <strong><em>"...One."</em></strong></p>
+<p>-- <cite>Dr. Strange, Quill, and Stark (Avengers: Infinity War)</cite></p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Imagine you need to climb a ladder to change a lightbulb. Instead of pulling out a calculator to precisely compute the ladder’s weight distribution, friction, or the exact roughness of the floor, you give the ladder a quick shake. If it wobbles dangerously, you adjust it; if it feels steady, you proceed to climb. In effect, each shake is like a mini-simulation of the physical forces that could tip the ladder. You’re sampling a few possible disturbances to see how the ladder holds up. By shaking the ladder, you’re testing how it will behave under slightly different conditions. You move it a bit forward, a bit backward, a gentle nudge or a harder push; all without needing to know every detail of physics at play​. If the ladder remains sturdy through these random “what-if” tests, you gain confidence that normal movements (like you climbing up) won’t cause it to slip​. This simple practice replaces complex quantitative calculations with an intuitive experiment, demonstrating how a trivial simulation helps us gauge stability with imperfect information.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionExecution-QuantMethods-LadderSimulation.png" style="display: block; margin: auto;" width="700px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Simulations-in-Decision-Forecasting">Simulations in Decision Forecasting<a class="anchor-link" href="#Simulations-in-Decision-Forecasting">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The ladder example is a microcosm of how mathematical simulations aid decision-making. In real-world decisions we almost never have perfect information. For example, when forecasting the economy, planning a project, or predicting the weather there are too many unknown variables that can impact the outcome. Instead of trusting a single set of assumptions (which is like climbing the ladder without testing it), analysts build a model of the situation and then “shake” that model by trying many different inputs and scenarios. The idea is to see how the outcomes might change if certain factors turn out differently than expected.</p>
+<p>By using simulations, decision-makers can explore a wide range of “what-if” scenarios without needing exact data for every variable. For example, a business might simulate how different sales numbers, costs, or market conditions affect its profits, rather than assuming one fixed plan. A weather model might be run multiple times with slight changes in initial conditions to see various possible storm tracks. Each run of the model is like one shake of the ladder – a trial to see what could happen.</p>
+<p>Simulation methods offer several benefits for making decisions under uncertainty:</p>
+<ul>
+<li><strong>Explore "What-If" Decision Scenarios:</strong> Simulations let you experiment with different assumptions (e.g. best case, worst case) to see how each scenario might play out, without committing to a single decision prediction upfront. This reveals how sensitive your outcomes are to changes in uncertain factors.</li>
+<li><strong>Visualize a Range of Outcomes:</strong> Rather than one definitive result, a simulation produces a spread of possible outcomes and estimates how likely each outcome is​. Basically you get a probability distribution of results. For instance, a simulation may show 80% chance of exceeding a sales target or a 10% chance of a project running very late. This is far more informative than relying on a single guess, and it allows for better decision-making under uncertainty​.</li>
+<li><strong>Assess Decision Risk and Extremes:</strong> Because simulations consider many random trials, they help identify the risks of extreme outcomes. You can see the “Black Swan”events that might be disastrous (or extraordinarily successful) and gauge their impact. In fact, running many simulated trials effectively allows you to account for risk in your analysis by observing how often bad outcomes occur. Two recent real-world examples of this is the many models that did not account for the 2008 financial crisis or the 2020 disruption caused by the Covid-19 pandemic.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Introducing-the-Monte-Carlo:-Running-Thousands-of-%22What-If%22-Decision-Scenarios">Introducing the Monte Carlo: Running Thousands of "What-If" Decision Scenarios<a class="anchor-link" href="#Introducing-the-Monte-Carlo:-Running-Thousands-of-%22What-If%22-Decision-Scenarios">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One of the most widely used simulation techniques is Monte Carlo simulation. Named after the famous casino town (due to its reliance on random chance), Monte Carlo simulation is essentially a way to model uncertainty by running a scenario over and over with various inputs. Instead of shaking a physical ladder, you let a computer shake your virtual model. For example, if you’re forecasting future sales, a Monte Carlo model would randomly vary key factors (market growth, customer behavior, etc.) within plausible ranges and calculate the outcome thousands of times. By doing so, it builds up a broad view of possible futures.</p>
+<p>Monte Carlo methods use repeated random sampling to explore outcomes. Unlike a single-point forecast, which uses fixed inputs, a Monte Carlo simulation runs the model with a variety of values for uncertain factors. Each trial might pick a random value for, say, future inflation rate, within an expected range. Then it computes the result (e.g. company profit) and repeats this process with a new random draw for each uncertain input. Over many iterations, this produces a large number of possible results. In a typical Monte Carlo experiment, the model can be recalculated thousands of times with different random inputs, yielding a wide array of likely outcomes​.  What do we get from these thousands of “what-if” trials? Essentially, we get a distribution of outcomes. Monte Carlo simulation furnishes decision-makers with a range of possible outcomes and the probability of each outcome​. Therefore, instead of saying “We predict next year’s profit will be $1M,” a Monte Carlo result might say, “There is a 50% chance profit will be between $0.9M and $1.1M, a 25% chance it’s higher, and a 25% chance it’s lower.” This is incredibly powerful as it reveals the spectrum of possibilities and extreme cases. It then allows decision-makers to allocate an appropriate amount of risk or opportunity mitigation for those extremes.</p>
+<blockquote>
+<p>📜 <strong><em>"All models are wrong, but some are useful."</em></strong></p>
+<p>-- <cite>George E.P. Box (Statistician, known for his contributions to quality control and time series analysis)</cite></p>
+</blockquote>
+<p>It’s important to note that simulation-based decision-making is about getting “good enough” intelligence, not delivering a perfect decision forecast. Obviously no simulation can capture reality in full detail. The ladder shake test, for instance, isn’t a flawless physics calculation. In fact, the pattern in which you shake the ladder with your hands might not exactly match the forces that will occur when you’re standing on it. Yet it’s still a very useful test. In our ladder example, even if your shaking doesn’t perfectly mimic every real force, it can still reveal a loose screw or a slippery foot before you climb. This is insight you’d miss if you demanded perfect information. The same applies for mathematical simulations. The quality of the output depends on the quality of the input assumptions (and we should be as reasonable as possible with those), but we don’t need perfect precision to benefit. By understanding the broad set of possible outcomes, we can make better decisions under uncertainty, which are decisions that are resilient across different scenarios.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Decision-Scenario:-Monte-Carlo-to-Determine-Total-Cost-of-Car-Ownership">Decision Scenario: Monte Carlo to Determine Total Cost of Car Ownership<a class="anchor-link" href="#Decision-Scenario:-Monte-Carlo-to-Determine-Total-Cost-of-Car-Ownership">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/Scenarios/Scenario-TrueCostofCarOwnership.png" style="display: block; margin: auto;" width="700px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When people compare cars, they often focus on the sticker price, the monthly payment or a single variable. That is too narrow for a high-stakes decision. A better question is:<br/>
+<em><strong>What will this vehicle actually cost to own once fuel, insurance, maintenance, repairs, fees, taxes, and resale value are included over time?</strong></em></p>
+<p>This is exactly the kind of problem Monte Carlo simulation handles exceptionally well. Instead of assuming one fixed future, the model can run 50,000 paired trials across a 10-year ownership horizon. In each trial, uncertain inputs are sampled from probability distributions: annual miles and insurance are modeled as Normal distributions, fuel and repair severity as LogNormal, maintenance as Gamma, repair count as Poisson, and fees plus resale retention as Triangular. The result is not a single-point estimate, but a range of likely ownership costs. This range can be plotted as a distribution (shown above).</p>
+<p>Under the assumptions in this scenario, the <strong>Budget Car</strong> has a median 10-year ownership cost of <strong>$59.3k</strong>, while the <strong>Luxury Car</strong> has a median cost of <strong>$128.1k</strong>. The budget profile begins with a <strong>$30,000</strong> purchase price, <strong>11,500</strong> annual miles, <strong>$3/gal</strong> fuel, <strong>33.0 mpg</strong> efficiency, <strong>$1,450/year</strong> insurance, <strong>$550/year</strong> maintenance, a <strong>0.18/year</strong> repair rate, and <strong>$240/year</strong> in fees. The luxury profile begins at <strong>$62,000</strong>, also assumes <strong>11,500</strong> annual miles, but uses <strong>$4/gal</strong> fuel (premium over regular), <strong>30.0 mpg</strong> efficiency, <strong>$3,200/year</strong> insurance, <strong>$1,400/year</strong> maintenance, a <strong>0.30/year</strong> repair rate, and <strong>$650/year</strong> in fees.</p>
+<p>The most important insight is not only that the luxury car costs more, but that its cost distribution is visibly wider. A wider distribution means a broader range of plausible outcomes and therefore more uncertainty. In decision terms, the luxury option is not just more expensive on average; it is also less predictable and carries more downside exposure. The budget option is both cheaper and more concentrated around its expected range. In this decision scenario the 50,000 simulations illustrated that even in the most expensive realistic case for the budget car and the cheapest realistic case for a luxury car the distributions don't overlap. This is not always the case and this can become a very powerful decision-making driver as well. For example, if this scenario was simulating an EV (electric vehicle) with tax credits with high gas prices can push the total cost of ownership much cheaper.</p>
+<p>If the decision frame is to optimize financial efficiency and reduce downside risk, the <strong>Budget Car</strong> is clearly the stronger choice in this scenario. If the <strong>Luxury Car</strong> is still preferred for comfort, performance, status, or brand experience, the simulation makes the trade-off explicit: the buyer is accepting both a higher expected cost and a wider band of uncertainty around that cost.</p>
+<p><strong>Decision takeaway:</strong> Monte Carlo simulation turns a vague question like <em>"Can I afford the nicer car?"</em> into a quantitative one: <em>"Am I willing to choose a cost profile that is both higher and more uncertain?"</em></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Doing-the-Math-and-Measuring-Risk---Materials-to-Deepen-Your-Understanding">Doing the Math and Measuring Risk - Materials to Deepen Your Understanding<a class="anchor-link" href="#Doing-the-Math-and-Measuring-Risk---Materials-to-Deepen-Your-Understanding">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>📢 This chapter (module) presents only a small sample of the full content found in the companion print book, “Decision Intelligence with Generative AI”, scheduled for release in 2026. In the meantime, the following materials are provided to help you deepen your understanding of the concepts covered here.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://m.media-amazon.com/images/I/71P6OxVBU4L._SL1500_.jpg" style="float: left;padding-right: 25px; padding-left: 25px;" width="200px"/>
+<p><a href="https://www.amazon.com/How-Measure-Anything-Intangibles-Business/dp/1118539273/"><strong>"How to Measure Anything: Finding the Value of Intangibles in Business"</strong></a> Douglas W. Hubbard provides a practical approach to quantifying seemingly immeasurable aspects of business. Hubbard challenges the notion that some things can't be measured and introduces methods to gauge intangibles like customer satisfaction, organizational flexibility, and innovation. The book explains various statistical techniques and tools to estimate and measure these factors effectively. It emphasizes the value of measurements in making informed business decisions and improving risk management. Overall, the book demonstrates that with the right techniques, anything can be measured and quantified.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://m.media-amazon.com/images/I/71MB0lkirGL._SL1500_.jpg" style="float: right;padding-left: 25px; padding-right: 25px;" width="200px"/>
+<p><a href="https://www.amazon.com/Innumeracy-Mathematical-Illiteracy-Its-Consequences/dp/0809058405"><strong>"Innumeracy: Mathematical Illiteracy and Its Consequences"</strong></a> by John Allen Paulos highlights the widespread lack of basic mathematical understanding in society and its negative impacts. Paulos illustrates how innumeracy affects decision-making, leading to misunderstandings in areas such as probability, statistics, and risk assessment. He uses real-life examples and funny anecdotes to show how mathematical illiteracy can result in poor judgments and susceptibility to pseudoscience. The book advocates for better math education and awareness to improve critical thinking and everyday decision-making. Overall, it emphasizes the importance of mathematical literacy in navigating the decision complexities of modern life.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://m.media-amazon.com/images/I/816eXTfnhPL._SL1500_.jpg" style="float: left;padding-right: 25px; padding-left: 25px;" width="200px"/>
+<p><a href="https://www.amazon.com/Analytic-Methods-Sports-Mathematics-Statistics/dp/0367469383/"><strong>"Analytic Methods in Sports: Using Mathematics and Statistics to Understand Data from Baseball, Football, Basketball, and Other Sports"</strong></a> by Thomas A. Severini explores how mathematical and statistical techniques can be applied to analyze sports data. The book covers methods to evaluate player performance, team strategies, and game outcomes across various sports. Severini explains concepts such as probability, regression analysis, and hypothesis testing, demonstrating their practical applications in sports analytics. By providing real-world examples and case studies, the book shows how these methods can lead to better decision-making and strategic insights in sports. Overall, it highlights the importance of data analysis in understanding and improving sports performance.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://m.media-amazon.com/images/I/71mIfthmneL._SL1500_.jpg" style="float: left;padding-right: 25px; padding-left: 25px;" width="200px"/>
+<p><a href="https://www.amazon.com/dp/B087XYB811/?bestFormat=true&amp;k=risk%20savvy%20gerd%20gigerenzer"><strong>"Risk Savvy: How to Make Good Decisions"</strong></a> by Gerd Gigenrizer argues that most people misunderstand risk because information is often presented in confusing ways, leading to poor decisions in areas like health, finance, and everyday life. Gigerenzer shows that humans can make smart choices using simple heuristics (mental shortcuts) when information is framed clearly, especially through tools like natural frequencies instead of abstract probabilities. He critiques experts and institutions for promoting statistical illiteracy, particularly in medicine and media, where risks are exaggerated or miscommunicated. The book emphasizes that improving “risk literacy” empowers individuals to question data, avoid manipulation, and make more confident, informed decisions. Ultimately, it promotes clarity, transparency, and practical reasoning over complex but misleading statistical presentations.</p>
+</div>
+</div>
+</div>
+
+  </section>
+  </div>
+  <nav class="chapter-pager" aria-label="Chapter navigation">
+    <a class="pager-link" data-prev-chapter href="1f-decision-execution-with-decision-rules.html"><span>Previous</span><strong>Execution with Decision Rules</strong></a>
+    <a class="pager-link align-right" data-next-chapter href="1h-decision-communication.html"><span>Next</span><strong>Decision Communication</strong></a>
+  </nav>
+</article>
+
+  </main>
+  <script type="module" src="../pagefind/pagefind-component-ui.js"></script>
+  <script src="../assets/site.js"></script>
+</body>
+</html>

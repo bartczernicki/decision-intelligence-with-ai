@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Introducing the Decision Intelligence Framework | Decision Intelligence</title>
+  <meta name="description" content="A readable introduction to decisions, decision quality, and the Decision Intelligence Framework.">
+  <meta property="og:title" content="Introducing the Decision Intelligence Framework | Decision Intelligence">
+  <meta property="og:description" content="A readable introduction to decisions, decision quality, and the Decision Intelligence Framework.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Introducing the Decision Intelligence Framework | Decision Intelligence">
+  <meta name="twitter:description" content="A readable introduction to decisions, decision quality, and the Decision Intelligence Framework.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('di-theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../pagefind/pagefind-component-ui.css">
+  
+</head>
+<body data-page="1a-introducing-decision-intelligence-framework.html">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <button class="nav-toggle" type="button" aria-label="Open chapter navigation" aria-expanded="false">Menu</button>
+  
+<aside class="book-sidebar" aria-label="Book navigation">
+  <a class="book-brand" href="../index.html">
+    <img src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceLogo.png" alt="Decision Intelligence logo">
+    <span>Decision Intelligence</span>
+  </a>
+  <div class="pagefind-search-shell" data-pagefind-ignore="all">
+    <span class="search-label">Search book</span>
+    <pagefind-modal-trigger button-text="Search the book"></pagefind-modal-trigger>
+    <pagefind-modal></pagefind-modal>
+  </div>
+  <div class="theme-switcher" data-pagefind-ignore="all">
+    <span class="search-label">Appearance</span>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+      <span class="theme-toggle-icon" aria-hidden="true">☀</span>
+      <span data-theme-toggle-label>Light mode</span>
+    </button>
+  </div>
+  <nav class="chapter-nav" aria-label="Chapters">
+    <a class="chapter-link" href="../index.html" data-title="contents overview"><span class="chapter-code">TOC</span><span>Contents</span></a><a class="chapter-link active" href="../chapters/1a-introducing-decision-intelligence-framework.html" data-title="1a introducing the decision intelligence framework introducing decisions"><span class="chapter-code">1A</span><span>Introducing Decisions</span></a><a class="chapter-link" href="../chapters/1b-decision-framing.html" data-title="1b decision framing decision framing"><span class="chapter-code">1B</span><span>Decision Framing</span></a><a class="chapter-link" href="../chapters/1c-gathering-intelligence.html" data-title="1c gathering intelligence gathering intelligence"><span class="chapter-code">1C</span><span>Gathering Intelligence</span></a><a class="chapter-link" href="../chapters/1d-decision-execution.html" data-title="1d decision execution decision execution"><span class="chapter-code">1D</span><span>Decision Execution</span></a><a class="chapter-link" href="../chapters/1e-decision-execution-with-intuition.html" data-title="1e decision execution with intuition execution with intuition"><span class="chapter-code">1E</span><span>Execution with Intuition</span></a><a class="chapter-link" href="../chapters/1f-decision-execution-with-decision-rules.html" data-title="1f decision execution with decision rules execution with decision rules"><span class="chapter-code">1F</span><span>Execution with Decision Rules</span></a><a class="chapter-link" href="../chapters/1g-decision-execution-with-quantitative-methods.html" data-title="1g decision execution with quantitative methods execution with quantitative methods"><span class="chapter-code">1G</span><span>Execution with Quantitative Methods</span></a><a class="chapter-link" href="../chapters/1h-decision-communication.html" data-title="1h decision communication decision communication"><span class="chapter-code">1H</span><span>Decision Communication</span></a><a class="chapter-link" href="../chapters/1i-applying-decision-intelligence-framework.html" data-title="1i applying the decision intelligence framework applying the framework"><span class="chapter-code">1I</span><span>Applying the Framework</span></a><a class="chapter-link" href="../chapters/1j-enterprise-decision-intelligence.html" data-title="1j enterprise decision intelligence enterprise decision intelligence"><span class="chapter-code">1J</span><span>Enterprise Decision Intelligence</span></a>
+  </nav>
+</aside>
+<div class="nav-backdrop" data-close-nav></div>
+
+  <main id="main-content" class="book-main">
+    
+<article class="chapter-page">
+  <div data-pagefind-body>
+  <header class="chapter-header">
+    <a class="back-link" href="../index.html">Back to contents</a>
+    <p class="eyebrow">Chapter 1A</p>
+    <h1>Introducing the Decision Intelligence Framework</h1>
+    <p class="chapter-summary">A readable introduction to decisions, decision quality, and the Decision Intelligence Framework.</p>
+  </header>
+  
+<nav class="chapter-toc" aria-label="Chapter table of contents">
+  <strong>On this page</strong>
+  <a class="toc-h3" href="#Introducing-Decisions">Introducing Decisions</a><a class="toc-h3" href="#Total-Addressable-Market-of-Quality-Decision-Making">Total Addressable Market of Quality Decision Making</a><a class="toc-h3" href="#What-is-a-Quality-Decision?">What is a Quality Decision?</a><a class="toc-h3" href="#Importance-of-Quality-Decisions">Importance of Quality Decisions</a><a class="toc-h3" href="#Your-Most-Important-Decision">Your Most Important Decision</a><a class="toc-h3" href="#Decision-Intelligence-Framework---Optimize-the-Quality-of-Important-Decisions">Decision Intelligence Framework - Optimize the Quality of Important Decisions</a><a class="toc-h3" href="#Decision-Intelligence-Framework---Enhanced-with-Generative-AI">Decision Intelligence Framework - Enhanced with Generative AI</a><a class="toc-h4" href="#Decision-Intelligence-Framework---How-Each-Step-is-Enhanced-with-Generative-AI">Decision Intelligence Framework - How Each Step is Enhanced with Generative AI</a><a class="toc-h3" href="#Decision-Intelligence-Framework---Example-of-Personalized-Decision-Making-using-Eisenhower-Decision-Priorotization">Decision Intelligence Framework - Example of Personalized Decision Making using Eisenhower Decision Priorotization</a><a class="toc-h4" href="#Intro-to-Eisenhower-Decision-Priorotization">Intro to Eisenhower Decision Priorotization</a><a class="toc-h4" href="#Applying-the-Decision-Intelligence-Framework">Applying the Decision Intelligence Framework</a><a class="toc-h3" href="#Decision-Intelligence---Materials-to-Deepen-Your-Understanding">Decision Intelligence - Materials to Deepen Your Understanding</a>
+</nav>
+
+  <section class="notebook-content">
+    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="display: flex; align-items: center;">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceLogo.png" style="margin-right: 10px;" width="60px"/>
+<span style="font-size: 1.5em; font-weight: bold;">Decision Intelligence – Introducing the Decision Intelligence Framework</span>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Introducing-Decisions">Introducing Decisions<a class="anchor-link" href="#Introducing-Decisions">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>📜 <strong><em>"Whenever you see a successful business, someone once made a courageous decision."</em></strong></p>
+<p>-- <cite>Peter Drucker (father of modern management)</cite></p>
+</blockquote>
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png" style="display: block; margin: auto;" width="700px"/>
+<br/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Decision-making is at the core of everything we do in life. It's an activity that happens all the time, whether we realize it or not. This process is deeply embedded in our human biology, guiding us through both conscious choices, like what car to purchase, and unconscious ones, like automatically pulling our hand away from a hot surface. Every decision we make, big or small, plays a role in helping us navigate the world and stay safe. Without this constant decision-making, our ability to survive and thrive would be greatly diminished. <strong>At the end of the day, making decisions is a big part of what makes us human!</strong></p>
+<p>First, lets define what is a decision. A simple definition of a decision is making choice from the presented options. However, decisions can be much more complex than that. We make decisions anytime we are presented with a how, why or when. Therefore, it turns out decisions can have various forms that aren't clearly apparent.</p>
+<p>Examples of decision forms are illustrated in the table below:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Decision Form</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Deciding from Available Choices</td>
+<td style="text-align:left">This is what comes to mind when people think of decision-making; there are several choices presented and one makes a selection. Examples can include: selecting an optimal route to work, picking a new car or choosing which job offer to accept, making an offer to a candidate from a pool of applications etc.</td>
+</tr>
+<tr>
+<td style="text-align:left">Quitting or Postponing</td>
+<td style="text-align:left">Stopping or planning when to quit an action is a form of a decision. For example, stopping your exercise routine at exhaustion or partially eating a meal for your diet are essentially stopping decisions.</td>
+</tr>
+<tr>
+<td style="text-align:left">Making a Recommendation</td>
+<td style="text-align:left">Prescribing solutions, suggestions, choices etc. that address a problem or achieve a goal. Recommendations are form of a multiple potential decisions.</td>
+</tr>
+<tr>
+<td style="text-align:left">Priorotizing or Escalating</td>
+<td style="text-align:left">Choosing which decisions to focus on based on their importance or urgency. Referring the decision to a higher authority or level for resolution.</td>
+</tr>
+<tr>
+<td style="text-align:left">Working with Groups</td>
+<td style="text-align:left">When working in a group setting like negotiating, collaborating or voting are some specific examples of decision forms when people come together as a group.</td>
+</tr>
+<tr>
+<td style="text-align:left">Doing Nothing or Mainting the Status Quo</td>
+<td style="text-align:left">Maintaining the current state is a valid decision that sometimes isn't provided as a choice, but is almost always available as an option or strategy.</td>
+</tr>
+<tr>
+<td style="text-align:left">Deciding How you make Decisions</td>
+<td style="text-align:left">Probably the most important set decisions you will ever make is how you approach, make, communicate and monitor sufficiently important decisions!</td>
+</tr>
+</tbody>
+</table>
+<p>It is much easier to see decision-making illustrated with real decision persona examples. <strong>Click the image below</strong> to launch an excellent video from FICO to understand vital business decision challenges and how real-time business decisions can help.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://www.youtube.com/watch?v=rtWZtwyV0XA"><img loading="lazy" alt="FICO 35,000 Decisions" src="https://img.youtube.com/vi/rtWZtwyV0XA/0.jpg"/></a></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Total-Addressable-Market-of-Quality-Decision-Making">Total Addressable Market of Quality Decision Making<a class="anchor-link" href="#Total-Addressable-Market-of-Quality-Decision-Making">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>My claim is that the total addressable market for making higher-quality decisions is staggeringly vast, easily reaching into the several trillions of dollars! Let's look at the potential opportunity to optimize. Consider just one facet of the US market: consumer debt in the United States, which <strong>exceeds $18 trillion in 2025!</strong>. Mortgages alone account for 13 trillion dollars, while auto loans stand at 1.8 trillion dollars, student loans at 1.7 trillion dollars, and credit cards at 1.2 trillion dollars! These are enormous numbers. Imagine being able to help people make quality decisions to improve each of these critical debt categories. For example, a car that won’t end up saddling owners with negative equity, selecting a home that fits the family needs, or choosing an education path that maximizes long-term return. Even small single-digit percentage improvements in how individuals make these decisions can generate colossal gains for society, lenders, and the world economy at large. <strong>If you were able to optimize the debt decision-making people make in the US by just 5%, this would translate to trillions of dollars!</strong></p>
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/DecisionIntelligence-Intro-BartCzernicki-DebtQuote.png" style="display: block; margin: auto;" width="600px"/>
+<p>Decision-making quality also impacts sectors beyond consumer finance, such as corporate strategies, government policies, and healthcare choices, multiplying the potential influence of better decisions. By refining how these important daily decisions are made, we not only reduce systemic inefficiencies, such as high interest costs or underutilized assets, but also unlock greater well-being and prosperity. It is here that <strong>Decision Intelligence, especially when powered by Generative AI, can be transformative</strong> by digitizing and scaling proven methods to help individuals, businesses, and entire institutions optimize outcomes in ways that were once unimaginable.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="What-is-a-Quality-Decision?">What is a Quality Decision?<a class="anchor-link" href="#What-is-a-Quality-Decision?">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What makes a good decision? What is a quality decision in your mind? Let's start by doing a simple decision exercise:</p>
+<ul>
+<li>Think of a good decision you have made in your past. Ask yourself why that was a good decision.</li>
+<li>Think of a bad decision you have made in your past. Ask yourself why that was a bad decision.</li>
+</ul>
+<p>Most people answer this quick exercise by focusing on the outcome of the decision. For example, you may have said that you made a good decision on switching jobs as it resulted in a better environment and much higher pay. Conversely, you may have listed a bad decision of purchasing a new car, because it was always broken down and turned into a money pit. If the decision labels (good or bad decision) match the outcome (good or bad outcome), then you are highly correlating the two. Annie Duke in her book <em>"Thinking in Bets"</em> calls this "resulting", where you treat the result as a strong signal of whether the decision was good.</p>
+<p>If we treated quality decisions strictly based on their results, we would live in a completely different world! A person that flipped a fair coin several times and guessed the correct heads or tails outcomes correctly would be thought of us a "quality decision guru". However, we would never follow someone's decisions blindly that just made a sequence of guesses in a game of chance. Randomness and luck factor into a great deal into making decisions, which are factors we cannot control, but need to understand they are always present. When we make decisions we typically don't have all of the information. If we did, we would make the correct decision and get the desired result every time. Because of this reason, a great deal of high-stakes decisions are made under a great deal of uncertainty. We need to understand our uncertainty position when making decisions and try to reduce uncertainty as much as possible. Therefore, we need to think of quality decisons much more than just the outcomes.</p>
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/Common/DecisionIntelligence-Intro-QualityDecisionsDefined.png" style="display: block; margin: auto;" width="700px"/>
+<br/>
+<p>A <strong>quality decision is best defined by the caliber of the decision-making process</strong>, not by whether the outcome happens to be good. A good decision process is deliberate and repeatable: it clarifies the goal, generates real alternatives, uses the best available information, weighs tradeoffs (including risk or opportunity), invites appropriate dissent, and commits to an action with feedback triggers. When you do those things, you’re not necessarily guaranteeing success. What you are doing is maximizing the odds of success and minimizing avoidable harm. In other words, decision quality is about how well you played the hand, given what you could reasonably knew at the time.</p>
+<blockquote>
+<p>📝 Note: You will always have cases where you have a "good" outcome from a "bad" decision-making process, resulting from randomness or luck. Whereas a disciplined, intelligent processes will consistently produce better decision results over time. For example, if you decide to play the lottery (a "bad" decision process), you may  occassionally win meaningful amounts. However, over time those outcomes will average out to a negative result.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Importance-of-Quality-Decisions">Importance of Quality Decisions<a class="anchor-link" href="#Importance-of-Quality-Decisions">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Navigating decisions effectively is clearly important, serving as a key differentiator for successful individuals. <strong>Therefore, decision-making ability is regarded by executives as one of the most highly desired business skills!</strong></p>
+<p>Have you thought about the process of how you make high-leverage decisions? It turns out people (including seasoned business professionals) make decisions using simple intuition or use their own "expertise" using no decision processes at all! However, when the problem is sufficiently important or the chance of making a mistake is high; it has been consistently proven to apply advanced decision-making principles to solve those important problems.</p>
+<p>Let's explore some examples where making a quality decision is important and having a process would greatly help in the outcome:</p>
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/Common/DecisionIntelligence-Intro-ThreeDecisionScenarios.png" style="display: block; margin: auto;" width="700px"/>
+<br/>
+<ul>
+<li>Imagine you’re buying a car. It’s easy to get swept up in how it looks, how it drives, or what your friends recommend. But the quality of the decision often comes down to whether you ran the numbers and actually understood the financial terms. That means things having a process to consider: comparing total cost of ownership (not just the sticker price), sanity-checking the loan APR, term length, fees, and the true monthly payment, and being clear on trade-in value, depreciation, and insurance.</li>
+<li>Consider a major medical decision, like whether to proceed with a serious surgery: relying on a single opinion can unintentionally narrow your view, so a stronger approach is to deliberately seek multiple doctors’ perspectives—ideally across different specialties to get different frames of the same situation (e.g., conservative management vs. surgery, alternative procedures, different risk assessments, and expected recovery outcomes). Having a decision process to reconcile multiple expert opinions would be a huge help.</li>
+<li>What if you are hiring a new candidate for your team? Having a decision process, where your key team stakeholders are involved in the interview process can help eliminate recency bias (the last candidate interviewed), loud voices with stubborn opinions or just making the decision solo. Making group decisions can vary quite differently than making decisions alone. Therefore, having processes for groups to converge in their decision is ideal in these situations.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Your-Most-Important-Decision">Your Most Important Decision<a class="anchor-link" href="#Your-Most-Important-Decision">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/DecisionIntelligence-Intro-DougHubbardQuote.png" style="display: block; margin: auto;" width="600px"/>
+<br/>
+<p>A vast majority of individuals are not aware of any decision-making techniques. Furthermore, to most, consistently making quality decisions can be a daunting task. Therefore, as the quote from Doug Hubbard makes clear the most important part in making quality decisions is how you make those decisions. There is good news though as, it has been shown that in the same way with the training of top-tier athletes, decision-makers can employ techniques, plans, simple math and tools to improve with practice. This can include learning &amp; practicing:</p>
+<ul>
+<li><strong>Framing a Decision</strong> from different points of view</li>
+<li><strong>Gathering Intelligence</strong> and information to reason over a decision</li>
+<li><strong>Executing a Decision</strong> - using a proven framework, using Machine Learning or statistics</li>
+<li>Making a Decision alone or with the <strong>Collective Intelligence</strong> of a group</li>
+<li><strong>Communicating a Decision</strong> effectively to various stakeholders</li>
+<li><strong>Monitoring a Decision</strong> for feedback and potential optimizations</li>
+</ul>
+<p>Integrating the above decision best practices into formal processes helps you make smarter decisions, which I refer to as <strong>"Decision Intelligence Framework"</strong>. The main content of this book focuses on Decision Intelligence concepts. The various quotes, case studies, historical examples, code exercises and resource links are coalesced together to help you become an expert in Decision Intelligence!</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Decision-Intelligence-Framework---Optimize-the-Quality-of-Important-Decisions">Decision Intelligence Framework - Optimize the Quality of Important Decisions<a class="anchor-link" href="#Decision-Intelligence-Framework---Optimize-the-Quality-of-Important-Decisions">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework.png" style="display: block; margin: auto;" width="700px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Decision Intelligence Step</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1. Decision Framing</td>
+<td style="text-align:left">The manner in which a decision is approached has enormous importance on the overall quality of that decision. Poor framing can snowball into additional issues in subsequent decision-making tiers. Humans often struggle to frame decisions well, largely due to personal cognitive biases. This step ensures that multiple viewpoints are considered, reducing bias and leading to a more holistic decision.</td>
+</tr>
+<tr>
+<td style="text-align:left">2. Gathering Intelligence</td>
+<td style="text-align:left">In this step, relevant data and context are gathered from various sources (e.g., historical records, user inputs, expert opinions, or knowledge bases). This robust intelligence-gathering process helps ensure decisions are made on solid, up-to-date information. Semantic techniques and advanced analytics can help uncover deeper patterns and meaning, yielding a more accurate picture of the situation.</td>
+</tr>
+<tr>
+<td style="text-align:left">3. Decision Execution</td>
+<td style="text-align:left">Decision execution involves selecting and applying the best course of action based on collected intelligence and defined frames. In this book, decision execution will be organized into three ways it can be performend: intuition (gut feel), simple decision rules (simple math) and quantitative methods (Machine Learning, statistics)</td>
+</tr>
+<tr>
+<td style="text-align:left">4. Decision Communication</td>
+<td style="text-align:left">This stage focuses on communicating decisions clearly and effectively. It includes articulating the reasoning process, expected outcomes, and any relevant supporting data to stakeholders. By explaining the rationale behind a decision, team members and stakeholders can provide feedback, ask questions, and adjust the plan if needed, fostering transparency and trust.</td>
+</tr>
+<tr>
+<td style="text-align:left">5. Decision Monitoring</td>
+<td style="text-align:left">Decision monitoring is the process of continuously evaluating outcomes and comparing them against expected results. Feedback is gathered, performance is tracked, and any necessary adjustments are made over time. This ensures that decisions remain aligned with changing conditions and continue to deliver optimal results.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Decision-Intelligence-Framework---Enhanced-with-Generative-AI">Decision Intelligence Framework - Enhanced with Generative AI<a class="anchor-link" href="#Decision-Intelligence-Framework---Enhanced-with-Generative-AI">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>📜 <strong><em>"50% of Decisions Will Be AI-Driven by 2027! Are You Ready?"</em></strong></p>
+<p>-- <cite>Gartner (June 2025)</cite></p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Decision Intelligence transformation may sound potentially interesting, but what does this have todo with Generative AI? Large Language Models (LLMs) equipped with Generative AI (GenAI) capabilities possess potential for enhancing decision-making processes through advanced reasoning abilities. These GenAI LLMs have been trained on complex data sets with logic, patterns, writing source (programming) code and problem solving in mind. This allows LLMs to simulate human-like reasoning, offering insights and recommendations based on comprehensive data analysis. So how does decision-making and Generative AI come together? <strong>This means that the proven historical use of decision-making, problem-solving, mental models, decision huersistics can be appllied to LLMs with GenAI and help humans make decisions!</strong></p>
+<p><strong>Decision Intelligence with Generative AI is the digitization of proven decision-making processes Generative AI.</strong> This digital transformation of various historically proven techniques has happened many times before. For example, in the recent past the preferred way to communicate news stories or research was with the radio, tevelevision or newspapers. These past ways of communication have been digitally transformed with the internet and cell phones. Many examples like this exist. With recent Generative AI innovations that can help with decision-making, it is an ideal time for digital transformation of Decision Intelligence!</p>
+<p>Where is a good place to start learning Decision Intelligence? As you can imagine there has been much thought, published studies and literature written on decision-making. There are examples and resources provided throughout to immerse yourself into the paradigm. You might be asking <em>"Do I need to read a ton of decision-making literature before getting started with Decision Intelligence with Generative AI?"</em> Not necessarily. This content is designed to introduce Decision Intelligence in an easy-to-understand manner, along with additional resources for further exploration.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Decision-Intelligence-Framework---How-Each-Step-is-Enhanced-with-Generative-AI">Decision Intelligence Framework - How Each Step is Enhanced with Generative AI<a class="anchor-link" href="#Decision-Intelligence-Framework---How-Each-Step-is-Enhanced-with-Generative-AI">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The table below illustrates how each step of the Decision Intelligence Framework can be enhanced with Generative AI innovations. Notice the Generative AI can be applied anywhere in the process. Therefore, Generative AI doesn't have to be applied holistically to improve decision-making potential. It can be applied in some or all of the steps based on the potential value.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Decision Intelligence Step</th>
+<th style="text-align:left">Enhanced with Generative AI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1. Decision Framing</td>
+<td style="text-align:left">The manner a decision is approached has enormous importance on the quality of the decision. Poor decision framing has a snowball effect on subsquent decision-making tiers. It doesn't help that humans are poor at framing decisions. It is hard for humans to try different perspectives without personal cognitive biases getting in the way. While not perfect, Generative AI models can be instructed to approach various decisions from different perspectives, greatly adjusting bias. With Generative AI framing decisions, many perspectives can be effectively simulated for both individual and group decisions. For example, it is much easier for a Generative AI model to approach a problem from a positive perspective than a human who may be having a terrible personal time and can't put themselves into a positive decision frame.</td>
+</tr>
+<tr>
+<td style="text-align:left">2. Gathering Intelligence</td>
+<td style="text-align:left">Generative AI model innovations can gather intelligence in several ways. The first is from the internal knowledge the models have learned from the source data during the training process. Secondly, Generative AI can enhance the process of providing the proper contextual information using a process called Retrieval Augmented Generation (RAG) and semantic memory techniques. Traditional search systems (Google, Bing) have been based on keyword search algorithms. However, semantic techniques can understand the "meaning" of the context and pair it with data in a knowledge memory graph.  These new semantic search techniques have shown large improvements in accuracy and can provide more relevant data to a decision system.</td>
+</tr>
+<tr>
+<td style="text-align:left">3. Decision Execution</td>
+<td style="text-align:left">Generative AI models provide many enhancements in the decision reasoning and execution steps. Gen AI models can perform calculations, execute software code, apply decision frameworks, make recommendations etc. Simply, components of the Generative AI can act as your "pair decision-maker". This is further extended with the advent of agents, where multiple AI decision-makers can collaborate to execute decision task(s). Providers of Generative AI, like OpenAI, have created a new set of models that can output their "internal thought process" as they arrive a decision.</td>
+</tr>
+<tr>
+<td style="text-align:left">4. Decision Communication</td>
+<td style="text-align:left">If you have use a Generative AI chatbot (ChatGPT), you have seen how Generative AI systems can effectively communicate decisions to the user; by writing or speaking in cohesive sentences and even comprehensive reports. This can include describing the decision, explaining the reasoning process and applying specific communication techniques. This is truly revolutionary over past AI &amp; Machine Learning techniques, where models generally returned only a single probability percentage (i.e. 80%) or confidence score. In the past, it was up to the data scientist to translate complexity to additional communication framework.</td>
+</tr>
+<tr>
+<td style="text-align:left">5. Decision Monitoring</td>
+<td style="text-align:left">Generative AI innovations include ways where decisions can be evaluated, contrasted and compared. Furthermore, paired with business data, GenAI systems can continuously monitor the performance of existing decisions.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Decision-Intelligence-Framework---Example-of-Personalized-Decision-Making-using-Eisenhower-Decision-Priorotization">Decision Intelligence Framework - Example of Personalized Decision Making using Eisenhower Decision Priorotization<a class="anchor-link" href="#Decision-Intelligence-Framework---Example-of-Personalized-Decision-Making-using-Eisenhower-Decision-Priorotization">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Intro-to-Eisenhower-Decision-Priorotization">Intro to Eisenhower Decision Priorotization<a class="anchor-link" href="#Intro-to-Eisenhower-Decision-Priorotization">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/DecisionIntelligence-Intro-DwightEisenhowerQuote.png" style="display: block; margin: auto;" width="600px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Named after U.S. President Dwight D. Eisenhower, this prioritization framework will help you organize tasks and activities by importance and urgency. It's especially useful when you're overwhelmed, don't have time to execute on every task and want to plan for optimal impact.</p>
+<p><strong>Prioritization Process - The Eisenhower Decision Matrix prioritizes tasks into four quadrants:</strong></p>
+<ol>
+<li>Important &amp; Urgent: Do immediately (e.g., crises, deadlines).</li>
+<li>Important &amp; Not Urgent: Schedule time for these (e.g., planning, development).</li>
+<li>Not Important &amp; Urgent: Delegate (e.g., interruptions, some meetings).</li>
+<li>Not Important &amp; Not Urgent: Eliminate (e.g., distractions, trivial activities).</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You might be asking, <strong>"How useful is a 75 year old framework in 2025?!"</strong> It is still quite popular and implemented in modern software. For example, Asana (SaaS Project Management) has implemented it in several components of its platform: <a href="https://asana.com/resources/eisenhower-matrix">https://asana.com/resources/eisenhower-matrix</a></p>
+<img loading="lazy" alt="" src="https://assets.asana.biz/transform/30c95d26-15e1-4df1-9655-27b28186f0f2/inline-leadership-eisenhower-matrix-2-2x?io=transform:fill,width:2560&amp;format=webp" style="display: block; margin: auto;" width="325px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Applying-the-Decision-Intelligence-Framework">Applying the Decision Intelligence Framework<a class="anchor-link" href="#Applying-the-Decision-Intelligence-Framework">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A personalized Eisenhower prioritization framework can be crafted based on your information and approach for your individual or organizational decisions.</p>
+<p>Let's assume a non-specific Decision Scenario, where you need help priorotizing your daily tasks. Your day could have a variety tasks that you have trouble optimizing. They could be work, fitness, household chores etc. tasks. You want to leverage the Eisenhower Prioritization Framework using the Decision Intelligence Framework. How could this look like?</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>Decision Intelligence Step</strong></th>
+<th style="text-align:left"><strong>Description &amp; Application to Daily Prioritization</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>1. Decision Framing</strong></td>
+<td style="text-align:left"><strong>Define the problem</strong>: You want to efficiently manage your day so that you tackle the most important tasks first while staying flexible for unexpected changes. <br/><br/><strong>Consider multiple viewpoints</strong>: Your day includes household obligations, work commitments, and fitness activities, each with competing demands. Understanding these different priorities at the outset helps ensure you don’t focus exclusively on one area at the expense of others.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>2. Gathering Intelligence</strong></td>
+<td style="text-align:left"><strong>Collect Relevant Data and Information</strong>: <ul><li>List all tasks you need (or want) to accomplish.</li><li>Estimate time requirements and deadlines.</li><li>Review personal constraints (e.g., energy levels, key meetings, family obligations).</li><li>Check for external inputs such as team deliverables or events.</li></ul>A complete list of tasks needed to be accomplished is the most important data to gather. You need to have the full picture of your day’s demands before deciding how to execute.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>3. Decision Execution</strong></td>
+<td style="text-align:left"><strong>Use the Eisenhower Matrix</strong> to decide how to act on your tasks. The matrix classifies tasks based on <strong>urgency</strong> and <strong>importance</strong>: <br/><br/>1. <strong>Important &amp; Urgent (Do First)</strong> <br/>Tasks that have immediate deadlines or serious consequences if delayed (e.g., finishing a client presentation for a meeting tomorrow).<br/><br/>2. <strong>Important &amp; Not Urgent (Schedule)</strong> <br/>Tasks that are essential to long-term goals but don’t need to be done right now (e.g., planning upcoming project milestones).<br/><br/>3. <strong>Not Important &amp; Urgent (Delegate)</strong> <br/>Tasks that need to be done soon but can be handled by someone else to free up your time (e.g., routine paperwork, ordering supplies).<br/><br/>4. <strong>Not Important &amp; Not Urgent (Eliminate or Defer)</strong> <br/>Tasks that can be dropped or postponed without significant impact (e.g., browsing social media, unproductive meetings).</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>4. Decision Communication</strong></td>
+<td style="text-align:left"><strong>Explain your schedule and reasoning</strong>: <ul><li>Update your calendar with the tasks and their time blocks.</li><li>Let coworkers or family members know about critical to-dos and why those tasks are prioritized.</li><li>If delegating, clearly outline what needs to be done and by when.</li></ul>By articulating the “why” behind each priority, you increase buy-in and clarity, which can prevent confusion or last-minute changes. What is interesting in this decision scenario is that you are communicating and re-enforcing the plan to yourself.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>5. Decision Monitoring</strong></td>
+<td style="text-align:left"><strong>Track and Adjust</strong>: <ul><li>Review at the end of the day (or next morning) which tasks you finished and which might be carried over.</li><li>Gather feedback or note any bottlenecks that arose (e.g., unexpected phone calls, an urgent crisis, or task dependencies you didn’t anticipate).</li><li>Refine your approach for the next day by adjusting scheduling tactics or communication methods.</li></ul>This ongoing monitoring ensures your prioritization remains aligned with life changes and you continually are optimizing.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Decision-Intelligence---Materials-to-Deepen-Your-Understanding">Decision Intelligence - Materials to Deepen Your Understanding<a class="anchor-link" href="#Decision-Intelligence---Materials-to-Deepen-Your-Understanding">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>📢 This chapter (module) presents only a small sample of the full content found in the companion print book, “Decision Intelligence with Generative AI”, scheduled for release in 2026. In the meantime, the following materials are provided to help you deepen your understanding of the concepts covered here.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Decision &amp; Reasoning Tools Website: <a href="https://untools.co">https://untools.co</a></p>
+<p>The Untools website offers a collection of thinking tools and frameworks to help you solve problems, make decisions and understand systems. The collection is curated across: systems thinking, decision making, problem solving and communication.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The two resources below from J. Edward Russo and Paul J.H. Schoemaker are foundational for understanding decision-making. The first book ("Decision Traps") is an excellent resource on the pitfalls of human decision reasoning. The second book ("Winning Decisions") expands on many decision theory research and has an entire focus on framing decisions. The material illustrated in these books is super important for Generative AI. Being able to guide Generative AI models in their decision-framing and overcoming their own "trained" biases is critical when crafting Geneartive AI applications with decision intelligence.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://m.media-amazon.com/images/I/51S7HM8K05L.jpg" style="float: left;padding-left: 25px; padding-right: 25px;" width="200px"/>
+<p><a href="https://www.amazon.com/Decision-Traps-Barriers-Decision-Making-Overcome/dp/0671726099/"><strong>"Decision Traps: The Ten Barriers to Decision-Making and How to Overcome Them"</strong></a> by J. Edward Russo and Paul J.H. Schoemaker explains the common mistakes people and organizations make when making decisions. The authors discuss various thinking errors and biases that often lead to bad decisions. They stress the importance of being aware of these mistakes to make better choices. The book combines theory with practical examples to show how to avoid these errors. It recommends using structured methods, like properly framing decisions, considering different options, and using feedback. Russo and Schoemaker highlight the need to understand our own thinking limitations and biases. Overall, the book is a guide to improving decision-making skills and achieving better results in both personal and professional life.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://m.media-amazon.com/images/I/71e8xU-+VAL._SL1500_.jpg" style="float: right;padding-left: 25px; padding-right: 25px;" width="200px"/>
+<p><a href="https://www.amazon.com/Winning-Decisions-Getting-Right-First/dp/0385502257"><strong>"Winning Decisions: Getting It Right the First Time"</strong></a> by J. Edward Russo and Paul J.H. Schoemaker explores how to make effective decisions from the outset. The authors emphasize the importance of decision framing, which involves defining the context and boundaries of a decision before making it. Proper framing ensures that the right problems are addressed and helps avoid common decision-making pitfalls. The book outlines techniques for gathering relevant information, considering various options, and using structured processes to arrive at sound conclusions. Russo and Schoemaker use real-world examples to illustrate how clear and precise framing can lead to better outcomes. They stress that good decision-making involves both rational analysis and intuitive judgment, and provide strategies to integrate these aspects effectively. Overall, the book aims to equip readers with the tools to make well-informed decisions that are correct the first time.</p>
+</div>
+</div>
+</div>
+
+  </section>
+  </div>
+  <nav class="chapter-pager" aria-label="Chapter navigation">
+    <span class="pager-link disabled"><span>Previous</span><strong>Contents</strong></span>
+    <a class="pager-link align-right" data-next-chapter href="1b-decision-framing.html"><span>Next</span><strong>Decision Framing</strong></a>
+  </nav>
+</article>
+
+  </main>
+  <script type="module" src="../pagefind/pagefind-component-ui.js"></script>
+  <script src="../assets/site.js"></script>
+</body>
+</html>

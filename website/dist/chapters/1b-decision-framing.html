@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decision Framing | Decision Intelligence</title>
+  <meta name="description" content="How to shape the decision problem before evaluating options or recommendations.">
+  <meta property="og:title" content="Decision Framing | Decision Intelligence">
+  <meta property="og:description" content="How to shape the decision problem before evaluating options or recommendations.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Decision Framing | Decision Intelligence">
+  <meta name="twitter:description" content="How to shape the decision problem before evaluating options or recommendations.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('di-theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../pagefind/pagefind-component-ui.css">
+  
+</head>
+<body data-page="1b-decision-framing.html">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <button class="nav-toggle" type="button" aria-label="Open chapter navigation" aria-expanded="false">Menu</button>
+  
+<aside class="book-sidebar" aria-label="Book navigation">
+  <a class="book-brand" href="../index.html">
+    <img src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceLogo.png" alt="Decision Intelligence logo">
+    <span>Decision Intelligence</span>
+  </a>
+  <div class="pagefind-search-shell" data-pagefind-ignore="all">
+    <span class="search-label">Search book</span>
+    <pagefind-modal-trigger button-text="Search the book"></pagefind-modal-trigger>
+    <pagefind-modal></pagefind-modal>
+  </div>
+  <div class="theme-switcher" data-pagefind-ignore="all">
+    <span class="search-label">Appearance</span>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+      <span class="theme-toggle-icon" aria-hidden="true">☀</span>
+      <span data-theme-toggle-label>Light mode</span>
+    </button>
+  </div>
+  <nav class="chapter-nav" aria-label="Chapters">
+    <a class="chapter-link" href="../index.html" data-title="contents overview"><span class="chapter-code">TOC</span><span>Contents</span></a><a class="chapter-link" href="../chapters/1a-introducing-decision-intelligence-framework.html" data-title="1a introducing the decision intelligence framework introducing decisions"><span class="chapter-code">1A</span><span>Introducing Decisions</span></a><a class="chapter-link active" href="../chapters/1b-decision-framing.html" data-title="1b decision framing decision framing"><span class="chapter-code">1B</span><span>Decision Framing</span></a><a class="chapter-link" href="../chapters/1c-gathering-intelligence.html" data-title="1c gathering intelligence gathering intelligence"><span class="chapter-code">1C</span><span>Gathering Intelligence</span></a><a class="chapter-link" href="../chapters/1d-decision-execution.html" data-title="1d decision execution decision execution"><span class="chapter-code">1D</span><span>Decision Execution</span></a><a class="chapter-link" href="../chapters/1e-decision-execution-with-intuition.html" data-title="1e decision execution with intuition execution with intuition"><span class="chapter-code">1E</span><span>Execution with Intuition</span></a><a class="chapter-link" href="../chapters/1f-decision-execution-with-decision-rules.html" data-title="1f decision execution with decision rules execution with decision rules"><span class="chapter-code">1F</span><span>Execution with Decision Rules</span></a><a class="chapter-link" href="../chapters/1g-decision-execution-with-quantitative-methods.html" data-title="1g decision execution with quantitative methods execution with quantitative methods"><span class="chapter-code">1G</span><span>Execution with Quantitative Methods</span></a><a class="chapter-link" href="../chapters/1h-decision-communication.html" data-title="1h decision communication decision communication"><span class="chapter-code">1H</span><span>Decision Communication</span></a><a class="chapter-link" href="../chapters/1i-applying-decision-intelligence-framework.html" data-title="1i applying the decision intelligence framework applying the framework"><span class="chapter-code">1I</span><span>Applying the Framework</span></a><a class="chapter-link" href="../chapters/1j-enterprise-decision-intelligence.html" data-title="1j enterprise decision intelligence enterprise decision intelligence"><span class="chapter-code">1J</span><span>Enterprise Decision Intelligence</span></a>
+  </nav>
+</aside>
+<div class="nav-backdrop" data-close-nav></div>
+
+  <main id="main-content" class="book-main">
+    
+<article class="chapter-page">
+  <div data-pagefind-body>
+  <header class="chapter-header">
+    <a class="back-link" href="../index.html">Back to contents</a>
+    <p class="eyebrow">Chapter 1B</p>
+    <h1>Decision Framing</h1>
+    <p class="chapter-summary">How to shape the decision problem before evaluating options or recommendations.</p>
+  </header>
+  
+<nav class="chapter-toc" aria-label="Chapter table of contents">
+  <strong>On this page</strong>
+  <a class="toc-h3" href="#Introducing-Decision-Framing">Introducing Decision Framing</a><a class="toc-h3" href="#Reframing-with-Alternative-Decision-Frames">Reframing with Alternative Decision Frames</a><a class="toc-h3" href="#Decision-Framing---Systematic-Frameworks">Decision Framing - Systematic Frameworks</a><a class="toc-h3" href="#Decision-Framing---Actuarial-Thinking">Decision Framing - Actuarial Thinking</a><a class="toc-h4" href="#Actuarial-Decision-Framing-Taxonomy">Actuarial Decision Framing Taxonomy</a><a class="toc-h3" href="#Decision-Framing---Using-Generative-AI">Decision Framing - Using Generative AI</a><a class="toc-h4" href="#1.-Reduce-Human-Biases-in-Decision-Framing">1. Reduce Human Biases in Decision Framing</a><a class="toc-h4" href="#2.-Provide-Alternate-Decision-Frames">2. Provide Alternate Decision Frames</a><a class="toc-h4" href="#3.-Apply-Systematic-Decision-Making-Frameworks">3. Apply Systematic Decision-Making Frameworks</a><a class="toc-h4" href="#4.-Select-the-most-Appropriate-Decision-Frames">4. Select the most Appropriate Decision-Frames</a><a class="toc-h3" href="#Decision-Framing---Materials-to-Deepen-Your-Understanding">Decision Framing - Materials to Deepen Your Understanding</a>
+</nav>
+
+  <section class="notebook-content">
+    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="display: flex; align-items: center;">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceLogo.png" style="margin-right: 10px;" width="60px"/>
+<span style="font-size: 1.5em; font-weight: bold;">Decision Intelligence – Decision Framing</span>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Introducing-Decision-Framing">Introducing Decision Framing<a class="anchor-link" href="#Introducing-Decision-Framing">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligence-DecisionFraming.png" style="display: block; margin: auto;" width="700px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>📜 <strong><em>"The framing effect shows that people's decisions can be influenced by the way a problem is presented."</em></strong></p>
+<p>-- <cite>Daniel Kahneman (Nobel laureate, known for psychology of judgment and decision-making)</cite></p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Decision Framing is about presenting or thinking about reference points to potentially uncover additional choices.</strong> Imagine a situation where you are trying to decide whether to take a new job offer. Like any job, this specific job has it's own long list of important considerations. Typically, one doesn't evaluate every single minor metric of a job in great detail; one usually anchors on a few perspectives. Therefore, before beginning a decision we typically want to simplify the situation. One of these simplifcation techniques might be selecting the biggest pro or biggest con of the situation. In the job example, the biggest pro might be a high salary and the biggest con is a potentially a long commute and office work policy. If you focus on the frame of a higher salary, you might feel much more positive about the new job. But if you think about the longer commute, you might feel more hesitant on considering this new job. These decision frames (reference points) are highly contextual and personal to each of us in that decision situation. Therefore, another person approached with a job search may feel their decision rereference point isn't salary nor commute, it could be the quality of the work, company work culture or potential for career advancement.</p>
+<p>The way you frame your decision can strongly affect your outcome, much like looking at the same picture through different lenses. Each lens highlights different details, changing how you see the whole scene. By paying attention to how you’re framing the decision, you can find better ways to explore your options and possibly uncover new ones. Going back to the high-salary-but-long-commute job example, you might decide to negotiate a hybrid work arrangement instead of pushing for the highest pay. This is a new option you might not have considered if you only stuck to the original frame of “salary vs. commute.”</p>
+<p>Framing a decision properly helps you address the core problem, not just a symptom. Many times, we zoom in on a narrow frame and end up solving a smaller issue instead of the bigger one. In the job example, if you label the decision as just a “job offer,” you may ignore how it fits into your long-term goals. But if you rephrase it as a “career choice,” you start to consider whether you should make gradual moves in your field or take this chance to pivot to something more meaningful. Is joining a smaller company for more learning opportunities worth it, or should you chase a higher salary for quick benefits? By widening your perspective, you avoid making a short-term fix that may not support your long-term aspirations. Frames that are too tight can make you miss the core problem, causing you to only patch surface-level issues. On the other hand, good decision framing broadens your viewpoint, opens up fresh solutions, and helps you solve a more meaningful problem in the end.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/context_story_soldier_media-manipulation.png" style="float: left;padding-right: 25px" width="400px"/>
+<p>Decision frames can be easier to understand by presenting them visually. Looking at the left illustration of <strong>"one man giving water to another"</strong> can be cast in very different frames (perspectives) depending on the angle, cropping, and color/contrast. Look at each image slice from left to right, think about the situation each frame illustrates:</p>
+<ul>
+<li><strong>Left Frame (Threat/Control)</strong>: When the weapon pointing at the person is emphasized, the frame can be categorized as fear, life and danger. “Is he being forced? Is the soldier a threat to man sitting down?”</li>
+<li><strong>Middle Frame(Compassionate/Humanitarian)</strong>: The perspective is of a soldier helping balanced with the soldiers' authority. The soldier to the left remains pointing the gun (perhaps in an authoratative manner). However, the perspective is expanded to bring to focus a soldier giving water, softening the situation with an act of kindness.</li>
+<li><strong>Right Frame (Vulnerability/Dependency)</strong>: Similar starkness to the lefthand image slice but with more visible caregiving and humanity, by removing the soldier with the gun. One might feel a sense of relief in this perspective as the soldier giving water is in focus.</li>
+</ul>
+<p>Let's imagine being presented only the left or right image slice (partial frames) of a decision situation. From that partial perspective, you have to decide on the next steps. As you can clearly see, that partial frame immediately starts you in a poor position to arrive at a quality decision. You don't have the full perspective of the situation.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionFraming-BoatvsLand.png" style="float: right;padding-left: 25px; padding-right: 25px;" width="500px"/>
+<p>The simple cartoon on the right illustrates the how people in different circumstances can view the same encounter with opposite frames. Notice how the person stranded on an island enthusiastically welcomes an approaching boat; presumably as an avenue to leave being stuck on an isolated island. Contrast this, with the frame of the person rowing the boat (presumably for a long time) and ethusiastically welcomes land!  Therefore, <strong>the same exact situational moment can present wildly different frames for people</strong>. This is rooted in many complex topics, that can be effectively coalesced into the science of <strong>Philosophy</strong>.  Understanding the philosophy of why decision-makers have the frames they do is often key to finding the best outcome for everyone involved. This is considered a <strong>superpower</strong> of decision-framing, as it can help you with negotiations, agreements, debates etc.</p>
+<p>Decision-making is an important concept in Philosophy. You might be asking, "Why philosophy?!". Philosophy covers a broad set of concepts including "critical thinking", which teaches one to think carefully and argue logically. Philosophers look at problems from all angles to test if our beliefs make sense. In fact there are entire philosophy lesson plans for students dedicated to understanding decision-framing and perspectives. For example, the <a href="https://www.plato-philosophy.org/teachertoolkit/different-perspectives-game/"><strong>"PLATO - Different Perspectives Game"</strong></a> helps students see the world in different ways they normally don't. While this lesson plan is geared towards middle school-aged (primary school) students, it applies to all kinds of business situations!</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Reframing-with-Alternative-Decision-Frames">Reframing with Alternative Decision Frames<a class="anchor-link" href="#Reframing-with-Alternative-Decision-Frames">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/DecisionIntelligence-DecisionFraming-HenryFordQuote.png" style="display: block; margin: auto;" width="600px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Henry Ford’s famous quote (above) illustrates the importance of decision framing. Decision framing is about how you define a problem and the boundaries you set around possible solutions. Henry Ford claimed if you frame the decision narrowly, simply asking, “How can we improve transportation with horses?”, you’ll likely get incremental, unimaginative answers, like “faster horses.” But by broadening the frame to, <strong>“What is the real need here?”</strong> (such as faster, more reliable personal transport), you open up space for potential breakthrough solutions, like the automobile.</p>
+<p>In most decisions (personal, business) people tend to rely on a single, well-defined decision frame. This frame is often anchored in personal experience or shaped by organizational culture. For example, when deciding on a family dinner, the decision frame might focus on feeding everyone quickly, prioritizing the wishes of the birthday person, or creating a memorable one-time experience. The choice of frame depends heavily on the situation. At an amusement park, for instance, the priority might be to eat quickly so the family can get back to the rides. However, there are times when exploring alternative decision frames is necessary. For example, an established insurance company might realize that its long-standing sales techniques are no longer effective and need to reframe its approach to selling in order to adapt.</p>
+<p>To effectively reframe any decision, you can follow these steps:</p>
+<ol>
+<li>Understand the situation and the source of the decision frames</li>
+<li>Generate a list of new alternative decision frames</li>
+<li>Broaden what is being asked</li>
+<li>Analyze the new set of decision frames including the original set and the new alternatives</li>
+<li>Select a list of decision frames to start a decision</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>📝 Note: Depending on the decision complexity, framing can be done in a single step or it can break down framing into the listed framing sub-steps. This applies whether it is a human performing the decision-framing or a Generative AI enhanced system. Generative AI excels at automating this.</p>
+</blockquote>
+<p>Below are examples of decision-frames and alternate decision-frames. Notice how the primary and alternate decision-frames can adjust your initial path for making a decision. For simplicity only one alternate has been shown below for each situation, but real-world situations can have several alternatives. In fact, it is a best practice to start the decision-making process with multiple decision frames.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Situation</th>
+<th style="text-align:left">Decision-Frame</th>
+<th style="text-align:left">Alternate Decision-Frame</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>New required corporate security training</strong></td>
+<td style="text-align:left">"Noise" that prohibits you from executing your job tasks.</td>
+<td style="text-align:left">Opportunity to learn new security innovations.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>You own a stock that recently dropped 20%</strong></td>
+<td style="text-align:left">Financial risk &amp; consider selling. The stock is in a free-fall and you might lose a more money if you hold onto the stock.</td>
+<td style="text-align:left">Do more research. Potential opportunity to buy more and lower total ownership costs.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>A competitor comes out with a new solution powered by GenAI</strong></td>
+<td style="text-align:left">Opportunity to modernize &amp; innovate on your own company's solution with GenAI.</td>
+<td style="text-align:left">Risk to the business that could canibalize your revenue.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>A new powerful laptop has been released. Should you purchase it?</strong></td>
+<td style="text-align:left">Your current laptop is recent and working fine. Need good hardware functionality reasons to upgrade.</td>
+<td style="text-align:left">Warranty is expiring on your current laptop. What is the risk of it breaking and being stuck with no laptop?</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>The family refrigerator has stopped working</strong></td>
+<td style="text-align:left">Minimize cost. (Calling a repaiman will cost at least $250 for them to come out, but it may not fix the issue.)</td>
+<td style="text-align:left">Make the problem go away. (A new similar refrigerator cost ~$1,500. Should you spend that amount of money to guarantee solve the issue?)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/DecisionIntelligence-Intro-DanielK8020Quote.png" style="display: block; margin: auto;" width="600px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Alternate decision frames can become even more specific, significantly influencing how identical information is perceived. Daniel Kahneman's insight highlights this clearly: simply shifting emphasis from success to failure (or vice versa) can dramatically reshape the interpretation of the exact same probability. When presented with a choice, our brains tend to anchor strongly to the initial frame we encounter, causing us to underestimate or overlook equivalent alternative perspectives. Consequently, the same information, when presented positively, can prompt optimism, confidence, and a willingness to pursue an opportunity, while the negative framing of identical facts can trigger caution, avoidance, or even anxiety.</p>
+<p>This cognitive phenomenon arises because our decision-making processes are often intuitive rather than analytical, shaped by emotional reactions, memory associations, and implicit biases. Positive framing implicitly activates mental models focused on potential rewards and gains, aligning our thoughts toward desirable outcomes. Conversely, negative framing emphasizes potential losses or risks, activating mental patterns focused on preventing harm or avoiding undesirable outcomes. Even minor linguistic adjustments, such as describing medical treatments in terms of lives saved rather than lives lost—can profoundly influence the emotional weight we attribute to the information.</p>
+<p>The following table illustrates this phenomenon across a range of practical industry scenarios. Notice how each pair of examples reframes identical information either positively or negatively, seeding entirely different narratives and perceptions for the decision-maker.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Positive Frame</th>
+<th>Negative Frame</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Finance – Investment Outcome</strong></td>
+<td>There’s a 3 in 4 chance this investment will yield a profit.</td>
+<td>There’s a 1 in 4 chance this investment will result in a loss.</td>
+</tr>
+<tr>
+<td><strong>Finance – Payment Method Cost</strong></td>
+<td>A store offers a 2% discount for paying in cash.</td>
+<td>The store charges a 2% fee for using a credit card.</td>
+</tr>
+<tr>
+<td><strong>Finance – Insurance Purchase</strong></td>
+<td>Framed as protect your home for $300 a year (covers up to $100,000 in damages).</td>
+<td>Framed as without a $300 policy, you risk $100,000 in potential losses.</td>
+</tr>
+<tr>
+<td><strong>Healthcare – Drug Treatment Results</strong></td>
+<td>A medication is said to help 70% of patients who take it.</td>
+<td>It’s said that 30% of patients see no improvement with the medication.</td>
+</tr>
+<tr>
+<td><strong>Healthcare – Epidemic Plan</strong></td>
+<td>Policy framed as saving 200 lives out of 600.</td>
+<td>Policy framed as 400 people will die out of 600.</td>
+</tr>
+<tr>
+<td><strong>Healthcare – Regular Check-ups</strong></td>
+<td>Message: Regular check-ups increase your chances of catching illnesses early.</td>
+<td>Message: Skipping check-ups decreases your chances of catching illnesses early.</td>
+</tr>
+<tr>
+<td><strong>Marketing – Beef Labeling</strong></td>
+<td>Beef is labeled as “80% lean.”</td>
+<td>Beef is labeled as “20% fat.”</td>
+</tr>
+<tr>
+<td><strong>Marketing – Cleaning Product Claim</strong></td>
+<td>Advertised as kills 99% of germs on surfaces.</td>
+<td>Advertised as leaves 1% of germs on surfaces.</td>
+</tr>
+<tr>
+<td><strong>Nonprofit – Charity Appeal</strong></td>
+<td>Tells donors their gift can provide meals and shelter to a family in need.</td>
+<td>Warns that without donations, a family may go hungry and homeless.</td>
+</tr>
+<tr>
+<td><strong>Politics – Tax Cut Description</strong></td>
+<td>Promoted as “tax relief” for citizens (emphasizing easing a burden).</td>
+<td>Criticized as a reduction in funding for public programs (emphasizing lost benefits).</td>
+</tr>
+<tr>
+<td><strong>Politics – Employment Stats</strong></td>
+<td>Highlights that 95% of the workforce is employed.</td>
+<td>Notes that 5% of workers are unemployed.</td>
+</tr>
+<tr>
+<td><strong>Politics – Climate Policy</strong></td>
+<td>Announces a plan will cut emissions by 30% in the next decade.</td>
+<td>Points out this still leaves 70% of current emissions unaddressed.</td>
+</tr>
+<tr>
+<td><strong>Personal – Exercise Benefits</strong></td>
+<td>Encouragement: Exercising regularly will improve your energy and health.</td>
+<td>Warning: Not exercising increases your risk of fatigue and health issues.</td>
+</tr>
+<tr>
+<td><strong>Personal – Career Change</strong></td>
+<td>Seen as a chance to pursue a dream job and grow professionally.</td>
+<td>Seen as leaving a stable job and risking failure.</td>
+</tr>
+<tr>
+<td><strong>Personal – Asking Someone Out</strong></td>
+<td>You frame it as a chance to find love and happiness.</td>
+<td>You frame it as a chance of rejection and embarrassment.</td>
+</tr>
+<tr>
+<td><strong>Personal – Daily Savings</strong></td>
+<td>Think of it as saving $5 a day (about $150 a month) towards your goals.</td>
+<td>Think of it as losing $150 a month in potential savings by not saving daily.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Alternative frames are a great starting point and a core concept to master in decision framing. However, alternative decision frames generally only provide one additional frame. Alternative frames are helpful, but you may want to explore multiple decision frames. Extending this concept, a decision process may cast a wide net across a variety of decision frames and select several to process for decision recommendations.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Decision-Framing---Systematic-Frameworks">Decision Framing - Systematic Frameworks<a class="anchor-link" href="#Decision-Framing---Systematic-Frameworks">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Decision-Framing is a process that is more structured than most initially assume. There are several decision-framing techniques, processes and systematic frameworks that can be applied to improve decision-framing such as: Pareto Analysis, the 10-10-10 rule, Pascal's Wager, the Six Thinking Hats etc. These frameworks guide decision-makers through clear steps, ensuring that all relevant factors are considered and reducing the risk of overlooking critical information or making impulsive choices. By breaking a complex decision into defined components, frameworks prevent important considerations from getting lost. In a group setting, structured decision framing encourages sharing diverse perspectives in an organized way. Participants can systematically discuss each criterion or option, which reduces misunderstandings and maintains focus on the key issues. The result of incorporating decision-framing techniques is a decision process that is clearer, less biased, and more likely to yield quality outcomes.</p>
+<p>There is a great deal of available literature on these techniques and how to apply them for effective decision framing. Therefore, decision-framing can be learned, taught and incorporated by Generative AI!</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/six-thinking-hats-illustration.png" style="float: left;padding-right: 25px" width="400px"/>
+<p>Realistically there can be multiple decision-frames in a complex decision. The image on the left illustrates the <a href="https://untools.co/six-thinking-hats/"><strong>Six Thinking Hats</strong></a> decision-framing technique, which approaches a decision problem from 6 different perspectives: Positivity, Creativity, Emotions, Data/Rationality, Negativity/Caution and Process/Control. Each <strong>"thinking hat"</strong> looks at the problem in its own way. For example, the green hat looks at the situation primarily from a "Creative perspective". The challenge for human decision-makers is that we have inherent biases that are difficult to overcome and place ourselves in another state. If you are having a very poor personal week due to many reasons, it is naturally difficult to come into a new situation from a <strong>"Positive"</strong> perspective. This is where Generative AI helps immensely. You will see examples in this workshop how this technique can easily be applied to Generative AI decision-making, allowing the GenAI model to recommend a path forward in that specific contextual framing.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Decision-Framing---Actuarial-Thinking">Decision Framing - Actuarial Thinking<a class="anchor-link" href="#Decision-Framing---Actuarial-Thinking">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Actuarial thinking is a disciplined way of making decisions under uncertainty. Actuaries are professionals who use mathematics, statistics, financial theory, data, and business judgment to evaluate the quantitative consequences of uncertain future events. Their work is commonly associated with insurance, pensions, healthcare, retirement planning, enterprise risk management, and long-term financial systems. In practice, actuaries estimate the likelihood and cost of future events, test assumptions, calculate reserves, design policies or strategies, and communicate risk tradeoffs to decision-makers.</p>
+<p>For decision framing, actuarial thinking is useful because it forces us to look beyond the obvious framed question of “Which option looks best?” and instead ask, <strong><em>“Which option survives uncertainty?”</em></strong> An actuarial frame examines the time horizon of a decision, the amount of exposure at risk, the volatility of possible outcomes, the assumptions that must hold true, the credibility of the available evidence, the probability of abandoning the plan, and the possibility of rare but severe downside events.</p>
+<p>In this workshop, we will use actuarial thinking not as a technical insurance exercise (no advanceed math), but as a general purpose decision frame taxonomy. The goal is to help us reframe decisions around survivability, resilience, and long-term consequences etc. A decision may appear attractive under average conditions, but fail under stress, delay, volatility, weak assumptions, or extreme events. The actuarial lens helps reveal those hidden risks before we commit.</p>
+<p>A simple way to summarize actuarial decision framing is:</p>
+<blockquote>
+<p>Do not only ask whether a decision works in the expected case. Ask whether the decision works collectively across time, volatility, uncertainty, lapses in behavior, and adverse scenarios. Therefore, multiple decision-frames are being evaluated together.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Actuarial-Decision-Framing-Taxonomy">Actuarial Decision Framing Taxonomy<a class="anchor-link" href="#Actuarial-Decision-Framing-Taxonomy">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Below is an actuarial decision framing taxonomy that covers the core approaches an actuary takes when approaching decisions. These decision frames can be used individually. However, together they make up a collective portfolio of frames how an actuary approaches a high-stakes decision.</p>
+<table>
+<thead>
+<tr>
+<th>Actuarial Decision Frame</th>
+<th>Actuarial Lens</th>
+<th>Core Decision Question</th>
+<th>Main Decision Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time Horizon</td>
+<td>Duration, mortality, long-tail liabilities</td>
+<td>How long must this decision survive?</td>
+<td>Thinking too short-term</td>
+</tr>
+<tr>
+<td>Exposure</td>
+<td>Amount at risk, liability, exposure base</td>
+<td>What exactly is at risk?</td>
+<td>Oversized commitment</td>
+</tr>
+<tr>
+<td>Variance</td>
+<td>Volatility, fluctuation, distribution</td>
+<td>How unstable is the decision path?</td>
+<td>Emotional, financial, or operational instability</td>
+</tr>
+<tr>
+<td>Assumption Fragility</td>
+<td>Model risk, sensitivity testing</td>
+<td>Which assumption breaks the decision plan if wrong?</td>
+<td>Hidden optimism</td>
+</tr>
+<tr>
+<td>Tail (Black Swan) Risk</td>
+<td>Catastrophe, ruin, extreme loss</td>
+<td>What happens in the severe downside case?</td>
+<td>Very probability disaster manifests</td>
+</tr>
+<tr>
+<td>Correlation</td>
+<td>Dependency, contagion, concentration</td>
+<td>What else fails if this fails?</td>
+<td>Clustered losses</td>
+</tr>
+<tr>
+<td>Reserves</td>
+<td>Capital, surplus, margin</td>
+<td>What decision cushion is required?</td>
+<td>No buffer for adverse experience</td>
+</tr>
+<tr>
+<td>Optionality</td>
+<td>Exit value, embedded options</td>
+<td>Can the decision be reversed or pivoted?</td>
+<td>Lock-in path under uncertainty</td>
+</tr>
+<tr>
+<td>Adverse Selection</td>
+<td>Screening, underwriting</td>
+<td>Who is most likely to accept this deal?</td>
+<td>Attracting high-risk participants</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Actuarial Decision Frame Taxonomy Details:</p>
+<p><strong>1. Time Horizon</strong></p>
+<p>The Time Horizon frame asks how long a decision will remain viable. Many poor decisions come from optimizing for the next few weeks or months while ignoring obligations, consequences, or risks that last for years.</p>
+<table>
+<thead>
+<tr>
+<th>Decision framing scenario</th>
+<th>Framing question</th>
+<th>Reframed decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A person wants to retire early.</td>
+<td>Can this retirement plan survive 30-40 years of expenses, inflation, and healthcare costs?</td>
+<td>The decision is not “Can I retire now?” but “Can my assets survive a long retirement?”</td>
+</tr>
+<tr>
+<td>A company wants to launch a new AI product quickly.</td>
+<td>Will this architecture, data pipeline, and support model still work two years from now?</td>
+<td>The decision shifts from speed-to-market to long-term maintainability.</td>
+</tr>
+<tr>
+<td>Someone is choosing a college degree.</td>
+<td>Will this credential still have value over the next 10-20 years?</td>
+<td>The decision shifts from “What sounds interesting now?” to “What creates durable career optionality?”</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. Exposure</strong></p>
+<p>The Exposure frame identifies what is actually at risk before judging whether the risk is acceptable. A decision may look reasonable until you measure the size of the financial, reputational, emotional, operational, or time commitment.</p>
+<table>
+<thead>
+<tr>
+<th>Decision framing scenario</th>
+<th>Framing question</th>
+<th>Reframed decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A founder signs a personal guarantee for business debt.</td>
+<td>What personal assets and future income are exposed if the business fails?</td>
+<td>The decision shifts from “Can this loan fund growth?” to “Can I survive the downside?”</td>
+</tr>
+<tr>
+<td>A team migrates all workflows to one vendor.</td>
+<td>How much operational continuity is exposed to this vendor?</td>
+<td>The decision shifts from feature comparison to dependency risk.</td>
+</tr>
+<tr>
+<td>A person publicly shares a strong opinion online.</td>
+<td>What reputation, relationships, or career opportunities are exposed?</td>
+<td>The decision shifts from “Do I want to say this?” to “What cost am I willing to carry?”</td>
+</tr>
+</tbody>
+</table>
+<p><strong>3. Variance</strong></p>
+<p>The Variance frame looks at how unstable the decision path may be, not just the expected average outcome. Two choices can have similar expected value, but one may create far more emotional, financial, or operational swings.</p>
+<table>
+<thead>
+<tr>
+<th>Decision framing scenario</th>
+<th>Framing question</th>
+<th>Reframed decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Someone chooses between a salary role and a commission-heavy role.</td>
+<td>Can my household absorb months of low or unpredictable income?</td>
+<td>The decision shifts from maximum upside to income stability.</td>
+</tr>
+<tr>
+<td>A company relies on viral marketing for growth.</td>
+<td>How much will customer acquisition fluctuate month to month?</td>
+<td>The decision shifts from “Can this go big?” to “Can we operate through volatility?”</td>
+</tr>
+<tr>
+<td>A freelancer considers leaving a full-time job.</td>
+<td>Can I tolerate uneven cash flow, client churn, and uncertain demand?</td>
+<td>The decision shifts from freedom to volatility capacity.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>4. Assumption Fragility</strong></p>
+<p>The Assumption Fragility frame asks which assumption would break the decision if it turns out to be wrong. This is useful because a decision can look strong only because it quietly depends on optimistic assumptions.</p>
+<table>
+<thead>
+<tr>
+<th>Decision framing scenario</th>
+<th>Framing question</th>
+<th>Reframed decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A business plan assumes rapid customer adoption.</td>
+<td>What happens if adoption takes twice as long?</td>
+<td>The decision shifts from growth projection to survival under slower traction.</td>
+</tr>
+<tr>
+<td>A household buys a larger home assuming future raises.</td>
+<td>What happens if income stays flat or one person loses a job?</td>
+<td>The decision shifts from affordability under optimism to affordability under stress.</td>
+</tr>
+<tr>
+<td>A team adopts a GenAI tool assuming high user trust.</td>
+<td>What if users do not trust the outputs or require manual review?</td>
+<td>The decision shifts from automation potential to adoption and governance risk.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>5. Tail (Black Swan) Risk</strong></p>
+<p>The Tail Risk frame examines severe downside scenarios that may be unlikely but highly damaging. The goal is not to predict every extreme event, but to avoid decisions where one bad event can cause ruin.</p>
+<table>
+<thead>
+<tr>
+<th>Decision framing scenario</th>
+<th>Framing question</th>
+<th>Reframed decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A company stores sensitive customer data without strong security controls.</td>
+<td>What happens if a breach occurs?</td>
+<td>The decision shifts from compliance checkbox to catastrophic trust and liability risk.</td>
+</tr>
+<tr>
+<td>An investor puts most savings into one speculative asset.</td>
+<td>What happens if the asset collapses?</td>
+<td>The decision shifts from upside potential to ruin prevention.</td>
+</tr>
+<tr>
+<td>A person skips insurance because they are healthy today.</td>
+<td>What happens in a major medical, disability, or liability event?</td>
+<td>The decision shifts from average cost to catastrophic protection.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>6. Correlation</strong></p>
+<p>The Correlation frame asks whether multiple risks are connected and could fail together. This matters because a decision is much riskier when income, assets, relationships, suppliers, or assumptions all depend on the same underlying factor.</p>
+<table>
+<thead>
+<tr>
+<th>Decision framing scenario</th>
+<th>Framing question</th>
+<th>Reframed decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>An employee holds a large amount of employer stock.</td>
+<td>If the company struggles, could I lose both my job and investment value?</td>
+<td>The decision shifts from loyalty to concentration risk.</td>
+</tr>
+<tr>
+<td>A startup gets most revenue from one platform.</td>
+<td>What happens if the platform changes pricing, ranking, or access rules?</td>
+<td>The decision shifts from growth channel to platform dependency.</td>
+</tr>
+<tr>
+<td>A household has two earners in the same industry.</td>
+<td>Could both incomes be disrupted by the same downturn?</td>
+<td>The decision shifts from household income level to income diversification.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>7. Reserves</strong></p>
+<p>The Reserves frame asks what cushion is required before a decision is safe enough to execute. In actuarial practice, reserves and capital buffers exist because actual experience can be worse than expected, and the same logic applies to personal, business, and strategic decisions.</p>
+<table>
+<thead>
+<tr>
+<th>Decision framing scenario</th>
+<th>Framing question</th>
+<th>Reframed decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A person wants to quit their job to start a company.</td>
+<td>How many months of living expenses and business runway are needed?</td>
+<td>The decision shifts from passion to runway adequacy.</td>
+</tr>
+<tr>
+<td>A company launches a major transformation project.</td>
+<td>What time, budget, and talent buffer is needed if implementation runs late?</td>
+<td>The decision shifts from project plan to adverse-experience buffer.</td>
+</tr>
+<tr>
+<td>A family buys a home.</td>
+<td>After the down payment, what cash remains for repairs, job loss, or emergencies?</td>
+<td>The decision shifts from “Can we close?” to “Can we absorb surprises after closing?”</td>
+</tr>
+</tbody>
+</table>
+<p><strong>8. Optionality</strong></p>
+<p>The Optionality frame asks whether the decision can be reversed, adjusted, delayed, or pivoted. When uncertainty is high, preserving options can be more valuable than committing early to a rigid path.</p>
+<table>
+<thead>
+<tr>
+<th>Decision framing scenario</th>
+<th>Framing question</th>
+<th>Reframed decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A company signs a long-term software contract.</td>
+<td>Can we exit or migrate if the tool does not perform?</td>
+<td>The decision shifts from price discount to lock-in risk.</td>
+</tr>
+<tr>
+<td>A person chooses a highly specialized career path.</td>
+<td>Does this path preserve or reduce future career options?</td>
+<td>The decision shifts from near-term specialization to long-term adaptability.</td>
+</tr>
+<tr>
+<td>A startup hires full-time employees before product-market fit.</td>
+<td>Could contractors or phased hiring preserve flexibility?</td>
+<td>The decision shifts from scaling fast to keeping strategic options open.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>9. Adverse Selection</strong></p>
+<p>The Adverse Selection frame asks who is most likely to respond to a decision recommendation. It is especially useful when one side has more information about their risk, quality, motivation, or behavior than the other side.</p>
+<table>
+<thead>
+<tr>
+<th>Decision framing scenario</th>
+<th>Framing question</th>
+<th>Reframed decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A consultant offers unlimited revisions.</td>
+<td>Which clients are most likely to be attracted by unlimited scope?</td>
+<td>The decision shifts from generosity to scope-control risk.</td>
+</tr>
+<tr>
+<td>A company offers a very low price with no qualification process.</td>
+<td>Are we attracting the customers least likely to be profitable?</td>
+<td>The decision shifts from volume growth to customer-quality screening.</td>
+</tr>
+<tr>
+<td>A hiring manager posts a vague job description.</td>
+<td>Who self-selects into an unclear role with unclear accountability?</td>
+<td>The decision shifts from filling a role quickly to screening for fit and clarity.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Decision-Framing---Using-Generative-AI">Decision Framing - Using Generative AI<a class="anchor-link" href="#Decision-Framing---Using-Generative-AI">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>While the topic of Decision Framing is very approachable, one still needs to coalesce this literature, consume it, internalize it and practice applying decision frames. This is where the power of Generative AI decision systems shine. The great news is that these decision-framing techniques are either built-in to the GenAI model knowledge or the model can be provided ("grounded") with new decision-framing techniques. This allows someone to quickly find, apply and create decision-framing scenarios very quickly. Furthermore, this allows for creating Generative AI solutions with dynamic and configurable decision-framing processes.</p>
+<p>Key areas where Generative AI can enhance Decision-Framing:</p>
+<ol>
+<li>Reduce Human Biases in Decision Framing</li>
+<li>Provide Alternate Decision Frames</li>
+<li>Apply Systematic Decision-Making Frameworks</li>
+<li>Select the most Appropriate Decision-Frames (from a wide corpus of frames)</li>
+</ol>
+<p>Let's take a look an example of each.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="1.-Reduce-Human-Biases-in-Decision-Framing">1. Reduce Human Biases in Decision Framing<a class="anchor-link" href="#1.-Reduce-Human-Biases-in-Decision-Framing">¶</a></h4><p>Human decision-makers are prone to cognitive biases that narrow their thinking. We tend to ask questions that confirm our assumptions (confirmation bias), give undue weight to recent information (recency bias), or stick with the group’s view (groupthink), often framing decisions too narrowly​. Generative AI models mitigate these biases by analyzing vast amounts of data objectively, identifying potential blind spots or overlooked perspectives without the emotional attachment or predispositions humans naturally possess. Furthermore, Generative AI can counter these biases by offering an outside perspective and control for bias. Controls for bias can be implemented with prompt engineering techniques and monitored during Artificial Intelligence output evaluations.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="2.-Provide-Alternate-Decision-Frames">2. Provide Alternate Decision Frames<a class="anchor-link" href="#2.-Provide-Alternate-Decision-Frames">¶</a></h4><p>Generative AI excels at generating alternative perspectives on a problem, essentially reframing questions in novel ways. Rather than sticking to a single viewpoint, AI can dynamically suggest multiple frames, leading humans to see new solutions. Therfore, Generative AI can significantly expand the scope of decision framing by rapidly generating alternative viewpoints and perspectives that humans might not immediately consider. By simulating multiple scenarios, Generative AI can suggest novel or non-obvious frames, encouraging decision-makers to think beyond initial assumptions or conventional wisdom. For example, an AI model might suggest viewing a challenging business decision from a customer-experience angle, an ethical angle, or through the lens of long-term sustainability.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="3.-Apply-Systematic-Decision-Making-Frameworks">3. Apply Systematic Decision-Making Frameworks<a class="anchor-link" href="#3.-Apply-Systematic-Decision-Making-Frameworks">¶</a></h4><p>Beyond brainstorming, AI can also rigorously apply formal decision-making frameworks like cost–benefit analysis, SWOT, and multi-criteria decision analysis (MCDA). By quickly processing and organizing data into clear frameworks, AI helps users swiftly visualize the consequences and trade-offs associated with each option. This structured approach ensures comprehensive coverage of essential criteria, improving the clarity, coherence, and effectiveness of final decisions.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="4.-Select-the-most-Appropriate-Decision-Frames">4. Select the most Appropriate Decision-Frames<a class="anchor-link" href="#4.-Select-the-most-Appropriate-Decision-Frames">¶</a></h4><p>For complex scenarios, choosing how to frame the decision is a critical step. Should the issue be framed as a risk management problem or an opportunity pursuit? Should one use a quantitative frame or a narrative, a short-term lens or long-term? Generative AI can assist decision-makers in identifying which decision frames are most suitable for specific contexts, significantly enhancing the relevance and effectiveness of the chosen framing techniques. By analyzing contextual factors, historical outcomes, and situational specifics, AI models can recommend the optimal framing approach. This is whether it’s a premortem for high-risk projects, cost-benefit analysis for investment decisions, or the Six Thinking Hats method for multifaceted issues. Such guidance optimizes alignment between the decision challenge and the selected framing methodology.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Decision-Framing---Materials-to-Deepen-Your-Understanding">Decision Framing - Materials to Deepen Your Understanding<a class="anchor-link" href="#Decision-Framing---Materials-to-Deepen-Your-Understanding">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>📢 This chapter (module) presents only a small sample of the full content found in the companion print book, “Decision Intelligence with Generative AI”, scheduled for release in 2026. In the meantime, the following materials are provided to help you deepen your understanding of the concepts covered here.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://m.media-amazon.com/images/I/71YnDPoL4CL._SY522_.jpg" style="float: left;padding-left: 25px; padding-right: 25px;" width="200px"/>
+<p><a href="https://www.amazon.com/Six-Thinking-Hats-Edward-Bono/dp/0316178314/"><strong>"Six Thinking Hats"</strong></a> by Edward de Bono introduces a method for group discussion and individual thinking involving six distinct perspectives, represented by different colored hats. Each hat symbolizes a different mode of thinking: white for facts and information, red for emotions, black for critical judgment, yellow for optimism, green for creativity, and blue for process control. By mentally wearing one hat at a time, individuals and groups can focus their thinking, leading to more thorough and effective decision-making. This structured approach helps separate emotions from facts, encourages diverse viewpoints, and fosters constructive collaboration.</p>
+<blockquote>
+<p>Note: This book is the gold standard in decision-framing, with all the chapters dedicated to the topic.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://m.media-amazon.com/images/I/71704XiiwBL._SL1500_.jpg" style="float: right;padding-left: 25px; padding-right: 25px;" width="200px"/>
+<p><a href="https://www.amazon.com/Thinking-in-Bets-Annie-Duke-audiobook/dp/B078SBSBW3/"><strong>"Thinking in Bets: Making Smarter Decisions When You Don't Have All the Facts"</strong></a> by Annie Duke explores decision-making through the lens (decision frame) of a professional poker player. Duke argues that life is full of uncertainty and that we should think in terms of probabilities rather than absolutes. She emphasizes the importance of distinguishing between the quality of decisions and their outcomes, promoting a mindset where a decision process is valued more than the decision outcome. By using strategies from poker, Duke provides tools for better decision-making under uncertainty, such as embracing uncertainty, evaluating risks, and learning from past decisions. One key tool is to approach decisions as "financial bets", which is another decison framing technique that can calibrate a decision-maker's confidence. Overall, the book encourages a systematic approach to life and decision-making.</p>
+<blockquote>
+<p>📝 Note: This resource covers a very specific type of decision-framing in great detail: "framing decisions as bets". This is not the only book that covers the "thinking in quantitative bets" as a decision-frame mindset, but it is one of the very few that dedicates an entire book to it.</p>
+</blockquote>
+</div>
+</div>
+</div>
+
+  </section>
+  </div>
+  <nav class="chapter-pager" aria-label="Chapter navigation">
+    <a class="pager-link" data-prev-chapter href="1a-introducing-decision-intelligence-framework.html"><span>Previous</span><strong>Introducing Decisions</strong></a>
+    <a class="pager-link align-right" data-next-chapter href="1c-gathering-intelligence.html"><span>Next</span><strong>Gathering Intelligence</strong></a>
+  </nav>
+</article>
+
+  </main>
+  <script type="module" src="../pagefind/pagefind-component-ui.js"></script>
+  <script src="../assets/site.js"></script>
+</body>
+</html>
