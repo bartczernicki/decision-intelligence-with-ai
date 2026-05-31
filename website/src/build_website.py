@@ -47,13 +47,17 @@ def slugify(value: str) -> str:
 def notebook_metadata(notebook_file: str) -> dict[str, str]:
     stem = Path(notebook_file).stem
     parts = [part.strip() for part in stem.split(" - ")]
-    if len(parts) < 2:
-        raise ValueError(f"Notebook filename must include a code and title: {notebook_file}")
+    if len(parts) < 3:
+        raise ValueError(
+            f"Notebook filename must include a code, group, and title: {notebook_file}"
+        )
 
     code = parts[0]
+    group = parts[1]
     title = parts[-1]
     return {
         "code": code,
+        "group": group,
         "notebook": notebook_file,
         "raw": f"{stem}.html",
         "file": f"{slugify(f'{code} {title}')}.html",
@@ -198,10 +202,15 @@ def sidebar(prefix: str, current_file: str) -> str:
         '<span class="chapter-code">TOC</span><span>Contents</span></a>'
     ]
 
+    current_group = None
     for chapter in CHAPTERS:
+        if chapter["group"] != current_group:
+            current_group = chapter["group"]
+            items.append(f'<div class="chapter-group">{escape(current_group)}</div>')
+
         active = " active" if chapter["file"] == current_file else ""
         data_title = escape(
-            f"{chapter['code']} {chapter['title']} {chapter['short']}".lower(), quote=True
+            f"{chapter['code']} {chapter['group']} {chapter['title']}".lower(), quote=True
         )
         items.append(
             f'<a class="chapter-link{active}" href="{prefix}chapters/{chapter["file"]}" data-title="{data_title}">'
@@ -437,7 +446,7 @@ def main() -> None:
     write_assets()
     generate_pagefind()
     validate_links()
-    print(f"Built website v{BOOK_VERSION} with {len(CHAPTERS)} chapters and Pagefind search.")
+    print(f"Built website {BOOK_VERSION} with {len(CHAPTERS)} chapters and Pagefind search.")
 
 
 FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
@@ -696,19 +705,29 @@ button:focus-visible {
   gap: 6px;
   margin-top: 18px;
 }
+.chapter-group {
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 14px 10px 2px;
+  text-transform: uppercase;
+}
 .chapter-link {
   display: grid;
   grid-template-columns: 44px 1fr;
-  align-items: center;
+  align-items: start;
   min-height: 44px;
   gap: 10px;
   padding: 8px 10px;
   border-radius: 8px;
   color: var(--ink);
   text-decoration: none;
-  font-size: 0.94rem;
-  line-height: 1.25;
+  font-size: 0.84rem;
+  line-height: 1.22;
+  overflow-wrap: anywhere;
 }
+.chapter-link span:last-child { padding-top: 4px; }
 .chapter-link:hover,
 .chapter-link.active {
   background: var(--panel);
