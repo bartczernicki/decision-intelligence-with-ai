@@ -1,0 +1,1038 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Decision Prompts | Decision Intelligence</title>
+  <meta name="description" content="Static reading edition generated from the Simple Decision Prompts notebook.">
+  <meta name="book-version" content="v0.3-preview.20260531">
+  <meta property="og:title" content="Simple Decision Prompts | Decision Intelligence">
+  <meta property="og:description" content="Static reading edition generated from the Simple Decision Prompts notebook.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Simple Decision Prompts | Decision Intelligence">
+  <meta name="twitter:description" content="Static reading edition generated from the Simple Decision Prompts notebook.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('di-theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../pagefind/pagefind-component-ui.css">
+  
+</head>
+<body data-page="3a-simple-decision-prompts.html">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <button class="nav-toggle" type="button" aria-label="Open chapter navigation" aria-expanded="false">Menu</button>
+  
+<aside class="book-sidebar" aria-label="Book navigation">
+  <a class="book-brand" href="../index.html">
+    <img src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceLogo.png" alt="Decision Intelligence logo">
+    <span class="book-brand-text">
+      <span>Decision Intelligence with AI</span>
+      <span class="book-version">Version v0.3-preview.20260531</span>
+    </span>
+  </a>
+  <div class="pagefind-search-shell" data-pagefind-ignore="all">
+    <span class="search-label">Search book</span>
+    <pagefind-modal-trigger button-text="Search the book"></pagefind-modal-trigger>
+    <pagefind-modal></pagefind-modal>
+  </div>
+  <div class="theme-switcher" data-pagefind-ignore="all">
+    <span class="search-label">Appearance</span>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+      <span class="theme-toggle-icon" aria-hidden="true">☀</span>
+      <span data-theme-toggle-label>Light mode</span>
+    </button>
+  </div>
+  <nav class="chapter-nav" aria-label="Chapters">
+    <a class="chapter-link" href="../index.html" data-title="contents overview"><span class="chapter-code">TOC</span><span>Contents</span></a><a class="chapter-link" href="../chapters/1a-introducing-the-decision-intelligence-framework.html" data-title="1a introducing the decision intelligence framework introducing the decision intelligence framework"><span class="chapter-code">1A</span><span>Introducing the Decision Intelligence Framework</span></a><a class="chapter-link" href="../chapters/1b-decision-framing.html" data-title="1b decision framing decision framing"><span class="chapter-code">1B</span><span>Decision Framing</span></a><a class="chapter-link" href="../chapters/1c-gathering-intelligence.html" data-title="1c gathering intelligence gathering intelligence"><span class="chapter-code">1C</span><span>Gathering Intelligence</span></a><a class="chapter-link" href="../chapters/1d-decision-execution.html" data-title="1d decision execution decision execution"><span class="chapter-code">1D</span><span>Decision Execution</span></a><a class="chapter-link" href="../chapters/1e-decision-execution-with-intuition.html" data-title="1e decision execution with intuition decision execution with intuition"><span class="chapter-code">1E</span><span>Decision Execution with Intuition</span></a><a class="chapter-link" href="../chapters/1f-decision-execution-with-decision-rules.html" data-title="1f decision execution with decision rules decision execution with decision rules"><span class="chapter-code">1F</span><span>Decision Execution with Decision Rules</span></a><a class="chapter-link" href="../chapters/1g-decision-execution-with-quantitative-methods.html" data-title="1g decision execution with quantitative methods decision execution with quantitative methods"><span class="chapter-code">1G</span><span>Decision Execution with Quantitative Methods</span></a><a class="chapter-link" href="../chapters/1h-decision-communication.html" data-title="1h decision communication decision communication"><span class="chapter-code">1H</span><span>Decision Communication</span></a><a class="chapter-link" href="../chapters/1i-applying-the-decision-intelligence-framework.html" data-title="1i applying the decision intelligence framework applying the decision intelligence framework"><span class="chapter-code">1I</span><span>Applying the Decision Intelligence Framework</span></a><a class="chapter-link" href="../chapters/1j-enterprise-decision-intelligence.html" data-title="1j enterprise decision intelligence enterprise decision intelligence"><span class="chapter-code">1J</span><span>Enterprise Decision Intelligence</span></a><a class="chapter-link" href="../chapters/2a-code-execution-requirements.html" data-title="2a code execution requirements code execution requirements"><span class="chapter-code">2A</span><span>Code Execution Requirements</span></a><a class="chapter-link" href="../chapters/2b-about-microsoft-ai-extensions.html" data-title="2b about microsoft ai extensions about microsoft ai extensions"><span class="chapter-code">2B</span><span>About Microsoft AI Extensions</span></a><a class="chapter-link" href="../chapters/2c-microsoft-agent-framework.html" data-title="2c microsoft agent framework microsoft agent framework"><span class="chapter-code">2C</span><span>Microsoft Agent Framework</span></a><a class="chapter-link active" href="../chapters/3a-simple-decision-prompts.html" data-title="3a simple decision prompts simple decision prompts"><span class="chapter-code">3A</span><span>Simple Decision Prompts</span></a><a class="chapter-link" href="../chapters/3b-decisions-with-chat-completions-and-responses-apis.html" data-title="3b decisions with chat completions &amp; responses apis decisions with chat completions &amp; responses apis"><span class="chapter-code">3B</span><span>Decisions with Chat Completions &amp; Responses APIs</span></a><a class="chapter-link" href="../chapters/3c-decisions-with-reusable-prompts-and-native-net-functions.html" data-title="3c decisions with reusable prompts and native .net functions decisions with reusable prompts and native .net functions"><span class="chapter-code">3C</span><span>Decisions with Reusable Prompts and Native .NET Functions</span></a><a class="chapter-link" href="../chapters/3d-private-ai-decision-intelligence.html" data-title="3d private ai decision intelligence private ai decision intelligence"><span class="chapter-code">3D</span><span>Private AI Decision Intelligence</span></a>
+  </nav>
+</aside>
+<div class="nav-backdrop" data-close-nav></div>
+
+  <main id="main-content" class="book-main">
+    
+<article class="chapter-page">
+  <div data-pagefind-body>
+  <header class="chapter-header">
+    <a class="back-link" href="../index.html">Back to contents</a>
+    <p class="eyebrow">Chapter 3A</p>
+    <h1>Simple Decision Prompts</h1>
+    <p class="chapter-summary">Static reading edition generated from the Simple Decision Prompts notebook.</p>
+  </header>
+  
+<nav class="chapter-toc" aria-label="Chapter table of contents">
+  <strong>On this page</strong>
+  <a class="toc-h3" href="#Step-1---Initialize-Configuration-Builder-&amp;-Build-the-AI-Orchestration">Step 1 - Initialize Configuration Builder &amp; Build the AI Orchestration</a><a class="toc-h3" href="#Step-2---Execute-a-Decision-Prompt">Step 2 - Execute a Decision Prompt</a><a class="toc-h3" href="#Step-3---Execute-a-Decision-Prompt-with-Streaming">Step 3 - Execute a Decision Prompt with Streaming</a><a class="toc-h3" href="#Step-4---Execute-a-Decision-Prompt-with-Improved-Output-Formatting">Step 4 - Execute a Decision Prompt with Improved Output Formatting</a><a class="toc-h3" href="#Step-5---Execute-a-Decision-Prompt-with-a-Custom-Prompt-Execution-Configuration">Step 5 - Execute a Decision Prompt with a Custom Prompt Execution Configuration</a><a class="toc-h3" href="#Step-6---Execute-Decision-Prompts-with-a-System-Prompt-(AI-Decision-Persona)">Step 6 - Execute Decision Prompts with a System Prompt (AI Decision Persona)</a><a class="toc-h3" href="#Step-7---Execute-a-Decision-Scenario-with-a-System-Prompt-(Custom-AI-Persona)">Step 7 - Execute a Decision Scenario with a System Prompt (Custom AI Persona)</a><a class="toc-h3" href="#Recommendation">Recommendation</a>
+</nav>
+
+  <section class="notebook-content">
+    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="display: flex; align-items: center;">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/SemanticKernelLogo.png" style="margin-right: 10px;" width="40px"/>
+<span style="font-size: 1.5em; font-weight: bold;">3a - Workshop (AI Extensions) - Simple Decision Prompts</span>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Decision Intelligence concepts applied in this module:</p>
+<ul>
+<li>Listing generic decision-making tools trained-into Generative AI LLMs</li>
+<li>Creating custom AI personas with a system decision prompt</li>
+<li>Generating decision outputs using easier to consume formats (Markdown)</li>
+</ul>
+<p>Prompts are the fundamental building blocks for eliciting effective responses from AI models. This module demonstrates how to use common prompt engineering techniques within Microsoft AI Extensions. If you’ve used ChatGPT or Microsoft Copilot, you’re already familiar with prompting: given an instruction, a language model predicts the most likely and relevant response. With Microsoft AI Extensions, you can build applications, services, and APIs that execute these prompts quickly and effectively.</p>
+<p>For more information on using prompts with Microsoft Extensions AI, visit: <a href="https://learn.microsoft.com/en-us/dotnet/ai/quickstarts/prompt-model?pivots=azure-openai">https://learn.microsoft.com/en-us/dotnet/ai/quickstarts/prompt-model?pivots=azure-openai</a></p>
+<p>The process of carefully crafting questions or instructions for AI is called <strong>Prompt Engineering</strong>. Prompt Engineering involves designing and refining input prompts—text or questions—so that the AI produces responses that are more relevant, useful, or accurate. The goal is to maximize the quality and clarity of the AI’s output, often by using specific wording, added context, or concrete examples within the prompt.</p>
+<blockquote>
+<p>📝 <strong>Note:</strong> Future modules will evolve the prompts to include <strong>Context Engineering</strong>, which is a more broader technique that includes setting up an information architecture (memory, exeternal data, system prompts, MCP Tools etc.) for making better decisions.</p>
+</blockquote>
+<p>By combining Decision Intelligence with Prompt Engineering/Context Engineering, you can create <strong>“Decision Intelligence powered by Generative AI”</strong>. This approach leverages Generative AI models to apply decision-making pricingples, by reasoning through complex decision scenarios, gathering intelligence, recommending decisions, and communicating results more effectively.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr/>
+<h3 id="Step-1---Initialize-Configuration-Builder-&amp;-Build-the-AI-Orchestration">Step 1 - Initialize Configuration Builder &amp; Build the AI Orchestration<a class="anchor-link" href="#Step-1---Initialize-Configuration-Builder-&amp;-Build-the-AI-Orchestration">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Execute the next two cells to:</p>
+<ul>
+<li>Use the Configuration Builder to load the API secrets.</li>
+<li>Use the API configuration to build the AI orchestrator.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the required NuGet configuration packages</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration, 10.0.8"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration.Json, 10.0.8"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: System.Text.Json, 10.0.8"</span>
+
+<span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration.Json</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.IO</span><span class="p">;</span>
+
+<span class="c1">// Load the configuration settings from the local.settings.json and secrets.settings.json files</span>
+<span class="c1">// The secrets.settings.json file is used to store sensitive information such as API keys</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">configurationBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConfigurationBuilder</span><span class="p">()</span>
+<span class="w">    </span><span class="p">.</span><span class="n">SetBasePath</span><span class="p">(</span><span class="n">Directory</span><span class="p">.</span><span class="n">GetCurrentDirectory</span><span class="p">())</span>
+<span class="w">    </span><span class="p">.</span><span class="n">AddJsonFile</span><span class="p">(</span><span class="s">"local.settings.json"</span><span class="p">,</span><span class="w"> </span><span class="n">optional</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="n">reloadOnChange</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">AddJsonFile</span><span class="p">(</span><span class="s">"secrets.settings.json"</span><span class="p">,</span><span class="w"> </span><span class="n">optional</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="n">reloadOnChange</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configurationBuilder</span><span class="p">.</span><span class="n">Build</span><span class="p">();</span>
+
+<span class="c1">// IMPORTANT: You ONLY NEED either Azure OpenAI or OpenAI connection info, not both.</span>
+<span class="c1">// Azure OpenAI Connection Info</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIEndpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:Endpoint"</span><span class="p">];</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIAPIKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:APIKey"</span><span class="p">];</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIModelDeploymentName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:ModelDeploymentName"</span><span class="p">];</span>
+<span class="c1">// OpenAI Connection Info </span>
+<span class="kt">var</span><span class="w"> </span><span class="n">openAIAPIKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"OpenAI:APIKey"</span><span class="p">];</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">openAIModelId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"OpenAI:ModelId"</span><span class="p">];</span>
+
+<span class="c1">// Console.WriteLine(azureOpenAIEndpoint);</span>
+<span class="c1">// Console.WriteLine(azureOpenAIModelDeploymentName);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea">
+<div>
+<div id="dotnet-interactive-this-cell-$CACHE_BUSTER$" style="display: none">
+        The below script needs to be able to find the current output cell; this is an easy method to get it.
+    </div>
+<script type="text/javascript">
+async function probeAddresses(probingAddresses) {
+    function timeout(ms, promise) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                reject(new Error('timeout'))
+            }, ms)
+            promise.then(resolve, reject)
+        })
+    }
+
+    if (Array.isArray(probingAddresses)) {
+        for (let i = 0; i < probingAddresses.length; i++) {
+
+            let rootUrl = probingAddresses[i];
+
+            if (!rootUrl.endsWith('/')) {
+                rootUrl = `${rootUrl}/`;
+            }
+
+            try {
+                let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
+                    method: 'POST',
+                    cache: 'no-cache',
+                    mode: 'cors',
+                    timeout: 1000,
+                    headers: {
+                        'Content-Type': 'text/plain'
+                    },
+                    body: probingAddresses[i]
+                }));
+
+                if (response.status == 200) {
+                    return rootUrl;
+                }
+            }
+            catch (e) { }
+        }
+    }
+}
+
+function loadDotnetInteractiveApi() {
+    probeAddresses(["http://127.0.0.1:2048/","http://::1:2048/","http://fe80::1%1:2048/","http://fe80::ed:3404:41ab:b52a%14:2048/","http://10.0.0.14:2048/","http://fe80::7c74:9ff:fe2b:38a3%16:2048/","http://fe80::9195:118b:5f2f:4646%18:2048/","http://fe80::671b:ceb8:a702:5972%19:2048/","http://fe80::bb2c:bd13:4fc2:b143%20:2048/","http://fe80::ce81:b1c:bd2c:69e%21:2048/","http://10.10.10.10:2048/","http://fe80::34ca:fe44:e5bb:265c%26:2048/","http://fd00::1:2048/"])
+        .then((root) => {
+        // use probing to find host url and api resources
+        // load interactive helpers and language services
+        let dotnetInteractiveRequire = require.config({
+        context: '96661.Microsoft.DotNet.Interactive.Http.HttpPort',
+                paths:
+            {
+                'dotnet-interactive': `${root}resources`
+                }
+        }) || require;
+
+            window.dotnetInteractiveRequire = dotnetInteractiveRequire;
+
+            window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
+                let paths = {};
+                paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
+                
+                let internalRequire = require.config({
+                    context: extensionCacheBuster,
+                    paths: paths,
+                    urlArgs: `cacheBuster=${extensionCacheBuster}`
+                    }) || require;
+
+                return internalRequire
+            };
+        
+            dotnetInteractiveRequire([
+                    'dotnet-interactive/dotnet-interactive'
+                ],
+                function (dotnet) {
+                    dotnet.init(window);
+                },
+                function (error) {
+                    console.log(error);
+                }
+            );
+        })
+        .catch(error => {console.log(error);});
+    }
+
+// ensure `require` is available globally
+if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
+    let require_script = document.createElement('script');
+    require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
+    require_script.setAttribute('type', 'text/javascript');
+    
+    
+    require_script.onload = function() {
+        loadDotnetInteractiveApi();
+    };
+
+    document.getElementsByTagName('head')[0].appendChild(require_script);
+}
+else {
+    loadDotnetInteractiveApi();
+}
+
+    </script>
+</div></div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.Configuration, 10.0.8</span></li><li><span>Microsoft.Extensions.Configuration.Json, 10.0.8</span></li><li><span>System.Text.Json, 10.0.8</span></li></ul></div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the Microdoft Extensions AI NuGet Packages</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI, 10.6.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.Abstractions, 10.6.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.OpenAI, 10.6.0"</span>
+<span class="c1">// Import Azure &amp; OpenAI NuGet Packages</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Azure.AI.OpenAI, 2.9.0-beta.1"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Azure.Identity, 1.21.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: OpenAI, 2.10.0"</span>
+
+<span class="k">using</span><span class="w"> </span><span class="nn">Azure</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Azure.AI.OpenAI</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.AI</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">OpenAI.Chat</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.ClientModel</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.ComponentModel</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Text.Json</span><span class="p">;</span>
+
+<span class="c1">// Set the flag to use Azure OpenAI or OpenAI. False to use OpenAI, True to use Azure OpenAI</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">useAzureOpenAI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+
+<span class="c1">// Create the IChatClient based on the selected service</span>
+<span class="n">IChatClient</span><span class="w"> </span><span class="n">chatClient</span><span class="p">;</span>
+
+<span class="c1">// Create a new MEAI ChatClient instance</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">useAzureOpenAI</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Using Azure OpenAI Service"</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AzureOpenAIClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Uri</span><span class="p">(</span><span class="n">azureOpenAIEndpoint</span><span class="p">),</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// #pragma warning disable OPENAI001</span>
+<span class="w">    </span><span class="n">chatClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="p">.</span><span class="n">GetChatClient</span><span class="p">(</span><span class="n">azureOpenAIModelDeploymentName</span><span class="p">).</span><span class="n">AsIChatClient</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Using OpenAI Service"</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AzureOpenAIClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Uri</span><span class="p">(</span><span class="n">azureOpenAIEndpoint</span><span class="p">),</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// #pragma warning disable OPENAI001</span>
+<span class="w">    </span><span class="n">chatClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="p">.</span><span class="n">GetChatClient</span><span class="p">(</span><span class="n">azureOpenAIModelDeploymentName</span><span class="p">).</span><span class="n">AsIChatClient</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Azure.AI.OpenAI, 2.9.0-beta.1</span></li><li><span>Azure.Identity, 1.21.0</span></li><li><span>Microsoft.Extensions.AI, 10.6.0</span></li><li><span>Microsoft.Extensions.AI.Abstractions, 10.6.0</span></li><li><span>Microsoft.Extensions.AI.OpenAI, 10.6.0</span></li><li><span>OpenAI, 2.10.0</span></li></ul></div></div></div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Using Azure OpenAI Service
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>
+warning CS1701: Assuming assembly reference 'OpenAI, Version=2.9.1.0, Culture=neutral, PublicKeyToken=b4187f3e65366280' used by 'Azure.AI.OpenAI' matches identity 'OpenAI, Version=2.10.0.0, Culture=neutral, PublicKeyToken=b4187f3e65366280' of 'OpenAI', you may need to supply runtime policy
+
+warning CS1701: Assuming assembly reference 'System.ClientModel, Version=1.9.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' used by 'Azure.AI.OpenAI' matches identity 'System.ClientModel, Version=1.10.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' of 'System.ClientModel', you may need to supply runtime policy
+
+warning CS1701: Assuming assembly reference 'Azure.Core, Version=1.51.1.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' used by 'Azure.AI.OpenAI' matches identity 'Azure.Core, Version=1.53.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' of 'Azure.Core', you may need to supply runtime policy
+
+warning CS1701: Assuming assembly reference 'OpenAI, Version=2.9.1.0, Culture=neutral, PublicKeyToken=b4187f3e65366280' used by 'Azure.AI.OpenAI' matches identity 'OpenAI, Version=2.10.0.0, Culture=neutral, PublicKeyToken=b4187f3e65366280' of 'OpenAI', you may need to supply runtime policy
+
+warning CS1701: Assuming assembly reference 'OpenAI, Version=2.9.1.0, Culture=neutral, PublicKeyToken=b4187f3e65366280' used by 'Azure.AI.OpenAI' matches identity 'OpenAI, Version=2.10.0.0, Culture=neutral, PublicKeyToken=b4187f3e65366280' of 'OpenAI', you may need to supply runtime policy
+
+warning CS1701: Assuming assembly reference 'System.ClientModel, Version=1.9.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' used by 'Azure.AI.OpenAI' matches identity 'System.ClientModel, Version=1.10.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' of 'System.ClientModel', you may need to supply runtime policy
+
+warning CS1701: Assuming assembly reference 'Azure.Core, Version=1.51.1.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' used by 'Azure.AI.OpenAI' matches identity 'Azure.Core, Version=1.53.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' of 'Azure.Core', you may need to supply runtime policy
+
+warning CS1701: Assuming assembly reference 'OpenAI, Version=2.9.1.0, Culture=neutral, PublicKeyToken=b4187f3e65366280' used by 'Azure.AI.OpenAI' matches identity 'OpenAI, Version=2.10.0.0, Culture=neutral, PublicKeyToken=b4187f3e65366280' of 'OpenAI', you may need to supply runtime policy
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr/>
+<h3 id="Step-2---Execute-a-Decision-Prompt">Step 2 - Execute a Decision Prompt<a class="anchor-link" href="#Step-2---Execute-a-Decision-Prompt">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Many LLMs and even SLMs have been trained on knowledge that includes decision frameworks &amp; processes. This makes LLMs great decision assistants, which can:</p>
+<ul>
+<li>Provide proper Decision Frames</li>
+<li>Gather Intelligence (information) in order to make a decision</li>
+<li>Recommend Decision Frameworks to make a high-quality decision</li>
+<li>Provide feedback to evaluate a Decision</li>
+</ul>
+<p>Once the chat client instance is instantiated, it is ready to intake prompt instructions. In the prompt below, the chat client object is instructed to provide examples of decision frameworks "trained into" the knowledge of the configured AI model.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Text.Json</span><span class="p">;</span>
+
+<span class="c1">// A simple Decision Intelligence prompt to help with describing decision-making frameworks</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">simpleDecisionPrompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">Identify</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">decision</span><span class="o">-</span><span class="n">making</span><span class="w"> </span><span class="n">frameworks</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">enhance</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">quality</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">decisions</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Briefly</span><span class="w"> </span><span class="n">describe</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">decision</span><span class="o">-</span><span class="n">making</span><span class="w"> </span><span class="n">framework</span><span class="w"> </span><span class="n">supports</span><span class="w"> </span><span class="n">better</span><span class="w"> </span><span class="n">analysis</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">reasoning</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="n">scenarios</span><span class="p">.</span><span class="w"> </span>
+<span class="s">""";</span>
+
+<span class="c1">// Execute the prompt against the AI model</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">simplePromptResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">chatClient</span><span class="p">.</span><span class="n">GetResponseAsync</span><span class="p">(</span><span class="n">simpleDecisionPrompt</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">responseString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">simplePromptResponse</span><span class="p">.</span><span class="n">Text</span><span class="p">;</span>
+
+<span class="c1">// Display the response from the AI model</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">responseString</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Here are 5 decision-making frameworks that can improve decision quality, along with how each supports better analysis and reasoning:
+
+1. **SWOT Analysis**  
+   - **What it is:** A framework for evaluating **Strengths, Weaknesses, Opportunities, and Threats**.  
+   - **How it helps:** It structures thinking by separating internal factors (strengths/weaknesses) from external factors (opportunities/threats), making it easier to compare options and anticipate risks.
+
+2. **Cost-Benefit Analysis (CBA)**  
+   - **What it is:** A method for weighing the expected **costs** of a decision against its **benefits**.  
+   - **How it helps:** It supports more objective reasoning by quantifying trade-offs, helping decision-makers determine whether an option is worth pursuing, especially in business, policy, and project planning.
+
+3. **Decision Matrix (Weighted Scoring Model)**  
+   - **What it is:** A tool that compares multiple alternatives against a set of criteria, often with weights assigned to each criterion.  
+   - **How it helps:** It reduces bias by making comparisons systematic and transparent, which is useful when several factors matter and choices are not obvious.
+
+4. **Six Thinking Hats**  
+   - **What it is:** A framework that encourages looking at a decision from six perspectives: factual, emotional, critical, optimistic, creative, and process-oriented.  
+   - **How it helps:** It improves reasoning by forcing consideration of different viewpoints, reducing groupthink, and helping teams explore both risks and possibilities more fully.
+
+5. **OODA Loop (Observe–Orient–Decide–Act)**  
+   - **What it is:** A cyclical decision-making process designed for fast-changing situations.  
+   - **How it helps:** It promotes continuous learning and adaptation. By repeatedly observing and re-evaluating conditions, it supports better decisions in dynamic environments like crisis management, operations, and strategy.
+
+If you want, I can also provide:
+- a **comparison table** of these frameworks,
+- examples of **when to use each one**, or
+- a **step-by-step template** for applying them.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr/>
+<h3 id="Step-3---Execute-a-Decision-Prompt-with-Streaming">Step 3 - Execute a Decision Prompt with Streaming<a class="anchor-link" href="#Step-3---Execute-a-Decision-Prompt-with-Streaming">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Microsoft AI Extensions chat clients support response streaming when invoking the prompt. This allows responses to be streamed to the console as soon as they are made available by the LLM and service. Below the same decision prompt executed in Step 2 is used. However, notice that chunks are streamed and can be read by the user as soon as they are available.</p>
+<blockquote>
+<p>📝 <strong>Note:</strong> An average human can read between 25-40 Tokens / second. Therefore, while streaming certainly helps with providing AI output to the user, it begins to lose its effectiveness at large token velocity. Furthermore, while streaming certainly shows a responsive system, it does lose its effectiveness when the AI system needs to perform long processing.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Same Decision Intelligence prompt executed using Streaming output chunks </span>
+<span class="k">await</span><span class="w"> </span><span class="nf">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">streamChunk</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">chatClient</span><span class="p">.</span><span class="n">GetStreamingResponseAsync</span><span class="p">(</span><span class="n">simpleDecisionPrompt</span><span class="p">))</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">streamChunk</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Here are 5 decision-making frameworks that can improve decision quality, along with how they help in different situations:
+
+1. **Cost-Benefit Analysis (CBA)**  
+   - **What it is:** Compares the expected costs of an option against its expected benefits.  
+   - **How it helps:** Forces you to quantify trade-offs, making it easier to choose the option with the highest net value. Useful for budgeting, project selection, and policy decisions.
+
+2. **SWOT Analysis**  
+   - **What it is:** Evaluates **Strengths, Weaknesses, Opportunities, and Threats** related to a decision.  
+   - **How it helps:** Provides a structured way to assess internal and external factors. Useful for strategic planning, business expansion, and career decisions.
+
+3. **Decision Matrix (Weighted Scoring Model)**  
+   - **What it is:** Lists options and evaluates them against criteria, assigning weights based on importance.  
+   - **How it helps:** Reduces bias by making criteria explicit and comparable. Useful when multiple options must be judged across several factors, such as hiring, vendor selection, or product choice.
+
+4. **OODA Loop (Observe–Orient–Decide–Act)**  
+   - **What it is:** A rapid decision cycle emphasizing continuous learning and adjustment.  
+   - **How it helps:** Supports quick, adaptive reasoning in dynamic environments. Useful in crisis management, military strategy, competitive business settings, and fast-changing markets.
+
+5. **PDCA Cycle (Plan–Do–Check–Act)**  
+   - **What it is:** A continuous improvement framework for testing and refining decisions.  
+   - **How it helps:** Encourages experimentation and feedback, helping identify what works before scaling. Useful in operations, quality management, and process improvement.
+
+If you want, I can also provide these in a **table format** or suggest the **best framework for specific situations**.</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr/>
+<h3 id="Step-4---Execute-a-Decision-Prompt-with-Improved-Output-Formatting">Step 4 - Execute a Decision Prompt with Improved Output Formatting<a class="anchor-link" href="#Step-4---Execute-a-Decision-Prompt-with-Improved-Output-Formatting">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Generative AI models have an inherent ability to not only provide decision reasoning analysis, but also format the output in a desired format. This could be as simple as instructing the Generative AI model to format the decision as a single sentence, paragraphs or lists. However more sophisticated output generations can be instructed. For example, the GenAI model can output Markdown or even extract information and fill in a desired schema (JSON). Specifically for Decision Intelligence, you can ask the GenAI models to apply decision communication frameworks to the generation as well.</p>
+<p>Execute the simple decision prompt below with Markdown formatting output. This table can now be rendered in a Markdown document for easy human comprehension. Markdown tables and other formats can be used on web sites, document, programming code etc. Even Generative AI models understand Markdown format, which can not only be used for output but inside input prompts.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// A new decision prompt to help with describing decision-making frameworks using table Markdown format</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">simpleDecisionPromptWithMarkdownFormat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">Identify</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">decision</span><span class="o">-</span><span class="n">making</span><span class="w"> </span><span class="n">frameworks</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">enhance</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">quality</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">decisions</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Briefly</span><span class="w"> </span><span class="n">describe</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">decision</span><span class="o">-</span><span class="n">making</span><span class="w"> </span><span class="n">framework</span><span class="w"> </span><span class="n">supports</span><span class="w"> </span><span class="n">better</span><span class="w"> </span><span class="n">analysis</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">reasoning</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="n">scenarios</span><span class="p">.</span>
+
+<span class="n">Format</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="nn">only</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Markdown</span><span class="w"> </span><span class="n">table</span><span class="p">.</span><span class="w"> </span><span class="n">Only</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Markdown</span><span class="w"> </span><span class="n">table</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">enclose</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">triple</span><span class="w"> </span><span class="n">backticks</span><span class="p">.</span>
+<span class="s">""";</span>
+
+<span class="c1">// Execute the prompt against the AI model</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">simplePromptResponseWithMarkdownFormat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">chatClient</span><span class="p">.</span><span class="n">GetResponseAsync</span><span class="p">(</span><span class="n">simpleDecisionPromptWithMarkdownFormat</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">responseStringWithMarkdownFormat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">simplePromptResponseWithMarkdownFormat</span><span class="p">.</span><span class="n">Text</span><span class="p">;</span>
+
+<span class="c1">// Display the response string as Markdown</span>
+<span class="n">responseStringWithMarkdownFormat</span><span class="p">.</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<table>
+<thead>
+<tr>
+<th>Decision-making framework</th>
+<th>How it improves analysis and reasoning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SWOT Analysis</td>
+<td>Helps compare a situation’s strengths, weaknesses, opportunities, and threats, making it easier to evaluate internal and external factors before choosing a course of action.</td>
+</tr>
+<tr>
+<td>Cost-Benefit Analysis</td>
+<td>Organizes expected costs and benefits to clarify tradeoffs, supporting more rational decisions when resources, time, or money are limited.</td>
+</tr>
+<tr>
+<td>Pareto Analysis (80/20 Rule)</td>
+<td>Focuses attention on the few causes that produce most of the impact, helping prioritize issues and allocate effort where it matters most.</td>
+</tr>
+<tr>
+<td>Decision Matrix</td>
+<td>Scores options against weighted criteria, reducing bias and making comparisons more structured and transparent across multiple alternatives.</td>
+</tr>
+<tr>
+<td>OODA Loop (Observe, Orient, Decide, Act)</td>
+<td>Encourages rapid, iterative decision-making by continuously updating understanding, which is especially useful in dynamic or uncertain environments.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr/>
+<h3 id="Step-5---Execute-a-Decision-Prompt-with-a-Custom-Prompt-Execution-Configuration">Step 5 - Execute a Decision Prompt with a Custom Prompt Execution Configuration<a class="anchor-link" href="#Step-5---Execute-a-Decision-Prompt-with-a-Custom-Prompt-Execution-Configuration">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The Microsoft AI clients support the configuration of prompt execution. The typical OpenAI and Azure OpenAI settings are exposed as configuration options that provide a different AI output experience. Non-reasoning models GPT-3.5 through GPT4.1 support settings like Temperature, LogProbs, TopK to optimize returns. Most recently (in the year 2026), most top performing Generative AI models are reasoning models, which simplify the configuration to reasoning effort (Minimal, Low, Medium, High) or token thinking budgets. This basically is a reasoning setting that correlates to how many resources the AI models spend "thinking" (internal monologue) before the AI executes the prompt instructions.</p>
+<blockquote>
+<p><strong>📝 Note:</strong> The supported prompt settings are dependent on the API plus the specific model version. For example, an AI model paired with an older API may not expose all the configuration settings available. Conversely, a new preview model may not have all the settings available until it becomes generally available. Types of model execution (general versus reasoning) will also have different execution setting parameters.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Execute the code cell below. Note there is a new ChatOptions object instantiated that specifies how we would like the AI to process the decision intelligence prompt. Note two key changes:</p>
+<ul>
+<li><strong>MaxOutputTokens</strong> setting is set at 100, which will set a maximum of tokens allowed for the AI model to output</li>
+<li><strong>ResponseFormat</strong> setting is set to JSON, which will return the response in a structured JSON object. An optional JSON schema can be supplied to enforce output in more specific ways.</li>
+</ul>
+<p>Notice the output difference below is greatly truncated, try changing MaxOutputTokens to a higher value and re-run.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Declare new chat options setting MaxOutputTokens and ResponseFormat to JSON explicitly</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">chatOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChatOptions</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">MaxOutputTokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ResponseFormat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Microsoft</span><span class="p">.</span><span class="n">Extensions</span><span class="p">.</span><span class="n">AI</span><span class="p">.</span><span class="n">ChatResponseFormat</span><span class="p">.</span><span class="n">Json</span>
+<span class="p">};</span>
+
+<span class="kt">var</span><span class="w"> </span><span class="n">simpleDecisionPromptWithJsonFormat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">Identify</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">decision</span><span class="o">-</span><span class="n">making</span><span class="w"> </span><span class="n">frameworks</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">enhance</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">quality</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">decisions</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Briefly</span><span class="w"> </span><span class="n">describe</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">decision</span><span class="o">-</span><span class="n">making</span><span class="w"> </span><span class="n">framework</span><span class="w"> </span><span class="n">supports</span><span class="w"> </span><span class="n">better</span><span class="w"> </span><span class="n">analysis</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">reasoning</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="n">scenarios</span><span class="p">.</span>
+
+<span class="n">Return</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">JSON</span><span class="w"> </span><span class="n">format</span><span class="p">.</span><span class="w"> </span>
+<span class="s">""";</span>
+
+<span class="c1">// Execute the prompt against the AI model, pass in the chat options settings</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">simplePromptResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">chatClient</span><span class="p">.</span><span class="n">GetResponseAsync</span><span class="p">(</span><span class="n">simpleDecisionPromptWithJsonFormat</span><span class="p">,</span><span class="w"> </span><span class="n">chatOptions</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">responseString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">simplePromptResponse</span><span class="p">.</span><span class="n">Text</span><span class="p">;</span>
+
+<span class="c1">// Display the response string (JSON)</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">responseString</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr/>
+<h3 id="Step-6---Execute-Decision-Prompts-with-a-System-Prompt-(AI-Decision-Persona)">Step 6 - Execute Decision Prompts with a System Prompt (AI Decision Persona)<a class="anchor-link" href="#Step-6---Execute-Decision-Prompts-with-a-System-Prompt-(AI-Decision-Persona)">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When building Decision Intelligence prompts, the typical best practices of prompt engineering apply.</p>
+<p>This includes the following best practices:</p>
+<ul>
+<li>Make the prompt more specific (i.e. decision intelligence)</li>
+<li>Add desired structure to the output with formatting</li>
+<li>Provide examples with few-shot prompting</li>
+<li>Instruct the AI what to do to avoid doing something else</li>
+<li>Provide context (additional information) to the AI</li>
+<li>Using Roles in Chat Completion API prompts</li>
+<li>Give your AI words of encouragement</li>
+<li>Cleanly dillineate sections in complex prompts</li>
+</ul>
+<p>A fundemental prompting best practice is to provide a common behavior across all the LLM interactions in a system prompt. The system prompt is passed in on every single call to the AI model. By passing the same (or similar) system prompt with every prompt gives your Generative AI system a common behavior across all your decision framework needs. This can be thought of as a <strong>"persona"</strong>. Furthermore, this common persona is the foundational building block of building AI agents; where the desired behavior is to have each agent have a unique persona/behavior every time you interact with that agent.</p>
+<p>The system prompt concept is illustrated in the visualization of a ficticious Decision Intelligence Scenario. Notice that the general Decision Intelligence guidance/persona is placed in the <strong>System Prompt</strong>, but the specific instructions are found in the <strong>Prompt Instructions</strong> section. Both the System Prompt and the Prompt Instructions are sent together to the Generative AI model:</p>
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/Common/DecisionIntelligence-SystemPrompt-Structure.png" style="display: block; margin: auto;" width="700px"/>
+<p>Execute the code cell below with a dynamic system prompt and prompt instructions. In the System Prompt, the following "persona" was codified:</p>
+<ul>
+<li>Management Consulting domain</li>
+<li>Focus on quantitative (work with math, data &amp; numbers) approaches</li>
+<li>Decision Intelligence best practices</li>
+<li>Specific desired Markdown output format</li>
+</ul>
+<p>Notice the different behavior of the output for decision frameworks below. Based on the new detailed and more specific system prompt, the decision-making responses are much more aligned for decision-making, quantitative methods.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Create a System Prompt instruction to override the default system prompt</span>
+<span class="c1">// Add the System Prompt (Persona) to behave like a Decision Intelligence assistant</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">systemPromptForDecisionIntelligence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">You</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Decision</span><span class="w"> </span><span class="n">Intelligence</span><span class="w"> </span><span class="n">Assistant</span><span class="w"> </span><span class="n">focusing</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">management</span><span class="w"> </span><span class="n">consulting</span><span class="w"> </span><span class="n">domain</span><span class="p">.</span>
+<span class="n">You</span><span class="w"> </span><span class="n">prefer</span><span class="w"> </span><span class="n">working</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">quantitative</span><span class="w"> </span><span class="n">solutions</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">decision</span><span class="o">-</span><span class="n">making</span><span class="w"> </span><span class="n">problems</span><span class="p">.</span>
+<span class="n">Assist</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">exploring</span><span class="w"> </span><span class="n">options</span><span class="p">,</span><span class="w"> </span><span class="n">reasoning</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">decisions</span><span class="p">,</span><span class="w"> </span><span class="n">problem</span><span class="o">-</span><span class="n">solving</span><span class="p">.</span>
+<span class="n">Apply</span><span class="w"> </span><span class="n">systems</span><span class="w"> </span><span class="n">thinking</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">scenarios</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Provide</span><span class="w"> </span><span class="n">structured</span><span class="p">,</span><span class="w"> </span><span class="n">logical</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">comprehensive</span><span class="w"> </span><span class="n">decision</span><span class="w"> </span><span class="n">advice</span><span class="p">.</span>
+
+<span class="n">Output</span><span class="w"> </span><span class="n">Format</span><span class="w"> </span><span class="n">Instructions</span><span class="p">:</span><span class="w"> </span>
+<span class="n">When</span><span class="w"> </span><span class="n">generating</span><span class="w"> </span><span class="n">Markdown</span><span class="p">,</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">headings</span><span class="w"> </span><span class="n">higher</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="err">###</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Avoid</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="err">##</span><span class="w"> </span><span class="n">headers</span><span class="p">.</span><span class="w"> </span><span class="n">Use</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="err">###</span><span class="p">,</span><span class="w"> </span><span class="err">####</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">lower</span><span class="o">-</span><span class="n">level</span><span class="w"> </span><span class="n">headings</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">necessary</span><span class="p">.</span><span class="w"> </span>
+<span class="n">All</span><span class="w"> </span><span class="n">top</span><span class="o">-</span><span class="n">level</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="n">headers</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="err">###</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">lower</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Never</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="o">---</span><span class="p">,</span><span class="w"> </span><span class="o">***</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">___</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">horizontal</span><span class="w"> </span><span class="n">lines</span><span class="p">.</span><span class="w"> </span><span class="n">There</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">horizontal</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="p">.</span>
+<span class="n">For</span><span class="w"> </span><span class="n">separation</span><span class="p">,</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">spacing</span><span class="p">.</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">render</span><span class="w"> </span><span class="n">horizontal</span><span class="w"> </span><span class="n">lines</span><span class="p">.</span>
+
+<span class="n">Format</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="nn">only</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Markdown</span><span class="w"> </span><span class="n">table</span><span class="p">.</span><span class="w"> </span><span class="n">Only</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Markdown</span><span class="w"> </span><span class="n">table</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">enclose</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">triple</span><span class="w"> </span><span class="n">backticks</span><span class="p">.</span>
+<span class="s">""";</span>
+
+<span class="kt">var</span><span class="w"> </span><span class="n">simpleDecisionPromptInstructions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">Recommend</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">decision</span><span class="w"> </span><span class="n">frameworks</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">daily</span><span class="w"> </span><span class="n">situations</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="n">decisions</span><span class="p">.</span>
+<span class="n">These</span><span class="w"> </span><span class="n">frameworks</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">very</span><span class="w"> </span><span class="n">easy</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">understand</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">apply</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="n">scenarios</span><span class="p">.</span>
+<span class="s">""";</span>
+
+<span class="c1">// Combine the System Prompt with the Prompt Instructions </span>
+<span class="kt">var</span><span class="w"> </span><span class="n">simpleDecisionPromptCombined</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"""</span>
+<span class="n">System</span><span class="w"> </span><span class="n">Prompt</span><span class="p">:</span><span class="w"> </span>
+<span class="p">{</span><span class="n">systemPromptForDecisionIntelligence</span><span class="p">}</span>
+
+<span class="n">Specific</span><span class="w"> </span><span class="n">Instructions</span><span class="p">:</span><span class="w"> </span>
+<span class="p">{</span><span class="n">simpleDecisionPromptInstructions</span><span class="p">}</span>
+<span class="s">""";</span>
+
+<span class="c1">// Execute the prompt against the AI model </span>
+<span class="kt">var</span><span class="w"> </span><span class="n">simpleDecisionPromptCombinedResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">chatClient</span><span class="p">.</span><span class="n">GetResponseAsync</span><span class="p">(</span><span class="n">simpleDecisionPromptCombined</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">simpleDecisionPromptCombinedResponseString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">simpleDecisionPromptCombinedResponse</span><span class="p">.</span><span class="n">Text</span><span class="p">;</span>
+
+<span class="c1">// Display the response string as Markdown</span>
+<span class="n">simpleDecisionPromptCombinedResponseString</span><span class="p">.</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Rank</th>
+<th>Decision framework</th>
+<th>What it is</th>
+<th>How to use it in daily situations</th>
+<th>Best for</th>
+<th>Example daily use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td><strong>Pros / Cons + Weighting</strong></td>
+<td>A simple comparison of options by listing positives and negatives, then giving each one a score or importance weight.</td>
+<td>1) List options. 2) Write pros and cons. 3) Give each factor a weight from 1–5 based on importance. 4) Score each option. 5) Pick the highest total.</td>
+<td>Fast, practical choices with multiple factors.</td>
+<td>Choosing between two laptops, job offers, or weekend plans.</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td><strong>OODA Loop</strong></td>
+<td>A rapid decision cycle: <strong>Observe, Orient, Decide, Act</strong>.</td>
+<td>1) Observe the situation. 2) Orient by interpreting what matters. 3) Decide on the best move. 4) Act quickly. Repeat as conditions change.</td>
+<td>Dynamic situations where speed matters.</td>
+<td>Handling a customer issue, reacting to a schedule change, or responding to a sudden problem at work.</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td><strong>First Principles Thinking</strong></td>
+<td>Break a problem down to its most basic truths and rebuild the answer from there.</td>
+<td>1) Define the problem. 2) Ask “What do I know for sure?” 3) Separate assumptions from facts. 4) Rebuild options from fundamentals.</td>
+<td>When you want to avoid bias or inherited assumptions.</td>
+<td>Deciding whether to buy vs. rent, start a side business, or improve a process.</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td><strong>80/20 Rule (Pareto Principle)</strong></td>
+<td>Roughly 80% of results often come from 20% of actions. Focus on the highest-impact items first.</td>
+<td>1) List all possible actions. 2) Identify which few drive most value. 3) Prioritize those. 4) Ignore low-impact tasks when possible.</td>
+<td>Productivity, prioritization, and simplifying choices.</td>
+<td>Deciding which tasks to do today, which clients to prioritize, or which habits to build.</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td><strong>Decision Matrix</strong></td>
+<td>A structured scoring tool that compares options across criteria.</td>
+<td>1) List options. 2) Choose criteria. 3) Assign weights to criteria. 4) Score each option. 5) Multiply and total scores.</td>
+<td>Multi-criteria decisions that need a more objective comparison.</td>
+<td>Choosing a phone, apartment, vacation spot, or vendor.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Why it is easy to use</th>
+<th>Main advantage</th>
+<th>Main limitation</th>
+<th>Quick rule of thumb</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pros / Cons + Weighting</strong></td>
+<td>Very intuitive and familiar</td>
+<td>Balances simplicity with structure</td>
+<td>Can be subjective if weights are careless</td>
+<td>Use when you need a quick, well-rounded choice</td>
+</tr>
+<tr>
+<td><strong>OODA Loop</strong></td>
+<td>Natural step-by-step flow</td>
+<td>Helps with fast, changing situations</td>
+<td>Less useful for slow, one-time, high-stakes decisions</td>
+<td>Use when the situation may change before you finish deciding</td>
+</tr>
+<tr>
+<td><strong>First Principles Thinking</strong></td>
+<td>Uses basic “why” questions</td>
+<td>Reduces faulty assumptions</td>
+<td>Takes more mental effort</td>
+<td>Use when common advice may be wrong or misleading</td>
+</tr>
+<tr>
+<td><strong>80/20 Rule</strong></td>
+<td>Easy mental shortcut</td>
+<td>Great for prioritization</td>
+<td>Can oversimplify if overused</td>
+<td>Use when time and attention are limited</td>
+</tr>
+<tr>
+<td><strong>Decision Matrix</strong></td>
+<td>Simple spreadsheet-style method</td>
+<td>Makes tradeoffs clearer and more objective</td>
+<td>Depends on good criteria and scores</td>
+<td>Use when comparing several options across several factors</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Recommendation</th>
+<th>Why it belongs in your daily toolkit</th>
+<th>When to use it most often</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Best all-around framework: Decision Matrix</strong></td>
+<td>It is easy to learn, works in many situations, and helps reduce emotional bias.</td>
+<td>Choosing among multiple options with several important factors.</td>
+</tr>
+<tr>
+<td><strong>Best for speed: OODA Loop</strong></td>
+<td>It helps you act quickly without waiting for perfect information.</td>
+<td>Busy days, urgent issues, and changing environments.</td>
+</tr>
+<tr>
+<td><strong>Best for prioritization: 80/20 Rule</strong></td>
+<td>It helps you focus on what matters most and avoid wasted effort.</td>
+<td>Daily task management and time allocation.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The core idea of a system prompt is to group all of common decision processes, tasks, formats, decision approaches and place all of those things into the system prompt that can be re-used many times for your prompt instructions &amp; agentic subsequent calls. This is illustrated below, where the same System Prompt is re-used several times for various decision scenarios:</p>
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/Common/DecisionIntelligence-SystemPrompt-ReUse.png" style="display: block; margin: auto;" width="700px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr/>
+<h3 id="Step-7---Execute-a-Decision-Scenario-with-a-System-Prompt-(Custom-AI-Persona)">Step 7 - Execute a Decision Scenario with a System Prompt (Custom AI Persona)<a class="anchor-link" href="#Step-7---Execute-a-Decision-Scenario-with-a-System-Prompt-(Custom-AI-Persona)">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this step a decision scenario will be introduced requiring analysis and a recommendation performed by Artificial Intelligence. The full <strong>Decision Intelligence</strong> framework will not be used, rather a simple request for Artificial Intelligence to recommend a path forward (recommendation) for the human user to ultimately make the final decision.</p>
+<p><strong>Decision Scenario:</strong> Your high school daughter Alex is deciding whether to enroll directly in a four-year university or start at a community college to earn an associate degree first. These are Alex's main decision factors: financial, career uncertainty, academic consistency and future impact. In addition, you have all the decision factor detailed data available to pass to the GenAI model prompt. You are looking for an impartial (non-family) recommendation. Can Artificial Intelligence be that impartial judge to help Alex decide?</p>
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/Scenarios/Scenario-SimpleDecision-College.png" style="display: block; margin: auto;" width="700px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Create a system prompt instruction to override the default system prompt</span>
+<span class="c1">// Add the System Prompt (Persona) to behave like a decision intelligence assistant</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">systemPromptForDecisionScenario</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">You</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Decision</span><span class="w"> </span><span class="n">Intelligence</span><span class="w"> </span><span class="n">Assistant</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Assist</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">exploring</span><span class="w"> </span><span class="n">options</span><span class="p">,</span><span class="w"> </span><span class="n">reasoning</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">decisions</span><span class="p">,</span><span class="w"> </span><span class="n">problem</span><span class="o">-</span><span class="n">solving</span><span class="p">.</span>
+<span class="n">Apply</span><span class="w"> </span><span class="n">systems</span><span class="w"> </span><span class="n">thinking</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">scenarios</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Provide</span><span class="w"> </span><span class="n">structured</span><span class="p">,</span><span class="w"> </span><span class="n">logical</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">comprehensive</span><span class="w"> </span><span class="n">decision</span><span class="w"> </span><span class="n">advice</span><span class="p">.</span>
+
+<span class="n">Output</span><span class="w"> </span><span class="n">Format</span><span class="w"> </span><span class="n">Instructions</span><span class="p">:</span>
+<span class="n">When</span><span class="w"> </span><span class="n">generating</span><span class="w"> </span><span class="n">Markdown</span><span class="p">,</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">headings</span><span class="w"> </span><span class="n">higher</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="err">###</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Avoid</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="err">##</span><span class="w"> </span><span class="n">headers</span><span class="p">.</span><span class="w"> </span><span class="n">Use</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="err">###</span><span class="p">,</span><span class="w"> </span><span class="err">####</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">lower</span><span class="o">-</span><span class="n">level</span><span class="w"> </span><span class="n">headings</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">necessary</span><span class="p">.</span><span class="w"> </span>
+<span class="n">All</span><span class="w"> </span><span class="n">top</span><span class="o">-</span><span class="n">level</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="n">headers</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="err">###</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">lower</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Never</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="o">---</span><span class="p">,</span><span class="w"> </span><span class="o">***</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">___</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">horizontal</span><span class="w"> </span><span class="n">lines</span><span class="p">.</span><span class="w"> </span><span class="n">There</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">horizontal</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="p">.</span>
+<span class="n">For</span><span class="w"> </span><span class="n">separation</span><span class="p">,</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">spacing</span><span class="p">.</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">render</span><span class="w"> </span><span class="n">horizontal</span><span class="w"> </span><span class="n">lines</span><span class="p">.</span>
+<span class="s">""";</span>
+
+<span class="c1">// Provide a description of the decision scenario and the desired output </span>
+<span class="c1">// Provide detailed Decision Scenario considerations and information about Alex (the decision-maker) </span>
+<span class="kt">var</span><span class="w"> </span><span class="n">collegeScenarioDecisionPrompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">Imagine</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">advising</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">daughter</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="n">Alex</span><span class="w"> </span><span class="n">who</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">deciding</span><span class="w"> </span><span class="n">whether</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">enroll</span><span class="w"> </span><span class="n">directly</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">well</span><span class="o">-</span><span class="n">regarded</span><span class="w"> </span><span class="n">four</span><span class="o">-</span><span class="n">year</span><span class="w"> </span>
+<span class="n">university</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">community</span><span class="w"> </span><span class="n">college</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">earn</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">associate</span><span class="w"> </span><span class="n">degree</span><span class="w"> </span><span class="n">first</span><span class="p">.</span><span class="w"> </span>
+
+<span class="n">Make</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">recommendation</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">decision</span><span class="w"> </span><span class="n">factor</span><span class="w"> </span><span class="n">details</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Output</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">recommendation</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Markdown</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="n">format</span><span class="p">.</span><span class="w"> </span>
+
+<span class="n">Financial</span><span class="w"> </span><span class="n">Considerations</span><span class="p">:</span>
+<span class="n">Alex</span><span class="err">'</span><span class="n">s</span><span class="w"> </span><span class="n">four</span><span class="o">-</span><span class="n">year</span><span class="w"> </span><span class="n">university</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">cost</span><span class="w"> </span><span class="n">significantly</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">tuition</span><span class="p">,</span><span class="w"> </span><span class="n">housing</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">related</span><span class="w"> </span><span class="n">expenses</span><span class="w"> </span>
+<span class="p">(</span><span class="n">estimated</span><span class="w"> </span><span class="err">$</span><span class="mi">50</span><span class="p">,</span><span class="mi">000</span><span class="o">-</span><span class="err">$</span><span class="mi">60</span><span class="p">,</span><span class="mi">000</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">year</span><span class="p">).</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">two</span><span class="o">-</span><span class="n">year</span><span class="w"> </span><span class="n">associate</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">community</span><span class="w"> </span><span class="n">college</span><span class="w"> </span><span class="n">could</span><span class="w"> </span>
+<span class="n">save</span><span class="w"> </span><span class="n">substantial</span><span class="w"> </span><span class="nf">money</span><span class="w"> </span><span class="p">(</span><span class="n">estimated</span><span class="w"> </span><span class="err">$</span><span class="mi">3</span><span class="p">,</span><span class="mi">000</span><span class="o">-</span><span class="err">$</span><span class="mi">5</span><span class="p">,</span><span class="mi">000</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">year</span><span class="p">),</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">Alex</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">transfer</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span>
+<span class="n">four</span><span class="o">-</span><span class="n">year</span><span class="w"> </span><span class="n">institution</span><span class="w"> </span><span class="n">later</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">complete</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">bachelor</span><span class="err">'</span><span class="n">s</span><span class="w"> </span><span class="n">degree</span><span class="p">.</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">family</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">afford</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">four</span><span class="o">-</span><span class="n">year</span><span class="w"> </span><span class="n">university</span><span class="p">,</span><span class="w"> </span>
+<span class="k">with</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">loans</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cost</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">medium</span><span class="w"> </span><span class="n">concern</span><span class="p">.</span><span class="w"> </span>
+
+<span class="n">Career</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">Major</span><span class="w"> </span><span class="n">Uncertainty</span><span class="p">:</span>
+<span class="n">Alex</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">entirely</span><span class="w"> </span><span class="n">sure</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="n">she</span><span class="w"> </span><span class="n">wants</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">major</span><span class="w"> </span><span class="k">in</span><span class="p">.</span><span class="w"> </span><span class="n">She</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">torn</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">business</span><span class="p">,</span><span class="w"> </span><span class="n">psychology</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span>
+<span class="n">possibly</span><span class="w"> </span><span class="n">something</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">arts</span><span class="p">.</span><span class="w"> </span><span class="n">She</span><span class="w"> </span><span class="n">worries</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">she</span><span class="w"> </span><span class="n">starts</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">four</span><span class="o">-</span><span class="n">year</span><span class="w"> </span><span class="n">university</span><span class="p">,</span><span class="w"> </span>
+<span class="n">she</span><span class="w"> </span><span class="n">might</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="n">majors</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">incur</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">cost</span><span class="p">.</span><span class="w"> </span><span class="n">On</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">hand</span><span class="p">,</span><span class="w"> </span>
+<span class="n">community</span><span class="w"> </span><span class="n">college</span><span class="w"> </span><span class="n">might</span><span class="w"> </span><span class="n">give</span><span class="w"> </span><span class="n">her</span><span class="w"> </span><span class="n">space</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">explore</span><span class="w"> </span><span class="n">options</span><span class="p">,</span><span class="w"> </span>
+<span class="n">but</span><span class="w"> </span><span class="n">transferring</span><span class="w"> </span><span class="n">could</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="n">adjusting</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">campus</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">curriculum</span><span class="w"> </span><span class="n">midway</span><span class="w"> </span><span class="n">through</span><span class="p">.</span>
+
+<span class="n">Academic</span><span class="w"> </span><span class="n">Consistency</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">Networking</span><span class="p">:</span>
+<span class="n">Going</span><span class="w"> </span><span class="n">straight</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">four</span><span class="o">-</span><span class="n">year</span><span class="w"> </span><span class="n">university</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="n">allow</span><span class="w"> </span><span class="n">Alex</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">early</span><span class="w"> </span><span class="n">relationships</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">professors</span><span class="p">,</span><span class="w"> </span>
+<span class="k">join</span><span class="w"> </span><span class="n">campus</span><span class="w"> </span><span class="n">groups</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">potentially</span><span class="w"> </span><span class="n">secure</span><span class="w"> </span><span class="n">internships</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">research</span><span class="w"> </span><span class="n">opportunities</span><span class="p">.</span><span class="w"> </span><span class="n">Starting</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">community</span><span class="w"> </span><span class="n">college</span><span class="w"> </span><span class="n">might</span><span class="w"> </span>
+<span class="n">delay</span><span class="w"> </span><span class="n">those</span><span class="w"> </span><span class="n">opportunities</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">could</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="k">let</span><span class="w"> </span><span class="n">her</span><span class="w"> </span><span class="n">explore</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">lower</span><span class="w"> </span><span class="n">cost</span><span class="p">.</span><span class="w"> </span>
+<span class="n">She</span><span class="w"> </span><span class="n">might</span><span class="w"> </span><span class="n">miss</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="err">“</span><span class="n">full</span><span class="w"> </span><span class="n">campus</span><span class="err">”</span><span class="w"> </span><span class="n">experience</span><span class="w"> </span><span class="n">early</span><span class="w"> </span><span class="k">on</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">transferring</span><span class="w"> </span><span class="n">later</span><span class="w"> </span><span class="n">means</span><span class="w"> </span><span class="n">she</span><span class="w"> </span><span class="n">could</span><span class="w"> </span>
+<span class="n">still</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">connections</span><span class="p">,</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">timeline</span><span class="p">.</span><span class="w"> </span>
+
+<span class="n">Future</span><span class="w"> </span><span class="n">Impact</span><span class="p">:</span><span class="w"> </span>
+<span class="n">Alex</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">unsure</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="kt">short</span><span class="o">-</span><span class="n">term</span><span class="w"> </span><span class="n">future</span><span class="w"> </span><span class="n">impact</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">her</span><span class="w"> </span><span class="n">decision</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">might</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">hard</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">remediate</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Alex</span><span class="w"> </span><span class="n">wants</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">solid</span><span class="w"> </span><span class="n">professional</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">relevant</span><span class="w"> </span><span class="n">experience</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">she</span><span class="w"> </span><span class="n">graduates</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Alex</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">overly</span><span class="w"> </span><span class="n">concerned</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">social</span><span class="w"> </span><span class="n">aspect</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">college</span><span class="p">,</span><span class="w"> </span>
+<span class="n">but</span><span class="w"> </span><span class="n">feels</span><span class="w"> </span><span class="n">she</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">quality</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">four</span><span class="o">-</span><span class="n">year</span><span class="w"> </span><span class="n">university</span><span class="w"> </span><span class="n">setting</span><span class="w"> </span><span class="n">sooner</span><span class="p">.</span><span class="w"> </span>
+<span class="n">She</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">concerned</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">taking</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">significant</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="n">loan</span><span class="w"> </span><span class="n">debt</span><span class="p">.</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">decision</span><span class="w"> </span><span class="n">affects</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">her</span><span class="w"> </span><span class="n">immediate</span><span class="w"> </span><span class="n">academic</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">but</span><span class="w"> </span>
+<span class="n">also</span><span class="w"> </span><span class="n">her</span><span class="w"> </span><span class="kt">long</span><span class="o">-</span><span class="n">term</span><span class="w"> </span><span class="n">financial</span><span class="w"> </span><span class="n">stability</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">career</span><span class="w"> </span><span class="n">prospects</span><span class="p">.</span><span class="w"> </span>
+<span class="s">""";</span>
+
+<span class="c1">// How the prompt looks like to the LLM</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">collegeScenarioDecisionPromptCombined</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"""</span>
+<span class="n">System</span><span class="w"> </span><span class="n">Prompt</span><span class="p">:</span><span class="w"> </span>
+<span class="p">{</span><span class="n">systemPromptForDecisionScenario</span><span class="p">}</span>
+
+<span class="n">Request</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="p">:</span><span class="w"> </span>
+<span class="p">{</span><span class="n">collegeScenarioDecisionPrompt</span><span class="p">}</span>
+<span class="s">""";</span>
+
+<span class="c1">// Execute the prompt against the AI model </span>
+<span class="kt">var</span><span class="w"> </span><span class="n">collegeScenarioDecisionPromptCombinedResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">chatClient</span><span class="p">.</span><span class="n">GetResponseAsync</span><span class="p">(</span><span class="n">collegeScenarioDecisionPromptCombined</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">collegeScenarioDecisionPromptCombinedResponseString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collegeScenarioDecisionPromptCombinedResponse</span><span class="p">.</span><span class="n">Text</span><span class="p">;</span>
+
+<span class="c1">// Display the response string as Markdown</span>
+<span class="n">collegeScenarioDecisionPromptCombinedResponseString</span><span class="p">.</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<h3 id="Recommendation">Recommendation<a class="anchor-link" href="#Recommendation">¶</a></h3><table>
+<thead>
+<tr>
+<th>Decision</th>
+<th>Why this is the better fit for Alex</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>| <strong>Enroll directly in the well-regarded four-year university</strong> | Alex’s strongest priorities are building a solid professional network, gaining relevant experience sooner, and minimizing the risk of transfer-related disruption. Since her family can afford the four-year option with some loans and cost is only a medium concern, the added expense is manageable relative to the long-term benefits. Although she is unsure about her major, a four-year university offers broader exploration, earlier access to professors, internships, research, and campus opportunities that can help her clarify her path without delaying graduation. Starting there also reduces the uncertainty and friction of transferring later, which could be harder to remediate.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+  </section>
+  </div>
+  <nav class="chapter-pager" aria-label="Chapter navigation">
+    <a class="pager-link" data-prev-chapter href="2c-microsoft-agent-framework.html"><span>Previous</span><strong>Microsoft Agent Framework</strong></a>
+    <a class="pager-link align-right" data-next-chapter href="3b-decisions-with-chat-completions-and-responses-apis.html"><span>Next</span><strong>Decisions with Chat Completions &amp; Responses APIs</strong></a>
+  </nav>
+</article>
+
+  </main>
+  <script type="module" src="../pagefind/pagefind-component-ui.js"></script>
+  <script src="../assets/site.js"></script>
+</body>
+</html>

@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 import shutil
 import subprocess
@@ -18,102 +19,86 @@ WEBSITE = WEBSITE_ROOT / "dist"
 RAW = WEBSITE / "_raw"
 CHAPTERS_DIR = WEBSITE / "chapters"
 ASSETS_DIR = WEBSITE / "assets"
-CHAPTERS = [
-    {
-        "code": "1a",
-        "notebook": "1a - Decision Intelligence - Introducing the Decision Intelligence Framework.ipynb",
-        "raw": "1a - Decision Intelligence - Introducing the Decision Intelligence Framework.html",
-        "file": "1a-introducing-decision-intelligence-framework.html",
-        "title": "Introducing the Decision Intelligence Framework",
-        "short": "Introducing Decisions",
-        "description": "A readable introduction to decisions, decision quality, and the Decision Intelligence Framework.",
-    },
-    {
-        "code": "1b",
-        "notebook": "1b - Decision Intelligence - Decision Framing.ipynb",
-        "raw": "1b - Decision Intelligence - Decision Framing.html",
-        "file": "1b-decision-framing.html",
-        "title": "Decision Framing",
-        "short": "Decision Framing",
-        "description": "How to shape the decision problem before evaluating options or recommendations.",
-    },
-    {
-        "code": "1c",
-        "notebook": "1c - Decision Intelligence - Gathering Intelligence.ipynb",
-        "raw": "1c - Decision Intelligence - Gathering Intelligence.html",
-        "file": "1c-gathering-intelligence.html",
-        "title": "Gathering Intelligence",
-        "short": "Gathering Intelligence",
-        "description": "Reducing uncertainty with data, evidence, historical context, and generative AI support.",
-    },
-    {
-        "code": "1d",
-        "notebook": "1d - Decision Intelligence - Decision Execution.ipynb",
-        "raw": "1d - Decision Intelligence - Decision Execution.html",
-        "file": "1d-decision-execution.html",
-        "title": "Decision Execution",
-        "short": "Decision Execution",
-        "description": "The bridge between choosing and acting, including forms of execution and accountability.",
-    },
-    {
-        "code": "1e",
-        "notebook": "1e - Decision Intelligence - Decision Execution with Intuition.ipynb",
-        "raw": "1e - Decision Intelligence - Decision Execution with Intuition.html",
-        "file": "1e-decision-execution-with-intuition.html",
-        "title": "Decision Execution with Intuition",
-        "short": "Execution with Intuition",
-        "description": "When intuition helps, when it fails, and how it fits into systematic decision work.",
-    },
-    {
-        "code": "1f",
-        "notebook": "1f - Decision Intelligence - Decision Execution with Decision Rules.ipynb",
-        "raw": "1f - Decision Intelligence - Decision Execution with Decision Rules.html",
-        "file": "1f-decision-execution-with-decision-rules.html",
-        "title": "Decision Execution with Decision Rules",
-        "short": "Execution with Decision Rules",
-        "description": "Reusable rules, heuristics, and domain-specific patterns for consistent decisions.",
-    },
-    {
-        "code": "1g",
-        "notebook": "1g - Decision Intelligence - Decision Execution with Quantitative Methods.ipynb",
-        "raw": "1g - Decision Intelligence - Decision Execution with Quantitative Methods.html",
-        "file": "1g-decision-execution-with-quantitative-methods.html",
-        "title": "Decision Execution with Quantitative Methods",
-        "short": "Execution with Quantitative Methods",
-        "description": "Using probability, measurement, and simulation to make better quantitative choices.",
-    },
-    {
-        "code": "1h",
-        "notebook": "1h - Decision Intelligence - Decision Communication.ipynb",
-        "raw": "1h - Decision Intelligence - Decision Communication.html",
-        "file": "1h-decision-communication.html",
-        "title": "Decision Communication",
-        "short": "Decision Communication",
-        "description": "Communicating decisions so people understand the conclusion, rationale, and action.",
-    },
-    {
-        "code": "1i",
-        "notebook": "1i - Decision Intelligence - Applying the Decision Intelligence Framework.ipynb",
-        "raw": "1i - Decision Intelligence - Applying the Decision Intelligence Framework.html",
-        "file": "1i-applying-decision-intelligence-framework.html",
-        "title": "Applying the Decision Intelligence Framework",
-        "short": "Applying the Framework",
-        "description": "An end-to-end example that brings the framework components together.",
-    },
-    {
-        "code": "1j",
-        "notebook": "1j - Decision Intelligence - Enterprise Decision Intelligence.ipynb",
-        "raw": "1j - Decision Intelligence - Enterprise Decision Intelligence.html",
-        "file": "1j-enterprise-decision-intelligence.html",
-        "title": "Enterprise Decision Intelligence",
-        "short": "Enterprise Decision Intelligence",
-        "description": "How decision systems become repeatable, observable, explainable, and scalable.",
-    },
-]
+CONFIG_PATH = WEBSITE_ROOT / "src" / "build_website_config.json"
+NOTEBOOK_DESCRIPTIONS = {
+    "1a - Decision Intelligence - Introducing the Decision Intelligence Framework.ipynb": "A readable introduction to decisions, decision quality, and the Decision Intelligence Framework.",
+    "1b - Decision Intelligence - Decision Framing.ipynb": "How to shape the decision problem before evaluating options or recommendations.",
+    "1c - Decision Intelligence - Gathering Intelligence.ipynb": "Reducing uncertainty with data, evidence, historical context, and generative AI support.",
+    "1d - Decision Intelligence - Decision Execution.ipynb": "The bridge between choosing and acting, including forms of execution and accountability.",
+    "1e - Decision Intelligence - Decision Execution with Intuition.ipynb": "When intuition helps, when it fails, and how it fits into systematic decision work.",
+    "1f - Decision Intelligence - Decision Execution with Decision Rules.ipynb": "Reusable rules, heuristics, and domain-specific patterns for consistent decisions.",
+    "1g - Decision Intelligence - Decision Execution with Quantitative Methods.ipynb": "Using probability, measurement, and simulation to make better quantitative choices.",
+    "1h - Decision Intelligence - Decision Communication.ipynb": "Communicating decisions so people understand the conclusion, rationale, and action.",
+    "1i - Decision Intelligence - Applying the Decision Intelligence Framework.ipynb": "An end-to-end example that brings the framework components together.",
+    "1j - Decision Intelligence - Enterprise Decision Intelligence.ipynb": "How decision systems become repeatable, observable, explainable, and scalable.",
+}
 
 
 LOGO_URL = "https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceLogo.png"
 FRAMEWORK_URL = "https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png"
+
+
+def slugify(value: str) -> str:
+    value = value.lower().replace("&", " and ")
+    value = re.sub(r"[^a-z0-9]+", "-", value)
+    return value.strip("-")
+
+
+def notebook_metadata(notebook_file: str) -> dict[str, str]:
+    stem = Path(notebook_file).stem
+    parts = [part.strip() for part in stem.split(" - ")]
+    if len(parts) < 2:
+        raise ValueError(f"Notebook filename must include a code and title: {notebook_file}")
+
+    code = parts[0]
+    title = parts[-1]
+    return {
+        "code": code,
+        "notebook": notebook_file,
+        "raw": f"{stem}.html",
+        "file": f"{slugify(f'{code} {title}')}.html",
+        "title": title,
+        "short": title,
+        "description": NOTEBOOK_DESCRIPTIONS.get(
+            notebook_file, f"Static reading edition generated from the {title} notebook."
+        ),
+    }
+
+
+def load_build_config() -> tuple[dict[str, object], list[dict[str, str]]]:
+    config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+    if not isinstance(config.get("book_version"), str):
+        raise ValueError("build_website_config.json must include a string book_version.")
+    if not isinstance(config.get("notebooks"), list):
+        raise ValueError("build_website_config.json must include a notebooks list.")
+
+    chapters: list[dict[str, str]] = []
+    seen_files: set[str] = set()
+    for entry in config["notebooks"]:
+        if not isinstance(entry, dict):
+            raise ValueError("Each notebooks entry must be an object.")
+        notebook_file = entry.get("file")
+        include_in_build = entry.get("include_in_build")
+        if not isinstance(notebook_file, str):
+            raise ValueError("Each notebooks entry must include a string file.")
+        if not isinstance(include_in_build, bool):
+            raise ValueError(f"{notebook_file} must include a boolean include_in_build.")
+        if notebook_file in seen_files:
+            raise ValueError(f"Duplicate notebook in config: {notebook_file}")
+        seen_files.add(notebook_file)
+        if not (NOTEBOOKS / notebook_file).exists():
+            raise FileNotFoundError(f"Configured notebook does not exist: {notebook_file}")
+        if include_in_build:
+            chapters.append(notebook_metadata(notebook_file))
+
+    if not chapters:
+        raise ValueError("At least one notebook must have include_in_build set to true.")
+    return config, chapters
+
+
+CONFIG, CHAPTERS = load_build_config()
+BOOK_VERSION = str(CONFIG["book_version"])
+BOOK_TITLE = "Decision Intelligence with AI"
 
 
 class HeadingParser(HTMLParser):
@@ -227,7 +212,10 @@ def sidebar(prefix: str, current_file: str) -> str:
 <aside class="book-sidebar" aria-label="Book navigation">
   <a class="book-brand" href="{prefix}index.html">
     <img src="{LOGO_URL}" alt="Decision Intelligence logo">
-    <span>Decision Intelligence</span>
+    <span class="book-brand-text">
+      <span>{escape(BOOK_TITLE)}</span>
+      <span class="book-version">Version {escape(BOOK_VERSION)}</span>
+    </span>
   </a>
   <div class="pagefind-search-shell" data-pagefind-ignore="all">
     <span class="search-label">Search book</span>
@@ -266,6 +254,7 @@ def page_shell(
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{escape(title)} | Decision Intelligence</title>
   <meta name="description" content="{escape(description, quote=True)}">
+  <meta name="book-version" content="{escape(BOOK_VERSION, quote=True)}">
   <meta property="og:title" content="{escape(title, quote=True)} | Decision Intelligence">
   <meta property="og:description" content="{escape(description, quote=True)}">
   <meta property="og:type" content="website">
@@ -306,6 +295,8 @@ def page_shell(
 
 
 def build_index() -> None:
+    chapter_range = f"{CHAPTERS[0]['code'].upper()}-{CHAPTERS[-1]['code'].upper()}"
+    notebook_label = "notebook" if len(CHAPTERS) == 1 else "notebooks"
     cards = []
     for chapter in CHAPTERS:
         data_title = escape(
@@ -325,8 +316,8 @@ def build_index() -> None:
 <div data-pagefind-body>
 <section class="book-hero" aria-labelledby="book-title">
   <div class="book-hero-copy">
-    <h1 id="book-title">Decision Intelligence with Generative AI</h1>
-    <p class="lede">A static reading edition of notebooks 1a through 1j, converted into chapter pages for easy browsing, printing, and sequential reading.</p>
+    <h1 id="book-title">{escape(BOOK_TITLE)}</h1>
+    <p class="lede">A static reading edition of {len(CHAPTERS)} selected {notebook_label}, converted into chapter pages for easy browsing, printing, and sequential reading.</p>
     <div class="hero-actions">
       <a class="primary-action" href="chapters/{CHAPTERS[0]['file']}">Start reading</a>
       <a class="secondary-action" href="#chapters">Browse chapters</a>
@@ -337,7 +328,7 @@ def build_index() -> None:
 <section id="chapters" class="chapter-grid-section" aria-labelledby="chapters-title">
   <div class="section-heading">
     <p class="eyebrow">Contents</p>
-    <h2 id="chapters-title">Chapters 1a-1j</h2>
+    <h2 id="chapters-title">Chapters {chapter_range}</h2>
   </div>
   <div class="chapter-grid">
     {''.join(cards)}
@@ -425,7 +416,7 @@ def validate_links() -> None:
         parser = LocalLinkParser()
         parser.feed(html_file.read_text(encoding="utf-8"))
         for ref in parser.refs:
-            if ref.startswith(("http://", "https://", "mailto:", "#")):
+            if ref.startswith(("http://", "https://", "mailto:", "data:", "#")):
                 continue
             clean_ref = ref.split("#", 1)[0]
             if not clean_ref:
@@ -446,7 +437,7 @@ def main() -> None:
     write_assets()
     generate_pagefind()
     validate_links()
-    print("Built website with 10 chapters and Pagefind search.")
+    print(f"Built website v{BOOK_VERSION} with {len(CHAPTERS)} chapters and Pagefind search.")
 
 
 FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
@@ -457,11 +448,12 @@ FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
 
 README = """# Decision Intelligence Static Website
 
-This folder contains the source automation and generated output for the static website built from notebooks `1a` through `1j`.
+This folder contains the source automation and generated output for the static website built from notebooks selected in `src/build_website_config.json`.
 
 ## Folder Layout
 
 - `src/` contains the build and deploy scripts.
+- `src/build_website_config.json` controls the book version and which notebooks are included.
 - `dist/` contains the generated static website.
 
 ## Build
@@ -473,6 +465,8 @@ python3 website/src/build_website.py
 ```
 
 The build converts notebooks to HTML, wraps them in the static book shell, generates the Pagefind index, and validates local links.
+
+To include or exclude notebooks, edit `src/build_website_config.json` and change `include_in_build`.
 
 For compatibility, the root wrapper still works:
 
@@ -487,6 +481,14 @@ python3 -m http.server 8765 --directory website/dist
 ```
 
 Open `http://127.0.0.1:8765/`. Pagefind search is intended to run from a static server, not directly from `file://`.
+
+To stop the local server, press `Ctrl+C` in the terminal where it is running.
+
+If that terminal is no longer available, stop the process listening on port `8765`:
+
+```bash
+lsof -ti tcp:8765 | xargs kill
+```
 
 ## Deploy To Azure Blob Static Website
 
@@ -615,6 +617,16 @@ button:focus-visible {
   margin-bottom: 24px;
 }
 .book-brand img { width: 42px; height: 42px; object-fit: contain; }
+.book-brand-text {
+  display: grid;
+  gap: 3px;
+}
+.book-version {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
 
 .theme-switcher { margin: 0 0 18px; }
 .theme-toggle {

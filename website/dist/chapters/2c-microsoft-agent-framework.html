@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Microsoft Agent Framework | Decision Intelligence</title>
+  <meta name="description" content="Static reading edition generated from the Microsoft Agent Framework notebook.">
+  <meta name="book-version" content="v0.3-preview.20260531">
+  <meta property="og:title" content="Microsoft Agent Framework | Decision Intelligence">
+  <meta property="og:description" content="Static reading edition generated from the Microsoft Agent Framework notebook.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Microsoft Agent Framework | Decision Intelligence">
+  <meta name="twitter:description" content="Static reading edition generated from the Microsoft Agent Framework notebook.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('di-theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../pagefind/pagefind-component-ui.css">
+  
+</head>
+<body data-page="2c-microsoft-agent-framework.html">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <button class="nav-toggle" type="button" aria-label="Open chapter navigation" aria-expanded="false">Menu</button>
+  
+<aside class="book-sidebar" aria-label="Book navigation">
+  <a class="book-brand" href="../index.html">
+    <img src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceLogo.png" alt="Decision Intelligence logo">
+    <span class="book-brand-text">
+      <span>Decision Intelligence with AI</span>
+      <span class="book-version">Version v0.3-preview.20260531</span>
+    </span>
+  </a>
+  <div class="pagefind-search-shell" data-pagefind-ignore="all">
+    <span class="search-label">Search book</span>
+    <pagefind-modal-trigger button-text="Search the book"></pagefind-modal-trigger>
+    <pagefind-modal></pagefind-modal>
+  </div>
+  <div class="theme-switcher" data-pagefind-ignore="all">
+    <span class="search-label">Appearance</span>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+      <span class="theme-toggle-icon" aria-hidden="true">☀</span>
+      <span data-theme-toggle-label>Light mode</span>
+    </button>
+  </div>
+  <nav class="chapter-nav" aria-label="Chapters">
+    <a class="chapter-link" href="../index.html" data-title="contents overview"><span class="chapter-code">TOC</span><span>Contents</span></a><a class="chapter-link" href="../chapters/1a-introducing-the-decision-intelligence-framework.html" data-title="1a introducing the decision intelligence framework introducing the decision intelligence framework"><span class="chapter-code">1A</span><span>Introducing the Decision Intelligence Framework</span></a><a class="chapter-link" href="../chapters/1b-decision-framing.html" data-title="1b decision framing decision framing"><span class="chapter-code">1B</span><span>Decision Framing</span></a><a class="chapter-link" href="../chapters/1c-gathering-intelligence.html" data-title="1c gathering intelligence gathering intelligence"><span class="chapter-code">1C</span><span>Gathering Intelligence</span></a><a class="chapter-link" href="../chapters/1d-decision-execution.html" data-title="1d decision execution decision execution"><span class="chapter-code">1D</span><span>Decision Execution</span></a><a class="chapter-link" href="../chapters/1e-decision-execution-with-intuition.html" data-title="1e decision execution with intuition decision execution with intuition"><span class="chapter-code">1E</span><span>Decision Execution with Intuition</span></a><a class="chapter-link" href="../chapters/1f-decision-execution-with-decision-rules.html" data-title="1f decision execution with decision rules decision execution with decision rules"><span class="chapter-code">1F</span><span>Decision Execution with Decision Rules</span></a><a class="chapter-link" href="../chapters/1g-decision-execution-with-quantitative-methods.html" data-title="1g decision execution with quantitative methods decision execution with quantitative methods"><span class="chapter-code">1G</span><span>Decision Execution with Quantitative Methods</span></a><a class="chapter-link" href="../chapters/1h-decision-communication.html" data-title="1h decision communication decision communication"><span class="chapter-code">1H</span><span>Decision Communication</span></a><a class="chapter-link" href="../chapters/1i-applying-the-decision-intelligence-framework.html" data-title="1i applying the decision intelligence framework applying the decision intelligence framework"><span class="chapter-code">1I</span><span>Applying the Decision Intelligence Framework</span></a><a class="chapter-link" href="../chapters/1j-enterprise-decision-intelligence.html" data-title="1j enterprise decision intelligence enterprise decision intelligence"><span class="chapter-code">1J</span><span>Enterprise Decision Intelligence</span></a><a class="chapter-link" href="../chapters/2a-code-execution-requirements.html" data-title="2a code execution requirements code execution requirements"><span class="chapter-code">2A</span><span>Code Execution Requirements</span></a><a class="chapter-link" href="../chapters/2b-about-microsoft-ai-extensions.html" data-title="2b about microsoft ai extensions about microsoft ai extensions"><span class="chapter-code">2B</span><span>About Microsoft AI Extensions</span></a><a class="chapter-link active" href="../chapters/2c-microsoft-agent-framework.html" data-title="2c microsoft agent framework microsoft agent framework"><span class="chapter-code">2C</span><span>Microsoft Agent Framework</span></a><a class="chapter-link" href="../chapters/3a-simple-decision-prompts.html" data-title="3a simple decision prompts simple decision prompts"><span class="chapter-code">3A</span><span>Simple Decision Prompts</span></a><a class="chapter-link" href="../chapters/3b-decisions-with-chat-completions-and-responses-apis.html" data-title="3b decisions with chat completions &amp; responses apis decisions with chat completions &amp; responses apis"><span class="chapter-code">3B</span><span>Decisions with Chat Completions &amp; Responses APIs</span></a><a class="chapter-link" href="../chapters/3c-decisions-with-reusable-prompts-and-native-net-functions.html" data-title="3c decisions with reusable prompts and native .net functions decisions with reusable prompts and native .net functions"><span class="chapter-code">3C</span><span>Decisions with Reusable Prompts and Native .NET Functions</span></a><a class="chapter-link" href="../chapters/3d-private-ai-decision-intelligence.html" data-title="3d private ai decision intelligence private ai decision intelligence"><span class="chapter-code">3D</span><span>Private AI Decision Intelligence</span></a>
+  </nav>
+</aside>
+<div class="nav-backdrop" data-close-nav></div>
+
+  <main id="main-content" class="book-main">
+    
+<article class="chapter-page">
+  <div data-pagefind-body>
+  <header class="chapter-header">
+    <a class="back-link" href="../index.html">Back to contents</a>
+    <p class="eyebrow">Chapter 2C</p>
+    <h1>Microsoft Agent Framework</h1>
+    <p class="chapter-summary">Static reading edition generated from the Microsoft Agent Framework notebook.</p>
+  </header>
+  
+<nav class="chapter-toc" aria-label="Chapter table of contents">
+  <strong>On this page</strong>
+  <a class="toc-h3" href="#How-MAF-Builds-on-Microsoft.Extensions.AI-(MEAI)">How MAF Builds on Microsoft.Extensions.AI (MEAI)</a><a class="toc-h3" href="#Microsoft-Agent-Framework-Resources">Microsoft Agent Framework Resources</a>
+</nav>
+
+  <section class="notebook-content">
+    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="display: flex; align-items: center;">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceWorkshopLogo.png" style="margin-right: 10px;" width="60px"/>
+<span style="font-size: 1.5em; font-weight: bold;">Workshop (Setup) - Microsoft Agent Framework</span>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Microsoft Agent Framework (MAF) is an <strong>open-source, code-first</strong> framework from Microsoft for building AI agents and multi-agent workflows in <strong>.NET and Python</strong>.</p>
+<img loading="lazy" alt="" src="https://learn.microsoft.com/en-us/agent-framework/workflows/resources/images/ai-agent.png" style="display: block; margin: auto;" width="700px"/>
+<p>MAF is designed for production-grade agentic systems:</p>
+<ul>
+<li><strong>Supported by Microsoft</strong> with active engineering investment across the Foundry ecosystem</li>
+<li>Unified agent abstraction across providers such as <strong>Azure OpenAI, OpenAI, Anthropic, and Ollama</strong></li>
+<li>Built-in support for <strong>tools, MCP servers, sessions, middleware, and telemetry</strong></li>
+<li>First-class <strong>workflow orchestration</strong> for deterministic, multi-step processes</li>
+<li>Open-source development with public releases, issues, and migration guidance</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>MAF is an AI orchestration layer between your application experiences and model providers.</p>
+<p>It provides two complementary execution modes:</p>
+<ul>
+<li><strong>Agents</strong> for dynamic, LLM-driven reasoning and tool use</li>
+<li><strong>Workflows</strong> for explicit, graph-based control flow with checkpoints and human-in-the-loop support</li>
+</ul>
+<img loading="lazy" alt="" src="https://learn.microsoft.com/en-us/agent-framework/workflows/resources/images/workflows-overview.png" style="display: block; margin: auto;" width="700px"/>
+<p>This combination lets you blend flexible agent behavior with deterministic process control in one architecture.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="How-MAF-Builds-on-Microsoft.Extensions.AI-(MEAI)">How MAF Builds on Microsoft.Extensions.AI (MEAI)<a class="anchor-link" href="#How-MAF-Builds-on-Microsoft.Extensions.AI-(MEAI)">¶</a></h3><p>MAF extends the MEAI foundation instead of replacing it.</p>
+<ul>
+<li><strong>Shared model abstractions</strong>: MEAI standardizes model interaction (for example through <code>IChatClient</code>), while MAF adds agent and workflow orchestration on top.</li>
+<li><strong>Dependency injection patterns</strong>: MAF aligns with familiar <code>Microsoft.Extensions.*</code> host and service registration patterns used across .NET apps.</li>
+<li><strong>Middleware composition</strong>: MEAI middleware concepts (telemetry, caching, resilience, safety) map naturally into MAF agent/workflow middleware pipelines.</li>
+<li><strong>Provider portability</strong>: both MEAI and MAF are designed to reduce provider lock-in and support interchangeable model backends.</li>
+<li><strong>Operational observability</strong>: MAF runtime events and tracing can be integrated with the same OpenTelemetry-first operating model commonly used with MEAI.</li>
+</ul>
+<img loading="lazy" alt="" src="https://devblogs.microsoft.com/dotnet/wp-content/uploads/sites/10/2025/10/agent-framework-foundations.png" style="display: block; margin: auto;" width="700px"/>
+<img loading="lazy" alt="" src="https://learn.microsoft.com/en-us/dotnet/ai/media/ai-extensions/meai-architecture-diagram.png" style="display: block; margin: auto;" width="700px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A typical MAF pipeline combines key building blocks:</p>
+<ul>
+<li><strong>AIAgent / Agent</strong> abstractions for provider-agnostic execution</li>
+<li><strong>Executors and edges</strong> to model multi-agent workflow paths</li>
+<li><strong>Agent sessions</strong> to manage conversation state</li>
+<li><strong>Context providers and tools</strong> to ground decisions with memory and external capabilities</li>
+<li><strong>Events and middleware</strong> for observability, safety, and operational controls</li>
+</ul>
+<p>These building blocks make it practical to move from prototype agent interactions to enterprise decision orchestration.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Microsoft-Agent-Framework-Resources">Microsoft Agent Framework Resources<a class="anchor-link" href="#Microsoft-Agent-Framework-Resources">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>GitHub Repo: <a href="https://github.com/microsoft/agent-framework">https://github.com/microsoft/agent-framework</a> (.NET, Python)</li>
+<li>Microsoft Learn Overview: <a href="https://learn.microsoft.com/en-us/agent-framework/overview/">https://learn.microsoft.com/en-us/agent-framework/overview/</a></li>
+<li>Get Started Tutorial: <a href="https://learn.microsoft.com/en-us/agent-framework/get-started/">https://learn.microsoft.com/en-us/agent-framework/get-started/</a></li>
+<li>Agent Types: <a href="https://learn.microsoft.com/en-us/agent-framework/agents/">https://learn.microsoft.com/en-us/agent-framework/agents/</a></li>
+<li>Workflows Overview: <a href="https://learn.microsoft.com/en-us/agent-framework/workflows/">https://learn.microsoft.com/en-us/agent-framework/workflows/</a></li>
+<li>Migration Guide from Semantic Kernel: <a href="https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-semantic-kernel/">https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-semantic-kernel/</a></li>
+<li>Migration Guide from AutoGen: <a href="https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/">https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/</a></li>
+<li>Introducing Microsoft Agent Framework (Microsoft Foundry Blog): <a href="https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/">https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/</a></li>
+<li>Introducing Microsoft Agent Framework Preview (.NET Blog): <a href="https://devblogs.microsoft.com/dotnet/introducing-microsoft-agent-framework-preview/">https://devblogs.microsoft.com/dotnet/introducing-microsoft-agent-framework-preview/</a></li>
+<li>Microsoft.Extensions.AI Libraries Overview: <a href="https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai">https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai</a></li>
+<li>Introducing Microsoft.Extensions.AI Preview (.NET Blog): <a href="https://devblogs.microsoft.com/dotnet/introducing-microsoft-extensions-ai-preview/">https://devblogs.microsoft.com/dotnet/introducing-microsoft-extensions-ai-preview/</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+  </section>
+  </div>
+  <nav class="chapter-pager" aria-label="Chapter navigation">
+    <a class="pager-link" data-prev-chapter href="2b-about-microsoft-ai-extensions.html"><span>Previous</span><strong>About Microsoft AI Extensions</strong></a>
+    <a class="pager-link align-right" data-next-chapter href="3a-simple-decision-prompts.html"><span>Next</span><strong>Simple Decision Prompts</strong></a>
+  </nav>
+</article>
+
+  </main>
+  <script type="module" src="../pagefind/pagefind-component-ui.js"></script>
+  <script src="../assets/site.js"></script>
+</body>
+</html>

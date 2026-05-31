@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Code Execution Requirements | Decision Intelligence</title>
+  <meta name="description" content="Static reading edition generated from the Code Execution Requirements notebook.">
+  <meta name="book-version" content="v0.3-preview.20260531">
+  <meta property="og:title" content="Code Execution Requirements | Decision Intelligence">
+  <meta property="og:description" content="Static reading edition generated from the Code Execution Requirements notebook.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Code Execution Requirements | Decision Intelligence">
+  <meta name="twitter:description" content="Static reading edition generated from the Code Execution Requirements notebook.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('di-theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../pagefind/pagefind-component-ui.css">
+  
+</head>
+<body data-page="2a-code-execution-requirements.html">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <button class="nav-toggle" type="button" aria-label="Open chapter navigation" aria-expanded="false">Menu</button>
+  
+<aside class="book-sidebar" aria-label="Book navigation">
+  <a class="book-brand" href="../index.html">
+    <img src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceLogo.png" alt="Decision Intelligence logo">
+    <span class="book-brand-text">
+      <span>Decision Intelligence with AI</span>
+      <span class="book-version">Version v0.3-preview.20260531</span>
+    </span>
+  </a>
+  <div class="pagefind-search-shell" data-pagefind-ignore="all">
+    <span class="search-label">Search book</span>
+    <pagefind-modal-trigger button-text="Search the book"></pagefind-modal-trigger>
+    <pagefind-modal></pagefind-modal>
+  </div>
+  <div class="theme-switcher" data-pagefind-ignore="all">
+    <span class="search-label">Appearance</span>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+      <span class="theme-toggle-icon" aria-hidden="true">☀</span>
+      <span data-theme-toggle-label>Light mode</span>
+    </button>
+  </div>
+  <nav class="chapter-nav" aria-label="Chapters">
+    <a class="chapter-link" href="../index.html" data-title="contents overview"><span class="chapter-code">TOC</span><span>Contents</span></a><a class="chapter-link" href="../chapters/1a-introducing-the-decision-intelligence-framework.html" data-title="1a introducing the decision intelligence framework introducing the decision intelligence framework"><span class="chapter-code">1A</span><span>Introducing the Decision Intelligence Framework</span></a><a class="chapter-link" href="../chapters/1b-decision-framing.html" data-title="1b decision framing decision framing"><span class="chapter-code">1B</span><span>Decision Framing</span></a><a class="chapter-link" href="../chapters/1c-gathering-intelligence.html" data-title="1c gathering intelligence gathering intelligence"><span class="chapter-code">1C</span><span>Gathering Intelligence</span></a><a class="chapter-link" href="../chapters/1d-decision-execution.html" data-title="1d decision execution decision execution"><span class="chapter-code">1D</span><span>Decision Execution</span></a><a class="chapter-link" href="../chapters/1e-decision-execution-with-intuition.html" data-title="1e decision execution with intuition decision execution with intuition"><span class="chapter-code">1E</span><span>Decision Execution with Intuition</span></a><a class="chapter-link" href="../chapters/1f-decision-execution-with-decision-rules.html" data-title="1f decision execution with decision rules decision execution with decision rules"><span class="chapter-code">1F</span><span>Decision Execution with Decision Rules</span></a><a class="chapter-link" href="../chapters/1g-decision-execution-with-quantitative-methods.html" data-title="1g decision execution with quantitative methods decision execution with quantitative methods"><span class="chapter-code">1G</span><span>Decision Execution with Quantitative Methods</span></a><a class="chapter-link" href="../chapters/1h-decision-communication.html" data-title="1h decision communication decision communication"><span class="chapter-code">1H</span><span>Decision Communication</span></a><a class="chapter-link" href="../chapters/1i-applying-the-decision-intelligence-framework.html" data-title="1i applying the decision intelligence framework applying the decision intelligence framework"><span class="chapter-code">1I</span><span>Applying the Decision Intelligence Framework</span></a><a class="chapter-link" href="../chapters/1j-enterprise-decision-intelligence.html" data-title="1j enterprise decision intelligence enterprise decision intelligence"><span class="chapter-code">1J</span><span>Enterprise Decision Intelligence</span></a><a class="chapter-link active" href="../chapters/2a-code-execution-requirements.html" data-title="2a code execution requirements code execution requirements"><span class="chapter-code">2A</span><span>Code Execution Requirements</span></a><a class="chapter-link" href="../chapters/2b-about-microsoft-ai-extensions.html" data-title="2b about microsoft ai extensions about microsoft ai extensions"><span class="chapter-code">2B</span><span>About Microsoft AI Extensions</span></a><a class="chapter-link" href="../chapters/2c-microsoft-agent-framework.html" data-title="2c microsoft agent framework microsoft agent framework"><span class="chapter-code">2C</span><span>Microsoft Agent Framework</span></a><a class="chapter-link" href="../chapters/3a-simple-decision-prompts.html" data-title="3a simple decision prompts simple decision prompts"><span class="chapter-code">3A</span><span>Simple Decision Prompts</span></a><a class="chapter-link" href="../chapters/3b-decisions-with-chat-completions-and-responses-apis.html" data-title="3b decisions with chat completions &amp; responses apis decisions with chat completions &amp; responses apis"><span class="chapter-code">3B</span><span>Decisions with Chat Completions &amp; Responses APIs</span></a><a class="chapter-link" href="../chapters/3c-decisions-with-reusable-prompts-and-native-net-functions.html" data-title="3c decisions with reusable prompts and native .net functions decisions with reusable prompts and native .net functions"><span class="chapter-code">3C</span><span>Decisions with Reusable Prompts and Native .NET Functions</span></a><a class="chapter-link" href="../chapters/3d-private-ai-decision-intelligence.html" data-title="3d private ai decision intelligence private ai decision intelligence"><span class="chapter-code">3D</span><span>Private AI Decision Intelligence</span></a>
+  </nav>
+</aside>
+<div class="nav-backdrop" data-close-nav></div>
+
+  <main id="main-content" class="book-main">
+    
+<article class="chapter-page">
+  <div data-pagefind-body>
+  <header class="chapter-header">
+    <a class="back-link" href="../index.html">Back to contents</a>
+    <p class="eyebrow">Chapter 2A</p>
+    <h1>Code Execution Requirements</h1>
+    <p class="chapter-summary">Static reading edition generated from the Code Execution Requirements notebook.</p>
+  </header>
+  
+<nav class="chapter-toc" aria-label="Chapter table of contents">
+  <strong>On this page</strong>
+  <a class="toc-h3" href="#Step-1---Configuration-Builder">Step 1 - Configuration Builder</a><a class="toc-h3" href="#Step-2---Test-Secrets-Configuration">Step 2 - Test Secrets Configuration</a><a class="toc-h3" href="#Step-3---Install-&amp;-Instantiate-Microsoft-Extensions-AI">Step 3 - Install &amp; Instantiate Microsoft Extensions AI</a>
+</nav>
+
+  <section class="notebook-content">
+    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="display: flex; align-items: center;">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceWorkshopLogo.png" style="margin-right: 10px;" width="60px"/>
+<span style="font-size: 1.5em; font-weight: bold;">Workshop (Setup) - Code Execution Requirements</span>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>📝 Note: A configuration setup will be repeated throughout each of the notebook scenarios. This will ensure notebooks are re-runnable from beginning to end; not requiring previous notebook outputs. This allows the user of the Decision Intelligence Workshop to consume as they like, by jumping around between decision intelligence scenarios and not having to start from the beginning each time.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr/>
+<h3 id="Step-1---Configuration-Builder">Step 1 - Configuration Builder<a class="anchor-link" href="#Step-1---Configuration-Builder">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this step Microsoft NuGet packages are installed, so that you can create access to your resources using API keys. These keys should be protected and not checked in. Therefore, the <strong>secrets.settings.json</strong> is ignored in the .gitignore file. This is the place you should add the API key information.</p>
+<p>You will need either of the tested AI providers:</p>
+<ul>
+<li>Azure OpenAI - Model Deployment Name, Endpoint URL and the API Key</li>
+<li>OpenAI - Model Id, OpenAI API Key</li>
+</ul>
+<p>The tested AI models for this course on the Azure OpenAI or OpenAI platforms are:</p>
+<ul>
+<li>OpenAI GPT-5.x-mini (for speed/accuracy/cost performance balance)</li>
+<li>GPT-5.x-mini (for accuracy performance optimization)</li>
+</ul>
+<blockquote>
+<p>📝 Note: As of creation of this workshop, GPT-5-mini &amp; GPT-5.2 are the latest versions. Most of the decision-making exercises will use GPT-5-mini. Other open-source models or older OpenAI models may not support some of the advanced features like reasoning &amp; advanced function calling.</p>
+</blockquote>
+<p>Use the local.settings.json template to create the secrets.settings.json</p>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="s2">"AzureOpenAI"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"Endpoint"</span><span class="o">:</span><span class="w"> </span><span class="s2">"https://YOURENDPOINT.openai.azure.com"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"APIKey"</span><span class="o">:</span><span class="w"> </span><span class="s2">"AZUREOPENAIAPIKEY"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"ModelDeploymentName"</span><span class="o">:</span><span class="w"> </span><span class="s2">"MODELDEPLOYMENTNAME"</span><span class="p">,</span>
+
+<span class="w">    </span><span class="s2">"reasoningEndpoint"</span><span class="o">:</span><span class="w"> </span><span class="s2">"https://YOURENDPOINT.openai.azure.com"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"reasoningAPIKey"</span><span class="o">:</span><span class="w"> </span><span class="s2">"AZUREOPENAIAPIKEY"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"reasoningModelDeploymentName"</span><span class="o">:</span><span class="w"> </span><span class="s2">"MODELDEPLOYMENTNAME"</span><span class="p">,</span>
+
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"OpenAI"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"APIKey"</span><span class="o">:</span><span class="w"> </span><span class="s2">"OPENAIAPIKEY"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"ModelId"</span><span class="o">:</span><span class="w"> </span><span class="s2">"MODELID"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Run this cell to see information about the Polyglot Notebook environment</span>
+<span class="err">#</span><span class="o">!</span><span class="n">about</span><span class="w"> </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea">
+<div>
+<div id="dotnet-interactive-this-cell-$CACHE_BUSTER$" style="display: none">
+        The below script needs to be able to find the current output cell; this is an easy method to get it.
+    </div>
+<script type="text/javascript">
+async function probeAddresses(probingAddresses) {
+    function timeout(ms, promise) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                reject(new Error('timeout'))
+            }, ms)
+            promise.then(resolve, reject)
+        })
+    }
+
+    if (Array.isArray(probingAddresses)) {
+        for (let i = 0; i < probingAddresses.length; i++) {
+
+            let rootUrl = probingAddresses[i];
+
+            if (!rootUrl.endsWith('/')) {
+                rootUrl = `${rootUrl}/`;
+            }
+
+            try {
+                let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
+                    method: 'POST',
+                    cache: 'no-cache',
+                    mode: 'cors',
+                    timeout: 1000,
+                    headers: {
+                        'Content-Type': 'text/plain'
+                    },
+                    body: probingAddresses[i]
+                }));
+
+                if (response.status == 200) {
+                    return rootUrl;
+                }
+            }
+            catch (e) { }
+        }
+    }
+}
+
+function loadDotnetInteractiveApi() {
+    probeAddresses(["http://127.0.0.1:2048/","http://::1:2048/","http://fe80::1%1:2048/","http://fe80::1c6e:2cf6:c519:ad9%15:2048/","http://2001:4898:e820:60:e0:3c31:b4fd:f0fe:2048/","http://2001:4898:e820:60:309b:a85c:8e1c:dc56:2048/","http://10.24.1.207:2048/","http://fe80::9083:51ff:fed6:3656%16:2048/","http://fe80::72c9:9c:4341:f6f5%18:2048/","http://fe80::77c8:c6f0:86d8:d2b7%19:2048/","http://fe80::cb22:316c:186b:dad%20:2048/","http://fe80::ce81:b1c:bd2c:69e%21:2048/"])
+        .then((root) => {
+        // use probing to find host url and api resources
+        // load interactive helpers and language services
+        let dotnetInteractiveRequire = require.config({
+        context: '36702.Microsoft.DotNet.Interactive.Http.HttpPort',
+                paths:
+            {
+                'dotnet-interactive': `${root}resources`
+                }
+        }) || require;
+
+            window.dotnetInteractiveRequire = dotnetInteractiveRequire;
+
+            window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
+                let paths = {};
+                paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
+                
+                let internalRequire = require.config({
+                    context: extensionCacheBuster,
+                    paths: paths,
+                    urlArgs: `cacheBuster=${extensionCacheBuster}`
+                    }) || require;
+
+                return internalRequire
+            };
+        
+            dotnetInteractiveRequire([
+                    'dotnet-interactive/dotnet-interactive'
+                ],
+                function (dotnet) {
+                    dotnet.init(window);
+                },
+                function (error) {
+                    console.log(error);
+                }
+            );
+        })
+        .catch(error => {console.log(error);});
+    }
+
+// ensure `require` is available globally
+if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
+    let require_script = document.createElement('script');
+    require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
+    require_script.setAttribute('type', 'text/javascript');
+    
+    
+    require_script.onload = function() {
+        loadDotnetInteractiveApi();
+    };
+
+    document.getElementsByTagName('head')[0].appendChild(require_script);
+}
+else {
+    loadDotnetInteractiveApi();
+}
+
+    </script>
+</div></div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea"><table><tbody><tr><td><img loading="lazy" alt="" src="data:image/png;base64, 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" width="125em"/></td><td style="line-height:.8em"><p style="font-size:1.5em"><b>.NET Interactive</b></p><p>© 2020-2025 Microsoft Corporation</p><p><b>Version: </b>1.0.712001+df4e5cbcbe1b5d0ea85247226b7b896765a54611</p><p><b>Library version: </b>1.0.0-beta.26120.1+df4e5cbcbe1b5d0ea85247226b7b896765a54611</p><p><a href="https://github.com/dotnet/interactive">https://github.com/dotnet/interactive</a></p></td></tr></tbody></table></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the required NuGet configuration packages</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration, 10.0.8"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration.Json, 10.0.8"</span>
+
+<span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration.Json</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.IO</span><span class="p">;</span>
+
+<span class="c1">// Load the configuration settings from the local.settings.json and secrets.settings.json files</span>
+<span class="c1">// The secrets.settings.json file is used to store sensitive information such as API keys</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">configurationBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConfigurationBuilder</span><span class="p">()</span>
+<span class="w">    </span><span class="p">.</span><span class="n">SetBasePath</span><span class="p">(</span><span class="n">Directory</span><span class="p">.</span><span class="n">GetCurrentDirectory</span><span class="p">())</span>
+<span class="w">    </span><span class="p">.</span><span class="n">AddJsonFile</span><span class="p">(</span><span class="s">"local.settings.json"</span><span class="p">,</span><span class="w"> </span><span class="n">optional</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="n">reloadOnChange</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">AddJsonFile</span><span class="p">(</span><span class="s">"secrets.settings.json"</span><span class="p">,</span><span class="w"> </span><span class="n">optional</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="n">reloadOnChange</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configurationBuilder</span><span class="p">.</span><span class="n">Build</span><span class="p">();</span>
+
+<span class="c1">// IMPORTANT: You ONLY NEED either Azure OpenAI or OpenAI connectiopn info, not both.</span>
+<span class="c1">// Azure OpenAI Connection Info</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIEndpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:Endpoint"</span><span class="p">];</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIAPIKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:APIKey"</span><span class="p">];</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIModelDeploymentName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:ModelDeploymentName"</span><span class="p">];</span>
+<span class="c1">// OpenAI Connection Info </span>
+<span class="kt">var</span><span class="w"> </span><span class="n">openAIAPIKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"OpenAI:APIKey"</span><span class="p">];</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">openAIModelId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"OpenAI:ModelId"</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.Configuration, 10.0.8</span></li><li><span>Microsoft.Extensions.Configuration.Json, 10.0.8</span></li></ul></div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr/>
+<h3 id="Step-2---Test-Secrets-Configuration">Step 2 - Test Secrets Configuration<a class="anchor-link" href="#Step-2---Test-Secrets-Configuration">¶</a></h3><p>If the keys were properly entered in the JSON file, they should be available to be loaded.</p>
+<blockquote>
+<p>Note: If you run the cell, ensure to clear out the output not to cache nor persist any API keys in the output.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIEndpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:Endpoint"</span><span class="p">];</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIAPIKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:APIKey"</span><span class="p">];</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIModelDeploymentName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:ModelDeploymentName"</span><span class="p">];</span>
+
+<span class="c1">// Test the configuration, You should see the values in the Polyglot Notebook output</span>
+
+<span class="c1">// Uncomment the relevant lines to view the configuration settings</span>
+<span class="c1">// Console.WriteLine(azureOpenAIEndpoint);</span>
+<span class="c1">// Console.WriteLine(azureOpenAIAPIKey);</span>
+<span class="c1">// Console.WriteLine(azureOpenAIModelDeploymentName);</span>
+<span class="c1">// Console.WriteLine(config["OpenAI:APIKey"]);</span>
+<span class="c1">// Console.WriteLine(config["OpenAI:ModelId"]);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr/>
+<h3 id="Step-3---Install-&amp;-Instantiate-Microsoft-Extensions-AI">Step 3 - Install &amp; Instantiate Microsoft Extensions AI<a class="anchor-link" href="#Step-3---Install-&amp;-Instantiate-Microsoft-Extensions-AI">¶</a></h3><p>This is just a test to show the installation some Microsoft Extensions AI packages. Note that Microsoft Extensions AI includes a variety of packages with different release state lifecycles. Executing the cell below should be error free if the configurations are set up correctly.</p>
+<p>Note: Some packages are in alpha state or even experimental. These packages may eventually be made available and supported, but should be considered not ready for production.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the Microdoft Extensions AI NuGet Packages</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI, 10.5.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.Abstractions, 10.5.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.OpenAI, 10.5.0"</span>
+<span class="c1">// Import Azure &amp; OpenAI NuGet Packages</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Azure.AI.OpenAI, 2.9.0-beta.1"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Azure.Identity, 1.21.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: OpenAI, 2.10.0"</span>
+
+<span class="k">using</span><span class="w"> </span><span class="nn">Azure</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Azure.AI.OpenAI</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.AI</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">OpenAI.Chat</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.ClientModel</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.ComponentModel</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Runtime.InteropServices</span><span class="p">;</span>
+
+<span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClientOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AzureOpenAIClientOptions</span><span class="p">(</span><span class="n">AzureOpenAIClientOptions</span><span class="p">.</span><span class="n">ServiceVersion</span><span class="p">.</span><span class="n">V2025_04_01_Preview</span><span class="p">);</span>
+
+<span class="c1">// #pragma warning disable OPENAI001</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">AzureOpenAIClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Uri</span><span class="p">(</span><span class="n">azureOpenAIEndpoint</span><span class="p">),</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="p">,</span><span class="w"> </span><span class="n">azureOpenAIClientOptions</span><span class="p">);</span>
+
+<span class="cp">#pragma warning disable OPENAI001</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIChatClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="p">.</span><span class="n">GetChatClient</span><span class="p">(</span><span class="n">azureOpenAIModelDeploymentName</span><span class="p">).</span><span class="n">AsIChatClient</span><span class="p">();</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"""</span>
+<span class="n">Code</span><span class="w"> </span><span class="n">execution</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">made</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="n">far</span><span class="p">,</span><span class="w"> </span><span class="n">therefore</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Microsoft</span><span class="w"> </span><span class="n">AI</span><span class="w"> </span><span class="n">NuGet</span><span class="w"> </span><span class="n">packages</span><span class="w"> </span><span class="n">appear</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">correctly</span><span class="w"> </span><span class="n">installed</span><span class="p">.</span>
+<span class="s">"""); </span>
+
+<span class="c1">// Display information about the .NET runtime environment</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">frameworkDescription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RuntimeInformation</span><span class="p">.</span><span class="n">FrameworkDescription</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"The application is running on: {frameworkDescription}"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Azure.AI.OpenAI, 2.9.0-beta.1</span></li><li><span>Azure.Identity, 1.21.0</span></li><li><span>Microsoft.Extensions.AI, 10.5.0</span></li><li><span>Microsoft.Extensions.AI.Abstractions, 10.5.0</span></li><li><span>Microsoft.Extensions.AI.OpenAI, 10.5.0</span></li><li><span>OpenAI, 2.10.0</span></li></ul></div></div></div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Code execution has made it this far, therefore the Microsoft AI NuGet packages appear to be correctly installed.
+The application is running on: .NET 10.0.7
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>
+warning CS1701: Assuming assembly reference 'System.ClientModel, Version=1.9.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' used by 'Azure.AI.OpenAI' matches identity 'System.ClientModel, Version=1.10.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' of 'System.ClientModel', you may need to supply runtime policy
+
+warning CS1701: Assuming assembly reference 'System.ClientModel, Version=1.9.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' used by 'Azure.AI.OpenAI' matches identity 'System.ClientModel, Version=1.10.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' of 'System.ClientModel', you may need to supply runtime policy
+
+warning CS1701: Assuming assembly reference 'OpenAI, Version=2.9.1.0, Culture=neutral, PublicKeyToken=b4187f3e65366280' used by 'Azure.AI.OpenAI' matches identity 'OpenAI, Version=2.10.0.0, Culture=neutral, PublicKeyToken=b4187f3e65366280' of 'OpenAI', you may need to supply runtime policy
+
+warning CS1701: Assuming assembly reference 'System.ClientModel, Version=1.9.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' used by 'Azure.AI.OpenAI' matches identity 'System.ClientModel, Version=1.10.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' of 'System.ClientModel', you may need to supply runtime policy
+
+warning CS1701: Assuming assembly reference 'OpenAI, Version=2.9.1.0, Culture=neutral, PublicKeyToken=b4187f3e65366280' used by 'Azure.AI.OpenAI' matches identity 'OpenAI, Version=2.10.0.0, Culture=neutral, PublicKeyToken=b4187f3e65366280' of 'OpenAI', you may need to supply runtime policy
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p><strong>📌 Note:</strong><br/>
+This workshop will use certain conventions to balance readability as well as interactivity of the content. For example, Markdown rendering will be used for output, but can be turned off to make the content streamable. You can use alternative AI models, OSS packages to add aditional capabilities to enhance exercises.</p>
+</blockquote>
+</div>
+</div>
+</div>
+
+  </section>
+  </div>
+  <nav class="chapter-pager" aria-label="Chapter navigation">
+    <a class="pager-link" data-prev-chapter href="1j-enterprise-decision-intelligence.html"><span>Previous</span><strong>Enterprise Decision Intelligence</strong></a>
+    <a class="pager-link align-right" data-next-chapter href="2b-about-microsoft-ai-extensions.html"><span>Next</span><strong>About Microsoft AI Extensions</strong></a>
+  </nav>
+</article>
+
+  </main>
+  <script type="module" src="../pagefind/pagefind-component-ui.js"></script>
+  <script src="../assets/site.js"></script>
+</body>
+</html>

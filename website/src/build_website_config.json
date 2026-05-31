@@ -1,0 +1,129 @@
+{
+  "book_version": "v0.3-preview.20260531",
+  "notebooks": [
+    {
+      "file": "1a - Decision Intelligence - Introducing the Decision Intelligence Framework.ipynb",
+      "include_in_build": true
+    },
+    {
+      "file": "1b - Decision Intelligence - Decision Framing.ipynb",
+      "include_in_build": true
+    },
+    {
+      "file": "1c - Decision Intelligence - Gathering Intelligence.ipynb",
+      "include_in_build": true
+    },
+    {
+      "file": "1d - Decision Intelligence - Decision Execution.ipynb",
+      "include_in_build": true
+    },
+    {
+      "file": "1e - Decision Intelligence - Decision Execution with Intuition.ipynb",
+      "include_in_build": true
+    },
+    {
+      "file": "1f - Decision Intelligence - Decision Execution with Decision Rules.ipynb",
+      "include_in_build": true
+    },
+    {
+      "file": "1g - Decision Intelligence - Decision Execution with Quantitative Methods.ipynb",
+      "include_in_build": true
+    },
+    {
+      "file": "1h - Decision Intelligence - Decision Communication.ipynb",
+      "include_in_build": true
+    },
+    {
+      "file": "1i - Decision Intelligence - Applying the Decision Intelligence Framework.ipynb",
+      "include_in_build": true
+    },
+    {
+      "file": "1j - Decision Intelligence - Enterprise Decision Intelligence.ipynb",
+      "include_in_build": true
+    },
+    {
+      "file": "2a - Workshop (Setup) - Code Execution Requirements.ipynb",
+      "include_in_build": true
+    },
+    {
+      "file": "2b - Workshop (Setup) - About Microsoft AI Extensions.ipynb",
+      "include_in_build": true
+    },
+    {
+      "file": "2c - Workshop (Setup) - Microsoft Agent Framework.ipynb",
+      "include_in_build": true
+    },
+    {
+      "file": "3a - Workshop (AI Extensions) - Simple Decision Prompts.ipynb",
+      "include_in_build": true
+    },
+    {
+      "file": "3b - Workshop (AI Extensions) - Decisions with Chat Completions & Responses APIs.ipynb",
+      "include_in_build": true
+    },
+    {
+      "file": "3c - Workshop (AI Extensions) - Decisions with Reusable Prompts and Native .NET Functions.ipynb",
+      "include_in_build": true
+    },
+    {
+      "file": "3d - Workshop (AI Extensions) - Private AI Decision Intelligence.ipynb",
+      "include_in_build": true
+    },
+    {
+      "file": "4d - Semantic Kernel - Gathering Intelligence with Generative AI.ipynb",
+      "include_in_build": false
+    },
+    {
+      "file": "4x - Workshop (AI Extensions) - Engineering Better Decisions & Collective Intelligence.ipynb",
+      "include_in_build": false
+    },
+    {
+      "file": "4x - Workshop (AI Extensions) - Optimizing with Decision Frames.ipynb",
+      "include_in_build": false
+    },
+    {
+      "file": "4x - Workshop (AI Extensions) - Premortem (What-If) Decision Analysis.ipynb",
+      "include_in_build": false
+    },
+    {
+      "file": "5a - Semantic Kernel - Scale Decision Processes with Plugins.ipynb",
+      "include_in_build": false
+    },
+    {
+      "file": "5b - Semantic Kernel - Plugins for Decision Communication.ipynb",
+      "include_in_build": false
+    },
+    {
+      "file": "5c - Semantic Kernel - Custom Plugins for Decision Recommendation.ipynb",
+      "include_in_build": false
+    },
+    {
+      "file": "5d - Semantic Kernel - Diverse Plugins for Decision Making.ipynb",
+      "include_in_build": false
+    },
+    {
+      "file": "6a - OpenAI - Improving Decisions with OpenAI LogProbs.ipynb",
+      "include_in_build": false
+    },
+    {
+      "file": "6b - OpenAI - Measuring GenAI Probabilistic Accuracy with LogProbs.ipynb",
+      "include_in_build": false
+    },
+    {
+      "file": "6c - OpenAI - Validating Multiple Decisions with Aggregated Brier Scores.ipynb",
+      "include_in_build": false
+    },
+    {
+      "file": "7a - Semantic Kernel - Decisions with AI Agent Personas.ipynb",
+      "include_in_build": false
+    },
+    {
+      "file": "7b - Semantic Kernel - Decisions with Multi-AI Agent Personas.ipynb",
+      "include_in_build": false
+    },
+    {
+      "file": "Appendix 1 - Book Resources.ipynb",
+      "include_in_build": false
+    }
+  ]
+}

@@ -108,6 +108,16 @@ button:focus-visible {
   margin-bottom: 24px;
 }
 .book-brand img { width: 42px; height: 42px; object-fit: contain; }
+.book-brand-text {
+  display: grid;
+  gap: 3px;
+}
+.book-version {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
 
 .theme-switcher { margin: 0 0 18px; }
 .theme-toggle {

@@ -1,0 +1,1171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decisions with Chat Completions &amp; Responses APIs | Decision Intelligence</title>
+  <meta name="description" content="Static reading edition generated from the Decisions with Chat Completions &amp; Responses APIs notebook.">
+  <meta name="book-version" content="v0.3-preview.20260531">
+  <meta property="og:title" content="Decisions with Chat Completions &amp; Responses APIs | Decision Intelligence">
+  <meta property="og:description" content="Static reading edition generated from the Decisions with Chat Completions &amp; Responses APIs notebook.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Decisions with Chat Completions &amp; Responses APIs | Decision Intelligence">
+  <meta name="twitter:description" content="Static reading edition generated from the Decisions with Chat Completions &amp; Responses APIs notebook.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('di-theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../pagefind/pagefind-component-ui.css">
+  
+</head>
+<body data-page="3b-decisions-with-chat-completions-and-responses-apis.html">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <button class="nav-toggle" type="button" aria-label="Open chapter navigation" aria-expanded="false">Menu</button>
+  
+<aside class="book-sidebar" aria-label="Book navigation">
+  <a class="book-brand" href="../index.html">
+    <img src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceLogo.png" alt="Decision Intelligence logo">
+    <span class="book-brand-text">
+      <span>Decision Intelligence with AI</span>
+      <span class="book-version">Version v0.3-preview.20260531</span>
+    </span>
+  </a>
+  <div class="pagefind-search-shell" data-pagefind-ignore="all">
+    <span class="search-label">Search book</span>
+    <pagefind-modal-trigger button-text="Search the book"></pagefind-modal-trigger>
+    <pagefind-modal></pagefind-modal>
+  </div>
+  <div class="theme-switcher" data-pagefind-ignore="all">
+    <span class="search-label">Appearance</span>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+      <span class="theme-toggle-icon" aria-hidden="true">☀</span>
+      <span data-theme-toggle-label>Light mode</span>
+    </button>
+  </div>
+  <nav class="chapter-nav" aria-label="Chapters">
+    <a class="chapter-link" href="../index.html" data-title="contents overview"><span class="chapter-code">TOC</span><span>Contents</span></a><a class="chapter-link" href="../chapters/1a-introducing-the-decision-intelligence-framework.html" data-title="1a introducing the decision intelligence framework introducing the decision intelligence framework"><span class="chapter-code">1A</span><span>Introducing the Decision Intelligence Framework</span></a><a class="chapter-link" href="../chapters/1b-decision-framing.html" data-title="1b decision framing decision framing"><span class="chapter-code">1B</span><span>Decision Framing</span></a><a class="chapter-link" href="../chapters/1c-gathering-intelligence.html" data-title="1c gathering intelligence gathering intelligence"><span class="chapter-code">1C</span><span>Gathering Intelligence</span></a><a class="chapter-link" href="../chapters/1d-decision-execution.html" data-title="1d decision execution decision execution"><span class="chapter-code">1D</span><span>Decision Execution</span></a><a class="chapter-link" href="../chapters/1e-decision-execution-with-intuition.html" data-title="1e decision execution with intuition decision execution with intuition"><span class="chapter-code">1E</span><span>Decision Execution with Intuition</span></a><a class="chapter-link" href="../chapters/1f-decision-execution-with-decision-rules.html" data-title="1f decision execution with decision rules decision execution with decision rules"><span class="chapter-code">1F</span><span>Decision Execution with Decision Rules</span></a><a class="chapter-link" href="../chapters/1g-decision-execution-with-quantitative-methods.html" data-title="1g decision execution with quantitative methods decision execution with quantitative methods"><span class="chapter-code">1G</span><span>Decision Execution with Quantitative Methods</span></a><a class="chapter-link" href="../chapters/1h-decision-communication.html" data-title="1h decision communication decision communication"><span class="chapter-code">1H</span><span>Decision Communication</span></a><a class="chapter-link" href="../chapters/1i-applying-the-decision-intelligence-framework.html" data-title="1i applying the decision intelligence framework applying the decision intelligence framework"><span class="chapter-code">1I</span><span>Applying the Decision Intelligence Framework</span></a><a class="chapter-link" href="../chapters/1j-enterprise-decision-intelligence.html" data-title="1j enterprise decision intelligence enterprise decision intelligence"><span class="chapter-code">1J</span><span>Enterprise Decision Intelligence</span></a><a class="chapter-link" href="../chapters/2a-code-execution-requirements.html" data-title="2a code execution requirements code execution requirements"><span class="chapter-code">2A</span><span>Code Execution Requirements</span></a><a class="chapter-link" href="../chapters/2b-about-microsoft-ai-extensions.html" data-title="2b about microsoft ai extensions about microsoft ai extensions"><span class="chapter-code">2B</span><span>About Microsoft AI Extensions</span></a><a class="chapter-link" href="../chapters/2c-microsoft-agent-framework.html" data-title="2c microsoft agent framework microsoft agent framework"><span class="chapter-code">2C</span><span>Microsoft Agent Framework</span></a><a class="chapter-link" href="../chapters/3a-simple-decision-prompts.html" data-title="3a simple decision prompts simple decision prompts"><span class="chapter-code">3A</span><span>Simple Decision Prompts</span></a><a class="chapter-link active" href="../chapters/3b-decisions-with-chat-completions-and-responses-apis.html" data-title="3b decisions with chat completions &amp; responses apis decisions with chat completions &amp; responses apis"><span class="chapter-code">3B</span><span>Decisions with Chat Completions &amp; Responses APIs</span></a><a class="chapter-link" href="../chapters/3c-decisions-with-reusable-prompts-and-native-net-functions.html" data-title="3c decisions with reusable prompts and native .net functions decisions with reusable prompts and native .net functions"><span class="chapter-code">3C</span><span>Decisions with Reusable Prompts and Native .NET Functions</span></a><a class="chapter-link" href="../chapters/3d-private-ai-decision-intelligence.html" data-title="3d private ai decision intelligence private ai decision intelligence"><span class="chapter-code">3D</span><span>Private AI Decision Intelligence</span></a>
+  </nav>
+</aside>
+<div class="nav-backdrop" data-close-nav></div>
+
+  <main id="main-content" class="book-main">
+    
+<article class="chapter-page">
+  <div data-pagefind-body>
+  <header class="chapter-header">
+    <a class="back-link" href="../index.html">Back to contents</a>
+    <p class="eyebrow">Chapter 3B</p>
+    <h1>Decisions with Chat Completions &amp; Responses APIs</h1>
+    <p class="chapter-summary">Static reading edition generated from the Decisions with Chat Completions &amp; Responses APIs notebook.</p>
+  </header>
+  
+<nav class="chapter-toc" aria-label="Chapter table of contents">
+  <strong>On this page</strong>
+  <a class="toc-h3" href="#Step-1---Initialize-Configuration-Builder-&amp;-Build-the-AI-Orchestration">Step 1 - Initialize Configuration Builder &amp; Build the AI Orchestration</a><a class="toc-h3" href="#Step-2---Execute-Decision-Chat-Completion-with-Prompt-Execution-Settings">Step 2 - Execute Decision Chat Completion with Prompt Execution Settings</a><a class="toc-h3" href="#5-decision-frameworks-to-improve-decision-quality">5 decision frameworks to improve decision quality</a><a class="toc-h3" href="#Step-3---Execute-Decision-Chat-Completion-with-a-System-Prompt-&amp;-Chat-History">Step 3 - Execute Decision Chat Completion with a System Prompt &amp; Chat History</a><a class="toc-h3" href="#Step-4---Execute-Decision-Chat-Completion-with-a-Multi-Turn-Conversation-Scenario">Step 4 - Execute Decision Chat Completion with a Multi-Turn Conversation Scenario</a><a class="toc-h3" href="#Step-5---Inspect-&amp;-Optimize-Gathered-Intelligence-of-Chat-History">Step 5 - Inspect &amp; Optimize Gathered Intelligence of Chat History</a><a class="toc-h2" href="#What-could-be-improved-in-the-interaction">What could be improved in the interaction</a><a class="toc-h3" href="#1.-Clarify-the-decision-context-earlier">1. Clarify the decision context earlier</a><a class="toc-h3" href="#2.-Make-tradeoffs-explicit">2. Make tradeoffs explicit</a><a class="toc-h3" href="#3.-Compare-options-using-a-decision-framework">3. Compare options using a decision framework</a><a class="toc-h3" href="#4.-Explore-user-priorities-more-deeply">4. Explore user priorities more deeply</a><a class="toc-h3" href="#5.-Separate-facts-from-preferences">5. Separate facts from preferences</a><a class="toc-h3" href="#6.-Include-confidence-and-caveats">6. Include confidence and caveats</a><a class="toc-h2" href="#What-the-AI-should-consider-to-help-the-user-make-better-decisions">What the AI should consider to help the user make better decisions</a><a class="toc-h3" href="#1.-Decision-criteria-hierarchy">1. Decision criteria hierarchy</a><a class="toc-h3" href="#2.-Hidden-constraints">2. Hidden constraints</a><a class="toc-h3" href="#3.-Use-case-fit">3. Use-case fit</a><a class="toc-h3" href="#4.-Long-term-satisfaction">4. Long-term satisfaction</a><a class="toc-h3" href="#5.-Opportunity-cost">5. Opportunity cost</a><a class="toc-h2" href="#A-better-decision-support-interaction-would-do-this">A better decision-support interaction would do this</a><a class="toc-h2" href="#Bottom-line">Bottom line</a>
+</nav>
+
+  <section class="notebook-content">
+    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="display: flex; align-items: center;">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/SemanticKernelLogo.png" style="margin-right: 10px;" width="40px"/>
+<span style="font-size: 1.5em; font-weight: bold;">3b - Workshop (AI Extensions) - Decisions with Chat Completions &amp; Responses APIs</span>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Decision Intelligence applied in this module:</p>
+<ul>
+<li>Listing of various decision-making frameworks and with their descriptions by using Chat Completion</li>
+<li>Decision Scenario: Recommendation of a decision-making framework for specific higher-stakes decisions (purchase of a car)</li>
+<li>Illustrating a domain specific decision-making framework (millitary intelligence)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this module, the Microsoft Extensions for AI (MEAI) ability to create a chat experience will be introduced. This is a much richer experience than just sending simple prompts that are stateless and context is forgotten.</p>
+<p>MEAI has first-class support for chat scenarios, where the user talks back and forth with the LLM, the arguments get populated with the history of the conversation. During each new run of the kernel, the arguments will be provided to the AI with content. This allows the LLM to know the historical context of the conversation.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr/>
+<h3 id="Step-1---Initialize-Configuration-Builder-&amp;-Build-the-AI-Orchestration">Step 1 - Initialize Configuration Builder &amp; Build the AI Orchestration<a class="anchor-link" href="#Step-1---Initialize-Configuration-Builder-&amp;-Build-the-AI-Orchestration">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Execute the next two cells to:</p>
+<ul>
+<li>Use the Configuration Builder to load the API secrets.</li>
+<li>Use the API configuration to build the ChatCompletions orchestrator.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the required NuGet configuration packages</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration, 10.0.8"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration.Json, 10.0.8"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: System.Text.Json, 10.0.8"</span>
+
+<span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration.Json</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.IO</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+
+<span class="c1">// Load the configuration settings from the local.settings.json and secrets.settings.json files</span>
+<span class="c1">// The secrets.settings.json file is used to store sensitive information such as API keys</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">configurationBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConfigurationBuilder</span><span class="p">()</span>
+<span class="w">    </span><span class="p">.</span><span class="n">SetBasePath</span><span class="p">(</span><span class="n">Directory</span><span class="p">.</span><span class="n">GetCurrentDirectory</span><span class="p">())</span>
+<span class="w">    </span><span class="p">.</span><span class="n">AddJsonFile</span><span class="p">(</span><span class="s">"local.settings.json"</span><span class="p">,</span><span class="w"> </span><span class="n">optional</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="n">reloadOnChange</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">AddJsonFile</span><span class="p">(</span><span class="s">"secrets.settings.json"</span><span class="p">,</span><span class="w"> </span><span class="n">optional</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="n">reloadOnChange</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configurationBuilder</span><span class="p">.</span><span class="n">Build</span><span class="p">();</span>
+
+<span class="c1">// IMPORTANT: You ONLY NEED either Azure OpenAI or OpenAI connection info, not both.</span>
+<span class="c1">// Azure OpenAI Connection Info</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIEndpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:Endpoint"</span><span class="p">];</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIAPIKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:APIKey"</span><span class="p">];</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIModelDeploymentName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:ModelDeploymentName"</span><span class="p">];</span>
+<span class="c1">// OpenAI Connection Info </span>
+<span class="kt">var</span><span class="w"> </span><span class="n">openAIAPIKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"OpenAI:APIKey"</span><span class="p">];</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">openAIModelId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"OpenAI:ModelId"</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea">
+<div>
+<div id="dotnet-interactive-this-cell-$CACHE_BUSTER$" style="display: none">
+        The below script needs to be able to find the current output cell; this is an easy method to get it.
+    </div>
+<script type="text/javascript">
+async function probeAddresses(probingAddresses) {
+    function timeout(ms, promise) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                reject(new Error('timeout'))
+            }, ms)
+            promise.then(resolve, reject)
+        })
+    }
+
+    if (Array.isArray(probingAddresses)) {
+        for (let i = 0; i < probingAddresses.length; i++) {
+
+            let rootUrl = probingAddresses[i];
+
+            if (!rootUrl.endsWith('/')) {
+                rootUrl = `${rootUrl}/`;
+            }
+
+            try {
+                let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
+                    method: 'POST',
+                    cache: 'no-cache',
+                    mode: 'cors',
+                    timeout: 1000,
+                    headers: {
+                        'Content-Type': 'text/plain'
+                    },
+                    body: probingAddresses[i]
+                }));
+
+                if (response.status == 200) {
+                    return rootUrl;
+                }
+            }
+            catch (e) { }
+        }
+    }
+}
+
+function loadDotnetInteractiveApi() {
+    probeAddresses(["http://127.0.0.1:2048/","http://::1:2048/","http://fe80::1%1:2048/","http://fe80::1c6e:2cf6:c519:ad9%15:2048/","http://2001:4898:e820:60:e0:3c31:b4fd:f0fe:2048/","http://2001:4898:e820:60:309b:a85c:8e1c:dc56:2048/","http://10.24.1.207:2048/","http://fe80::9083:51ff:fed6:3656%16:2048/","http://fe80::72c9:9c:4341:f6f5%18:2048/","http://fe80::77c8:c6f0:86d8:d2b7%19:2048/","http://fe80::cb22:316c:186b:dad%20:2048/","http://fe80::ce81:b1c:bd2c:69e%21:2048/"])
+        .then((root) => {
+        // use probing to find host url and api resources
+        // load interactive helpers and language services
+        let dotnetInteractiveRequire = require.config({
+        context: '37479.Microsoft.DotNet.Interactive.Http.HttpPort',
+                paths:
+            {
+                'dotnet-interactive': `${root}resources`
+                }
+        }) || require;
+
+            window.dotnetInteractiveRequire = dotnetInteractiveRequire;
+
+            window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
+                let paths = {};
+                paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
+                
+                let internalRequire = require.config({
+                    context: extensionCacheBuster,
+                    paths: paths,
+                    urlArgs: `cacheBuster=${extensionCacheBuster}`
+                    }) || require;
+
+                return internalRequire
+            };
+        
+            dotnetInteractiveRequire([
+                    'dotnet-interactive/dotnet-interactive'
+                ],
+                function (dotnet) {
+                    dotnet.init(window);
+                },
+                function (error) {
+                    console.log(error);
+                }
+            );
+        })
+        .catch(error => {console.log(error);});
+    }
+
+// ensure `require` is available globally
+if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
+    let require_script = document.createElement('script');
+    require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
+    require_script.setAttribute('type', 'text/javascript');
+    
+    
+    require_script.onload = function() {
+        loadDotnetInteractiveApi();
+    };
+
+    document.getElementsByTagName('head')[0].appendChild(require_script);
+}
+else {
+    loadDotnetInteractiveApi();
+}
+
+    </script>
+</div></div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.Configuration, 10.0.8</span></li><li><span>Microsoft.Extensions.Configuration.Json, 10.0.8</span></li><li><span>System.Text.Json, 10.0.8</span></li></ul></div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the Microdoft Extensions AI NuGet Packages</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI, 10.6.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.Abstractions, 10.6.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.OpenAI, 10.6.0"</span>
+<span class="c1">// Import Azure &amp; OpenAI NuGet Packages</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Azure.AI.OpenAI, 2.9.0-beta.1"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Azure.Identity, 1.21.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: OpenAI, 2.10.0"</span>
+
+<span class="k">using</span><span class="w"> </span><span class="nn">Azure</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Azure.AI.OpenAI</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.AI</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.ClientModel</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.ComponentModel</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Text.Json</span><span class="p">;</span>
+
+<span class="c1">// Set the flag to use Azure OpenAI or OpenAI. False to use OpenAI, True to use Azure OpenAI</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">useAzureOpenAI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+
+<span class="c1">// Create the IChatClient based on the selected service</span>
+<span class="n">IChatClient</span><span class="w"> </span><span class="n">chatClient</span><span class="p">;</span>
+
+<span class="c1">// Create a new MEAI ChatClient based on the Azure OpenAI Service or OpenAI Service depending on the flag</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">useAzureOpenAI</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Using Azure OpenAI Service"</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AzureOpenAIClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Uri</span><span class="p">(</span><span class="n">azureOpenAIEndpoint</span><span class="p">),</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cp">#pragma warning disable OPENAI001</span>
+<span class="w">    </span><span class="n">chatClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="p">.</span><span class="n">GetChatClient</span><span class="p">(</span><span class="n">azureOpenAIModelDeploymentName</span><span class="p">).</span><span class="n">AsIChatClient</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Using OpenAI Service"</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AzureOpenAIClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Uri</span><span class="p">(</span><span class="n">azureOpenAIEndpoint</span><span class="p">),</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="p">);</span>
+
+<span class="w">    </span><span class="cp">#pragma warning disable OPENAI001</span>
+<span class="w">    </span><span class="n">chatClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="p">.</span><span class="n">GetChatClient</span><span class="p">(</span><span class="n">azureOpenAIModelDeploymentName</span><span class="p">).</span><span class="n">AsIChatClient</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Azure.AI.OpenAI, 2.9.0-beta.1</span></li><li><span>Azure.Identity, 1.21.0</span></li><li><span>Microsoft.Extensions.AI, 10.6.0</span></li><li><span>Microsoft.Extensions.AI.Abstractions, 10.6.0</span></li><li><span>Microsoft.Extensions.AI.OpenAI, 10.6.0</span></li><li><span>OpenAI, 2.10.0</span></li></ul></div></div></div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Using Azure OpenAI Service
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>
+warning CS1701: Assuming assembly reference 'OpenAI, Version=2.9.1.0, Culture=neutral, PublicKeyToken=b4187f3e65366280' used by 'Azure.AI.OpenAI' matches identity 'OpenAI, Version=2.10.0.0, Culture=neutral, PublicKeyToken=b4187f3e65366280' of 'OpenAI', you may need to supply runtime policy
+
+warning CS1701: Assuming assembly reference 'System.ClientModel, Version=1.9.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' used by 'Azure.AI.OpenAI' matches identity 'System.ClientModel, Version=1.10.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' of 'System.ClientModel', you may need to supply runtime policy
+
+warning CS1701: Assuming assembly reference 'Azure.Core, Version=1.51.1.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' used by 'Azure.AI.OpenAI' matches identity 'Azure.Core, Version=1.53.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' of 'Azure.Core', you may need to supply runtime policy
+
+warning CS1701: Assuming assembly reference 'OpenAI, Version=2.9.1.0, Culture=neutral, PublicKeyToken=b4187f3e65366280' used by 'Azure.AI.OpenAI' matches identity 'OpenAI, Version=2.10.0.0, Culture=neutral, PublicKeyToken=b4187f3e65366280' of 'OpenAI', you may need to supply runtime policy
+
+warning CS1701: Assuming assembly reference 'OpenAI, Version=2.9.1.0, Culture=neutral, PublicKeyToken=b4187f3e65366280' used by 'Azure.AI.OpenAI' matches identity 'OpenAI, Version=2.10.0.0, Culture=neutral, PublicKeyToken=b4187f3e65366280' of 'OpenAI', you may need to supply runtime policy
+
+warning CS1701: Assuming assembly reference 'System.ClientModel, Version=1.9.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' used by 'Azure.AI.OpenAI' matches identity 'System.ClientModel, Version=1.10.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' of 'System.ClientModel', you may need to supply runtime policy
+
+warning CS1701: Assuming assembly reference 'Azure.Core, Version=1.51.1.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' used by 'Azure.AI.OpenAI' matches identity 'Azure.Core, Version=1.53.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8' of 'Azure.Core', you may need to supply runtime policy
+
+warning CS1701: Assuming assembly reference 'OpenAI, Version=2.9.1.0, Culture=neutral, PublicKeyToken=b4187f3e65366280' used by 'Azure.AI.OpenAI' matches identity 'OpenAI, Version=2.10.0.0, Culture=neutral, PublicKeyToken=b4187f3e65366280' of 'OpenAI', you may need to supply runtime policy
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Step-2---Execute-Decision-Chat-Completion-with-Prompt-Execution-Settings">Step 2 - Execute Decision Chat Completion with Prompt Execution Settings<a class="anchor-link" href="#Step-2---Execute-Decision-Chat-Completion-with-Prompt-Execution-Settings">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>📜 <strong><em>"If you can’t describe what you are doing as a process, you don’t know what you’re doing."</em></strong></p>
+<p>-- <cite>W. Edwards Deming (renowned American engineer, statistician, and management consultant)</cite></p>
+</blockquote>
+<p>Using the Microsoft Extensions AI ChatCompletion service is very similar to inovoking a prompt for basic LLM interactions. The chat completion service will provide very similar results to invoking the prompt directly.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Simple prompt to list some decision frameworks this GenAI LLM is familiar with </span>
+<span class="c1">// LLMs are trained on a diverse range of data and can provide insights on a wide range of topics like decision frameworks</span>
+<span class="c1">// SLMS (smaller LLMs) are trained on a more specific range of data and may not provide insights on all topics</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">simpleDecisionPrompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">Provide</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">decision</span><span class="w"> </span><span class="n">frameworks</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">improve</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">quality</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">decisions</span><span class="p">.</span>
+
+<span class="n">Output</span><span class="w"> </span><span class="n">Format</span><span class="w"> </span><span class="n">Instructions</span><span class="p">:</span>
+<span class="n">When</span><span class="w"> </span><span class="n">generating</span><span class="w"> </span><span class="n">Markdown</span><span class="p">,</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">headings</span><span class="w"> </span><span class="n">higher</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="err">###</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Avoid</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="err">##</span><span class="w"> </span><span class="n">headers</span><span class="p">.</span><span class="w"> </span><span class="n">Use</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="err">###</span><span class="p">,</span><span class="w"> </span><span class="err">####</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">lower</span><span class="o">-</span><span class="n">level</span><span class="w"> </span><span class="n">headings</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">necessary</span><span class="p">.</span><span class="w"> </span>
+<span class="n">All</span><span class="w"> </span><span class="n">top</span><span class="o">-</span><span class="n">level</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="n">headers</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="err">###</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">lower</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Never</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="o">---</span><span class="p">,</span><span class="w"> </span><span class="o">***</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">___</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">horizontal</span><span class="w"> </span><span class="n">lines</span><span class="p">.</span><span class="w"> </span><span class="n">There</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">horizontal</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="p">.</span>
+<span class="n">For</span><span class="w"> </span><span class="n">separation</span><span class="p">,</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">spacing</span><span class="p">.</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">render</span><span class="w"> </span><span class="n">horizontal</span><span class="w"> </span><span class="n">lines</span><span class="p">.</span>
+<span class="s">""";</span>
+
+
+<span class="c1">// Execute the prompt against the AI model</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">simpleDecisionPromptResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">chatClient</span><span class="p">.</span><span class="n">GetResponseAsync</span><span class="p">(</span><span class="n">simpleDecisionPrompt</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">simpleDecisionPromptResponseText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">simpleDecisionPromptResponse</span><span class="p">.</span><span class="n">Text</span><span class="p">;</span>
+
+<span class="c1">// Display the response string as Markdown</span>
+<span class="n">simpleDecisionPromptResponseText</span><span class="p">.</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<h3 id="5-decision-frameworks-to-improve-decision-quality">5 decision frameworks to improve decision quality<a class="anchor-link" href="#5-decision-frameworks-to-improve-decision-quality">¶</a></h3><ol>
+<li><p><strong>Decision Matrix</strong></p>
+<ul>
+<li>List your options and the criteria that matter most.</li>
+<li>Score each option against each criterion, then weight the criteria by importance.</li>
+<li>Helpful when comparing multiple alternatives systematically.</li>
+</ul>
+</li>
+<li><p><strong>Pros and Cons Analysis</strong></p>
+<ul>
+<li>Write down the benefits and drawbacks of each option.</li>
+<li>Best for quick, simple decisions where you need clarity on tradeoffs.</li>
+<li>Can be improved by assigning rough weights to the pros and cons.</li>
+</ul>
+</li>
+<li><p><strong>Cost-Benefit Analysis</strong></p>
+<ul>
+<li>Estimate the total expected costs and benefits of each option.</li>
+<li>Useful when decisions have financial, operational, or measurable outcomes.</li>
+<li>Helps determine whether the likely value outweighs the downside.</li>
+</ul>
+</li>
+<li><p><strong>Pre-Mortem</strong></p>
+<ul>
+<li>Imagine the decision has failed and ask: “What went wrong?”</li>
+<li>Identifies risks, blind spots, and weak assumptions before committing.</li>
+<li>Especially useful for high-stakes or uncertain decisions.</li>
+</ul>
+</li>
+<li><p><strong>RICE Prioritization</strong></p>
+<ul>
+<li>Score options by Reach, Impact, Confidence, and Effort.</li>
+<li>Often used for prioritizing projects, features, or initiatives.</li>
+<li>Helps choose what is likely to deliver the most value relative to effort.</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr/>
+<h3 id="Step-3---Execute-Decision-Chat-Completion-with-a-System-Prompt-&amp;-Chat-History">Step 3 - Execute Decision Chat Completion with a System Prompt &amp; Chat History<a class="anchor-link" href="#Step-3---Execute-Decision-Chat-Completion-with-a-System-Prompt-&amp;-Chat-History">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the previous examples, simple decision prompts were used. In more sophisticated scenarios, a conversational history and state is required to be maintained. The Chat Completions API definition includes mechanisms to maintain state.</p>
+<p>Microsoft Extensions for AI includes a ChatHistory object that can be used with the ChatCompletionService to provide historical chat context to the LLM. Notice that the ChatHistory object differentiates between the different types of chat messages:</p>
+<ul>
+<li>System Message - System or MetaPrompt. These are usually global instructions that set the "overall rules" for interacting with the LLMs.</li>
+<li>User Message - A message from the user</li>
+<li>Assistant Message - A message from the LLM. This is a message generated from an assistant or an agent.</li>
+</ul>
+<p>Identifying the messages from which role (user) it came from can help the LLM improve its own reasoning and decision responses. This is a more sophisticated approach than passing chat history in a long dynamic string. ChatHistory objects can be serialized and persisted into databases as well. This allows a system architect to load chat history dynamically, branch history conversations, re-run or simulate different conversation paths. For decision scenarios, these tools are super helpful.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Set the overall system prompt to behave like a decision intelligence assistant (persona)</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">systemPrompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">You</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Decision</span><span class="w"> </span><span class="n">Intelligence</span><span class="w"> </span><span class="n">assistant</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Assist</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">exploring</span><span class="w"> </span><span class="n">options</span><span class="p">,</span><span class="w"> </span><span class="n">reasoning</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">decisions</span><span class="p">,</span><span class="w"> </span><span class="n">problem</span><span class="o">-</span><span class="n">solving</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">applying</span><span class="w"> </span><span class="n">systems</span><span class="w"> </span><span class="n">thinking</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="n">scenarios</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Provide</span><span class="w"> </span><span class="n">structured</span><span class="p">,</span><span class="w"> </span><span class="n">logical</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">comprehensive</span><span class="w"> </span><span class="n">advice</span><span class="p">.</span>
+
+<span class="n">Output</span><span class="w"> </span><span class="n">Format</span><span class="w"> </span><span class="n">Instructions</span><span class="p">:</span>
+<span class="n">When</span><span class="w"> </span><span class="n">generating</span><span class="w"> </span><span class="n">Markdown</span><span class="p">,</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">headings</span><span class="w"> </span><span class="n">higher</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="err">###</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Avoid</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="err">##</span><span class="w"> </span><span class="n">headers</span><span class="p">.</span><span class="w"> </span><span class="n">Use</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="err">###</span><span class="p">,</span><span class="w"> </span><span class="err">####</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">lower</span><span class="o">-</span><span class="n">level</span><span class="w"> </span><span class="n">headings</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">necessary</span><span class="p">.</span><span class="w"> </span>
+<span class="n">All</span><span class="w"> </span><span class="n">top</span><span class="o">-</span><span class="n">level</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="n">headers</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="err">###</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">lower</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Never</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="o">---</span><span class="p">,</span><span class="w"> </span><span class="o">***</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">___</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">horizontal</span><span class="w"> </span><span class="n">lines</span><span class="p">.</span><span class="w"> </span><span class="n">There</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">horizontal</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="p">.</span>
+<span class="n">For</span><span class="w"> </span><span class="n">separation</span><span class="p">,</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">spacing</span><span class="p">.</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">render</span><span class="w"> </span><span class="n">horizontal</span><span class="w"> </span><span class="n">lines</span><span class="p">.</span>
+
+<span class="n">Format</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="nn">only</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Markdown</span><span class="w"> </span><span class="n">table</span><span class="p">.</span><span class="w"> </span><span class="n">Only</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Markdown</span><span class="w"> </span><span class="n">table</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">enclose</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">triple</span><span class="w"> </span><span class="n">backticks</span><span class="p">.</span>
+<span class="s">""";</span>
+
+<span class="c1">// Simple instruction prompt to list 5 (five) decision frameworks this GenAI LLM is familiar with</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">simpleDecisionPrompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">Provide</span><span class="w"> </span><span class="n">five</span><span class="w"> </span><span class="n">Decision</span><span class="w"> </span><span class="n">Frameworks</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">improve</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">quality</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">decisions</span><span class="p">.</span>
+<span class="s">""";</span>
+
+<span class="c1">// Create a new chat history object with proper system and user message roles</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">chatMessages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ChatMessage</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="c1">// Add system and user messages to the chat history</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">systemMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">System</span><span class="p">,</span><span class="w"> </span><span class="n">systemPrompt</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">userMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">User</span><span class="p">,</span><span class="w"> </span><span class="n">simpleDecisionPrompt</span><span class="p">);</span>
+<span class="n">chatMessages</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">systemMessage</span><span class="p">);</span>
+<span class="n">chatMessages</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">userMessage</span><span class="p">);</span>
+
+
+<span class="c1">// Execute the chat messages against the AI model</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">chatHistoryResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">chatClient</span><span class="p">.</span><span class="n">GetResponseAsync</span><span class="p">(</span><span class="n">chatMessages</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">chatHistoryResponseText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chatHistoryResponse</span><span class="p">.</span><span class="n">Text</span><span class="p">;</span>
+
+<span class="c1">// Display the response string as Markdown</span>
+<span class="n">chatHistoryResponseText</span><span class="p">.</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+
+<span class="c1">// Capture the Assistant response and add it to the chat history</span>
+<span class="c1">// This will persist the full conversation for future interactions</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">assistantChatMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">Assistant</span><span class="p">,</span><span class="w"> </span><span class="n">chatHistoryResponseText</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Core idea</th>
+<th>Best used for</th>
+<th>How it improves decision quality</th>
+<th>Simple application steps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cost-Benefit Analysis</td>
+<td>Compare expected benefits against expected costs for each option.</td>
+<td>Choices with measurable tradeoffs, especially when resources are limited.</td>
+<td>Makes tradeoffs explicit and helps avoid decisions based only on intuition or isolated pros and cons.</td>
+<td>1) List options 2) Identify costs and benefits 3) Estimate magnitude and timing 4) Compare net value 5) Choose the highest expected return.</td>
+</tr>
+<tr>
+<td>Decision Matrix</td>
+<td>Score multiple options against criteria that matter most.</td>
+<td>Multi-factor decisions with several competing priorities.</td>
+<td>Reduces bias by forcing a structured comparison across all relevant criteria.</td>
+<td>1) Define criteria 2) Assign weights 3) Score each option 4) Multiply and total scores 5) Review sensitivity of results.</td>
+</tr>
+<tr>
+<td>Expected Value Analysis</td>
+<td>Multiply each outcome by its probability and sum the results.</td>
+<td>Decisions under uncertainty with identifiable outcomes.</td>
+<td>Helps quantify uncertainty instead of ignoring it, making risk clearer.</td>
+<td>1) List possible outcomes 2) Estimate probability of each 3) Assign payoff or loss values 4) Calculate expected value 5) Compare options.</td>
+</tr>
+<tr>
+<td>Pre-Mortem Analysis</td>
+<td>Imagine the decision failed and work backward to find why.</td>
+<td>High-stakes or risky decisions where blind spots matter.</td>
+<td>Surfaces hidden risks, assumptions, and failure modes before commitment.</td>
+<td>1) Assume failure 2) Brainstorm causes 3) Identify weak assumptions 4) Add safeguards 5) Revise the decision plan.</td>
+</tr>
+<tr>
+<td>OODA Loop</td>
+<td>Observe, Orient, Decide, Act in a repeated cycle.</td>
+<td>Dynamic environments that change quickly.</td>
+<td>Encourages learning, adaptation, and faster correction when conditions shift.</td>
+<td>1) Observe current conditions 2) Orient using context and data 3) Decide on action 4) Act 5) Repeat and adjust.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the next step, an additional prompt instruction will be added to the chat history. From the 5 decision frameworks provided in the chat history, Generative AI is asked to recommed a decision framework best suited for the militaty intelligence community. Notice that the previous chat history is automatically provided to provide additional intelligence context.</p>
+<blockquote>
+<p>📜 <strong><em>"Take time to deliberate, but when the time for action comes, stop thinking and go in."</em></strong></p>
+<p>-- <cite>Napoleon Bornaparte (French Emporer and brilliant military mind)</cite></p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Add the assistant message to the chat history</span>
+<span class="n">chatMessages</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">assistantChatMessage</span><span class="p">);</span>
+
+<span class="c1">// Note: No reference is made to what previous frameworks were listed.</span>
+<span class="c1">// Note: Previous context is maintained by the MEAI ChatHistory object </span>
+<span class="kt">var</span><span class="w"> </span><span class="n">simpleDecisionPromptFollowupQuestionPartTwo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">Which</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">decision</span><span class="w"> </span><span class="n">frameworks</span><span class="w"> </span><span class="n">listed</span><span class="w"> </span><span class="n">above</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">best</span><span class="w"> </span><span class="n">suited</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">military</span><span class="w"> </span><span class="n">intelligence</span><span class="w"> </span><span class="n">community</span><span class="o">?</span><span class="w">  </span>
+<span class="n">Think</span><span class="w"> </span><span class="n">carefully</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">what</span><span class="w"> </span><span class="n">decision</span><span class="w"> </span><span class="n">frameworks</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">needed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">query</span><span class="p">.</span><span class="w">  </span>
+<span class="n">Select</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">best</span><span class="w"> </span><span class="n">framework</span><span class="p">.</span><span class="w"> </span>
+<span class="s">""";</span>
+
+<span class="c1">// Add User message to the chat history</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">userFollowupChatMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">User</span><span class="p">,</span><span class="w"> </span><span class="n">simpleDecisionPromptFollowupQuestionPartTwo</span><span class="p">);</span>
+<span class="n">chatMessages</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">userFollowupChatMessage</span><span class="p">);</span>
+
+<span class="c1">// Execute the chat messages against the AI model</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">chatHistoryResponseMilitaryIntelligence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">chatClient</span><span class="p">.</span><span class="n">GetResponseAsync</span><span class="p">(</span><span class="n">chatMessages</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">chatHistoryResponseMilitaryIntelligenceText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chatHistoryResponseMilitaryIntelligence</span><span class="p">.</span><span class="n">Text</span><span class="p">;</span>
+
+<span class="c1">// Display the response string as Markdown</span>
+<span class="n">chatHistoryResponseMilitaryIntelligenceText</span><span class="p">.</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<table>
+<thead>
+<tr>
+<th>Selected framework</th>
+<th>Why it is the single best fit for the military intelligence community</th>
+<th>Short rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OODA Loop</td>
+<td>Military intelligence operates in fast-changing, adversarial, information-rich environments where conditions can shift quickly and decisions must be continuously updated. OODA is designed for observe-orient-decide-act cycles under uncertainty and conflict, making it the most operationally relevant of the five.</td>
+<td>It best matches the need for rapid sensing, interpretation, adaptation, and repeated reassessment in dynamic situations.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Step-4---Execute-Decision-Chat-Completion-with-a-Multi-Turn-Conversation-Scenario">Step 4 - Execute Decision Chat Completion with a Multi-Turn Conversation Scenario<a class="anchor-link" href="#Step-4---Execute-Decision-Chat-Completion-with-a-Multi-Turn-Conversation-Scenario">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/DecisionIntelligence-Quote-WarrenBuffet-Value.png" style="display: block; margin: auto;" width="600px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The list of Chat Messages persists the state. This allows for natural converations between the user and AI to be persisted for future use. It can be saved for future reference, it can be replayed, it can be forked in certain spots to try different scenarios, it can be used as a starting point for other conversations etc.</p>
+<p>In the scenario below, let's build a multi-turn conversation about a decision over a purchase for a fitness tracker. Notice that each turn the appropriate Chat History roles are populated with the appropriate User prompts and assistant (AI) responses. This in effect acts as the Gathering Intelligence step of the Decision Intelligence framework as the conversation information has been persisted and can be re-used as context for the decision scenario.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Set the overall system prompt to behave like a decision intelligence assistant (persona)</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">systemPromptDecisionConversation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">You</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Decision</span><span class="w"> </span><span class="n">Intelligence</span><span class="w"> </span><span class="n">assistant</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Assist</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">exploring</span><span class="w"> </span><span class="n">options</span><span class="p">,</span><span class="w"> </span><span class="n">reasoning</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">decisions</span><span class="p">,</span><span class="w"> </span><span class="n">problem</span><span class="o">-</span><span class="n">solving</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">applying</span><span class="w"> </span><span class="n">systems</span><span class="w"> </span><span class="n">thinking</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="n">scenarios</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Provide</span><span class="w"> </span><span class="n">structured</span><span class="p">,</span><span class="w"> </span><span class="n">logical</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">comprehensive</span><span class="w"> </span><span class="n">advice</span><span class="p">.</span>
+<span class="s">""";</span>
+
+<span class="c1">// User prompt to start a decision conversation about buying a fitness tracker</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">userPromptDecisionConversationTurn1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">I</span><span class="w"> </span><span class="n">am</span><span class="w"> </span><span class="n">considering</span><span class="w"> </span><span class="n">buying</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">fitness</span><span class="w"> </span><span class="n">tracker</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">am</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">sure</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">features</span><span class="w"> </span><span class="n">really</span><span class="w"> </span><span class="n">matter</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Could</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">explain</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="n">considerations</span><span class="o">?</span><span class="w"> </span>
+<span class="s">""";</span>
+
+<span class="kt">var</span><span class="w"> </span><span class="n">assistantResponseDecisionConversationTurn1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">Absolutely</span><span class="o">!</span><span class="w"> </span><span class="n">Key</span><span class="w"> </span><span class="n">considerations</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">choosing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">fitness</span><span class="w"> </span><span class="n">tracker</span><span class="w"> </span><span class="n">often</span><span class="w"> </span><span class="n">include</span><span class="p">:</span><span class="w"> </span>
+<span class="o">-</span><span class="w"> </span><span class="n">Fitness</span><span class="w"> </span><span class="n">Features</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.,</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="n">counting</span><span class="p">,</span><span class="w"> </span><span class="n">heart</span><span class="o">-</span><span class="n">rate</span><span class="w"> </span><span class="n">monitoring</span><span class="p">,</span><span class="w"> </span><span class="n">workout</span><span class="w"> </span><span class="n">tracking</span><span class="p">)</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Health</span><span class="w"> </span><span class="n">Monitoring</span><span class="w"> </span><span class="p">(</span><span class="n">like</span><span class="w"> </span><span class="n">sleep</span><span class="w"> </span><span class="n">tracking</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">advanced</span><span class="w"> </span><span class="n">ECG</span><span class="w"> </span><span class="n">capabilities</span><span class="p">)</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Battery</span><span class="w"> </span><span class="n">Life</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Comfort</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">Fit</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Compatibility</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">smartphone</span><span class="err">'</span><span class="n">s</span><span class="w"> </span><span class="n">operating</span><span class="w"> </span><span class="n">system</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Price</span><span class="w"> </span><span class="n">Range</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Knowing</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="n">most</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">narrow</span><span class="w"> </span><span class="n">down</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">options</span><span class="p">.</span>
+<span class="s">""";</span>
+
+<span class="kt">var</span><span class="w"> </span><span class="n">userPromptDecisionConversationTurn2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">Got</span><span class="w"> </span><span class="n">it</span><span class="p">.</span><span class="w"> </span><span class="n">Battery</span><span class="w"> </span><span class="n">life</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">sleep</span><span class="w"> </span><span class="n">tracking</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">both</span><span class="w"> </span><span class="n">important</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">me</span><span class="p">.</span><span class="w"> </span>
+<span class="n">What</span><span class="err">'</span><span class="n">s</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">typical</span><span class="w"> </span><span class="n">battery</span><span class="w"> </span><span class="n">life</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">trackers</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">good</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">sleep</span><span class="w"> </span><span class="n">tracking</span><span class="o">?</span>
+<span class="s">""";</span>
+
+<span class="kt">var</span><span class="w"> </span><span class="n">assistantResponseDecisionConversationTurn2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">Different</span><span class="w"> </span><span class="n">fitness</span><span class="w"> </span><span class="n">trackers</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">varying</span><span class="w"> </span><span class="n">battery</span><span class="w"> </span><span class="n">lives</span><span class="p">,</span><span class="w"> </span><span class="n">typically</span><span class="w"> </span><span class="n">anywhere</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="mi">2</span><span class="o">-</span><span class="mi">3</span><span class="w"> </span><span class="n">days</span><span class="w"> </span><span class="p">(</span><span class="k">for</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">feature</span><span class="o">-</span><span class="n">rich</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">bright</span><span class="o">-</span><span class="n">display</span><span class="w"> </span><span class="n">devices</span><span class="p">)</span><span class="w"> </span>
+<span class="n">up</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="mi">10</span><span class="o">-</span><span class="mi">14</span><span class="w"> </span><span class="n">days</span><span class="w"> </span><span class="p">(</span><span class="k">for</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">minimalist</span><span class="w"> </span><span class="n">trackers</span><span class="p">).</span><span class="w"> </span>
+
+<span class="n">Regarding</span><span class="w"> </span><span class="n">sleep</span><span class="w"> </span><span class="n">tracking</span><span class="p">:</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Many</span><span class="w"> </span><span class="n">modern</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">track</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">sleep</span><span class="w"> </span><span class="n">stages</span><span class="w"> </span><span class="p">(</span><span class="n">light</span><span class="p">,</span><span class="w"> </span><span class="n">deep</span><span class="p">,</span><span class="w"> </span><span class="n">REM</span><span class="p">).</span>
+<span class="o">-</span><span class="w"> </span><span class="n">High</span><span class="o">-</span><span class="n">end</span><span class="w"> </span><span class="n">devices</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="n">track</span><span class="w"> </span><span class="n">breathing</span><span class="w"> </span><span class="n">rate</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">oxygen</span><span class="w"> </span><span class="n">saturation</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">night</span><span class="p">.</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Some</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">offer</span><span class="w"> </span><span class="n">insights</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">sleep</span><span class="w"> </span><span class="n">quality</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">tips</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">improvement</span><span class="p">.</span>
+
+<span class="n">If</span><span class="w"> </span><span class="n">battery</span><span class="w"> </span><span class="n">life</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">priority</span><span class="p">,</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">consider</span><span class="w"> </span><span class="n">trackers</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">conservative</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">fewer</span><span class="w"> </span><span class="n">power</span><span class="o">-</span><span class="n">hungry</span><span class="w"> </span><span class="n">features</span><span class="p">.</span>
+<span class="s">""";</span>
+
+<span class="kt">var</span><span class="w"> </span><span class="n">userPromptDecisionConversationTurn3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">Are</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">popular</span><span class="w"> </span><span class="n">models</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="n">recommend</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">battery</span><span class="w"> </span><span class="n">life</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">sleep</span><span class="w"> </span><span class="n">tracking</span><span class="o">?</span>
+<span class="s">""";</span>
+
+<span class="kt">var</span><span class="w"> </span><span class="n">assistantResponseDecisionConversationTurn3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">Popular</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">strike</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">robust</span><span class="w"> </span><span class="n">sleep</span><span class="w"> </span><span class="n">tracking</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">good</span><span class="w"> </span><span class="n">battery</span><span class="w"> </span><span class="n">life</span><span class="w"> </span><span class="n">include</span><span class="p">:</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Fitbit</span><span class="w"> </span><span class="n">Inspire</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">Fitbit</span><span class="w"> </span><span class="n">Charge</span><span class="w"> </span><span class="mi">5</span><span class="p">:</span><span class="w"> </span><span class="n">Both</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">solid</span><span class="w"> </span><span class="n">sleep</span><span class="w"> </span><span class="n">tracking</span><span class="p">,</span><span class="w"> </span><span class="n">multi</span><span class="o">-</span><span class="n">day</span><span class="w"> </span><span class="n">battery</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">strong</span><span class="w"> </span><span class="n">app</span><span class="w"> </span><span class="n">support</span><span class="p">.</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Garmin</span><span class="w"> </span><span class="n">Vivosmart</span><span class="w"> </span><span class="mi">5</span><span class="p">:</span><span class="w"> </span><span class="n">Offers</span><span class="w"> </span><span class="n">decent</span><span class="w"> </span><span class="n">fitness</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">sleep</span><span class="w"> </span><span class="n">insights</span><span class="p">,</span><span class="w"> </span><span class="n">plus</span><span class="w"> </span><span class="n">better</span><span class="o">-</span><span class="n">than</span><span class="o">-</span><span class="n">average</span><span class="w"> </span><span class="n">battery</span><span class="w"> </span><span class="n">life</span><span class="p">.</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Xiaomi</span><span class="w"> </span><span class="n">Mi</span><span class="w"> </span><span class="n">Band</span><span class="w"> </span><span class="mi">7</span><span class="p">:</span><span class="w"> </span><span class="n">Budget</span><span class="o">-</span><span class="n">friendly</span><span class="p">,</span><span class="w"> </span><span class="n">surprisingly</span><span class="w"> </span><span class="n">robust</span><span class="w"> </span><span class="n">health</span><span class="w"> </span><span class="n">metrics</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="kt">long</span><span class="o">-</span><span class="n">lasting</span><span class="w"> </span><span class="n">battery</span><span class="p">.</span>
+
+<span class="n">Each</span><span class="w"> </span><span class="n">varies</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">price</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">features</span><span class="p">,</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">consider</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">budget</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="n">metrics</span><span class="w"> </span><span class="n">you</span><span class="err">’</span><span class="n">d</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">track</span><span class="p">.</span>
+<span class="s">""";</span>
+
+<span class="kt">var</span><span class="w"> </span><span class="n">userPromptDecisionConversationTurn4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">That</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">great</span><span class="w"> </span><span class="n">infor</span><span class="p">.</span><span class="w"> </span>
+<span class="n">I</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">friend</span><span class="w"> </span><span class="n">who</span><span class="w"> </span><span class="n">said</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">consider</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">Apple</span><span class="w"> </span><span class="n">Watch</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Does</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">comparable</span><span class="w"> </span><span class="n">battery</span><span class="w"> </span><span class="n">life</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">sleep</span><span class="w"> </span><span class="n">tracking</span><span class="o">?</span>
+<span class="s">""";</span>
+
+<span class="kt">var</span><span class="w"> </span><span class="n">assistantResponseDecisionConversationTurn4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">The</span><span class="w"> </span><span class="n">Apple</span><span class="w"> </span><span class="n">Watch</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">known</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">extensive</span><span class="w"> </span><span class="n">feature</span><span class="w"> </span><span class="k">set</span><span class="p">,</span><span class="w"> </span><span class="n">including</span><span class="w"> </span><span class="n">advanced</span><span class="w"> </span><span class="n">health</span><span class="w"> </span><span class="n">monitoring</span><span class="p">,</span><span class="w"> </span>
+<span class="n">but</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">battery</span><span class="w"> </span><span class="n">life</span><span class="w"> </span><span class="n">tends</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">shorter</span><span class="err">—</span><span class="n">usually</span><span class="w"> </span><span class="n">around</span><span class="w"> </span><span class="mi">18</span><span class="o">-</span><span class="mi">24</span><span class="w"> </span><span class="n">hours</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">charge</span><span class="w"> </span>
+<span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="n">possibly</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">bit</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">low</span><span class="o">-</span><span class="n">power</span><span class="w"> </span><span class="n">mode</span><span class="p">).</span><span class="w"> </span><span class="n">While</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">sleep</span><span class="w"> </span><span class="n">tracking</span><span class="w"> </span><span class="n">features</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">improved</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="n">time</span><span class="p">,</span><span class="w"> </span>
+<span class="n">you</span><span class="w"> </span><span class="n">might</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">charge</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">daily</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">almost</span><span class="w"> </span><span class="n">daily</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">could</span><span class="w"> </span><span class="n">conflict</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">goal</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">24</span><span class="o">/</span><span class="mi">7</span><span class="w"> </span><span class="n">tracking</span><span class="p">.</span><span class="w"> </span>
+<span class="s">""";</span>
+
+<span class="c1">// Create a new chat history with a multi-turn conversation about buying a fitness tracker</span>
+<span class="c1">// Notice how the conversation flow uses different roles (user and assistant) to simulate a realistic decision-making dialogue</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">chatHistoryMessages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ChatMessage</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="n">chatHistoryMessages</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">System</span><span class="p">,</span><span class="w"> </span><span class="n">systemPromptDecisionConversation</span><span class="p">));</span>
+<span class="n">chatHistoryMessages</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">User</span><span class="p">,</span><span class="w"> </span><span class="n">userPromptDecisionConversationTurn1</span><span class="p">));</span>
+<span class="n">chatHistoryMessages</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">Assistant</span><span class="p">,</span><span class="w"> </span><span class="n">assistantResponseDecisionConversationTurn1</span><span class="p">));</span>
+<span class="n">chatHistoryMessages</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">User</span><span class="p">,</span><span class="w"> </span><span class="n">userPromptDecisionConversationTurn2</span><span class="p">));</span>
+<span class="n">chatHistoryMessages</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">Assistant</span><span class="p">,</span><span class="w"> </span><span class="n">assistantResponseDecisionConversationTurn2</span><span class="p">));</span>
+<span class="n">chatHistoryMessages</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">User</span><span class="p">,</span><span class="w"> </span><span class="n">userPromptDecisionConversationTurn3</span><span class="p">));</span>
+<span class="n">chatHistoryMessages</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">Assistant</span><span class="p">,</span><span class="w"> </span><span class="n">assistantResponseDecisionConversationTurn3</span><span class="p">));</span>
+<span class="n">chatHistoryMessages</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">User</span><span class="p">,</span><span class="w"> </span><span class="n">userPromptDecisionConversationTurn4</span><span class="p">));</span>
+<span class="n">chatHistoryMessages</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">Assistant</span><span class="p">,</span><span class="w"> </span><span class="n">assistantResponseDecisionConversationTurn4</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Using the above conversation history as the "Gathered Intelligence" betweeen the user and the AI assistant, let's make a final decision and ask for final feedback and a decision evaluation. This "Gathered Intelligence" for the decision can be persisted, re-loaded, simulated multiple times, applied to different AI systems to optimize decisions further.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">userPromptDecisionConversationFinalDecision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">Thank</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">information</span><span class="p">,</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">think</span><span class="w"> </span><span class="n">I</span><span class="err">'</span><span class="n">ll</span><span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Fitbit</span><span class="p">.</span><span class="w"> </span>
+<span class="n">The</span><span class="w"> </span><span class="n">Fitbit</span><span class="w"> </span><span class="n">Inspire</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">seems</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">good</span><span class="w"> </span><span class="n">fit</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">my</span><span class="w"> </span><span class="n">budget</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">needs</span><span class="p">.</span><span class="w"> </span>
+
+<span class="n">Any</span><span class="w"> </span><span class="n">quick</span><span class="w"> </span><span class="n">final</span><span class="w"> </span><span class="n">thoughts</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">insights</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">my</span><span class="w"> </span><span class="n">decision</span><span class="o">?</span><span class="w"> </span>
+<span class="s">""";</span>
+
+<span class="c1">// Add User message to the chat history</span>
+<span class="n">chatHistoryMessages</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">User</span><span class="p">,</span><span class="w"> </span><span class="n">userPromptDecisionConversationFinalDecision</span><span class="p">));</span>
+
+<span class="c1">// Execute the chat messages against the AI model</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">fitnessTrackerResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">chatClient</span><span class="p">.</span><span class="n">GetResponseAsync</span><span class="p">(</span><span class="n">chatHistoryMessages</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">fitnessTrackerResponseText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fitnessTrackerResponse</span><span class="p">.</span><span class="n">Text</span><span class="p">;</span>
+
+<span class="c1">// Add the response to the chat history (Chat Messages)</span>
+<span class="n">chatHistoryMessages</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">Assistant</span><span class="p">,</span><span class="w"> </span><span class="n">fitnessTrackerResponseText</span><span class="p">));</span>
+
+<span class="c1">// Display the response string as Markdown</span>
+<span class="n">fitnessTrackerResponseText</span><span class="p">.</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<p>That sounds like a sensible choice.</p>
+<p>Quick final thoughts:</p>
+<ul>
+<li>Good match for your priorities: The Inspire 3 is a strong fit if you care most about battery life and sleep tracking.</li>
+<li>Low-friction daily use: Its multi-day battery makes it easier to wear consistently, which helps sleep data quality.</li>
+<li>Budget-friendly: You’re getting the core health features without paying for extras you may not need.</li>
+<li>Tradeoff to keep in mind: It won’t be as feature-rich as an Apple Watch or higher-end Garmin, especially for apps and smartwatch functions.</li>
+</ul>
+<p>If your main goal is to build a consistent habit of tracking sleep and general activity, it’s a practical, well-balanced pick.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr/>
+<h3 id="Step-5---Inspect-&amp;-Optimize-Gathered-Intelligence-of-Chat-History">Step 5 - Inspect &amp; Optimize Gathered Intelligence of Chat History<a class="anchor-link" href="#Step-5---Inspect-&amp;-Optimize-Gathered-Intelligence-of-Chat-History">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The ChatMessage list is a transparent construct that can be inspected and written out. Because it is a simple list, the chat messages object can be manipulated to replay chats from middle interactions to simulate different outcomes.</p>
+<p>Execute the cell below to write out entire decision conversation.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p><strong>📝 Note:</strong> In the Decision Intelligence framework, chat history can serve as a form of gathered intelligence. Interactions among users, AI models, processes, and agents provide valuable context for effective decision-making. It’s highly recommended to persist chat history objects (agent threads), especially during decision optimization, to ensure critical information is retained and accessible.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Print the number of chat interactions and the chat history (turns)</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Number of chat interactions: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">chatHistoryMessages</span><span class="p">.</span><span class="n">Count</span><span class="p">());</span>
+
+<span class="c1">// Change this to a string builder and show as markdown</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">stringBuilderChatHistory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+<span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">chatHistoryMessages</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// add a new line for each message</span>
+<span class="w">    </span><span class="n">stringBuilderChatHistory</span><span class="p">.</span><span class="n">AppendLine</span><span class="p">(</span><span class="s">$"**{message.Role.ToString().ToUpper()}**:"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">stringBuilderChatHistory</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="s">$"{message.Text.Replace("</span><span class="err">#</span><span class="s">", string.Empty)}"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">stringBuilderChatHistory</span><span class="p">.</span><span class="n">AppendLine</span><span class="p">(</span><span class="s">"\n"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Display the chat history as Markdown</span>
+<span class="n">stringBuilderChatHistory</span><span class="p">.</span><span class="n">ToString</span><span class="p">().</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Number of chat interactions: 11
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<p><strong>SYSTEM</strong>:
+You are a Decision Intelligence assistant.
+Assist the user in exploring options, reasoning through decisions, problem-solving, and applying systems thinking to various scenarios.
+Provide structured, logical, and comprehensive advice.</p>
+<p><strong>USER</strong>:
+I am considering buying a fitness tracker but I am not sure which features really matter.
+Could you explain the main considerations?</p>
+<p><strong>ASSISTANT</strong>:
+Absolutely! Key considerations for choosing a fitness tracker often include:</p>
+<ul>
+<li>Fitness Features (e.g., step counting, heart-rate monitoring, workout tracking)</li>
+<li>Health Monitoring (like sleep tracking or advanced ECG capabilities)</li>
+<li>Battery Life</li>
+<li>Comfort and Fit</li>
+<li>Compatibility with your smartphone's operating system</li>
+<li>Price Range</li>
+<li>Knowing which of these you value most will help narrow down your options.</li>
+</ul>
+<p><strong>USER</strong>:
+Got it. Battery life and sleep tracking are both important to me.
+What's a typical battery life range for trackers, and how good is their sleep tracking?</p>
+<p><strong>ASSISTANT</strong>:
+Different fitness trackers have varying battery lives, typically anywhere from 2-3 days (for more feature-rich or bright-display devices)
+up to about 10-14 days (for more minimalist trackers).</p>
+<p>Regarding sleep tracking:</p>
+<ul>
+<li>Many modern devices can track different sleep stages (light, deep, REM).</li>
+<li>High-end devices even track breathing rate and oxygen saturation during the night.</li>
+<li>Some also offer insights about sleep quality and tips for improvement.</li>
+</ul>
+<p>If battery life is a priority, you may want to consider trackers with a more conservative display and fewer power-hungry features.</p>
+<p><strong>USER</strong>:
+Are there any popular models you would recommend for that balance of battery life and sleep tracking?</p>
+<p><strong>ASSISTANT</strong>:
+Popular options that strike a balance between robust sleep tracking and good battery life include:</p>
+<ul>
+<li>Fitbit Inspire 3 or Fitbit Charge 5: Both have solid sleep tracking, multi-day battery, and strong app support.</li>
+<li>Garmin Vivosmart 5: Offers decent fitness and sleep insights, plus better-than-average battery life.</li>
+<li>Xiaomi Mi Band 7: Budget-friendly, surprisingly robust health metrics, and a long-lasting battery.</li>
+</ul>
+<p>Each varies in price and features, so consider your budget and the specific metrics you’d like to track.</p>
+<p><strong>USER</strong>:
+That is great infor.
+I also have a friend who said I should consider an Apple Watch.
+Does that have comparable battery life and sleep tracking?</p>
+<p><strong>ASSISTANT</strong>:
+The Apple Watch is known for its extensive feature set, including advanced health monitoring,
+but its battery life tends to be shorter—usually around 18-24 hours on a single charge
+(or possibly a bit more in low-power mode). While its sleep tracking features have improved over time,
+you might find you need to charge it daily or almost daily, which could conflict with your goal of 24/7 tracking.</p>
+<p><strong>USER</strong>:
+Thank you for all of that information, I think I'll go with a Fitbit.
+The Fitbit Inspire 3 seems like a good fit for my budget and needs.</p>
+<p>Any quick final thoughts or insights on my decision?</p>
+<p><strong>ASSISTANT</strong>:
+That sounds like a sensible choice.</p>
+<p>Quick final thoughts:</p>
+<ul>
+<li>Good match for your priorities: The Inspire 3 is a strong fit if you care most about battery life and sleep tracking.</li>
+<li>Low-friction daily use: Its multi-day battery makes it easier to wear consistently, which helps sleep data quality.</li>
+<li>Budget-friendly: You’re getting the core health features without paying for extras you may not need.</li>
+<li>Tradeoff to keep in mind: It won’t be as feature-rich as an Apple Watch or higher-end Garmin, especially for apps and smartwatch functions.</li>
+</ul>
+<p>If your main goal is to build a consistent habit of tracking sleep and general activity, it’s a practical, well-balanced pick.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>By persisting the Decision Intelligence chats and making them available for inspection, can further help the decision-making process. For example you can load the Chat History summarize it or even have AI recommend optimizations for it based on the conversation.</p>
+<blockquote>
+<p><strong>📝 Note:</strong> The process below is simplified to illustrate the power of Gathering Intelligence with user &lt;--&gt; AI interactions. More advanced best practices will be introduced in further sections.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">userPromptSummarizeTheDecisionChat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">Briefly</span><span class="w"> </span><span class="n">summarize</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">chat</span><span class="w"> </span><span class="n">conversation</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">buying</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">fitness</span><span class="w"> </span><span class="n">tracker</span><span class="p">.</span>
+<span class="s">""";</span>
+
+<span class="n">chatHistoryMessages</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">User</span><span class="p">,</span><span class="w"> </span><span class="n">userPromptSummarizeTheDecisionChat</span><span class="p">));</span>
+
+<span class="c1">// Execute the chat messages against the AI model</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">fitnessTrackerDecisionSummaryResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">chatClient</span><span class="p">.</span><span class="n">GetResponseAsync</span><span class="p">(</span><span class="n">chatHistoryMessages</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">fitnessTrackerDecisionSummaryResponseText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fitnessTrackerDecisionSummaryResponse</span><span class="p">.</span><span class="n">Text</span><span class="p">;</span>
+
+<span class="c1">// Display the response string as Markdown</span>
+<span class="n">fitnessTrackerDecisionSummaryResponseText</span><span class="p">.</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<p>You asked what matters most in a fitness tracker, and we discussed key factors like fitness features, health monitoring, battery life, comfort, phone compatibility, and price. You then said battery life and sleep tracking were your priorities, so I explained that trackers usually range from about 2–3 days to 10–14 days of battery life, with many offering sleep-stage tracking and some advanced overnight health metrics. I suggested a few popular options that balance those needs: Fitbit Inspire 3/Charge 5, Garmin Vivosmart 5, and Xiaomi Mi Band 7. When you asked about the Apple Watch, I noted that it has stronger smartwatch and health features but much shorter battery life, typically around 18–24 hours, which makes constant sleep tracking less convenient. In the end, you chose the Fitbit Inspire 3 as a budget-friendly fit for your needs, and I agreed it’s a practical choice if your main goals are reliable sleep tracking and long battery life.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The chat history messsage can further be manipulated by looking at the user to AI interactions and getting feedback for future decision interactions.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Optimize the chat history for any future decision interactions</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">userPromptOptimizeTheDecisionChat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">Based</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">chat</span><span class="w"> </span><span class="n">conversation</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">far</span><span class="p">...</span>
+<span class="n">Provide</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">recommendations</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">decision</span><span class="w"> </span><span class="n">interactions</span><span class="w"> </span><span class="n">could</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">optimized</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">decision</span><span class="o">-</span><span class="n">making</span><span class="p">.</span>
+<span class="n">What</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">considerations</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">AI</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="n">better</span><span class="w"> </span><span class="n">decisions</span><span class="o">?</span>
+<span class="s">""";</span>
+
+<span class="c1">// Remove the last message to avoid redundancy</span>
+<span class="n">chatHistoryMessages</span><span class="p">.</span><span class="n">RemoveAt</span><span class="p">(</span><span class="n">chatHistoryMessages</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="n">chatHistoryMessages</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">User</span><span class="p">,</span><span class="w"> </span><span class="n">userPromptOptimizeTheDecisionChat</span><span class="p">));</span>
+
+<span class="c1">// Execute the chat messages against the AI model</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">decisionOptimizationResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">chatClient</span><span class="p">.</span><span class="n">GetResponseAsync</span><span class="p">(</span><span class="n">chatHistoryMessages</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">decisionOptimizationResponseText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionOptimizationResponse</span><span class="p">.</span><span class="n">Text</span><span class="p">;</span>
+
+<span class="c1">// Display the response string as Markdown</span>
+<span class="n">decisionOptimizationResponseText</span><span class="p">.</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<p>Here are some ways the decision interaction could be optimized to help the user make better choices.</p>
+<h2 id="What-could-be-improved-in-the-interaction">What could be improved in the interaction<a class="anchor-link" href="#What-could-be-improved-in-the-interaction">¶</a></h2><h3 id="1.-Clarify-the-decision-context-earlier">1. Clarify the decision context earlier<a class="anchor-link" href="#1.-Clarify-the-decision-context-earlier">¶</a></h3><p>The conversation focused on battery life and sleep tracking, but a stronger decision process would first ask:</p>
+<ul>
+<li>What is the main use case: sleep, workouts, general health, or smartwatch features?</li>
+<li>What phone do they use: iPhone or Android?</li>
+<li>What budget range are they comfortable with?</li>
+<li>Are there must-have features like GPS, ECG, or phone notifications?</li>
+</ul>
+<p>This would help avoid recommending options before the decision criteria are fully defined.</p>
+<h3 id="2.-Make-tradeoffs-explicit">2. Make tradeoffs explicit<a class="anchor-link" href="#2.-Make-tradeoffs-explicit">¶</a></h3><p>The responses gave useful product suggestions, but could have more clearly framed the tradeoffs, for example:</p>
+<ul>
+<li>Longer battery life often means fewer smartwatch features</li>
+<li>Better sleep tracking may come at a higher price or more frequent charging</li>
+<li>Apple Watch offers more smart features, but worse battery life for 24/7 wear</li>
+<li>Fitbit may be a better “health-first” choice than a “smartwatch-first” choice</li>
+</ul>
+<p>Making these tradeoffs explicit helps the user understand why a model fits.</p>
+<h3 id="3.-Compare-options-using-a-decision-framework">3. Compare options using a decision framework<a class="anchor-link" href="#3.-Compare-options-using-a-decision-framework">¶</a></h3><p>A simple comparison table would make the decision easier. For example:</p>
+<ul>
+<li>Battery life</li>
+<li>Sleep tracking quality</li>
+<li>App ecosystem</li>
+<li>Price</li>
+<li>Comfort</li>
+<li>Compatibility</li>
+<li>Workout tracking</li>
+</ul>
+<p>This supports more structured thinking instead of relying on isolated recommendations.</p>
+<h3 id="4.-Explore-user-priorities-more-deeply">4. Explore user priorities more deeply<a class="anchor-link" href="#4.-Explore-user-priorities-more-deeply">¶</a></h3><p>The interaction identified battery life and sleep tracking, which is good. But the AI could go further by asking:</p>
+<ul>
+<li>How often are you willing to charge it?</li>
+<li>Do you want detailed sleep insights or just basic sleep duration/stages?</li>
+<li>Do you need a display always on?</li>
+<li>Are you okay with a smaller screen if it improves battery life?</li>
+</ul>
+<p>These details would help identify the best-fit model more accurately.</p>
+<h3 id="5.-Separate-facts-from-preferences">5. Separate facts from preferences<a class="anchor-link" href="#5.-Separate-facts-from-preferences">¶</a></h3><p>The AI could be more careful to distinguish:</p>
+<ul>
+<li>Objective product features and battery estimates</li>
+<li>Subjective fit based on the user’s lifestyle</li>
+<li>The user’s preference weighting</li>
+</ul>
+<p>For example, “The Inspire 3 is a good fit if battery life and sleep tracking matter more than smartwatch features.”<br/>
+That’s better than presenting it as universally “best.”</p>
+<h3 id="6.-Include-confidence-and-caveats">6. Include confidence and caveats<a class="anchor-link" href="#6.-Include-confidence-and-caveats">¶</a></h3><p>Helpful decision support should note where information may vary:</p>
+<ul>
+<li>Battery life depends on usage, notifications, and display settings</li>
+<li>Sleep tracking quality varies by algorithm and user comfort</li>
+<li>App quality and ecosystem matter a lot for long-term satisfaction</li>
+</ul>
+<p>This improves realism and helps the user avoid surprises.</p>
+<h2 id="What-the-AI-should-consider-to-help-the-user-make-better-decisions">What the AI should consider to help the user make better decisions<a class="anchor-link" href="#What-the-AI-should-consider-to-help-the-user-make-better-decisions">¶</a></h2><h3 id="1.-Decision-criteria-hierarchy">1. Decision criteria hierarchy<a class="anchor-link" href="#1.-Decision-criteria-hierarchy">¶</a></h3><p>The AI should help the user rank what matters most:</p>
+<ul>
+<li>Must-have</li>
+<li>Nice-to-have</li>
+<li>Dealbreaker</li>
+</ul>
+<p>That makes the decision more robust.</p>
+<h3 id="2.-Hidden-constraints">2. Hidden constraints<a class="anchor-link" href="#2.-Hidden-constraints">¶</a></h3><p>The AI should check for constraints such as:</p>
+<ul>
+<li>Phone compatibility</li>
+<li>Wrist comfort</li>
+<li>Budget ceiling</li>
+<li>Charging habits</li>
+<li>Sensitivity to subscriptions</li>
+<li>Preference for discrete versus bulky devices</li>
+</ul>
+<h3 id="3.-Use-case-fit">3. Use-case fit<a class="anchor-link" href="#3.-Use-case-fit">¶</a></h3><p>Different devices are optimized for different jobs:</p>
+<ul>
+<li>Fitbit: health and wellness tracking</li>
+<li>Garmin: battery and fitness focus</li>
+<li>Apple Watch: smartwatch and ecosystem integration</li>
+<li>Budget trackers: basic tracking at lower cost</li>
+</ul>
+<p>The AI should map the device to the use case rather than just listing features.</p>
+<h3 id="4.-Long-term-satisfaction">4. Long-term satisfaction<a class="anchor-link" href="#4.-Long-term-satisfaction">¶</a></h3><p>The best purchase is not only the one with the most features, but the one the user will actually wear consistently.<br/>
+So the AI should consider:</p>
+<ul>
+<li>Ease of use</li>
+<li>Comfort</li>
+<li>Charge frequency</li>
+<li>App engagement</li>
+<li>Whether the device matches daily habits</li>
+</ul>
+<h3 id="5.-Opportunity-cost">5. Opportunity cost<a class="anchor-link" href="#5.-Opportunity-cost">¶</a></h3><p>If the user buys one tracker, what are they giving up?</p>
+<ul>
+<li>More smartwatch functions</li>
+<li>Better battery</li>
+<li>Lower price</li>
+<li>More advanced metrics</li>
+</ul>
+<p>Thinking in terms of tradeoffs helps avoid regret.</p>
+<h2 id="A-better-decision-support-interaction-would-do-this">A better decision-support interaction would do this<a class="anchor-link" href="#A-better-decision-support-interaction-would-do-this">¶</a></h2><p>A strong version of the conversation would:</p>
+<ol>
+<li>Ask 3–5 key questions up front</li>
+<li>Rank the user’s priorities</li>
+<li>Compare a small set of relevant options</li>
+<li>Explain tradeoffs clearly</li>
+<li>End with a recommendation matched to the user’s specific needs</li>
+</ol>
+<h2 id="Bottom-line">Bottom line<a class="anchor-link" href="#Bottom-line">¶</a></h2><p>For this kind of product decision, the AI should help the user:</p>
+<ul>
+<li>define priorities,</li>
+<li>compare tradeoffs,</li>
+<li>account for constraints,</li>
+<li>and choose the option most likely to be used consistently.</li>
+</ul>
+<p>If you want, I can also turn this into a short “ideal AI decision-making checklist” for future product recommendations.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+  </section>
+  </div>
+  <nav class="chapter-pager" aria-label="Chapter navigation">
+    <a class="pager-link" data-prev-chapter href="3a-simple-decision-prompts.html"><span>Previous</span><strong>Simple Decision Prompts</strong></a>
+    <a class="pager-link align-right" data-next-chapter href="3c-decisions-with-reusable-prompts-and-native-net-functions.html"><span>Next</span><strong>Decisions with Reusable Prompts and Native .NET Functions</strong></a>
+  </nav>
+</article>
+
+  </main>
+  <script type="module" src="../pagefind/pagefind-component-ui.js"></script>
+  <script src="../assets/site.js"></script>
+</body>
+</html>
