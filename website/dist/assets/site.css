@@ -1,41 +1,41 @@
 :root {
-  --paper: #fbfaf7;
+  --paper: #f7f5f0;
   --panel: #ffffff;
-  --panel-subtle: #f3f7f4;
-  --panel-warm: #fffdf8;
-  --ink: #232323;
-  --heading: #1f2523;
-  --muted: #62615c;
-  --line: #dedbd2;
-  --teal: #0f766e;
-  --teal-dark: #134e4a;
-  --berry: #9f1239;
-  --gold: #b7791f;
-  --code-bg: #202623;
-  --code-text: #f4fbf8;
-  --focus-ring: rgba(15, 118, 110, 0.35);
-  --backdrop: rgba(22, 29, 27, 0.36);
+  --panel-subtle: #eeece6;
+  --panel-warm: #fbf7ee;
+  --ink: #282724;
+  --heading: #1f211f;
+  --muted: #68645d;
+  --line: #d8d3c8;
+  --teal: #3b746e;
+  --teal-dark: #275652;
+  --berry: #8f2d46;
+  --gold: #9a6b1d;
+  --code-bg: #20211f;
+  --code-text: #f4f1e9;
+  --focus-ring: rgba(59, 116, 110, 0.34);
+  --backdrop: rgba(28, 28, 25, 0.38);
   --shadow: 0 18px 45px rgba(38, 38, 31, 0.12);
   --sidebar-width: 318px;
   color-scheme: light;
 }
 
 :root[data-theme="dark"] {
-  --paper: #111614;
-  --panel: #1a211f;
-  --panel-subtle: #151c1a;
-  --panel-warm: #211d17;
-  --ink: #ecefeb;
-  --heading: #f7faf7;
-  --muted: #b4bdb8;
-  --line: #33413d;
-  --teal: #5eead4;
-  --teal-dark: #99f6e4;
-  --berry: #fda4af;
-  --gold: #f4c76f;
-  --code-bg: #050807;
-  --code-text: #edfdf7;
-  --focus-ring: rgba(94, 234, 212, 0.42);
+  --paper: #121313;
+  --panel: #1c1d1d;
+  --panel-subtle: #171818;
+  --panel-warm: #211f1b;
+  --ink: #e8e4dc;
+  --heading: #f4efe6;
+  --muted: #aaa39a;
+  --line: #353532;
+  --teal: #7ca7a1;
+  --teal-dark: #a8c5bf;
+  --berry: #d48a9b;
+  --gold: #d4b06a;
+  --code-bg: #0d0e0e;
+  --code-text: #eee9df;
+  --focus-ring: rgba(124, 167, 161, 0.34);
   --backdrop: rgba(0, 0, 0, 0.58);
   --shadow: 0 18px 45px rgba(0, 0, 0, 0.34);
   color-scheme: dark;
@@ -229,7 +229,7 @@ button:focus-visible {
 .chapter-link.active {
   background: var(--panel);
   color: var(--teal-dark);
-  box-shadow: 0 1px 0 rgba(15, 118, 110, 0.12);
+  box-shadow: 0 1px 0 rgba(59, 116, 110, 0.12);
 }
 .chapter-code {
   display: inline-grid;
@@ -237,13 +237,14 @@ button:focus-visible {
   min-width: 36px;
   height: 28px;
   border-radius: 999px;
-  background: #e3f3ef;
+  background: #ddebe7;
   color: var(--teal-dark);
   font-size: 0.76rem;
   font-weight: 800;
 }
 :root[data-theme="dark"] .chapter-code {
-  color: #1d4ed8;
+  background: #27302e;
+  color: #b7d0cb;
 }
 
 .book-main {
@@ -392,7 +393,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); }
   box-shadow: 0 8px 22px rgba(44, 47, 43, 0.06);
 }
 .chapter-card:hover {
-  border-color: rgba(15, 118, 110, 0.55);
+  border-color: rgba(59, 116, 110, 0.48);
   transform: translateY(-2px);
   box-shadow: var(--shadow);
 }
