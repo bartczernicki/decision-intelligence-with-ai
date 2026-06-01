@@ -136,14 +136,34 @@ BOOK_TITLE = "Decision Intelligence with AI"
 
 
 class HeadingParser(HTMLParser):
+    OUTPUT_CLASSES = {
+        "output_wrapper",
+        "output",
+        "output_area",
+        "output_subarea",
+        "output_markdown",
+        "output_html",
+        "output_text",
+    }
+
     def __init__(self) -> None:
         super().__init__()
         self.headings: list[dict[str, str]] = []
         self._current: dict[str, str] | None = None
+        self._output_depth = 0
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        attr = dict(attrs)
+        class_names = set((attr.get("class") or "").split())
+        if self._output_depth:
+            self._output_depth += 1
+            return
+
+        if class_names & self.OUTPUT_CLASSES:
+            self._output_depth = 1
+            return
+
         if tag in {"h2", "h3", "h4"}:
-            attr = dict(attrs)
             if attr.get("id"):
                 self._current = {"tag": tag, "id": attr["id"] or "", "text": ""}
 
@@ -152,6 +172,10 @@ class HeadingParser(HTMLParser):
             self._current["text"] += data
 
     def handle_endtag(self, tag: str) -> None:
+        if self._output_depth:
+            self._output_depth -= 1
+            return
+
         if self._current is not None and tag == self._current["tag"]:
             text = re.sub(r"\s+", " ", self._current["text"]).strip(" ¶")
             if text:
@@ -1106,7 +1130,28 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); }
 }
 .notebook-content .highlight.hl-csharp pre {
   color: #d4d4d4;
-  font-size: 0.86rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+.notebook-content .code_cell .output_wrapper {
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+.notebook-content .code_cell .output_wrapper pre,
+.notebook-content .code_cell .output_wrapper p,
+.notebook-content .code_cell .output_wrapper li,
+.notebook-content .code_cell .output_wrapper table,
+.notebook-content .code_cell .output_wrapper th,
+.notebook-content .code_cell .output_wrapper td,
+.notebook-content .code_cell .output_subarea,
+.notebook-content .code_cell .output_html,
+.notebook-content .code_cell .output_markdown {
+  font-size: inherit;
+  line-height: inherit;
+}
+.notebook-content .code_cell .output_markdown,
+.notebook-content .code_cell .output_markdown * {
+  font-size: min(0.72rem, 12px);
   line-height: 1.45;
 }
 .notebook-content .highlight.hl-csharp .k,

@@ -78,7 +78,7 @@
   
 <nav class="chapter-toc" aria-label="Chapter table of contents">
   <strong>On this page</strong>
-  <a class="toc-h3" href="#Step-1---Initialize-Configuration-Builder-&amp;-Build-the-AI-Orchestration">Step 1 - Initialize Configuration Builder &amp; Build the AI Orchestration</a><a class="toc-h3" href="#Step-2---Execute-a-Decision-Prompt">Step 2 - Execute a Decision Prompt</a><a class="toc-h3" href="#Step-3---Execute-a-Decision-Prompt-with-Streaming">Step 3 - Execute a Decision Prompt with Streaming</a><a class="toc-h3" href="#Step-4---Execute-a-Decision-Prompt-with-Improved-Output-Formatting">Step 4 - Execute a Decision Prompt with Improved Output Formatting</a><a class="toc-h3" href="#Step-5---Execute-a-Decision-Prompt-with-a-Custom-Prompt-Execution-Configuration">Step 5 - Execute a Decision Prompt with a Custom Prompt Execution Configuration</a><a class="toc-h3" href="#Step-6---Execute-Decision-Prompts-with-a-System-Prompt-(AI-Decision-Persona)">Step 6 - Execute Decision Prompts with a System Prompt (AI Decision Persona)</a><a class="toc-h3" href="#Step-7---Execute-a-Decision-Scenario-with-a-System-Prompt-(Custom-AI-Persona)">Step 7 - Execute a Decision Scenario with a System Prompt (Custom AI Persona)</a><a class="toc-h3" href="#Recommendation">Recommendation</a>
+  <a class="toc-h3" href="#Step-1---Initialize-Configuration-Builder-&amp;-Build-the-AI-Orchestration">Step 1 - Initialize Configuration Builder &amp; Build the AI Orchestration</a><a class="toc-h3" href="#Step-2---Execute-a-Decision-Prompt">Step 2 - Execute a Decision Prompt</a><a class="toc-h3" href="#Step-3---Execute-a-Decision-Prompt-with-Streaming">Step 3 - Execute a Decision Prompt with Streaming</a><a class="toc-h3" href="#Step-4---Execute-a-Decision-Prompt-with-Improved-Output-Formatting">Step 4 - Execute a Decision Prompt with Improved Output Formatting</a><a class="toc-h3" href="#Step-5---Execute-a-Decision-Prompt-with-a-Custom-Prompt-Execution-Configuration">Step 5 - Execute a Decision Prompt with a Custom Prompt Execution Configuration</a><a class="toc-h3" href="#Step-6---Execute-Decision-Prompts-with-a-System-Prompt-(AI-Decision-Persona)">Step 6 - Execute Decision Prompts with a System Prompt (AI Decision Persona)</a><a class="toc-h3" href="#Step-7---Execute-a-Decision-Scenario-with-a-System-Prompt-(Custom-AI-Persona)">Step 7 - Execute a Decision Scenario with a System Prompt (Custom AI Persona)</a>
 </nav>
 
   <section class="notebook-content">
@@ -218,12 +218,12 @@ async function probeAddresses(probingAddresses) {
 }
 
 function loadDotnetInteractiveApi() {
-    probeAddresses(["http://127.0.0.1:2048/","http://::1:2048/","http://fe80::1%1:2048/","http://fe80::ed:3404:41ab:b52a%14:2048/","http://10.0.0.14:2048/","http://fe80::7c74:9ff:fe2b:38a3%16:2048/","http://fe80::9195:118b:5f2f:4646%18:2048/","http://fe80::671b:ceb8:a702:5972%19:2048/","http://fe80::bb2c:bd13:4fc2:b143%20:2048/","http://fe80::ce81:b1c:bd2c:69e%21:2048/","http://10.10.10.10:2048/","http://fe80::34ca:fe44:e5bb:265c%26:2048/","http://fd00::1:2048/"])
+    probeAddresses(["http://127.0.0.1:2048/","http://::1:2048/","http://fe80::1%1:2048/","http://fe80::f3:f26f:63fc:8a52%14:2048/","http://10.0.0.14:2048/","http://fe80::828:aaff:fe2c:6927%16:2048/","http://fe80::9c9d:2668:169e:249c%18:2048/","http://fe80::f14:4d06:c765:63a3%19:2048/","http://fe80::4f7f:bae2:201b:a576%20:2048/","http://fe80::ce81:b1c:bd2c:69e%21:2048/","http://10.10.10.10:2048/","http://fe80::34ca:fe44:e5bb:265c%22:2048/","http://fd00::1:2048/"])
         .then((root) => {
         // use probing to find host url and api resources
         // load interactive helpers and language services
         let dotnetInteractiveRequire = require.config({
-        context: '96661.Microsoft.DotNet.Interactive.Http.HttpPort',
+        context: '41136.Microsoft.DotNet.Interactive.Http.HttpPort',
                 paths:
             {
                 'dotnet-interactive': `${root}resources`
@@ -429,32 +429,34 @@ warning CS1701: Assuming assembly reference 'OpenAI, Version=2.9.1.0, Culture=ne
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Here are 5 decision-making frameworks that can improve decision quality, along with how each supports better analysis and reasoning:
+<pre>Here are 5 decision-making frameworks that can improve decision quality, along with how each supports stronger analysis and reasoning:
 
-1. **SWOT Analysis**  
-   - **What it is:** A framework for evaluating **Strengths, Weaknesses, Opportunities, and Threats**.  
-   - **How it helps:** It structures thinking by separating internal factors (strengths/weaknesses) from external factors (opportunities/threats), making it easier to compare options and anticipate risks.
+1. **SWOT Analysis**
+   - **What it is:** A framework for evaluating **Strengths, Weaknesses, Opportunities, and Threats**.
+   - **How it helps:** It gives a structured way to assess both internal and external factors, helping you compare advantages, risks, and strategic options before deciding.
+   - **Useful for:** Business strategy, project planning, product decisions.
 
-2. **Cost-Benefit Analysis (CBA)**  
-   - **What it is:** A method for weighing the expected **costs** of a decision against its **benefits**.  
-   - **How it helps:** It supports more objective reasoning by quantifying trade-offs, helping decision-makers determine whether an option is worth pursuing, especially in business, policy, and project planning.
+2. **Cost-Benefit Analysis**
+   - **What it is:** A method for comparing the **expected costs** of a choice against its **expected benefits**.
+   - **How it helps:** It encourages quantitative and logical thinking by making trade-offs explicit, which reduces decisions based only on intuition or emotion.
+   - **Useful for:** Investments, policy decisions, purchasing, operational changes.
 
-3. **Decision Matrix (Weighted Scoring Model)**  
-   - **What it is:** A tool that compares multiple alternatives against a set of criteria, often with weights assigned to each criterion.  
-   - **How it helps:** It reduces bias by making comparisons systematic and transparent, which is useful when several factors matter and choices are not obvious.
+3. **Decision Matrix**
+   - **What it is:** A tool that scores multiple options against a set of criteria, often with weights assigned to each criterion.
+   - **How it helps:** It brings objectivity and consistency to comparing alternatives, especially when several factors matter at once.
+   - **Useful for:** Vendor selection, hiring, prioritizing projects, choosing among alternatives.
 
-4. **Six Thinking Hats**  
-   - **What it is:** A framework that encourages looking at a decision from six perspectives: factual, emotional, critical, optimistic, creative, and process-oriented.  
-   - **How it helps:** It improves reasoning by forcing consideration of different viewpoints, reducing groupthink, and helping teams explore both risks and possibilities more fully.
+4. **OODA Loop**
+   - **What it is:** A cycle of **Observe, Orient, Decide, Act**.
+   - **How it helps:** It supports fast, adaptive reasoning in changing environments by emphasizing continuous learning and adjustment rather than one-time decisions.
+   - **Useful for:** Military, emergency response, competitive business, operations management.
 
-5. **OODA Loop (Observe–Orient–Decide–Act)**  
-   - **What it is:** A cyclical decision-making process designed for fast-changing situations.  
-   - **How it helps:** It promotes continuous learning and adaptation. By repeatedly observing and re-evaluating conditions, it supports better decisions in dynamic environments like crisis management, operations, and strategy.
+5. **Pros and Cons Analysis**
+   - **What it is:** A simple framework that lists the advantages and disadvantages of each option.
+   - **How it helps:** It clarifies the immediate positives and negatives of a choice, making it easier to identify major trade-offs and spot overlooked issues.
+   - **Useful for:** Everyday personal decisions, team discussions, and preliminary evaluation of options.
 
-If you want, I can also provide:
-- a **comparison table** of these frameworks,
-- examples of **when to use each one**, or
-- a **step-by-step template** for applying them.
+If you want, I can also provide these in a **table** or suggest **which framework fits which type of decision**.
 </pre>
 </div>
 </div>
@@ -498,29 +500,29 @@ If you want, I can also provide:
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Here are 5 decision-making frameworks that can improve decision quality, along with how they help in different situations:
+<pre>Here are 5 decision-making frameworks that can improve decision quality, along with how they help with analysis and reasoning:
 
-1. **Cost-Benefit Analysis (CBA)**  
-   - **What it is:** Compares the expected costs of an option against its expected benefits.  
-   - **How it helps:** Forces you to quantify trade-offs, making it easier to choose the option with the highest net value. Useful for budgeting, project selection, and policy decisions.
+1. **SWOT Analysis**
+   - **What it is:** A framework for evaluating **Strengths, Weaknesses, Opportunities, and Threats**.
+   - **How it helps:** It gives a balanced view of internal and external factors, making it easier to compare options and anticipate risks or advantages. Useful for business planning, career decisions, and strategic choices.
 
-2. **SWOT Analysis**  
-   - **What it is:** Evaluates **Strengths, Weaknesses, Opportunities, and Threats** related to a decision.  
-   - **How it helps:** Provides a structured way to assess internal and external factors. Useful for strategic planning, business expansion, and career decisions.
+2. **Cost-Benefit Analysis**
+   - **What it is:** A method for comparing the expected costs of a decision against its expected benefits.
+   - **How it helps:** It encourages structured thinking by quantifying trade-offs, helping decision-makers choose the option with the best net value. Useful in project selection, budgeting, and policy decisions.
 
-3. **Decision Matrix (Weighted Scoring Model)**  
-   - **What it is:** Lists options and evaluates them against criteria, assigning weights based on importance.  
-   - **How it helps:** Reduces bias by making criteria explicit and comparable. Useful when multiple options must be judged across several factors, such as hiring, vendor selection, or product choice.
+3. **Decision Matrix**
+   - **What it is:** A tool that scores different options against a set of criteria, often with weights assigned to each criterion.
+   - **How it helps:** It reduces bias by making comparisons systematic and transparent. Helpful when multiple factors matter, such as choosing vendors, hiring candidates, or selecting products.
 
-4. **OODA Loop (Observe–Orient–Decide–Act)**  
-   - **What it is:** A rapid decision cycle emphasizing continuous learning and adjustment.  
-   - **How it helps:** Supports quick, adaptive reasoning in dynamic environments. Useful in crisis management, military strategy, competitive business settings, and fast-changing markets.
+4. **OODA Loop**
+   - **What it is:** A cycle of **Observe, Orient, Decide, Act**.
+   - **How it helps:** It supports rapid, adaptive decision-making by encouraging continuous reassessment as conditions change. Especially useful in dynamic environments like operations, emergency response, and competitive strategy.
 
-5. **PDCA Cycle (Plan–Do–Check–Act)**  
-   - **What it is:** A continuous improvement framework for testing and refining decisions.  
-   - **How it helps:** Encourages experimentation and feedback, helping identify what works before scaling. Useful in operations, quality management, and process improvement.
+5. **Six Thinking Hats**
+   - **What it is:** A framework that looks at a problem from six perspectives: facts, emotions, risks, benefits, creativity, and process control.
+   - **How it helps:** It improves reasoning by forcing consideration of multiple viewpoints rather than relying on one mode of thinking. Useful for group decisions, brainstorming, and solving complex problems.
 
-If you want, I can also provide these in a **table format** or suggest the **best framework for specific situations**.</pre>
+If you want, I can also provide these frameworks in a table or give real-world examples for each.</pre>
 </div>
 </div>
 </div>
@@ -574,30 +576,30 @@ If you want, I can also provide these in a **table format** or suggest the **bes
 <table>
 <thead>
 <tr>
-<th>Decision-making framework</th>
-<th>How it improves analysis and reasoning</th>
+<th>Decision-Making Framework</th>
+<th>How It Improves Analysis and Reasoning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>SWOT Analysis</td>
-<td>Helps compare a situation’s strengths, weaknesses, opportunities, and threats, making it easier to evaluate internal and external factors before choosing a course of action.</td>
+<td>Organizes a decision by separating internal strengths and weaknesses from external opportunities and threats, helping compare options and anticipate risks.</td>
 </tr>
 <tr>
 <td>Cost-Benefit Analysis</td>
-<td>Organizes expected costs and benefits to clarify tradeoffs, supporting more rational decisions when resources, time, or money are limited.</td>
-</tr>
-<tr>
-<td>Pareto Analysis (80/20 Rule)</td>
-<td>Focuses attention on the few causes that produce most of the impact, helping prioritize issues and allocate effort where it matters most.</td>
+<td>Quantifies expected gains and costs to support more objective comparisons between alternatives, especially when trade-offs must be weighed.</td>
 </tr>
 <tr>
 <td>Decision Matrix</td>
-<td>Scores options against weighted criteria, reducing bias and making comparisons more structured and transparent across multiple alternatives.</td>
+<td>Uses weighted criteria to score multiple options consistently, making complex choices more transparent and less driven by intuition alone.</td>
+</tr>
+<tr>
+<td>Pareto Analysis (80/20 Rule)</td>
+<td>Focuses attention on the few factors that produce the greatest impact, improving prioritization in situations with limited time or resources.</td>
 </tr>
 <tr>
 <td>OODA Loop (Observe, Orient, Decide, Act)</td>
-<td>Encourages rapid, iterative decision-making by continuously updating understanding, which is especially useful in dynamic or uncertain environments.</td>
+<td>Encourages rapid, iterative decision-making by continuously updating understanding and adjusting actions as new information emerges.</td>
 </tr>
 </tbody>
 </table>

@@ -506,7 +506,28 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); }
 }
 .notebook-content .highlight.hl-csharp pre {
   color: #d4d4d4;
-  font-size: 0.86rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+.notebook-content .code_cell .output_wrapper {
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+.notebook-content .code_cell .output_wrapper pre,
+.notebook-content .code_cell .output_wrapper p,
+.notebook-content .code_cell .output_wrapper li,
+.notebook-content .code_cell .output_wrapper table,
+.notebook-content .code_cell .output_wrapper th,
+.notebook-content .code_cell .output_wrapper td,
+.notebook-content .code_cell .output_subarea,
+.notebook-content .code_cell .output_html,
+.notebook-content .code_cell .output_markdown {
+  font-size: inherit;
+  line-height: inherit;
+}
+.notebook-content .code_cell .output_markdown,
+.notebook-content .code_cell .output_markdown * {
+  font-size: min(0.72rem, 12px);
   line-height: 1.45;
 }
 .notebook-content .highlight.hl-csharp .k,
