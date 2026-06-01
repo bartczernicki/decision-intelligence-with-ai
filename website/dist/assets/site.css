@@ -203,6 +203,9 @@ button:focus-visible {
   margin-top: 18px;
 }
 .chapter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   color: var(--muted);
   font-size: 0.8rem;
   font-weight: 800;
@@ -210,6 +213,13 @@ button:focus-visible {
   margin: 14px 10px 2px;
   text-transform: uppercase;
 }
+.chapter-group img {
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+.chapter-group span { min-width: 0; }
 .chapter-link {
   display: grid;
   grid-template-columns: 44px 1fr;
@@ -369,11 +379,22 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); }
 .section-heading h2 { margin: 0; }
 .chapter-group-section + .chapter-group-section { margin-top: 34px; }
 .chapter-grid-heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
   color: var(--heading);
   font-size: 1.3rem;
   line-height: 1.2;
   margin: 0 0 14px;
 }
+.chapter-grid-heading img {
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+.chapter-grid-heading span { min-width: 0; }
 .chapter-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

@@ -20,6 +20,7 @@ RAW = WEBSITE / "_raw"
 CHAPTERS_DIR = WEBSITE / "chapters"
 ASSETS_DIR = WEBSITE / "assets"
 CONFIG_PATH = WEBSITE_ROOT / "src" / "build_website_config.json"
+IMAGES_DIR = ROOT / "Images"
 NOTEBOOK_DESCRIPTIONS = {
     "1a - Decision Intelligence - Introducing the Decision Intelligence Framework.ipynb": "A readable introduction to decisions, decision quality, and the Decision Intelligence Framework.",
     "1b - Decision Intelligence - Decision Framing.ipynb": "How to shape the decision problem before evaluating options or recommendations.",
@@ -34,6 +35,7 @@ NOTEBOOK_DESCRIPTIONS = {
 }
 
 
+IMAGE_BASE_URL = "https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images"
 LOGO_URL = "https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceLogo.png"
 FRAMEWORK_URL = "https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png"
 
@@ -69,6 +71,33 @@ def notebook_metadata(notebook_file: str) -> dict[str, str]:
     }
 
 
+def image_url(filename: str) -> str:
+    return f"{IMAGE_BASE_URL}/{filename}"
+
+
+def load_chapter_groups(config: dict[str, object]) -> dict[str, str]:
+    groups = config.get("chapter_groups", [])
+    if not isinstance(groups, list):
+        raise ValueError("build_website_config.json chapter_groups must be a list.")
+
+    chapter_groups: dict[str, str] = {}
+    for entry in groups:
+        if not isinstance(entry, dict):
+            raise ValueError("Each chapter_groups entry must be an object.")
+        name = entry.get("name")
+        logo = entry.get("logo")
+        if not isinstance(name, str) or not name:
+            raise ValueError("Each chapter_groups entry must include a string name.")
+        if not isinstance(logo, str) or not logo:
+            raise ValueError(f"{name} must include a string logo.")
+        if name in chapter_groups:
+            raise ValueError(f"Duplicate chapter group in config: {name}")
+        if not (IMAGES_DIR / logo).exists():
+            raise FileNotFoundError(f"Configured chapter group logo does not exist: {logo}")
+        chapter_groups[name] = image_url(logo)
+    return chapter_groups
+
+
 def load_build_config() -> tuple[dict[str, object], list[dict[str, str]]]:
     config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
     if not isinstance(config.get("book_version"), str):
@@ -101,6 +130,7 @@ def load_build_config() -> tuple[dict[str, object], list[dict[str, str]]]:
 
 
 CONFIG, CHAPTERS = load_build_config()
+CHAPTER_GROUP_LOGOS = load_chapter_groups(CONFIG)
 BOOK_VERSION = str(CONFIG["book_version"])
 BOOK_TITLE = "Decision Intelligence with AI"
 
@@ -195,6 +225,19 @@ def chapter_toc(raw_html: str) -> str:
 """
 
 
+def chapter_group_heading(
+    group: str, class_name: str, heading_id: str | None = None, tag: str = "div"
+) -> str:
+    group_logo = CHAPTER_GROUP_LOGOS.get(group)
+    logo = (
+        f'<img src="{escape(group_logo, quote=True)}" alt="" aria-hidden="true">'
+        if group_logo
+        else ""
+    )
+    id_attr = f' id="{escape(heading_id, quote=True)}"' if heading_id else ""
+    return f'<{tag} class="{class_name}"{id_attr}>{logo}<span>{escape(group)}</span></{tag}>'
+
+
 def sidebar(prefix: str, current_file: str) -> str:
     home_active = " active" if current_file == "index.html" else ""
     items = [
@@ -206,7 +249,7 @@ def sidebar(prefix: str, current_file: str) -> str:
     for chapter in CHAPTERS:
         if chapter["group"] != current_group:
             current_group = chapter["group"]
-            items.append(f'<div class="chapter-group">{escape(current_group)}</div>')
+            items.append(chapter_group_heading(current_group, "chapter-group"))
 
         active = " active" if chapter["file"] == current_file else ""
         data_title = escape(
@@ -317,7 +360,7 @@ def build_index() -> None:
                 group_sections.append(
                     f"""
   <section class="chapter-group-section" aria-labelledby="group-{slugify(current_group)}">
-    <h3 class="chapter-grid-heading" id="group-{slugify(current_group)}">{escape(current_group)}</h3>
+    {chapter_group_heading(current_group, "chapter-grid-heading", f"group-{slugify(current_group)}", "h3")}
     <div class="chapter-grid">
       {''.join(cards)}
     </div>
@@ -342,7 +385,7 @@ def build_index() -> None:
         group_sections.append(
             f"""
   <section class="chapter-group-section" aria-labelledby="group-{slugify(current_group)}">
-    <h3 class="chapter-grid-heading" id="group-{slugify(current_group)}">{escape(current_group)}</h3>
+    {chapter_group_heading(current_group, "chapter-grid-heading", f"group-{slugify(current_group)}", "h3")}
     <div class="chapter-grid">
       {''.join(cards)}
     </div>
@@ -760,6 +803,9 @@ button:focus-visible {
   margin-top: 18px;
 }
 .chapter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   color: var(--muted);
   font-size: 0.8rem;
   font-weight: 800;
@@ -767,6 +813,13 @@ button:focus-visible {
   margin: 14px 10px 2px;
   text-transform: uppercase;
 }
+.chapter-group img {
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+.chapter-group span { min-width: 0; }
 .chapter-link {
   display: grid;
   grid-template-columns: 44px 1fr;
@@ -926,11 +979,22 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); }
 .section-heading h2 { margin: 0; }
 .chapter-group-section + .chapter-group-section { margin-top: 34px; }
 .chapter-grid-heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
   color: var(--heading);
   font-size: 1.3rem;
   line-height: 1.2;
   margin: 0 0 14px;
 }
+.chapter-grid-heading img {
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+.chapter-grid-heading span { min-width: 0; }
 .chapter-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

@@ -1,5 +1,19 @@
 {
   "book_version": "0.3-preview.20260531",
+  "chapter_groups": [
+    {
+      "name": "Decision Intelligence",
+      "logo": "DecisionIntelligenceLogo.png"
+    },
+    {
+      "name": "Workshop (Setup)",
+      "logo": "DecisionIntelligenceWorkshopLogo.png"
+    },
+    {
+      "name": "Workshop (AI Extensions)",
+      "logo": "DecisionIntelligenceWorkshopExercisesLogo.png"
+    }
+  ],
   "notebooks": [
     {
       "file": "1a - Decision Intelligence - Introducing the Decision Intelligence Framework.ipynb",
