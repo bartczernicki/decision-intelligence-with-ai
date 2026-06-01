@@ -112,39 +112,6 @@
 <p>AI Extensions prompt templates are reusable instructions that help guide GenAI models toward a specific decision workflow. A prompt template usually has one responsibility: list useful decision frameworks, recommend a reasoning approach for a high-stakes decision, summarize a tradeoff, or personalize a recommendation from structured context.</p>
 <p>What makes reusable prompt functions useful? GenAI models can already respond to basic prompts, but decision workflows usually need repeatable instructions, consistent formatting, and dynamic inputs. By combining Microsoft.Extensions.AI with simple C# helper methods, a prompt becomes a reusable part of an AI orchestration flow instead of a one-off string.</p>
 <p>For example, imagine you want to prepare a great Thanksgiving dinner and you ask a GenAI cooking application to create a recipe. It may produce a delicious plan, but it may also use ingredients or cooking appliances you do not own. You could keep prompting until it narrows the recipe, but it is better to provide available ingredients, time availability, kitchen appliances, and allergy preferences as dynamic inputs. The same pattern applies to Decision Intelligence: reusable prompt templates let the model consider specific business context, user constraints, and decision criteria each time the prompt runs.</p>
-<p>In this notebook, reusable prompt functions are implemented with:</p>
-<ul>
-<li><code>IChatClient</code> from Microsoft.Extensions.AI</li>
-<li><code>ChatMessage</code> roles for system and user instructions</li>
-<li><code>ChatOptions</code> for model settings such as temperature, top-p, and maximum output tokens</li>
-<li>C# raw string interpolation for dynamic prompt inputs</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Below is an example of a reusable prompt template that can be used for facilitating decision-making. Note the <code>{decisionToMake}</code> input where the parameter can be dynamically passed in to provide additional specificity.</p>
-<div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">decisionPrompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"""</span>
-<span class="na">[DECISION FRAMEWORKS TO USE]</span>
-<span class="n">Price</span><span class="err">'</span><span class="n">s</span><span class="w"> </span><span class="n">Law</span>
-<span class="n">Pareto</span><span class="w"> </span><span class="n">Principle</span>
-<span class="n">Laplace</span><span class="w"> </span><span class="n">Rule</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">Succession</span>
-<span class="n">Eisenhower</span><span class="w"> </span><span class="n">Matrix</span>
-<span class="n">Median</span><span class="w"> </span><span class="n">Rule</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">Five</span>
-<span class="n">Second</span><span class="w"> </span><span class="n">Order</span><span class="w"> </span><span class="n">Thinking</span>
-
-<span class="na">[DECISION GUIDANCE]</span>
-<span class="n">Try</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">best</span><span class="w"> </span><span class="n">fitting</span><span class="w"> </span><span class="n">framework</span><span class="p">.</span><span class="w">  </span>
-<span class="n">Prefer</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="nn">quantitative</span><span class="w"> </span><span class="n">decision</span><span class="w"> </span><span class="n">frameworks</span><span class="w"> </span><span class="n">rather</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">qualitative</span><span class="w"> </span><span class="n">ones</span><span class="p">.</span><span class="w">  </span>
-<span class="n">Use</span><span class="w"> </span><span class="n">calculations</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">code</span><span class="o">-</span><span class="n">based</span><span class="w"> </span><span class="n">validation</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">quantitative</span><span class="w"> </span><span class="n">reasoning</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">required</span><span class="p">.</span>
-
-<span class="n">Use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">decision</span><span class="w"> </span><span class="n">frameworks</span><span class="w"> </span><span class="n">above</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">decision</span><span class="p">:</span>
-<span class="p">{</span><span class="n">decisionToMake</span><span class="p">}</span>
-<span class="s">""";</span>
-</pre></div>
-<p>The core value is that the prompt can be reused with different inputs while still flowing through the same AI Extensions <code>IChatClient</code> API.</p>
 </div>
 </div>
 </div>

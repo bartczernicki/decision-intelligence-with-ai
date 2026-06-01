@@ -20,12 +20,6 @@ The build converts notebooks to HTML, wraps them in the static book shell, gener
 
 To include or exclude notebooks, edit `src/build_website_config.json` and change `include_in_build`.
 
-For compatibility, the root wrapper still works:
-
-```bash
-python3 scripts/build_website.py
-```
-
 ## Test Locally
 
 ```bash

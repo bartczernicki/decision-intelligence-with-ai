@@ -78,7 +78,7 @@
   
 <nav class="chapter-toc" aria-label="Chapter table of contents">
   <strong>On this page</strong>
-  <a class="toc-h3" href="#Step-1---Get-Started-with-LMStudio-and-Local-Open-Source-AI-Models">Step 1 - Get Started with LMStudio and Local Open Source AI Models</a><a class="toc-h3" href="#Step-2---Initialize-ChatClient-using-OpenAI-libraries">Step 2 - Initialize ChatClient using OpenAI libraries</a><a class="toc-h3" href="#Step-3---Open-Source-AI-with-Decision-Intelligence">Step 3 - Open Source AI with Decision Intelligence</a><a class="toc-h3" href="#Step-4---Open-Source-AI-with-Decision-Intelligence-(Advanced)">Step 4 - Open Source AI with Decision Intelligence (Advanced)</a><a class="toc-h3" href="#Step-5---Open-Source-AI-with-The-Ben-Franklin-Decision-Framework">Step 5 - Open Source AI with The Ben Franklin Decision Framework</a><a class="toc-h4" href="#Tom-Brady&#x27;s-use-of-a-Decision-Framework">Tom Brady&#x27;s use of a Decision Framework</a><a class="toc-h4" href="#Steps-for-Ben-Franklin&#x27;s-Decision-Framework">Steps for Ben Franklin&#x27;s Decision Framework</a><a class="toc-h4" href="#Decision-Scenario---Should-a-Family-Decide-to-Take-a-Luxury-Vacation?">Decision Scenario - Should a Family Decide to Take a Luxury Vacation?</a><a class="toc-h4" href="#Improving-the-Ben-Franklin&#x27;s-Decision-Framework-with-Local-AI">Improving the Ben Franklin&#x27;s Decision Framework with Local AI</a><a class="toc-h3" href="#Step-6---Higher-Reasoning-Effort-for-High-Stakes-Decisions">Step 6 - Higher Reasoning Effort for High-Stakes Decisions</a><a class="toc-h3" href="#Step-7---Open-Source-AI-&amp;-Commercial-AI-Providers">Step 7 - Open Source AI &amp; Commercial AI Providers</a>
+  <a class="toc-h3" href="#Step-1---Get-Started-with-LMStudio-and-Local-Open-Source-AI-Models">Step 1 - Get Started with LMStudio and Local Open Source AI Models</a><a class="toc-h3" href="#Step-2---Initialize-ChatClient-using-OpenAI-libraries">Step 2 - Initialize ChatClient using OpenAI libraries</a><a class="toc-h3" href="#Step-3---Open-Source-AI-with-Decision-Intelligence">Step 3 - Open Source AI with Decision Intelligence</a><a class="toc-h3" href="#Step-4---Open-Source-AI-with-Decision-Intelligence-(Advanced)">Step 4 - Open Source AI with Decision Intelligence (Advanced)</a><a class="toc-h3" href="#Step-5---Open-Source-AI-with-The-Ben-Franklin-Decision-Framework">Step 5 - Open Source AI with The Ben Franklin Decision Framework</a><a class="toc-h4" href="#Tom-Brady&#x27;s-use-of-a-Decision-Framework">Tom Brady&#x27;s use of a Decision Framework</a><a class="toc-h4" href="#Steps-for-Ben-Franklin&#x27;s-Decision-Framework">Steps for Ben Franklin&#x27;s Decision Framework</a><a class="toc-h4" href="#Decision-Scenario---Should-a-Family-Decide-to-Take-a-Luxury-Vacation?">Decision Scenario - Should a Family Decide to Take a Luxury Vacation?</a><a class="toc-h4" href="#Improving-the-Ben-Franklin&#x27;s-Decision-Framework-with-Local-AI">Improving the Ben Franklin&#x27;s Decision Framework with Local AI</a><a class="toc-h3" href="#Step-6---Higher-Reasoning-Effort-for-High-Stakes-Decisions">Step 6 - Higher Reasoning Effort for High-Stakes Decisions</a><a class="toc-h3" href="#Step-7---Local-Open-Source-AI-&amp;-Cloud-Commercial-AI-Providers">Step 7 - Local Open Source AI &amp; Cloud Commercial AI Providers</a>
 </nav>
 
   <section class="notebook-content">
@@ -97,9 +97,9 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Decision Intelligence applied in this module:</p>
 <ul>
-<li>Listing key factors to consider when making a sound decision</li>
-<li>Using OSS (open-source) reasoning models to optimize the decision approach</li>
+<li>Using OSS (open-source / open-weight) reasoning models to optimize the decision approach</li>
 <li>Decision Scenario: Use a decision framework (Ben Franklin's Pro &amp; Con List) to create a decision plan</li>
+<li>How Tom Brady used the Ben Franklin framework to become the Tampa Bay Buccaneeers quaterback</li>
 <li>Improving Decision Intelligence process by explicitly providing decision frameworks and additional context</li>
 </ul>
 </div>
@@ -189,13 +189,13 @@ Note that there are some commercial providers like Meta or Cohere that provide o
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [1]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the required NuGet configuration packages</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration, 10.0.6"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration.Json, 10.0.6"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: System.Text.Json, 10.0.6"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration, 10.0.8"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration.Json, 10.0.8"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: System.Text.Json, 10.0.8"</span>
 
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration.Json</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
@@ -210,8 +210,8 @@ Note that there are some commercial providers like Meta or Cohere that provide o
 <span class="w">    </span><span class="p">.</span><span class="n">AddJsonFile</span><span class="p">(</span><span class="s">"secrets.settings.json"</span><span class="p">,</span><span class="w"> </span><span class="n">optional</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="n">reloadOnChange</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">);</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configurationBuilder</span><span class="p">.</span><span class="n">Build</span><span class="p">();</span>
 
-<span class="c1">// IMPORTANT: You ONLY NEED either Azure OpenAI or OpenAI connection info, not both.</span>
-<span class="c1">// Azure OpenAI Connection Info</span>
+<span class="c1">// IMPORTANT: Set your local connection in secrets.settings.json. </span>
+<span class="c1">// This is required to connect to your local LLM instance (e.g., Ollama, LM Studio, etc.)</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">localAIEndpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"LocalAI:Endpoint"</span><span class="p">];</span><span class="w"> </span><span class="c1">// local LLMs do not require an API key</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">localAIAPIKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"LocalAI:APIKey"</span><span class="p">];</span><span class="w"> </span><span class="c1">// this can be localhost or an IP address</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">localAIModelDeploymentName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"LocalAI:ModelDeploymentName"</span><span class="p">];</span><span class="w"> </span><span class="c1">// Local AI Model Name. Another Option: "openai/gpt-oss-20b";</span>
@@ -228,122 +228,12 @@ Note that there are some commercial providers like Meta or Cohere that provide o
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_html rendered_html output_subarea">
-<div>
-<div id="dotnet-interactive-this-cell-$CACHE_BUSTER$" style="display: none">
-        The below script needs to be able to find the current output cell; this is an easy method to get it.
-    </div>
-<script type="text/javascript">
-async function probeAddresses(probingAddresses) {
-    function timeout(ms, promise) {
-        return new Promise(function (resolve, reject) {
-            setTimeout(function () {
-                reject(new Error('timeout'))
-            }, ms)
-            promise.then(resolve, reject)
-        })
-    }
-
-    if (Array.isArray(probingAddresses)) {
-        for (let i = 0; i < probingAddresses.length; i++) {
-
-            let rootUrl = probingAddresses[i];
-
-            if (!rootUrl.endsWith('/')) {
-                rootUrl = `${rootUrl}/`;
-            }
-
-            try {
-                let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
-                    method: 'POST',
-                    cache: 'no-cache',
-                    mode: 'cors',
-                    timeout: 1000,
-                    headers: {
-                        'Content-Type': 'text/plain'
-                    },
-                    body: probingAddresses[i]
-                }));
-
-                if (response.status == 200) {
-                    return rootUrl;
-                }
-            }
-            catch (e) { }
-        }
-    }
-}
-
-function loadDotnetInteractiveApi() {
-    probeAddresses(["http://127.0.0.1:2048/","http://::1:2048/","http://fe80::1%1:2048/","http://fe80::c67:479a:3b1:70c1%14:2048/","http://10.0.0.61:2048/","http://fe80::30b2:4cff:fe1b:f0ad%16:2048/","http://fe80::2ff5:dbb8:83e8:2a34%18:2048/","http://fe80::20ec:f3ee:c8b8:25f2%19:2048/","http://fe80::97b7:c4aa:7fe8:8629%20:2048/","http://fe80::ce81:b1c:bd2c:69e%21:2048/","http://10.10.10.10:2048/","http://fe80::34ca:fe44:e5bb:265c%22:2048/","http://fd00::1:2048/","http://fe80::cd2:eec0:184b:6d92%24:2048/","http://172.20.10.11:2048/","http://2600:381:ab23:16ec:1879:9cee:9eea:62f5:2048/","http://2600:381:ab23:16ec:d140:2993:9e8c:b915:2048/","http://fe80::c08:8564:170a:394a%26:2048/","http://169.254.200.14:2048/","http://fe80::5810:2aff:fee3:f01e%25:2048/"])
-        .then((root) => {
-        // use probing to find host url and api resources
-        // load interactive helpers and language services
-        let dotnetInteractiveRequire = require.config({
-        context: '92639.Microsoft.DotNet.Interactive.Http.HttpPort',
-                paths:
-            {
-                'dotnet-interactive': `${root}resources`
-                }
-        }) || require;
-
-            window.dotnetInteractiveRequire = dotnetInteractiveRequire;
-
-            window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
-                let paths = {};
-                paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
-                
-                let internalRequire = require.config({
-                    context: extensionCacheBuster,
-                    paths: paths,
-                    urlArgs: `cacheBuster=${extensionCacheBuster}`
-                    }) || require;
-
-                return internalRequire
-            };
-        
-            dotnetInteractiveRequire([
-                    'dotnet-interactive/dotnet-interactive'
-                ],
-                function (dotnet) {
-                    dotnet.init(window);
-                },
-                function (error) {
-                    console.log(error);
-                }
-            );
-        })
-        .catch(error => {console.log(error);});
-    }
-
-// ensure `require` is available globally
-if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
-    let require_script = document.createElement('script');
-    require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
-    require_script.setAttribute('type', 'text/javascript');
-    
-    
-    require_script.onload = function() {
-        loadDotnetInteractiveApi();
-    };
-
-    document.getElementsByTagName('head')[0].appendChild(require_script);
-}
-else {
-    loadDotnetInteractiveApi();
-}
-
-    </script>
-</div></div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.Configuration, 10.0.6</span></li><li><span>Microsoft.Extensions.Configuration.Json, 10.0.6</span></li><li><span>System.Text.Json, 10.0.6</span></li></ul></div></div></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.Configuration, 10.0.8</span></li><li><span>Microsoft.Extensions.Configuration.Json, 10.0.8</span></li><li><span>System.Text.Json, 10.0.8</span></li></ul></div></div></div>
 </div>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Local AI Endpoint: http://10.0.0.61:1234/v1/
+<pre>Local AI Endpoint: http://10.0.0.21:1234/v1
 Local AI API Key: not_needed_for_lmstudio_ollama_etc
 Local AI Model Deployment Name: google/gemma-4-26b-a4b
 </pre>
@@ -354,14 +244,14 @@ Local AI Model Deployment Name: google/gemma-4-26b-a4b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Install the required AI packages</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.DependencyInjection, 10.0.6"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI, 10.5.0"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.Abstractions, 10.5.0"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.OpenAI, 10.5.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.DependencyInjection, 10.0.8"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI, 10.6.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.Abstractions, 10.6.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.OpenAI, 10.6.0"</span>
 <span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: OpenAI, 2.10.0"</span>
 
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.AI</span><span class="p">;</span>
@@ -389,7 +279,7 @@ Local AI Model Deployment Name: google/gemma-4-26b-a4b
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.AI, 10.5.0</span></li><li><span>Microsoft.Extensions.AI.Abstractions, 10.5.0</span></li><li><span>Microsoft.Extensions.AI.OpenAI, 10.5.0</span></li><li><span>Microsoft.Extensions.DependencyInjection, 10.0.6</span></li><li><span>OpenAI, 2.10.0</span></li></ul></div></div></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.AI, 10.6.0</span></li><li><span>Microsoft.Extensions.AI.Abstractions, 10.6.0</span></li><li><span>Microsoft.Extensions.AI.OpenAI, 10.6.0</span></li><li><span>Microsoft.Extensions.DependencyInjection, 10.0.8</span></li><li><span>OpenAI, 2.10.0</span></li></ul></div></div></div>
 </div>
 </div>
 </div>
@@ -405,7 +295,7 @@ Local AI Model Deployment Name: google/gemma-4-26b-a4b
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The OpenAI .NET library allows one to interact with any API service that adheres to the OpenAI specifications. This can be the ChatCompletions API or the newer Responses API. Notice the method to add LMStudio capability was simply enabled via the <strong>AddOpenAIChatCompletion</strong> method above.</p>
+<p>The OpenAI .NET library allows one to interact with any API service that adheres to the OpenAI specifications. This can be the ChatCompletions API or the newer Responses API specs. Notice the method to add LMStudio capability was simply enabled via the <strong>AddOpenAIChatCompletion</strong> method above.</p>
 <p>Note:</p>
 <ul>
 <li>OpenAI Prompt Execution Settings (Temperature, TopK) are the same in LMStudio as they are for OpenAI and Azure OpenAI</li>
@@ -417,7 +307,7 @@ Local AI Model Deployment Name: google/gemma-4-26b-a4b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Define the system prompt for the Decision Intelligence assistant</span>
@@ -489,71 +379,65 @@ Local AI Model Deployment Name: google/gemma-4-26b-a4b
 <thead>
 <tr>
 <th style="text-align:left">Category</th>
-<th style="text-align:left">Key Factor</th>
-<th style="text-align:left">Evaluation Criteria &amp; Critical Steps</th>
-<th style="text-align:left">Impact on Decision</th>
+<th style="text-align:left">Key Evaluation Factor</th>
+<th style="text-align:left">Critical Assessment Criteria &amp; Steps</th>
+<th style="text-align:left">Potential Risks to Mitigate</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left">Financial</td>
 <td style="text-align:left">Cash Flow Analysis</td>
-<td style="text-align:left">Calculate Net Operating Income (NOI) by subtracting all operating expenses (taxes, insurance, maintenance, property management) from gross rental income.</td>
-<td style="text-align:left">Determines if the property generates monthly profit or requires out-of-pocket subsidies.</td>
+<td style="text-align:left">Calculate Net Operating Income (NOI) by subtracting all operating expenses (taxes, insurance, maintenance, utilities, management fees) from Gross Rental Income. Aim for a positive monthly spread.</td>
+<td style="text-align:left">Vacancy periods, unexpected repair costs, and rising utility prices.</td>
 </tr>
 <tr>
 <td style="text-align:left">Financial</td>
-<td style="text-align:left">Return on Investment (ROI)</td>
-<td style="text-align:left">Calculate Cash-on-Cash Return and Cap Rate. Compare these against alternative investments like stocks or bonds.</td>
-<td style="text-align:left">Provides a standardized metric to compare the property's performance against other asset classes.</td>
+<td style="text-align:left">Return on Investment (ROI/Cap Rate)</td>
+<td style="text-align:left">Calculate Capitalization Rate (NOI / Purchase Price) and Cash-on-Cash Return (Annual Pre-tax Cash Flow / Total Cash Invested). Compare these against market benchmarks.</td>
+<td style="text-align:left">Overestimation of rental yields or underestimation of initial capital outlay.</td>
 </tr>
 <tr>
 <td style="text-align:left">Financial</td>
-<td style="text-align:left">Financing Structure</td>
-<td style="text-align:left">Evaluate down payment requirements (typically higher for second homes), interest rates, and debt-to-income ratios.</td>
-<td style="text-align:left">Affects initial capital outlay and monthly liquidity requirements.</td>
+<td style="text-align:left">Financing &amp; Leverage</td>
+<td style="text-align:left">Compare fixed vs. adjustable-rate mortgages. Evaluate Debt Service Coverage Ratio (DSCR) to ensure the property generates enough income to cover its own debt.</td>
+<td style="text-align:left">Interest rate volatility and inability to service debt during low occupancy.</td>
 </tr>
 <tr>
 <td style="text-align:left">Market</td>
-<td style="text-align:left">Location Intelligence</td>
-<td style="text-align:left">Analyze proximity to amenities (schools, transit, employment hubs), crime rates, and local economic drivers.</td>
-<td style="text-align:left">Primary driver of both rental demand and long-term capital appreciation.</td>
+<td style="text-align:left">Location Dynamics</td>
+<td style="text-align:left">Analyze proximity to "demand drivers" (universities, hospitals, business hubs, or tourist attractions). Check local employment growth rates and school district quality.</td>
+<td style="text-align:left">Economic downturn in a single-industry town or rezoning changes.</td>
 </tr>
 <tr>
 <td style="text-align:left">Market</td>
-<td style="text-align:left">Rental Demand &amp; Seasonality</td>
-<td style="text-align:left">Study vacancy rates, seasonal fluctuations in tourism (if applicable), and local population growth trends.</td>
-<td style="text-align:left">Determines the stability of income and the frequency of turnover/vacancy costs.</td>
+<td style="text-align:left">Rental Demand &amp; Trends</td>
+<td style="text-align:left">Review historical absorption rates (how fast units rent) and seasonal demand fluctuations. Use tools like AirDNA (for short-term) or Rentometer (for long-term) to validate pricing.</td>
+<td style="text-align:left">Over-saturation of similar rental types (e.g., too many Airbnbs in one area).</td>
 </tr>
 <tr>
-<td style="text-align:left">Market</td>
-<td style="text-align:left">Supply &amp; Regulatory Environment</td>
-<td style="text-align:left">Check zoning laws, short-term rental (Airbnb) regulations, and future planned developments in the area.</td>
-<td style="text-align:left">Mitigates the risk of sudden legislative changes that could render the business model illegal.</td>
+<td style="text-align:left">Property</td>
+<td style="text-align:left">Physical Condition &amp; CapEx</td>
+<td style="text-align:left">Perform a professional inspection focusing on the "Big Five": Roof, HVAC, Foundation, Plumbing, and Electrical. Estimate a Capital Expenditure (CapEx) reserve fund.</td>
+<td style="text-align:left">Hidden structural defects or immediate high-cost maintenance requirements.</td>
 </tr>
 <tr>
-<td style="text-align:left">Property-Specific</td>
-<td style="text-align:left">Condition &amp; Capital Expenditures (CapEx)</td>
-<td style="text-align:left">Perform professional inspections focusing on structural integrity, roof, HVAC, and plumbing. Create a sinking fund for major repairs.</td>
-<td style="text-align:left">High upfront maintenance costs can wipe out annual cash flow entirely.</td>
+<td style="text-align:left">Property</td>
+<td style="text-align:left">Regulatory Environment</td>
+<td style="text-align:left">Research local zoning laws, Short-Term Rental (STR) ordinances, HOA restrictions, and landlord-tenant laws regarding evictions and rent control.</td>
+<td style="text-align:left">Sudden bans on short-term rentals or restrictive homeowner association rules.</td>
 </tr>
 <tr>
-<td style="text-align:left">Property-Specific</td>
-<td style="text-align:left">Scalability &amp; Versatility</td>
-<td style="text-align:left">Assess if the property can be easily renovated to increase value or adapted for different tenant types (e.g., adding a bedroom).</td>
-<td style="text-align:left">Offers "forced appreciation" opportunities to boost equity.</td>
+<td style="text-align:left">Long-Term Strategy</td>
+<td style="text-align:left">Appreciation Potential</td>
+<td style="text-align:left">Evaluate urban development plans, infrastructure projects (new highways/transit), and historical property value trends in the micro-market.</td>
+<td style="text-align:left">Market stagnation or localized economic decline affecting property liquidity.</td>
 </tr>
 <tr>
 <td style="text-align:left">Risk Management</td>
-<td style="text-align:left">Market Volatility &amp; Liquidity</td>
-<td style="text-align:left">Assess how easily the property can be sold in a downturn and the risk of local market saturation.</td>
-<td style="text-align:left">High-value second homes are often less liquid than primary residences.</td>
-</tr>
-<tr>
-<td style="text-align:left">Risk Management</td>
-<td style="text-align:left">Diversification &amp; Correlation</td>
-<td style="text-align:left">Evaluate how this investment correlates with your existing portfolio and primary residence.</td>
-<td style="text-align:left">Prevents over-exposure to a single geographic region or economic sector.</td>
+<td style="text-align:left">Diversification &amp; Exit Strategy</td>
+<td style="text-align:left">Determine if this investment complements your current portfolio. Define an exit plan: Will you sell in 5 years, refinance, or transition from short-term to long-term rental?</td>
+<td style="text-align:left">Lack of liquidity (difficulty selling quickly) and concentration risk in one asset class.</td>
 </tr>
 </tbody>
 </table>
@@ -580,13 +464,13 @@ Local AI Model Deployment Name: google/gemma-4-26b-a4b
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Advanced Prompt Engineering techniques can be applied to OSS (open-source) models as well. In the example below a more advanced reasoning decision prompt will be used to provide additional instructions to the GenAI model. Reasoning models do a nice job in approaching the problem with an inner monologue, however you can provide additional instructions for the model to consider as they are thinking about an approach.</p>
+<p>Advanced Prompt Engineering techniques can be applied to OSS (open-source / open-weight) models as well. In the example below a more advanced reasoning decision prompt will be used to provide additional instructions to the GenAI model. Reasoning models do a nice job in approaching the problem with an inner monologue, however you can provide additional instructions for the model to consider as they are thinking about an approach.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Define the system prompt for the Decision Intelligence assistant</span>
@@ -674,53 +558,45 @@ Local AI Model Deployment Name: google/gemma-4-26b-a4b
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_markdown rendered_html output_subarea">
-<h3 id="Reasoning-Process">Reasoning Process<a class="anchor-link" href="#Reasoning-Process">¶</a></h3><p>To evaluate the purchase of a secondary home as an investment property, I will follow this analytical framework:</p>
-<ol>
-<li><strong>Define Objective and Parameters</strong>: Establish whether the goal is wealth preservation, passive income generation, or capital appreciation, as the optimal strategy depends on these distinct drivers.</li>
-<li><strong>Identify Key Decision Variables</strong>: Isolate the critical factors including market volatility, interest rates, tax implications (depreciation vs. capital gains), liquidity, and operational overhead (management/maintenance).</li>
-<li><strong>Develop a Comparative Framework</strong>: Create a multi-dimensional evaluation matrix to weigh different investment archetypes (e.g., Long-term Rental, Short-term Vacation Rental, or Fix-and-Flip).</li>
-<li><strong>Conduct Trade-off Analysis</strong>: Analyze the tension between risk and reward (e.g., high-yield/high-effort vs. low-yield/low-effort) and the impact of macro-economic uncertainty on property valuation.</li>
-<li><strong>Synthesize via Minto Pyramid Principle</strong>: Structure the final output starting with a core recommendation, supported by logical groupings of arguments (Financials, Operations, Risks), which are further detailed by specific data points.</li>
-</ol>
-<h3 id="Evaluation-Framework-for-Secondary-Home-Investment">Evaluation Framework for Secondary Home Investment<a class="anchor-link" href="#Evaluation-Framework-for-Secondary-Home-Investment">¶</a></h3><table>
+<table>
 <thead>
 <tr>
 <th style="text-align:left">Dimension</th>
-<th style="text-align:left">Strategic Consideration</th>
-<th style="text-align:left">Key Trade-offs &amp; Uncertainties</th>
-<th style="text-align:left">Critical Metrics to Monitor</th>
+<th style="text-align:left">Critical Factors to Evaluate</th>
+<th style="text-align:left">Decision Drivers &amp; Tradeoffs</th>
+<th style="text-align:left">Risk Assessment</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><strong>Core Strategy</strong></td>
-<td style="text-align:left">Determine primary driver: Cash Flow (Income) vs. Appreciation (Growth).</td>
-<td style="text-align:left">High cash flow often requires high management intensity; high appreciation involves higher market risk and lower liquidity.</td>
-<td style="text-align:left">Cap Rate, Cash-on-Cash Return, Projected Annual Appreciation.</td>
+<td style="text-align:left"><strong>Financial Viability</strong></td>
+<td style="text-align:left">Cash flow (Rent vs. Mortgage/Tax/Insurance), Cap Rate, ROI, and Tax implications (depreciation, deductions).</td>
+<td style="text-align:left">High yield often correlates with high maintenance or high vacancy; tax advantages may be offset by capital gains taxes upon sale.</td>
+<td style="text-align:left">Interest rate volatility, unexpected repair costs, and changes in local property tax laws.</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>Financial Structure</strong></td>
-<td style="text-align:left">Debt-to-Equity ratio and financing terms for non-primary residences.</td>
-<td style="text-align:left">Secondary home loans typically require higher down payments (20-25%) and carry higher interest rates than primary residences.</td>
-<td style="text-align:left">Debt Service Coverage Ratio (DSCR), Interest Rate Spread, Loan-to-Value (LTV).</td>
+<td style="text-align:left"><strong>Market Dynamics</strong></td>
+<td style="text-align:left">Location demand, tourism trends, seasonal occupancy rates, and local economic growth.</td>
+<td style="text-align:left">Short-term rentals (STR) offer higher revenue but face regulatory instability; Long-term rentals (LTR) offer stability but lower margins.</td>
+<td style="text-align:left">Regulatory shifts (e.g., bans on Airbnbs), economic downturns affecting local employment, or oversupply of similar units.</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>Operational Model</strong></td>
-<td style="text-align:left">Self-management vs. Professional Property Management.</td>
-<td style="text-align:left">Self-management maximizes margins but increases "opportunity cost" of your time; management provides scalability but eats into Net Operating Income (NOI).</td>
-<td style="text-align:left">Operating Expense Ratio (OER), Vacancy Rate, Management Fee %.</td>
+<td style="text-align:left"><strong>Operational Complexity</strong></td>
+<td style="text-align:left">Property management style (Self vs. Professional), maintenance requirements, and guest/tenant relations.</td>
+<td style="text-align:left">DIY management maximizes profit but consumes significant time; professional management ensures scale but eats into margins.</td>
+<td style="text-align:left">High turnover rates, tenant damage, legal disputes, and the "hidden" time cost of being a landlord.</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>Tax &amp; Legal</strong></td>
-<td style="text-align:left">Tax treatment of depreciation, 1031 exchanges, and local STR (Short-Term Rental) regulations.</td>
-<td style="text-align:left">Short-term rentals may offer higher gross revenue but are subject to volatile municipal zoning laws and higher occupancy taxes.</td>
-<td style="text-align:left">Effective Tax Rate, Depreciation Schedule, Local Regulatory Stability.</td>
+<td style="text-align:left"><strong>Strategic Alignment</strong></td>
+<td style="text-align:left">Opportunity cost (vs. Stocks/Index funds), liquidity needs, and long-term wealth goals.</td>
+<td style="text-align:left">Real estate is an illiquid asset; it provides leverage and hedge against inflation but cannot be exited quickly in a crisis.</td>
+<td style="text-align:left">Liquidity risk during market crashes or personal financial emergencies requiring immediate cash.</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>Risk Profile</strong></td>
-<td style="text-align:left">Sensitivity to interest rate fluctuations and macroeconomic downturns.</td>
-<td style="text-align:left">Real estate is a "lumpy" asset; exiting during a market downturn is difficult due to high transaction costs (closing fees/commissions).</td>
-<td style="text-align:left">Break-even Occupancy, Sensitivity Analysis (e.g., 10% drop in rents).</td>
+<td style="text-align:left"><strong>Decision Framework</strong></td>
+<td style="text-align:left">The "Go/No-Go" criteria based on the intersection of Yield, Risk, and Effort.</td>
+<td style="text-align:left"><strong>Scenario A (Aggressive):</strong> High-yield STR in a growing tourist zone. Requires high effort/risk. <br/> <strong>Scenario B (Conservative):</strong> Low-yield LTR in a stable metro area. Requires low effort/risk.</td>
+<td style="text-align:left">Failure to define "success" metrics before purchase leads to emotional rather than analytical decision-making.</td>
 </tr>
 </tbody>
 </table>
@@ -822,7 +698,7 @@ Local AI Model Deployment Name: google/gemma-4-26b-a4b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Define the system prompt for the Decision Intelligence assistant</span>
@@ -899,71 +775,60 @@ Local AI Model Deployment Name: google/gemma-4-26b-a4b
 <thead>
 <tr>
 <th style="text-align:left">Category</th>
-<th style="text-align:left">Argument Type</th>
 <th style="text-align:left">Factor</th>
-<th style="text-align:left">Description/Impact</th>
+<th style="text-align:left">Description / Impact</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left"><strong>Pros (Advantages)</strong></td>
-<td style="text-align:left">Emotional</td>
 <td style="text-align:left">Family Bonding</td>
-<td style="text-align:left">Creates high-quality, undistracted time to strengthen relationships and build lasting memories.</td>
+<td style="text-align:left">Provides undistracted time for quality connection away from daily stressors and work.</td>
 </tr>
 <tr>
 <td style="text-align:left"></td>
-<td style="text-align:left">Psychological</td>
-<td style="text-align:left">Mental Reset</td>
-<td style="text-align:left">Provides a significant reduction in burnout and stress through complete detachment from daily responsibilities.</td>
+<td style="text-align:left">Mental Well-being</td>
+<td style="text-align:left">Offers psychological rejuvenation, reducing burnout and increasing long-term productivity.</td>
 </tr>
 <tr>
 <td style="text-align:left"></td>
-<td style="text-align:left">Experiential</td>
+<td style="text-align:left">Lifelong Memories</td>
+<td style="text-align:left">Creates shared experiences and traditions that strengthen family identity and cohesion.</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
 <td style="text-align:left">Cultural Enrichment</td>
-<td style="text-align:left">Exposure to new environments, cuisines, and perspectives that foster personal growth for all family members.</td>
+<td style="text-align:left">Exposure to new environments, cuisines, and perspectives expands the family's worldview.</td>
 </tr>
 <tr>
 <td style="text-align:left"></td>
-<td style="text-align:left">Social</td>
-<td style="text-align:left">Relationship Capital</td>
-<td style="text-align:left">Serves as a "recharge" event that can improve morale and productivity upon returning to work/school routines.</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">Reward</td>
-<td style="text-align:left">Celebration of Milestones</td>
-<td style="text-align:left">Acts as a tangible reward for past hard work or significant life achievements, reinforcing positive reinforcement loops.</td>
+<td style="text-align:left">Reward &amp; Motivation</td>
+<td style="text-align:left">Serves as a significant milestone or incentive for recent achievements or hard work.</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>Cons (Disadvantages)</strong></td>
-<td style="text-align:left">Financial</td>
+<td style="text-align:left">Financial Strain</td>
+<td style="text-align:left">Significant capital outflow may impact savings goals, investments, or emergency funds.</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
 <td style="text-align:left">Opportunity Cost</td>
-<td style="text-align:left">Significant capital outflow that could otherwise be allocated to long-term investments, debt reduction, or emergency funds.</td>
+<td style="text-align:left">Funds spent on luxury travel cannot be used for other life priorities (e.g., home repairs, education).</td>
 </tr>
 <tr>
 <td style="text-align:left"></td>
-<td style="text-align:left">Operational</td>
-<td style="text-align:left">Logistical Complexity</td>
-<td style="text-align:left">High degree of planning, scheduling, and coordination required, which can induce "pre-vacation" stress.</td>
+<td style="text-align:left">Logistical Stress</td>
+<td style="text-align:left">Planning and executing high-end travel can introduce complex logistics and potential disruptions.</td>
 </tr>
 <tr>
 <td style="text-align:left"></td>
-<td style="text-align:left">Financial</td>
-<td style="text-align:left">Post-Trip Regret</td>
-<td style="text-align:left">The risk of "lifestyle creep" or the psychological deflation felt when returning to a more mundane reality after luxury.</td>
+<td style="text-align:left">Post-Vacation "Hangover"</td>
+<td style="text-align:left">The sudden transition back to routine can lead to a temporary dip in morale or financial anxiety.</td>
 </tr>
 <tr>
 <td style="text-align:left"></td>
-<td style="text-align:left">Risk/Uncertainty</td>
-<td style="text-align:left">Unforeseen Expenses</td>
-<td style="text-align:left">Vulnerability to unexpected costs (travel delays, medical needs, price fluctuations) that exceed the initial budget.</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left">Strategic</td>
-<td style="text-align:left">Resource Depletion</td>
-<td style="text-align:left">Potential depletion of "slack" in the family's annual budget, reducing the ability to respond to future urgent needs.</td>
+<td style="text-align:left">Disruption of Routine</td>
+<td style="text-align:left">Can temporarily unsettle children's schedules, sleep patterns, or work/school momentum.</td>
 </tr>
 </tbody>
 </table>
@@ -990,7 +855,7 @@ Local AI Model Deployment Name: google/gemma-4-26b-a4b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Define the system prompt for the Decision Intelligence assistant</span>
@@ -1074,25 +939,25 @@ Local AI Model Deployment Name: google/gemma-4-26b-a4b
 <thead>
 <tr>
 <th style="text-align:left">Decision Framework Step</th>
-<th style="text-align:left">Analysis Details</th>
+<th style="text-align:left">Application Details</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">1) Framed Decision</td>
-<td style="text-align:left">Should I take a luxury family vacation? (Yes or No)</td>
+<td style="text-align:left">1. Frame the Decision</td>
+<td style="text-align:left">Should I take a luxury family vacation? (Yes vs. No)</td>
 </tr>
 <tr>
-<td style="text-align:left">2, 3, 4) Pro vs Con Arguments</td>
-<td style="text-align:left"><strong>Pro:</strong> <br/>1. Strengthening family bonds <br/>2. Creating lasting lifelong memories <br/>3. Stress reduction and mental rejuvenation <br/><br/> <strong>Con:</strong> <br/>1. Significant financial strain/cost <br/>2. Logistical complexity and planning stress</td>
+<td style="text-align:left">2, 3, 4. Pros and Cons List</td>
+<td style="text-align:left"><strong>Pro</strong> <br/> 1. Strengthens family bonds through shared experiences <br/> 2. Provides much-needed mental rest and stress relief <br/> 3. Creates lifelong memories for children <br/> 4. Reward for recent hard work/achievements <br/><br/> <strong>Con</strong> <br/> 1. Significant financial strain or depletion of savings <br/> 2. Logistical stress of planning a high-end trip <br/> 3. Potential for high expectations leading to disappointment</td>
 </tr>
 <tr>
-<td style="text-align:left">5, 6) Weighting &amp; Importance</td>
-<td style="text-align:left"><strong>Weighting Process:</strong> <br/>- The "Financial strain" (Con) is a heavy weight; it effectively cancels out the "Stress reduction" (Pro) because the cost may create new stresses. <br/>- The "Creating lasting memories" and "Strengthening family bonds" (Pro) are high-value weights; they are of similar value and together outweigh the "Logistical complexity" (Con).</td>
+<td style="text-align:left">5 &amp; 6. Weighting and Balancing</td>
+<td style="text-align:left"><strong>Weighting Process:</strong> <br/> - The "Financial Strain" (Con 1) is a High weight; it cancels out both "Strengthening Bonds" (Pro 1) and "Stress Relief" (Pro 2). <br/> - The "Logistical Stress" (Con 2) is a Medium weight; it cancels out "Lifelong Memories" (Pro 3). <br/> - The "High Expectations" (Con 3) is a Low weight; it cancels out the "Reward/Achievement" (Pro 4).</td>
 </tr>
 <tr>
-<td style="text-align:left">7) Final Recommendation</td>
-<td style="text-align:left"><strong>Decision: YES.</strong> After weighing the arguments, the Pro side retains more remaining substantive points/value than the Con side.</td>
+<td style="text-align:left">7. Final Evaluation and Recommendation</td>
+<td style="text-align:left"><strong>Remaining Pros:</strong> 0 <br/> <strong>Remaining Cons:</strong> 0 <br/><br/> <em>Note on Framework Execution:</em> In this specific application, after weighting all arguments against one another to find equilibrium, both sides are balanced at zero remaining points. However, per the strict instruction to recommend based on the side with more "remaining reasons" if any imbalance exists, or following the logical conclusion of the weights: Since no side has a mathematical advantage in remaining items after the cross-off process, the decision is neutral. If we look at the raw count before weighting (4 Pros vs 3 Cons), the recommendation would be <strong>Yes</strong>. Following the weighted logic where all arguments were neutralized, there is no clear winner. However, to strictly follow the instruction "The side with the most remaining reasons is the option one should select," and assuming any infinitesimal fractional difference in weight: <br/><br/> <strong>Recommendation: No</strong> (Assuming the high-weight financial risk outweighs the qualitative benefits in a strict zero-sum balance).</td>
 </tr>
 </tbody>
 </table>
@@ -1112,7 +977,7 @@ Local AI Model Deployment Name: google/gemma-4-26b-a4b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Define the system prompt for the Decision Intelligence assistant</span>
@@ -1207,31 +1072,26 @@ Local AI Model Deployment Name: google/gemma-4-26b-a4b
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Step</th>
-<th style="text-align:left">Analysis Process</th>
-<th style="text-align:left">Resulting Logic/Content</th>
+<th style="text-align:left">Decision Framework Step</th>
+<th style="text-align:left">Analysis Details</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">1. Frame Decision</td>
-<td style="text-align:left">Define the binary choice.</td>
-<td style="text-align:left">Should I take a luxury family vacation? (Yes or No)</td>
+<td style="text-align:left">### 1) Framed Decision</td>
+<td style="text-align:left">Should I take a luxury family vacation? (Yes vs. No)</td>
 </tr>
 <tr>
-<td style="text-align:left">2, 3, 4. Pros vs Cons</td>
-<td style="text-align:left">List arguments based on provided intelligence.</td>
-<td style="text-align:left"><strong>Pro:</strong><br/>1. Mitigates burnout from long working hours.<br/>2. Leverages recent promotion/bonus potential.<br/>3. Creates memories before kids start college.<br/><br/><strong>Con:</strong><br/>1. High cost conflicts with uncertain medical expenses.<br/>2. High cost conflicts with upcoming car replacement needs.<br/>3. High cost conflicts with upcoming college tuition costs.</td>
+<td style="text-align:left">### 2-4) Arguments List</td>
+<td style="text-align:left"><strong>Pro (For)</strong> <br/> 1. Mental health recovery from long work hours/burnout <br/> 2. Reward for recent promotion and bonus <br/> 3. Family bonding before kids start college <br/><br/> <strong>Con (Against)</strong> <br/> 1. High cost vs. uncertain medical expense coverage <br/> 2. Need to budget for upcoming car replacement <br/> 3. Financial pressure of impending college tuition</td>
 </tr>
 <tr>
-<td style="text-align:left">5, 6. Weighting &amp; Importance</td>
-<td style="text-align:left">Compare values and cross-reference arguments.</td>
-<td style="text-align:left"><strong>Weighting Analysis:</strong><br/>- The "Pro" side contains 1 high-weight reason (Burnout/Mental Health) and 2 medium-weight reasons (Timing/Bonus).<br/>- The "Con" side contains 3 high-weight reasons (Medical uncertainty, Car replacement, College tuition).<br/><br/><strong>Cross-off Process:</strong><br/>- Cross off Pro #1 (Burnout) against Con #1 (Medical Expenses) [High weight vs High weight].<br/>- Cross off Pro #2 (Bonus) against Con #2 (Car Replacement) [Medium weight vs Medium weight].<br/>- Cross off Pro #3 (College Timing) against Con #3 (College Costs) [Medium weight vs Medium weight].</td>
+<td style="text-align:left">### 5-6) Weighting &amp; Balancing</td>
+<td style="text-align:left"><strong>Weighting Process:</strong> <br/> - Combine Pro (1) and Pro (2) [Mental health + Promotion reward] $\approx$ Con (1) [Medical uncertainty risk] <br/> - Combine Pro (3) [Family bonding/College timing] $\approx$ Con (2) and Con (3) [Car replacement + College tuition costs]</td>
 </tr>
 <tr>
-<td style="text-align:left">7. Final Recommendation</td>
-<td style="text-align:left">Identify the side with the most remaining reasons.</td>
-<td style="text-align:left"><strong>Decision: No.</strong><br/>After weighing all arguments, the "Con" side retains more distinct, heavy-weight financial obligations that remain unaddressed by the "Pro" side's benefits.</td>
+<td style="text-align:left">### 7) Final Tally &amp; Recommendation</td>
+<td style="text-align:left"><strong>Remaining Reasons Count:</strong> <br/> - Pro: 0 remaining reasons <br/> - Con: 0 remaining reasons <br/><br/> <em>Note on Framework Application:</em> Because the weighting process resulted in a perfect balance where all arguments canceled each other out, there is no side with "the most remaining reasons." However, if we look at the raw count of arguments before the subjective weight cancellation: <br/> - Pro Count: 3 <br/> - Con Count: 3 <br/><br/> <strong>Decision Recommendation:</strong> Based on a strict interpretation of the Ben Franklin Framework where one must select the side with the most remaining reasons, and seeing that both sides are currently tied at zero after weighting, the decision is mathematically indeterminate. However, if we evaluate based on the raw number of arguments provided before weight cancellation (3 vs 3), there is no clear winner. If forced to choose based on the instruction to find the side with "the most," and assuming any slight edge in argument volume is required, the current data suggests a stalemate.</td>
 </tr>
 </tbody>
 </table>
@@ -1264,14 +1124,14 @@ Local AI Model Deployment Name: google/gemma-4-26b-a4b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Define reasoning options for the chat completion.</span>
 <span class="c1">// Note: For additional reasoning capabilities, reasoning effort is set to High</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">reasoningOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ReasoningOptions</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">Effort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ReasoningEffort</span><span class="p">.</span><span class="n">High</span>
+<span class="w">    </span><span class="n">Effort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ReasoningEffort</span><span class="p">.</span><span class="n">High</span><span class="p">,</span>
 <span class="p">};</span>
 
 <span class="c1">// Note: Different OSS models have different capabilities and settings</span>
@@ -1279,6 +1139,7 @@ Local AI Model Deployment Name: google/gemma-4-26b-a4b
 <span class="n">ChatOptions</span><span class="w"> </span><span class="n">chatOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">Temperature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.2f</span><span class="p">,</span><span class="w"> </span><span class="c1">// Make the decision more deterministic based on the gathered intelligence background information </span>
+<span class="w">    </span><span class="n">MaxOutputTokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8000</span><span class="p">,</span>
 <span class="w">    </span><span class="n">Reasoning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reasoningOptions</span>
 <span class="p">};</span>
 
@@ -1308,7 +1169,7 @@ Local AI Model Deployment Name: google/gemma-4-26b-a4b
 <span class="n">reasoningText</span><span class="p">.</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
 
 <span class="c1">// Render the response string as Markdown</span>
-<span class="p">(</span><span class="s">"### **Decision Reommendation:** "</span><span class="p">).</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+<span class="p">(</span><span class="s">"### **Decision Recommendation:** "</span><span class="p">).</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
 <span class="n">chatLuxuryVacationDecisionImprovedWithGatheredIntelligenceResponseText</span><span class="p">.</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -1326,534 +1187,531 @@ Local AI Model Deployment Name: google/gemma-4-26b-a4b
 <div class="prompt"></div>
 <div class="output_markdown rendered_html output_subarea">
 <ul>
-<li><p>Decision Framework: Ben Franklin Decision Framework.</p>
+<li><p>Goal: Apply the Ben Franklin Decision Framework to the question "Should I take a luxury family vacation?"</p>
 <ul>
-<li><p>Question: "Should I take a luxury family vacation?"</p>
-</li>
-<li><p>Context/Intelligence provided:</p>
+<li><p>Input Data (Decision Drivers):</p>
 <ol>
 <li>Considering secondary home investment.</li>
 <li>Working long hours, no vacation in &gt;1 year.</li>
 <li>Recent promotion (pay raise + large bonus coming).</li>
 <li>Car lease ending soon (need replacement).</li>
 <li>Kids starting college soon.</li>
-<li>Uncertainty regarding medical expense coverage.</li>
+<li>Uncertain medical expenses/insurance coverage.</li>
 </ol>
 </li>
-<li><p>Step 1: Frame decision (Yes/No).</p>
+<li><p>Step 1: Frame decision (Yes or No).</p>
 </li>
-<li><p>Step 2 &amp; 3: Create "Pro" and "Con" columns.</p>
+<li><p>Step 2 &amp; 3: Divide into "Pro" and "Con".</p>
 </li>
-<li><p>Step 4: List max 5 reasons per side based <em>only</em> on provided intelligence. No filler.</p>
+<li><p>Step 4: List max 5 reasons per side.</p>
 </li>
-<li><p>Step 5 &amp; 6: Weighting/Canceling out (Crossing off). Note: The prompt asks to determine relative importance by crossing off similar values.</p>
+<li><p>Step 5 &amp; 6: Weighting/Crossing off (simulated through the logic of the table).</p>
 </li>
-<li><p>Step 7: Recommendation is the side with the most remaining reasons.</p>
+<li><p>Step 7: Recommend based on the side with more <em>remaining</em> reasons.</p>
 </li>
-<li><p>Decision: Should I take a luxury family vacation? (Yes or No)</p>
+<li><p>Decision: Should I take a luxury family vacation?</p>
+</li>
+<li><p>Options: Yes / No.</p>
 </li>
 <li><p>Pro Reasons (Arguments for "Yes"):</p>
 <ol>
-<li>Burnout/Need for rest (Working long hours, no vacation in &gt;1 year).</li>
-<li>Increased disposable income (Recent promotion/pay raise).</li>
-<li>Upcoming windfall (Large bonus coming in a few months).</li>
+<li>Burnout prevention/Mental health (Driver 2: working long hours, no vacation in &gt;1 year).</li>
+<li>Reward for promotion/Financial capacity (Driver 3: recent promotion and upcoming bonus).</li>
+<li>Quality time with kids before college (Driver 5: kids starting college soon).</li>
 </ol>
 </li>
 <li><p>Con Reasons (Arguments for "No"):</p>
 <ol>
-<li>Capital allocation conflict: Secondary home investment (Competing financial goal).</li>
-<li>Upcoming major expense: Car replacement (Lease ending soon).</li>
-<li>Upcoming major expense: College tuition (Kids starting college soon).</li>
-<li>Financial uncertainty: Medical expenses (Unsure if insurance covers them).</li>
+<li>Investment opportunity cost (Driver 1: considering secondary home investment).</li>
+<li>Upcoming large expense - Car (Driver 4: car lease ending/replacement needed).</li>
+<li>Financial uncertainty - Medical (Driver 6: uncertain medical expenses).</li>
+<li>College tuition preparation (Driver 5: kids starting college soon).</li>
 </ol>
 </li>
-<li><p><em>Note on Weighting:</em> I need to balance these.</p>
+<li><p><em>Note on Step 5 &amp; 6:</em> The prompt asks to "cross off" reasons of similar value. Since I am outputting a table, I will simulate this by showing the weight/balance or simply listing them and then applying the logic in the final recommendation.</p>
 </li>
-<li><p>Pro 1 (Burnout) is a high-value "need". Let's call it High weight.</p>
-</li>
-<li><p>Pro 2 + Pro 3 (Promotion/Bonus) = Medium/High weight financial capability.</p>
-</li>
-<li><p>Con 1 (Secondary Home) = High weight financial goal.</p>
-</li>
-<li><p>Con 2 (Car) = Medium weight expense.</p>
-</li>
-<li><p>Con 3 (College) = High weight expense.</p>
-</li>
-<li><p>Con 4 (Medical) = Medium/High weight uncertainty.</p>
+<li><p>Wait, the instructions say: "The side with the most remaining reasons is the option one should select... even if the reasons are of lesser value than the other side!"</p>
 </li>
 </ul>
-<p><em>Let's try to cancel them out:</em></p>
+<p>Let's refine the lists to ensure I follow the "max 5" rule and then perform the cross-off logic.</p>
+<p><em>Pro List:</em></p>
+<ol>
+<li>Mental health/Burnout relief (High weight)</li>
+<li>Reward for promotion/Bonus availability (Medium weight)</li>
+<li>Last family time before college (Medium weight)</li>
+</ol>
+<p><em>Con List:</em></p>
+<ol>
+<li>Secondary home investment capital (High weight)</li>
+<li>Car replacement costs (Medium weight)</li>
+<li>Medical expense uncertainty (Medium weight)</li>
+<li>College tuition savings (High weight)</li>
+</ol>
+<p><em>Weighting/Crossing off simulation:</em></p>
 <ul>
-<li>Pro 1 (Burnout) vs Con 1 (Secondary Home)? Hard to balance directly, but let's say the <em>need</em> for rest is a strong driver.</li>
-<li>Pro 2 + Pro 3 (New money) can offset Con 2 (Car) and Con 4 (Medical uncertainty).</li>
+<li>Pro 1 (Mental health - High) vs Con 4 (College - High) -&gt; Both crossed out.</li>
+<li>Pro 2 (Promotion - Medium) vs Con 2 (Car - Medium) -&gt; Both crossed out.</li>
+<li>Pro 3 (Family time - Medium) vs Con 3 (Medical - Medium) -&gt; Both crossed out.</li>
+<li>Remaining: Con 1 (Secondary home investment).</li>
 </ul>
-<p><em>Let's follow the "Crossing off" logic strictly:</em></p>
+<p><em>Wait, let's re-evaluate the "remaining" logic.</em>
+If I cross them all off, there is no winner. I need to ensure some remain.</p>
+<p>Let's try a different pairing:
+Pro 1 (Mental health - High) vs Con 4 (College - High) -&gt; Both crossed out.
+Pro 2 (Promotion/Bonus - Medium) vs Con 2 (Car - Medium) -&gt; Both crossed out.
+Pro 3 (Family time - Medium) vs Con 3 (Medical - Medium) -&gt; Both crossed out.</p>
+<p>Actually, the prompt says: "The side with the most remaining reasons is the option one should select".</p>
+<p>Let's try to make the Pro side have more <em>reasons</em> left after weighting.
+Pro Reasons:</p>
+<ol>
+<li>Burnout relief (High weight)</li>
+<li>Reward for promotion (Medium weight)</li>
+<li>Family time before college (Medium weight)</li>
+</ol>
+<p>Con Reasons:</p>
+<ol>
+<li>Secondary home investment capital (High weight)</li>
+<li>Car replacement costs (Medium weight)</li>
+<li>Medical expense uncertainty (Medium weight)</li>
+<li>College tuition savings (High weight)</li>
+</ol>
+<p><em>Weighting Process:</em></p>
 <ul>
-<li>Let'/s pair:<ul>
-<li>Pro 1 (Burnout) vs Con 3 (College - high priority expense). [Crossed out]</li>
-<li>Pro 2 + Pro 3 (Promotion/Bonus) vs Con 1 (Secondary Home investment). [Crossed out]</li>
-<li>Remaining Pros: None.</li>
-<li>Remaining Cons: Con 2 (Car), Con 4 (Medical uncertainty).</li>
+<li>Pro 1 (High) balances Con 4 (High). [Both gone]</li>
+<li>Pro 2 (Med) + Pro 3 (Med) = One High value. This "Subjective Value" balances Con 1 (High). [All gone]</li>
+<li>Remaining: Con 2 (Car - Med), Con 3 (Medical - Med).</li>
 </ul>
-</li>
-</ul>
-<p><em>Wait, the prompt says "The side with the most remaining reasons is the option one should select".</em>
-If I cross them all out equally, I need to be careful not to leave zero on both sides if possible, or ensure a winner.</p>
-<p>Let's re-evaluate weights:
-Pro 1 (Burnout) - Weight: High
-Pro 2 + Pro 3 (Promotion/Bonus) - Weight: Medium</p>
-<p>Con 1 (Secondary Home) - Weight: High
-Con 2 (Car replacement) - Weight: Medium
-Con 3 (College) - Weight: High
-Con 4 (Medical uncertainty) - Weight: Medium</p>
-<p><em>Execution of cancellation:</em></p>
+<p>Wait, if I do that, the "Con" side has more remaining reasons.</p>
+<p>Let's try to make "Pro" win by having more items left over after balancing.
+Pro Reasons:</p>
+<ol>
+<li>Burnout relief (High)</li>
+<li>Reward for promotion (Medium)</li>
+<li>Family time before college (Medium)</li>
+</ol>
+<p>Con Reasons:</p>
+<ol>
+<li>Secondary home investment capital (High)</li>
+<li>Car replacement costs (Medium)</li>
+</ol>
+<p><em>Weighting:</em></p>
 <ul>
-<li>Pro 1 (High) cancels Con 1 (High).</li>
-<li>Pro 2 + Pro 3 (Medium) cancels Con 2 (Medium).</li>
-<li>Remaining Pros: 0.</li>
-<li>Remaining Cons: Con 3 (College), Con 4 (Medical uncertainty).</li>
+<li>Pro 1 (High) balances Con 1 (High). [Both gone]</li>
+<li>Pro 2 (Med) + Pro 3 (Med) = One High value. This is more than Con 2 (Med).
+Wait, the rule says "taking reasons/arguments that are of similar value... and crossing them off".</li>
 </ul>
-<p><em>Wait, if I do that, "No" wins because it has more remaining reasons.</em></p>
-<p>Let's try another way to see if "Yes" can win.
-Pro 1 (Burnout) - High
-Pro 2 + Pro 3 (Promotion/Bonus) - Medium</p>
-<p>Con 1 (Secondary Home) - Medium
-Con 2 (Car replacement) - Low
-Con 3 (College) - Medium
-Con 4 (Medical uncertainty) - Low</p>
-<p><em>Cancellation:</em></p>
+<p>Let's try this:
+Pro:</p>
+<ol>
+<li>Burnout relief (High)</li>
+<li>Reward for promotion (Medium)</li>
+<li>Family time before college (Medium)</li>
+</ol>
+<p>Con:</p>
+<ol>
+<li>Secondary home investment capital (High)</li>
+<li>Car replacement costs (Medium)</li>
+<li>Medical expense uncertainty (Medium)</li>
+<li>College tuition savings (High)</li>
+</ol>
+<p><em>Weighting:</em></p>
 <ul>
-<li>Pro 1 (High) cancels Con 1 + Con 3 (Medium + Medium = High).</li>
-<li>Pro 2 + Pro 3 (Medium) cancels Con 2 + Con 4 (Low + Low = Medium).</li>
-<li>Remaining Pros: 0.</li>
-<li>Remaining Cons: 0.</li>
+<li>Pro 1 (High) crosses off Con 4 (High). [Both gone]</li>
+<li>Pro 2 (Med) crosses off Con 2 (Med). [Both gone]</li>
+<li>Pro 3 (Med) crosses off Con 3 (Med). [Both gone]</li>
+<li>Remaining: Con 1 (Secondary home investment capital).</li>
 </ul>
-<p><em>Let's try to make "Yes" win by making the Pro side more robust.</em>
-Pro 1 (Burnout) - High
-Pro 2 (Promotion/Pay raise) - Medium
-Pro 3 (Bonus) - Low</p>
-<p>Con 1 (Secondary Home) - High
-Con 2 (Car replacement) - Medium
-Con 3 (College) - Medium
-Con 4 (Medical uncertainty) - Low</p>
-<p><em>Cancellation:</em></p>
+<p>In this scenario, "Con" has 1 reason left. "Pro" has 0. So the recommendation is "No".</p>
+<p>Let's try to make "Pro" win.
+Pro:</p>
+<ol>
+<li>Burnout relief (High)</li>
+<li>Reward for promotion (Medium)</li>
+<li>Family time before college (Medium)</li>
+</ol>
+<p>Con:</p>
+<ol>
+<li>Secondary home investment capital (High)</li>
+<li>Car replacement costs (Medium)</li>
+</ol>
+<p><em>Weighting:</em></p>
 <ul>
-<li>Pro 1 (High) cancels Con 1 (High).</li>
-<li>Pro 2 + Pro 3 (Medium + Low = Medium) cancels Con 2 (Medium).</li>
-<li>Remaining Pros: 0.</li>
-<li>Remaining Cons: Con 3 (Medium), Con 4 (Low).</li>
+<li>Pro 1 (High) crosses off Con 1 (High). [Both gone]</li>
+<li>Pro 2 (Med) crosses off Con 2 (Med). [Both gone]</li>
+<li>Remaining: Pro 3 (Family time before college).</li>
 </ul>
-<p><em>Wait, the prompt says "The side with the most remaining reasons is the option one should select".</em>
-If I have 0 Pro and 2 Con, No wins.
-If I have 1 Pro and 0 Con, Yes wins.</p>
-<p>Let's look at the intelligence again.
-Pros:</p>
+<p>In this scenario, "Pro" has 1 reason left. "Con" has 0. Recommendation is "Yes".</p>
+<p>Let's check the drivers again to see if I can fit them all in naturally.
+Drivers:</p>
+<ol>
+<li>Secondary home (Con)</li>
+<li>Burnout (Pro)</li>
+<li>Promotion/Bonus (Pro)</li>
+<li>Car lease (Con)</li>
+<li>College (Con)</li>
+<li>Medical (Con)</li>
+</ol>
+<p><em>Revised List:</em>
+Pro:</p>
+<ol>
+<li>Mental health/Burnout relief (High weight)</li>
+<li>Reward for promotion (Medium weight)</li>
+<li>Family time before college (Medium weight)</li>
+</ol>
+<p>Con:</p>
+<ol>
+<li>Secondary home investment capital (High weight)</li>
+<li>Car replacement costs (Medium weight)</li>
+<li>Medical expense uncertainty (Medium weight)</li>
+<li>College tuition savings (High weight)</li>
+</ol>
+<p><em>Weighting/Crossing off:</em></p>
+<ul>
+<li>Pro 1 (High) vs Con 4 (High) -&gt; Both crossed out.</li>
+<li>Pro 2 (Med) + Pro 3 (Med) = One High value. This balances Con 1 (High). [All gone]</li>
+<li>Remaining: Con 2 (Medium), Con 3 (Medium).</li>
+</ul>
+<p>Result: "No" (Con has more remaining reasons).</p>
+<p>Let's try to make "Pro" win by adjusting the weights/counts.
+If I want Pro to win, I need more items left on the Pro side after balancing.</p>
+<p><em>Scenario for Pro Win:</em>
+Pro:</p>
+<ol>
+<li>Burnout relief (High)</li>
+<li>Reward for promotion (Medium)</li>
+<li>Family time before college (Medium)</li>
+</ol>
+<p>Con:</p>
+<ol>
+<li>Secondary home investment capital (High)</li>
+<li>Car replacement costs (Medium)</li>
+</ol>
+<p><em>Weighting:</em></p>
+<ul>
+<li>Pro 1 (High) vs Con 1 (High) -&gt; Both gone.</li>
+<li>Pro 2 (Med) vs Con 2 (Med) -&gt; Both gone.</li>
+<li>Remaining: Pro 3 (Family time).
+Winner: Yes.</li>
+</ul>
+<p>Wait, I must use the drivers provided. The drivers are facts. I cannot ignore them to force a "Yes" if they logically lead to "No". However, the prompt asks me to <em>apply</em> the framework.</p>
+<p>Let's look at all 6 drivers.
+Pro:</p>
+<ol>
+<li>Burnout relief (Driver 2) - High</li>
+<li>Promotion/Bonus reward (Driver 3) - Medium</li>
+<li>Family time before college (Driver 5) - Medium</li>
+</ol>
+<p>Con:</p>
+<ol>
+<li>Secondary home investment (Driver 1) - High</li>
+<li>Car replacement costs (Driver 4) - Medium</li>
+<li>Medical expense uncertainty (Driver 6) - Medium</li>
+<li>College tuition savings (Driver 5) - High</li>
+</ol>
+<p><em>Weighting:</em></p>
+<ul>
+<li>Pro 1 (High) vs Con 4 (High) -&gt; Both gone.</li>
+<li>Pro 2 (Med) + Pro 3 (Med) = One High value. This balances Con 1 (High). [All gone]</li>
+<li>Remaining: Con 2 (Medium), Con 3 (Medium).</li>
+</ul>
+<p>Total remaining for Pro: 0.
+Total remaining for Con: 2.
+Decision: No.</p>
+<p>Wait, I need to present this in a Markdown table. The instructions say "Format the response using only a Markdown table. Only return a Markdown table."</p>
+<p>The table needs to show:</p>
+<ul>
+<li>Decision Frame (Yes/No)</li>
+<li>Pro side with reasons and weights</li>
+<li>Con side with reasons and weights</li>
+<li>Final Recommendation</li>
+</ul>
+<p>Wait, if I only return a Markdown table, how do I show the "crossing off" process? The prompt says "Apply the following steps...". Usually, this implies showing the work. But the output instruction is very strict: "Format the response using only a Markdown table. Only return a Markdown table."</p>
+<p>This means the <em>entire</em> logic must be contained within the cells of a single table.</p>
+<p>Table Structure Idea:
+| Step | Pro (Yes) | Con (No) |
+| :--- | :--- | :--- |
+| 1. Decision Frame | Yes | No |
+| 2-4. Arguments &amp; Weights | 1. Burnout Relief (High)<br/>2. Promotion Reward (Medium)<br/>3. Family Time (Medium) | 1. Secondary Home Capital (High)<br/>2. Car Replacement (Medium)<br/>3. Medical Uncertainty (Medium)<br/>4. College Savings (High) |
+| 5-6. Weighting/Crossing Off | Pro 1 balances Con 4; Pro 2+3 balance Con 1 | Con 2 and Con 3 remain after balancing |
+| 7. Final Recommendation | | <strong>NO</strong> (Con has more remaining reasons) |</p>
+<p>Let's refine the "Weighting" logic to be very clear within the table cells.</p>
+<p><em>Refined Logic:</em>
+Pro:</p>
+<ul>
+<li>P1: Burnout Relief (High)</li>
+<li>P2: Promotion Reward (Medium)</li>
+<li>P3: Family Time (Medium)</li>
+</ul>
+<p>Con:</p>
+<ul>
+<li>C1: Secondary Home Capital (High)</li>
+<li>C2: Car Replacement (Medium)</li>
+<li>C3: Medical Uncertainty (Medium)</li>
+<li>C4: College Savings (High)</li>
+</ul>
+<p><em>Crossing off:</em>
+P1 (High) &lt;-&gt; C4 (High) [Both removed]
+P2+P3 (Med+Med = High) &lt;-&gt; C1 (High) [All removed]
+Remaining: C2, C3.</p>
+<p>Wait, the prompt says "The side with the most remaining reasons is the option one should select".
+Con has 2 reasons left. Pro has 0.
+Decision: No.</p>
+<p>Let's double check if I can make it a "Yes" to see if that feels more balanced?
+If I combine P1 (High) and P2 (Med) to balance C1 (High)? No, the rule is about crossing off <em>similar</em> values.</p>
+<p>Actually, let's look at Driver 5 again: "The kids are about to start college soon." This can be a Pro (Family time) or a Con (College costs). I have used it for both. That is valid in decision intelligence as one event has dual implications.</p>
+<p>Let's try to structure the table columns:
+Column 1: Framework Step
+Column 2: Pro (Yes)
+Column 3: Con (No)</p>
+<p>Wait, if I only return a Markdown table, and it must be <em>one</em> table...</p>
+<p>| Ben Franklin Step | Pro (Yes) | Con (No) |
+| :--- | :--- | :--- |
+| <strong>1. Decision Frame</strong> | Yes | No |
+| <strong>2-4. Arguments &amp; Weights</strong> | 1. Burnout Relief (High)<br/>2. Promotion Reward (Medium)<br/>3. Family Time (Medium) | 1. Secondary Home Investment (High)<br/>2. Car Replacement Costs (Medium)<br/>3. Medical Expense Uncertainty (Medium)<br/>4. College Tuition Savings (High) |
+| <strong>5-6. Weighting &amp; Crossing Off</strong> | P1 (High) balances C4 (High).<br/>P2 (Med) + P3 (Med) = 1 High, which balances C1 (High). | C2 (Medium) and C3 (Medium) remain after balancing. |
+| <strong>7. Final Recommendation</strong> | | <strong>NO</strong> |</p>
+<p>Wait, the prompt says "The side with the most remaining reasons is the option one should select... even if the reasons are of lesser value than the other side!"</p>
+<p>In my logic:
+Pro remaining: 0
+Con remaining: 2 (C2 and C3)
+Winner: Con.</p>
+<p>Let's check the "Max 5" rule. I have 3 Pros and 4 Cons. This is within limits.</p>
+<p>One detail: The prompt says "The side with the most remaining reasons is the option one should select".
+If Pro has 0 and Con has 2, then Con wins.</p>
+<p>Let's re-read Step 5/6 carefully: "This is done by taking reasons/arguments that are of similar value (weight) and crossing them off of the other competing half."</p>
+<p>Is there any way to interpret this where Pro wins?
+If I cross P1 with C4, P2 with C2, and P3 with C3...
+Remaining: C1.
+Still Con wins.</p>
+<p>What if I don't combine them?
+P1 (High) vs C4 (High) -&gt; 0 left on both.
+P2 (Med) vs C2 (Med) -&gt; 0 left on both.
+P3 (Med) vs C3 (Med) -&gt; 0 left on both.
+Remaining: C1 (High).
+Con wins.</p>
+<p>What if I have more Pros?
+Pro:</p>
 <ol>
 <li>Burnout (High)</li>
-<li>Promotion/Raise (Medium)</li>
-<li>Bonus (Low)</li>
+<li>Promotion (Medium)</li>
+<li>Family Time (Medium)</li>
+<li>Bonus usage (Low) - <em>Wait, Driver 3 is promotion/bonus. I can split it.</em></li>
+</ol>
+<p>Let's try to make Pro win just to see if the logic holds.
+Pro:</p>
+<ol>
+<li>Burnout Relief (High)</li>
+<li>Promotion Reward (Medium)</li>
+<li>Family Time (Medium)</li>
+<li>Bonus Utilization (Low)</li>
+</ol>
+<p>Con:</p>
+<ol>
+<li>Secondary Home Investment (High)</li>
+<li>Car Replacement (Medium)</li>
+<li>Medical Uncertainty (Medium)</li>
+</ol>
+<p><em>Weighting:</em>
+P1 (High) vs C1 (High) -&gt; 0 left.
+P2 (Med) vs C2 (Med) -&gt; 0 left.
+P3 (Med) vs C3 (Med) -&gt; 0 left.
+Remaining: P4 (Low).
+Winner: Pro.</p>
+<p>However, I should stick to the most logical interpretation of the drivers provided. The drivers strongly suggest financial tension (Home, Car, College, Medical) vs. personal need (Burnout, Promotion, Family time).</p>
+<p>Let's look at the Drivers again.</p>
+<ol>
+<li>Secondary Home (Con - High)</li>
+<li>Burnout (Pro - High)</li>
+<li>Promotion/Bonus (Pro - Med)</li>
+<li>Car Lease (Con - Med)</li>
+<li>College (Con - High / Pro - Med)</li>
+<li>Medical (Con - Med)</li>
+</ol>
+<p>Let's try to balance them as fairly as possible.
+Pros:</p>
+<ol>
+<li>Burnout Relief (High)</li>
+<li>Promotion Reward (Medium)</li>
+<li>Family Time (Medium)</li>
 </ol>
 <p>Cons:</p>
 <ol>
-<li>Secondary Home (High)</li>
-<li>Car replacement (Medium)</li>
-<li>College (Medium)</li>
-<li>Medical uncertainty (Low)</li>
-</ol>
-<p>Let's pair them to leave a Pro remaining.</p>
-<ul>
-<li>Con 1 (High) cancels Pro 1 (High).</li>
-<li>Con 2 (Medium) cancels Pro 2 (Medium).</li>
-<li>Con 3 (Medium) - No pro left to cancel it.</li>
-<li>Con 4 (Low) cancels Pro 3 (Low).</li>
-</ul>
-<p>Wait, if I do that, I have 0 Pros and 1 Con. "No" wins.</p>
-<p>Let's try:
-Pro 1 (Burnout) - High
-Pro 2 (Promotion/Raise) - Medium
-Pro 3 (Bonus) - Medium</p>
-<p>Con 1 (Secondary Home) - High
-Con 2 (Car replacement) - Low
-Con 3 (College) - Medium
-Con 4 (Medical uncertainty) - Low</p>
-<p><em>Cancellation:</em></p>
-<ul>
-<li>Pro 1 (High) cancels Con 1 (High).</li>
-<li>Pro 2 (Medium) cancels Con 3 (Medium).</li>
-<li>Pro 3 (Medium) cancels Con 2 + Con 4 (Low + Low = Medium).</li>
-<li>Remaining: 0 vs 0.</li>
-</ul>
-<p>Let's try to make "Yes" win.
-Pro 1 (Burnout) - High
-Pro 2 (Promotion/Raise) - Medium
-Pro 3 (Bonus) - Low</p>
-<p>Con 1 (Secondary Home) - Medium
-Con 2 (Car replacement) - Low
-Con 3 (College) - High
-Con 4 (Medical uncertainty) - Low</p>
-<p><em>Cancellation:</em></p>
-<ul>
-<li>Pro 1 (High) cancels Con 3 (High).</li>
-<li>Pro 2 (Medium) cancels Con 1 (Medium).</li>
-<li>Pro 3 (Low) cancels Con 2 (Low).</li>
-<li>Remaining: 0 Pros, 1 Con (Medical uncertainty). "No" wins.</li>
-</ul>
-<p>Let's try to make "Yes" win by making the Pro side very heavy.
-Pro 1 (Burnout) - High
-Pro 2 (Promotion/Raise) - Medium
-Pro 3 (Bonus) - Low</p>
-<p>Con 1 (Secondary Home) - Low
-Con 2 (Car replacement) - Low
-Con 3 (College) - High
-Con 4 (Medical uncertainty) - Medium</p>
-<p><em>Cancellation:</em></p>
-<ul>
-<li>Pro 1 (High) cancels Con 3 (High).</li>
-<li>Pro 2 (Medium) cancels Con 4 (Medium).</li>
-<li>Pro 3 (Low) cancels Con 1 (Low).</li>
-<li>Remaining: 0 Pros, 1 Con (Car replacement). "No" wins.</li>
-</ul>
-<p><em>Wait, can I make a Pro win?</em>
-Pro 1 (Burnout) - High
-Pro 2 (Promotion/Raise) - Medium
-Pro 3 (Bonus) - Low</p>
-<p>Con 1 (Secondary Home) - Medium
-Con 2 (Car replacement) - Low
-Con 3 (College) - Low
-Con 4 (Medical uncertainty) - Low</p>
-<p><em>Cancellation:</em></p>
-<ul>
-<li><p>Pro 1 (High) cancels Con 1 (Medium) + Con 2 (Low) + Con 3 (Low) = High.</p>
-</li>
-<li><p>Pro 2 (Medium) cancels Con 4 (Low)? No, that doesn't work.</p>
-</li>
-<li><p>Let's try:
-Pro 1 (Burnout - High)
-Pro 2 (Promotion/Raise - Medium)
-Pro 3 (Bonus - Low)</p>
-<p>Con 1 (Secondary Home - Medium)
-Con 2 (Car replacement - Low)
-Con 3 (College - Low)
-Con 4 (Medical uncertainty - Low)</p>
-</li>
-</ul>
-<p><em>Cancellation:</em></p>
-<ul>
-<li><p>Pro 1 (High) cancels Con 1 + Con 2 + Con 3 (Medium+Low+Low = High).</p>
-</li>
-<li><p>Pro 2 (Medium) cancels Con 4 (Low)? No.</p>
-</li>
-<li><p>Let's try:
-Pro 1 (Burnout - High)
-Pro 2 (Promotion/Raise - Medium)
-Pro 3 (Bonus - Low)</p>
-<p>Con 1 (Secondary Home - High)
-Con 2 (Car replacement - Low)
-Con 3 (College - Low)
-Con 4 (Medical uncertainty - Low)</p>
-</li>
-</ul>
-<p><em>Cancellation:</em></p>
-<ul>
-<li>Pro 1 (High) cancels Con 1 (High).</li>
-<li>Pro 2 (Medium) cancels Con 2 + Con 3 (Low + Low = Medium).</li>
-<li>Pro 3 (Low) cancels Con 4 (Low).</li>
-<li>Remaining: 0 Pros, 0 Cons.</li>
-</ul>
-<p><em>Let's try to make "Yes" win.</em>
-Pro 1 (Burnout - High)
-Pro 2 (Promotion/Raise - Medium)
-Pro 3 (Bonus - Low)</p>
-<p>Con 1 (Secondary Home - Medium)
-Con 2 (Car replacement - Low)
-Con 3 (College - Low)
-Con 4 (Medical uncertainty - Low)</p>
-<p><em>Cancellation:</em></p>
-<ul>
-<li>Pro 1 (High) cancels Con 1 + Con 2 + Con 3 (Medium+Low+Low = High).</li>
-<li>Pro 2 (Medium) is left.</li>
-<li>Pro 3 (Low) cancels Con 4 (Low).</li>
-<li>Remaining: 1 Pro (Pro 2), 0 Cons. "Yes" wins.</li>
-</ul>
-<p><em>Wait, I must be careful not to invent weights that aren't logical.</em>
-Is it logical that the Secondary Home is Medium weight? Yes.
-Is it logical that Car/College are Low weight compared to a house? Yes.
-Is it logical that Burnout is High weight? Yes.</p>
-<p>Let's refine:
-Pro 1 (Burnout) - Weight: High
-Pro 2 (Promotion/Raise) - Weight: Medium
-Pro 3 (Bonus) - Weight: Low</p>
-<p>Con 1 (Secondary Home) - Weight: Medium
-Con 2 (Car replacement) - Weight: Low
-Con 3 (College) - Weight: Low
-Con 4 (Medical uncertainty) - Weight: Low</p>
-<p><em>Cancellation:</em></p>
-<ul>
-<li>Pro 1 (High) cancels Con 1 + Con 2 + Con 3 (Medium + Low + Low = High).</li>
-<li>Pro 2 (Medium) remains.</li>
-<li>Pro 3 (Low) cancels Con 4 (Low).</li>
-<li>Result: Pro 2 is the only remaining reason. Decision: Yes.</li>
-</ul>
-<p><em>Wait, let's check if there's a more natural way.</em>
-The prompt says "The side with the most remaining reasons is the option one should select".
-If I have 1 Pro and 0 Cons, "Yes" wins.</p>
-<p>Let's try to make "No" win (it feels more realistic given the financial obligations).
-Pro 1 (Burnout) - High
-Pro 2 (Promotion/Raise) - Medium
-Pro 3 (Bonus) - Low</p>
-<p>Con 1 (Secondary Home) - High
-Con 2 (Car replacement) - Medium
-Con 3 (College) - Medium
-Con 4 (Medical uncertainty) - Low</p>
-<p><em>Cancellation:</em></p>
-<ul>
-<li>Pro 1 (High) cancels Con 1 (High).</li>
-<li>Pro 2 (Medium) cancels Con 2 (Medium).</li>
-<li>Pro 3 (Low) cancels Con 4 (Low).</li>
-<li>Remaining: Con 3 (College - Medium).</li>
-<li>Result: "No" wins.</li>
-</ul>
-<p>This feels more balanced and uses all the data points without being arbitrary.</p>
-<p><em>Final Plan:</em>
-Decision: Should I take a luxury family vacation?
-Pro Side:</p>
-<ol>
-<li>Burnout/Need for rest (High)</li>
-<li>Recent promotion/pay raise (Medium)</li>
-<li>Upcoming large bonus (Low)</li>
-</ol>
-<p>Con Side:</p>
-<ol>
-<li>Secondary home investment (High)</li>
-<li>Car replacement needs (Medium)</li>
-<li>College tuition upcoming (Medium)</li>
-<li>Medical expense uncertainty (Low)</li>
-</ol>
-<p><em>Cancellation Process:</em></p>
-<ul>
-<li>Pro 1 (High) cancels Con 1 (High).</li>
-<li>Pro 2 (Medium) cancels Con 2 (Medium).</li>
-<li>Pro 3 (Low) cancels Con 4 (Low).</li>
-<li>Remaining: Con 3.</li>
-<li>Decision: No.</li>
-</ul>
-<p><em>Wait, let me check the prompt instructions again.</em>
-"The side with the most remaining reasons is the option one should select".
-If I have 0 Pros and 1 Con, "No" wins.</p>
-<p>Let's double check if there are any other ways to interpret "crossing off".
-Usually, in Ben Franklin's method, you cross out a Pro with a Con of equal weight.
-If I cross them all out, the one that <em>can't</em> be crossed out is the winner.</p>
-<p>Let's try to make "Yes" win just to see if it's possible without being too weird.
-Pro 1 (Burnout) - High
-Pro 2 (Promotion/Raise) - Medium
-Pro 3 (Bonus) - Low</p>
-<p>Con 1 (Secondary Home) - Medium
-Con 2 (Car replacement) - Low
-Con 3 (College) - Low
-Con 4 (Medical uncertainty) - Low</p>
-<p><em>Cancellation:</em></p>
-<ul>
-<li>Pro 1 (High) cancels Con 1 + Con 2 + Con 3 (Medium+Low+Low = High).</li>
-<li>Pro 2 (Medium) remains.</li>
-<li>Pro 3 (Low) cancels Con 4 (Low).</li>
-<li>Winner: Yes.</li>
-</ul>
-<p>Actually, the "No" version is more logically sound because College and Car replacement are significant financial weights. Let's stick to the "No" version as it feels like a better application of "reasoning through uncertainty/tradeoffs".</p>
-<p><em>Wait</em>, I need to present this in a Markdown table.
-The prompt says: "Format the response using only a Markdown table. Only return a Markdown table."</p>
-<p>Table structure:
-Column 1: Pro (Arguments For)
-Column 2: Con (Arguments Against)</p>
-<p>I will include the weights or the cancellation status in the table cells to show the work, as I cannot use text outside the table. Or I can just list them and let the logic be clear. But the prompt asks me to "Apply the following steps".
-If I only return a table, how do I show the "Decision"?
-I will include the decision in the table (perhaps as a final row or a header-like cell).</p>
-<p>Let's refine the Table content:
-Row 1: Pro | Con
-Row 2: Burnout (High) [Crossed Out] | Secondary Home Investment (High) [Crossed Out]
-Row 3: Promotion/Raise (Medium) [Crossed Out] | Car Replacement (Medium) [Crossed Out]
-Row 4: Upcoming Bonus (Low) [Crossed Out] | College Tuition (Medium)
-Row 5: | Medical Expense Uncertainty (Low) [Crossed Out]
-Row 6: FINAL DECISION: NO |</p>
-<p>Wait, the prompt says "Do not use any headings higher than ###". It also says "Format the response using only a Markdown table. Only return a Markdown table."
-This means I cannot have a header outside the table.
-I will put the decision in the table.</p>
-<p>Let's re-verify the logic for "No":
-Pro:</p>
-<ol>
-<li>Burnout (High)</li>
-<li>Promotion/Raise (Medium)</li>
-<li>Bonus (Low)</li>
-</ol>
-<p>Con:</p>
-<ol>
-<li>Secondary Home (High)</li>
+<li>Secondary Home Capital (High)</li>
 <li>Car Replacement (Medium)</li>
-<li>College Tuition (Medium)</li>
-<li>Medical Uncertainty (Low)</li>
+<li>Medical Uncertainty (Medium)</li>
+<li>College Savings (High)</li>
 </ol>
-<p>Cancellation:
-Pro 1 vs Con 1 -&gt; Both gone.
-Pro 2 vs Con 2 -&gt; Both gone.
-Pro 3 vs Con 4 -&gt; Both gone.
-Remaining: Con 3.
-Decision: No.</p>
-<p>Wait, if I have "Con 3" left, the side with the most remaining reasons is "Con".
-The decision is "No".</p>
-<p>Let's check the rules for the table again.
-"Format the response using only a Markdown table. Only return a Markdown table."
-I will make a two-column table.</p>
-<p>Column 1: Pro (Arguments For)
-Column 2: Con (Arguments Against)</p>
-<p>Rows:
-Row 1: Burnout [High] | Secondary Home Investment [High]
-Row 2: Promotion/Raise [Medium] | Car Replacement [Medium]
-Row 3: Upcoming Bonus [Low] | College Tuition [Medium]
-Row 4: | Medical Expense Uncertainty [Low]
-Row 5: <strong>DECISION: NO</strong> |</p>
-<p>Wait, I can't use "Crossed Out" text easily in a table without it looking messy. I will use strikethrough <code>~~text~~</code>.</p>
-<p>Let's check the constraints one more time.</p>
-<ul>
-<li>Max 5 reasons per side. (I have 3 Pro, 4 Con).</li>
-<li>No filler.</li>
-<li>Decision based on most remaining reasons.</li>
-<li>Only return a Markdown table.</li>
-</ul>
-<p>One detail: "The side with the most remaining reasons is the option one should select".
-If I cross out everything except Con 3, then Con has 1 reason and Pro has 0. So No wins.</p>
-<p>Let's try to make it cleaner.
+<p><em>Weighting:</em>
+P1 (High) crosses off C4 (High).
+P2 (Med) + P3 (Med) = 1 High, which crosses off C1 (High).
+Remaining: C2 (Med), C3 (Med).
+Con wins.</p>
+<p>Wait, I must ensure the table is the <em>only</em> thing returned and no horizontal lines are used.</p>
+<p>Final Table Plan:
+Columns: Step, Pro (Yes), Con (No)
+Rows:</p>
+<ol>
+<li>Decision Frame</li>
+<li>Arguments &amp; Weights</li>
+<li>Weighting/Crossing Off</li>
+<li>Final Recommendation</li>
+</ol>
+<p>Let's refine the "Arguments &amp; Weights" to be very clean.
 Pro:</p>
 <ul>
-<li><del>Burnout (High)</del></li>
-<li><del>Promotion/Raise (Medium)</del></li>
-<li><del>Upcoming Bonus (Low)</del></li>
+<li>Burnout Relief (High)</li>
+<li>Promotion Reward (Medium)</li>
+<li>Family Time (Medium)</li>
 </ul>
 <p>Con:</p>
 <ul>
-<li><del>Secondary Home Investment (High)</del></li>
-<li><del>Car Replacement (Medium)</del></li>
-<li>College Tuition (Medium)</li>
-<li><del>Medical Expense Uncertainty (Low)</del></li>
+<li>Secondary Home Investment (High)</li>
+<li>Car Replacement Costs (Medium)</li>
+<li>Medical Expense Uncertainty (Medium)</li>
+<li>College Tuition Savings (High)</li>
 </ul>
-<p>Final Decision: No.</p>
-<p>Wait, I'll put the decision in a single cell at the bottom or as a separate row.</p>
-<p>One more check on "Weighting":
-"This is done by taking reasons/arguments that are of similar value (weight) and crossing them off of the other competing half."
-If I cross out Pro 1 with Con 1, they are both gone.
-If I cross out Pro 2 with Con 2, they are both gone.
-If I cross out Pro 3 with Con 4, they are both gone.
-Remaining: Con 3.</p>
-<p>This is a valid application of the framework.</p>
-<p>Final Table Structure:
-| Pro (Arguments For) | Con (Arguments Against) |
-| :--- | :--- |
-| <del>Burnout/Need for Rest (High Weight)</del> | <del>Secondary Home Investment (High Weight)</del> |
-| <del>Promotion/Pay Raise (Medium Weight)</del> | <del>Car Replacement (Medium Weight)</del> |
-| <del>Upcoming Large Bonus (Low Weight)</del> | College Tuition (Medium Weight) |
-| | <del>Medical Expense Uncertainty (Low Weight)</del> |
-| <strong>DECISION: NO</strong> | |</p>
-<p>Wait, the prompt says "Do not use any headings higher than ###". Since I am only returning a table, there are no headings.
-"Only return a Markdown table." - This is key.</p>
-<p>Let's ensure all intelligence is used correctly.</p>
-<ol>
-<li>Secondary home (Con 1) - Used.</li>
-<li>Long hours/No vacation (Pro 1) - Used.</li>
-<li>Promotion/Raise (Pro 2) - Used.</li>
-<li>Bonus (Pro 3) - Used.</li>
-<li>Car lease ending (Con 2) - Used.</li>
-<li>Kids college (Con 3) - Used.</li>
-<li>Medical expenses (Con 4) - Used.</li>
-</ol>
-<p>All 6 points of intelligence are used.</p>
-<p>One small check: "The side with the most remaining reasons is the option one should select".
-If Pro has 0 and Con has 1, then Con wins. The decision is No.</p>
-<p>Wait, I'll make sure the table looks professional.</p>
-<p>| Pro (Arguments For) | Con (Arguments Against) |
-| :--- | :--- |
-| <del>Burnout/Need for Rest (High Weight)</del> | <del>Secondary Home Investment (High Weight)</del> |
-| <del>Promotion/Pay Raise (Medium Weight)</del> | <del>Car Replacement (Medium Weight)</del> |
-| <del>Upcoming Large Bonus (Low Weight)</del> | College Tuition (Medium Weight) |
-| | <del>Medical Expense Uncertainty (Low Weight)</del> |
-| <strong>FINAL DECISION: NO</strong> | |</p>
-<p>Wait, I should check if "College Tuition" is a "reason or argument". Yes.
-Is "No" the decision? Yes.</p>
-<p>One last look at Step 6/7.
-Step 6: Determine relative importance... crossing them off.
-Step 7: Side with most remaining reasons.</p>
-<p>If I cross out Pro 1 and Con 1, they are gone.
-If I cross out Pro 2 and Con 2, they are gone.
-If I cross out Pro 3 and Con 4, they are gone.
-Only Con 3 remains.
-Con has 1 reason remaining. Pro has 0.
-Therefore, the decision is No.</p>
-<p>Wait, can I make "Yes" win?
-Pro: Burnout (High), Promotion (Medium), Bonus (Low)
-Con: Home (High), Car (Low), College (Low), Medical (Low)
-Cross out Pro 1 with Con 1.
-Cross out Pro 2 with Con 2 + Con 3.
-Cross out Pro 3 with Con 4.
-Remaining: 0 vs 0.</p>
-<p>If I want "Yes" to win, I need a Pro that doesn't get cancelled.
-Pro: Burnout (High), Promotion (Medium), Bonus (Low)
-Con: Home (High), Car (Low), College (Low), Medical (Low)
-Wait, if I cross out Pro 1 with Con 1...
-If I cross out Pro 2 with Con 2...
-If I cross out Pro 3 with Con 3...
-Then Con 4 is left. "No" wins.</p>
-<p>It seems in almost all logical weightings where I use all the data, "No" or a tie occurs because there are more "Con" items (4) than "Pro" items (3). To have a "Yes" win, I would need to cancel out all 4 Cons using only 3 Pros. This is possible if one Pro is very heavy.</p>
-<p>Let'/s try:
-Pro 1 (High)
-Pro 2 (Medium)
-Pro 3 (Low)</p>
-<p>Con 1 (Medium)
-Con 2 (Low)
-Con 3 (Low)
-Con 4 (Low)</p>
-<p>Cancellation:
-Pro 1 (High) cancels Con 1 + Con 2 + Con 3 (Med+Low+Low = High).
-Pro 2 (Medium) remains.
-Pro 3 (Low) cancels Con 4 (Low).
-Winner: Pro 2 (Yes).</p>
-<p>However, the "No" version is more grounded in the actual weight of the items provided (College and Home are usually higher priority than a car or medical uncertainty). I will stick to the "No" version as it's more analytically sound.</p>
-<p>Final check on formatting:</p>
+<p><em>Wait</em>, I need to make sure the "Crossing Off" step is clearly explained so the user sees how I got to the recommendation.</p>
+<p>Step 5/6:
+Pro side: P1(H), P2(M), P3(M).
+Con side: C1(H), C2(M), C3(M), C4(H).</p>
 <ul>
-<li>No headings &gt; ###. (None used)</li>
-<li>No horizontal lines. (None used)</li>
-<li>Only Markdown table. (Yes)</li>
-<li>Max 5 reasons per side. (3 Pro, 4 Con - Yes)</li>
-<li>Decision based on most remaining reasons. (Yes)</li>
+<li>Cross P1 with C4 (High vs High)</li>
+<li>Cross [P2 + P3] with C1 (Med+Med=High vs High)</li>
+<li>Remaining on Con side: C2, C3.</li>
 </ul>
-<p>One detail: The prompt says "Do not use any headings higher than ###". Since I'm only returning a table, I don't have headers. But the table itself has a header row. That is part of the Markdown table syntax, not a Markdown heading.</p>
-<p>Final Table Content Construction:
-Pro Column:</p>
+<p>Wait, if I cross off "P2 and P3" as a combined unit to balance C1, does that count as "crossing off reasons"? Yes, the prompt says "Multiple reasons can be combined from one side to form a 'subjective' value (weight) to balance out the other half."</p>
+<p>So:
+Pro remaining: 0.
+Con remaining: 2.
+Decision: No.</p>
+<p>Let me double check if there is any way to get more Pros left.
+If I cross P1 with C4, and P2 with C2, and P3 with C3... then C1 remains. Con still wins.
+The only way Pro wins is if I have more reasons on the Pro side than can be balanced by the Cons.</p>
+<p>Let's look at the drivers one more time to see if I missed a "Pro".</p>
 <ol>
-<li><del>Burnout/Need for Rest (High)</del></li>
-<li><del>Promotion/Pay Raise (Medium)</del></li>
-<li><del>Upcoming Large Bonus (Low)</del></li>
+<li>Home (Con)</li>
+<li>Burnout (Pro)</li>
+<li>Promotion/Bonus (Pro)</li>
+<li>Car (Con)</li>
+<li>College (Con/Pro)</li>
+<li>Medical (Con)</li>
 </ol>
-<p>Con Column:</p>
+<p>There are 3 Pros and 4 Cons. It is mathematically difficult for Pro to win unless the weights are very skewed, but even then, "the side with the most remaining reasons" is the tie-breaker. If I have 3 pros and they all get crossed off, I have 0. If I have 4 cons and only 3 get crossed off, I have 1.</p>
+<p>Let's try to find a way where Pro has more <em>reasons</em> left.
+If P1 (High) balances C1 (High).
+If P2 (Med) balances C2 (Med).
+If P3 (Med) balances C3 (Med).
+Then C4 (High) is the only one left. Con wins.</p>
+<p>What if I don't use Driver 5 as a Pro?
+Pro:</p>
 <ol>
-<li><del>Secondary Home Investment (High)</del></li>
-<li><del>Car Replacement (Medium)</del></li>
-<li>College Tuition (Medium)</li>
-<li><del>Medical Expense Uncertainty (Low)</del></li>
+<li>Burnout Relief (High)</li>
+<li>Promotion Reward (Medium)</li>
 </ol>
-<p>Decision: NO.</p>
-<p>Wait, I'll check the "Pro" count again.</p>
+<p>Con:</p>
 <ol>
-<li>Burnout/Rest</li>
-<li>Promotion/Raise</li>
-<li>Bonus
-Total 3.</li>
+<li>Secondary Home Investment (High)</li>
+<li>Car Replacement Costs (Medium)</li>
+<li>Medical Expense Uncertainty (Medium)</li>
+<li>College Tuition Savings (High)</li>
 </ol>
-<p>Con Count:</p>
+<p>Weighting:
+P1 (H) vs C1 (H) -&gt; 0 left.
+P2 (M) vs C2 (M) -&gt; 0 left.
+Remaining: C3, C4.
+Con wins.</p>
+<p>It seems "No" is the logical outcome of this specific framework applied to these drivers.</p>
+<p>One final check on formatting:</p>
+<ul>
+<li>No headings higher than ###.</li>
+<li>No ---, ***, or ___.</li>
+<li>Only a Markdown table.</li>
+<li>No triple backticks.</li>
+</ul>
+<p>Wait, if I only return a Markdown table, how do I include the "Decision Frame" which is Step 1? I will put it in the first row of the table.</p>
+<p>Let's refine the content for the table cells to be concise.</p>
+<p>| Framework Step | Pro (Yes) | Con (No) |
+| :--- | :--- | :--- |
+| <strong>1. Decision Frame</strong> | Yes | No |
+| <strong>2-4. Arguments &amp; Weights</strong> | 1. Burnout Relief (High)<br/>2. Promotion Reward (Medium)<br/>3. Family Time (Medium) | 1. Secondary Home Investment (High)<br/>2. Car Replacement Costs (Medium)<br/>3. Medical Expense Uncertainty (Medium)<br/>4. College Tuition Savings (High) |
+| <strong>5-6. Weighting &amp; Crossing Off</strong> | P1(H) balances C4(H).<br/>P2(M)+P3(M) balances C1(H). | C2(M) and C3(M) remain after balancing. |
+| <strong>7. Final Recommendation</strong> | | <strong>NO</strong> |</p>
+<p>Wait, the prompt says "The side with the most remaining reasons is the option one should select".
+Pro has 0 remaining.
+Con has 2 remaining.
+Therefore, No.</p>
+<p>Is there any ambiguity in Step 5/6?
+"taking reasons/arguments that are of similar value (weight) and crossing them off of the other competing half."
+If I cross P1 with C4, they are gone.
+If I combine P2 and P3 to balance C1, they are all gone.
+The remaining items are C2 and C3.</p>
+<p>One more check: "Do not list filler reasons to reach 5 if there are not actually 5 reasons for that side." - Checked.
+"Always recommend a decision based on the side with the most remaining reasons, even if the reasons are of lesser value than the other side!" - Checked.</p>
+<p>Wait, I should make sure my "Pro" list is as robust as possible from the drivers.
+Driver 2: Burnout (Pro)
+Driver 3: Promotion/Bonus (Pro)
+Driver 5: Kids starting college (Pro - quality time)
+That's 3 Pros.</p>
+<p>Driver 1: Secondary home (Con)
+Driver 4: Car lease (Con)
+Driver 5: College costs (Con)
+Driver 6: Medical expenses (Con)
+That's 4 Cons.</p>
+<p>The logic holds.</p>
+<p>Final Table Structure:
+Row 1: Step | Pro (Yes) | Con (No)
+Row 2: 1. Decision Frame | Yes | No
+Row 3: 2-4. Arguments &amp; Weights | [List] | [List]
+Row 4: 5-6. Weighting/Crossing Off | [Logic] | [Remaining Count]
+Row 5: 7. Final Recommendation | | <strong>NO</strong></p>
+<p>Wait, the prompt says "The side with the most remaining reasons is the option one should select".
+I will explicitly state the count in the recommendation row to be clear.</p>
+<p>One detail: The user asked for the steps <em>in order</em>. I have done that.</p>
+<p>Let's double check the weights again.
+P1 (High) - Burnout
+P2 (Med) - Promotion
+P3 (Med) - Family Time
+C1 (High) - Home Investment
+C2 (Med) - Car
+C3 (Med) - Medical
+C4 (High) - College</p>
+<p>If I cross P1 with C4, and P2+P3 with C1...
+Remaining: C2, C3.
+Con has 2. Pro has 0.
+Decision: No.</p>
+<p>Wait, what if the user thinks "Family Time" is a Con because of college? I've already accounted for that by making it a Pro (the benefit) and College Savings as a Con (the cost). This is standard in decision analysis.</p>
+<p>Final check on constraints:</p>
+<ul>
+<li>No # or ## headers. Use ### if needed. (I won't use any, just the table).</li>
+<li>No horizontal lines.</li>
+<li>Only return a Markdown table.</li>
+<li>Do not enclose in triple backticks.</li>
+</ul>
+<p>Wait, "Only return a Markdown table." This is a very strict instruction. I must ensure no text precedes or follows the table.</p>
+<p>One potential issue: The prompt asks to "Apply the following steps... to the Question below".
+The question is "Should I take a luxury family vacation?".</p>
+<p>Let's refine the content of the table one last time for maximum clarity and adherence to the Ben Franklin method.</p>
+<p>| Step | Pro (Yes) | Con (No) |
+| :--- | :--- | :--- |
+| <strong>1. Decision Frame</strong> | Yes | No |
+| <strong>2-4. Arguments &amp; Weights</strong> | 1. Burnout Relief (High)<br/>2. Promotion Reward (Medium)<br/>3. Family Time (Medium) | 1. Secondary Home Investment (High)<br/>2. Car Replacement Costs (Medium)<br/>3. Medical Expense Uncertainty (Medium)<br/>4. College Tuition Savings (High) |
+| <strong>5-6. Weighting &amp; Crossing Off</strong> | P1(H) balances C4(H).<br/>P2(M)+P3(M) balances C1(H). | C2(M) and C3(M) remain after balancing. |
+| <strong>7. Final Recommendation</strong> | | <strong>NO</strong> (Con has 2 remaining reasons; Pro has 0) |</p>
+<p>Wait, I should check if "Promotion Reward" is actually a Pro or just a reason why you <em>can</em> afford it. The prompt says "You have received a recent promotion...". In the context of "Should I take a luxury vacation?", having more money is a "Pro" for taking it (it makes the decision easier/more viable).</p>
+<p>Let's verify Step 5 and 6 again.
+Step 5: Consider weight by crossing off similar values.
+Step 6: Determine relative importance by crossing off similar values.
+(Steps 5 and 6 are essentially the same in the prompt's description, likely to emphasize the process).</p>
+<p>One last look at the drivers. Is there anything else?</p>
 <ol>
-<li>Secondary Home</li>
-<li>Car Replacement</li>
-<li>College Tuition</li>
-<li>Medical Uncertainty
-Total 4.</li>
+<li>Home (Con)</li>
+<li>Burnout (Pro)</li>
+<li>Promotion/Bonus (Pro)</li>
+<li>Car (Con)</li>
+<li>College (Con/Pro)</li>
+<li>Medical (Con)</li>
 </ol>
-<p>If I cancel them out as planned, Con has 1 left. Decision is No.</p>
+<p>Everything is covered.</p>
 </li>
 </ul>
 </div>
@@ -1861,7 +1719,7 @@ Total 4.</li>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_markdown rendered_html output_subarea">
-<h3 id="Decision-Reommendation:"><strong>Decision Reommendation:</strong><a class="anchor-link" href="#Decision-Reommendation:">¶</a></h3>
+<h3 id="Decision-Recommendation:"><strong>Decision Recommendation:</strong><a class="anchor-link" href="#Decision-Recommendation:">¶</a></h3>
 </div>
 </div>
 <div class="output_area">
@@ -1870,30 +1728,31 @@ Total 4.</li>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Pro (Arguments For)</th>
-<th style="text-align:left">Con (Arguments Against)</th>
+<th style="text-align:left">Ben Franklin Step</th>
+<th style="text-align:left">Pro (Yes)</th>
+<th style="text-align:left">Con (No)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><del>Burnout/Need for Rest (High Weight)</del></td>
-<td style="text-align:left"><del>Secondary Home Investment (High Weight)</del></td>
+<td style="text-align:left"><strong>1. Decision Frame</strong></td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
 </tr>
 <tr>
-<td style="text-align:left"><del>Promotion/Pay Raise (Medium Weight)</del></td>
-<td style="text-align:left"><del>Car Replacement (Medium Weight)</del></td>
+<td style="text-align:left"><strong>2-4. Arguments &amp; Weights</strong></td>
+<td style="text-align:left">1. Burnout Relief (High)<br/>2. Promotion Reward (Medium)<br/>3. Family Time (Medium)</td>
+<td style="text-align:left">1. Secondary Home Investment (High)<br/>2. Car Replacement Costs (Medium)<br/>3. Medical Expense Uncertainty (Medium)<br/>4. College Tuition Savings (High)</td>
 </tr>
 <tr>
-<td style="text-align:left"><del>Upcoming Large Bonus (Low Weight)</del></td>
-<td style="text-align:left">College Tuition (Medium Weight)</td>
+<td style="text-align:left"><strong>5-6. Weighting &amp; Crossing Off</strong></td>
+<td style="text-align:left">P1(H) balances C4(H).<br/>P2(M)+P3(M) balances C1(H).</td>
+<td style="text-align:left">C2(M) and C3(M) remain after balancing.</td>
 </tr>
 <tr>
+<td style="text-align:left"><strong>7. Final Recommendation</strong></td>
 <td style="text-align:left"></td>
-<td style="text-align:left"><del>Medical Expense Uncertainty (Low Weight)</del></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>FINAL DECISION: NO</strong></td>
-<td style="text-align:left"></td>
+<td style="text-align:left"><strong>NO</strong> (Con has 2 remaining reasons; Pro has 0)</td>
 </tr>
 </tbody>
 </table>
@@ -1906,7 +1765,7 @@ Total 4.</li>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr/>
-<h3 id="Step-7---Open-Source-AI-&amp;-Commercial-AI-Providers">Step 7 - Open Source AI &amp; Commercial AI Providers<a class="anchor-link" href="#Step-7---Open-Source-AI-&amp;-Commercial-AI-Providers">¶</a></h3>
+<h3 id="Step-7---Local-Open-Source-AI-&amp;-Cloud-Commercial-AI-Providers">Step 7 - Local Open Source AI &amp; Cloud Commercial AI Providers<a class="anchor-link" href="#Step-7---Local-Open-Source-AI-&amp;-Cloud-Commercial-AI-Providers">¶</a></h3>
 </div>
 </div>
 </div>
@@ -1924,14 +1783,14 @@ Total 4.</li>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [13]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the required NuGet configuration packages</span>
 <span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Azure.AI.OpenAI, 2.9.0-beta.1"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.OpenAI, 10.5.0"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration.Json, 10.0.6"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.DependencyInjection, 10.0.6"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.OpenAI, 10.6.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration.Json, 10.0.8"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.DependencyInjection, 10.0.8"</span>
 <span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: OpenAI, 2.10.0"</span>
 
 <span class="k">using</span><span class="w"> </span><span class="nn">Azure.AI.OpenAI</span><span class="p">;</span>
@@ -1996,14 +1855,7 @@ Total 4.</li>
 </div>
 </div>
 </div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Azure.AI.OpenAI, 2.9.0-beta.1</span></li><li><span>Microsoft.Extensions.AI.OpenAI, 10.5.0</span></li><li><span>Microsoft.Extensions.Configuration.Json, 10.0.6</span></li><li><span>Microsoft.Extensions.DependencyInjection, 10.0.6</span></li><li><span>OpenAI, 2.10.0</span></li></ul></div></div></div>
-</div>
-</div>
-</div>
+
 </div>
 
   </section>
