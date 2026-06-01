@@ -10,6 +10,7 @@ import subprocess
 from html import escape
 from html.parser import HTMLParser
 from pathlib import Path
+from typing import Callable
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -21,6 +22,7 @@ CHAPTERS_DIR = WEBSITE / "chapters"
 ASSETS_DIR = WEBSITE / "assets"
 CONFIG_PATH = WEBSITE_ROOT / "src" / "build_website_config.json"
 IMAGES_DIR = ROOT / "Images"
+WARNING_OUTPUT_KEYWORD = "warning CS1701:"
 NOTEBOOK_DESCRIPTIONS = {
     "1a - Decision Intelligence - Introducing the Decision Intelligence Framework.ipynb": "A readable introduction to decisions, decision quality, and the Decision Intelligence Framework.",
     "1b - Decision Intelligence - Decision Framing.ipynb": "How to shape the decision problem before evaluating options or recommendations.",
@@ -222,9 +224,61 @@ def convert_notebooks() -> None:
     run(command)
 
 
+def find_matching_div_end(html: str, start: int) -> int:
+    depth = 0
+    for match in re.finditer(r"</?div\b[^>]*>", html[start:], re.IGNORECASE):
+        tag = match.group(0)
+        depth += -1 if tag.startswith("</") else 1
+        if depth == 0:
+            return start + match.end()
+    return len(html)
+
+
+def remove_blocks_by_class(
+    html: str, class_name: str, should_remove: Callable[[str], bool]
+) -> str:
+    start_pattern = re.compile(
+        rf"<div\b(?=[^>]*\bclass=[\"'][^\"']*\b{re.escape(class_name)}\b)[^>]*>",
+        re.IGNORECASE,
+    )
+    result = []
+    cursor = 0
+    while True:
+        match = start_pattern.search(html, cursor)
+        if not match:
+            result.append(html[cursor:])
+            break
+
+        result.append(html[cursor : match.start()])
+        end = find_matching_div_end(html, match.start())
+        block = html[match.start() : end]
+        if not should_remove(block):
+            result.append(block)
+        cursor = end
+    return "".join(result)
+
+
+def remove_warning_outputs(html: str) -> str:
+    html = remove_blocks_by_class(
+        html,
+        "output_wrapper",
+        lambda block: WARNING_OUTPUT_KEYWORD in block,
+    )
+    return remove_blocks_by_class(
+        html,
+        "output_wrapper",
+        lambda block: not re.search(
+            r"<div\b(?=[^>]*\bclass=[\"'][^\"']*\boutput_area\b)",
+            block,
+            re.IGNORECASE,
+        ),
+    )
+
+
 def normalize_notebook_html(html: str) -> str:
     html = html.replace('alt="No description has been provided for this image"', 'alt=""')
     html = re.sub(r"<img(?![^>]*\bloading=)", '<img loading="lazy"', html)
+    html = remove_warning_outputs(html)
     return html
 
 
