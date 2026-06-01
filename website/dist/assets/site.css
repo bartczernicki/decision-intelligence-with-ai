@@ -13,6 +13,9 @@
   --gold: #9a6b1d;
   --code-bg: #20211f;
   --code-text: #f4f1e9;
+  --output-bg: rgba(59, 116, 110, 0.08);
+  --output-border: rgba(59, 116, 110, 0.24);
+  --output-accent: #3b746e;
   --focus-ring: rgba(59, 116, 110, 0.34);
   --backdrop: rgba(28, 28, 25, 0.38);
   --shadow: 0 18px 45px rgba(38, 38, 31, 0.12);
@@ -35,6 +38,9 @@
   --gold: #d4b06a;
   --code-bg: #0d0e0e;
   --code-text: #eee9df;
+  --output-bg: rgba(124, 167, 161, 0.12);
+  --output-border: rgba(124, 167, 161, 0.28);
+  --output-accent: #7ca7a1;
   --focus-ring: rgba(124, 167, 161, 0.34);
   --backdrop: rgba(0, 0, 0, 0.58);
   --shadow: 0 18px 45px rgba(0, 0, 0, 0.34);
@@ -510,8 +516,34 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); }
   line-height: 1.45;
 }
 .notebook-content .code_cell .output_wrapper {
+  position: relative;
+  margin: 12px 0 0;
+  padding: 22px 14px 14px;
+  border: 1px solid var(--output-border);
+  border-left: 4px solid var(--output-accent);
+  border-radius: 8px;
+  background: var(--output-bg);
   font-size: 0.72rem;
   line-height: 1.45;
+}
+.notebook-content .code_cell .output_wrapper::before {
+  content: "Output";
+  position: absolute;
+  top: 7px;
+  left: 14px;
+  color: var(--output-accent);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.notebook-content .code_cell .output_wrapper pre {
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
 }
 .notebook-content .code_cell .output_wrapper pre,
 .notebook-content .code_cell .output_wrapper p,
