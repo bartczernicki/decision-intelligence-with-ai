@@ -378,23 +378,26 @@ def page_shell(
     prefix: str,
     current_file: str,
     description: str,
+    social_title: str | None = None,
 ) -> str:
     pagefind_prefix = prefix
     site_url = ""
+    full_title = f"{title} | Decision Intelligence"
+    preview_title = social_title or full_title
     return f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{escape(title)} | Decision Intelligence</title>
+  <title>{escape(full_title)}</title>
   <meta name="description" content="{escape(description, quote=True)}">
   <meta name="book-version" content="{escape(BOOK_VERSION, quote=True)}">
-  <meta property="og:title" content="{escape(title, quote=True)} | Decision Intelligence">
+  <meta property="og:title" content="{escape(preview_title, quote=True)}">
   <meta property="og:description" content="{escape(description, quote=True)}">
   <meta property="og:type" content="website">
   <meta property="og:image" content="{FRAMEWORK_URL}">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{escape(title, quote=True)} | Decision Intelligence">
+  <meta name="twitter:title" content="{escape(preview_title, quote=True)}">
   <meta name="twitter:description" content="{escape(description, quote=True)}">
   <meta name="twitter:image" content="{FRAMEWORK_URL}">
   <script>
@@ -507,11 +510,12 @@ def build_index() -> None:
 """
     (WEBSITE / "index.html").write_text(
         page_shell(
-            title="Contents",
+            title=BOOK_TITLE,
             body=body,
             prefix="",
             current_file="index.html",
             description="Decision Intelligence read-only book",
+            social_title=BOOK_TITLE,
         ),
         encoding="utf-8",
     )
