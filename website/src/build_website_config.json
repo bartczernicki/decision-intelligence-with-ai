@@ -12,6 +12,10 @@
     {
       "name": "Workshop (AI Extensions)",
       "logo": "DecisionIntelligenceWorkshopExercisesLogo.png"
+    },
+    {
+      "name": "Appendix",
+      "logo": "DecisionIntelligenceLogo.png"
     }
   ],
   "notebooks": [
@@ -136,7 +140,11 @@
       "include_in_build": false
     },
     {
-      "file": "Appendix 1 - Book Resources.ipynb",
+      "file": "10a - Appendix - Book Resources.ipynb",
+      "include_in_build": false
+    },
+    {
+      "file": "10b - Appendix - Glossary.ipynb",
       "include_in_build": false
     }
   ]
