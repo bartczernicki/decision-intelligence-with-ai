@@ -3,19 +3,27 @@
   "chapter_groups": [
     {
       "name": "Decision Intelligence",
-      "logo": "DecisionIntelligenceLogo.png"
+      "logo": "Logos/DecisionIntelligenceLogo.png"
     },
     {
       "name": "Workshop (Setup)",
-      "logo": "DecisionIntelligenceWorkshopLogo.png"
+      "logo": "Logos/DecisionIntelligenceWorkshopLogo.png"
     },
     {
       "name": "Workshop (AI Extensions)",
-      "logo": "DecisionIntelligenceWorkshopExercisesLogo.png"
+      "logo": "Logos/DecisionIntelligenceWorkshopExercisesLogo.png"
+    },
+    {
+      "name": "Decision Framing",
+      "logo": "Logos/DecisionIntelligence-DecisionFraming-Logo.png"
+    },
+    {
+      "name": "Gathering Intelligence",
+      "logo": "Logos/DecisionIntelligence-GatheringIntelligence-Logo.png"
     },
     {
       "name": "Appendix",
-      "logo": "DecisionIntelligenceAppendixLogo.png"
+      "logo": "Logos/DecisionIntelligenceAppendixLogo.png"
     }
   ],
   "notebooks": [

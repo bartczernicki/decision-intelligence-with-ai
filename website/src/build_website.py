@@ -38,7 +38,7 @@ NOTEBOOK_DESCRIPTIONS = {
 
 
 IMAGE_BASE_URL = "https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images"
-LOGO_URL = "https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceLogo.png"
+LOGO_URL = "https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/Logos/DecisionIntelligenceLogo.png"
 FRAMEWORK_URL = "https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png"
 
 

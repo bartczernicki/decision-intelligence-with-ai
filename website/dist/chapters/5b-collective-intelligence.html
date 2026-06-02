@@ -1,0 +1,1418 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Collective Intelligence | Decision Intelligence</title>
+  <meta name="description" content="Static reading edition generated from the Collective Intelligence notebook.">
+  <meta name="book-version" content="0.3-preview.20260531">
+  <meta property="og:title" content="Collective Intelligence | Decision Intelligence">
+  <meta property="og:description" content="Static reading edition generated from the Collective Intelligence notebook.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Collective Intelligence | Decision Intelligence">
+  <meta name="twitter:description" content="Static reading edition generated from the Collective Intelligence notebook.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('di-theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../pagefind/pagefind-component-ui.css">
+  
+</head>
+<body data-page="5b-collective-intelligence.html">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <button class="nav-toggle" type="button" aria-label="Open chapter navigation" aria-expanded="false">Menu</button>
+  
+<aside class="book-sidebar" aria-label="Book navigation">
+  <a class="book-brand" href="../index.html">
+    <img src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/Logos/DecisionIntelligenceLogo.png" alt="Decision Intelligence logo">
+    <span class="book-brand-text">
+      <span>Decision Intelligence with AI</span>
+      <span class="book-version">Version 0.3-preview.20260531</span>
+    </span>
+  </a>
+  <div class="sidebar-actions" data-pagefind-ignore="all">
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+      <span class="theme-toggle-icon" aria-hidden="true">☀</span>
+    </button>
+    <a class="source-link" href="https://github.com/bartczernicki/DecisionIntelligence.GenAI.Workshop" target="_blank" rel="noopener noreferrer">
+      <span>Source</span>
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.22c0 4.52 2.87 8.35 6.84 9.71.5.09.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.51.47-3.16-.62-3.36-1.19-.11-.29-.6-1.19-1.03-1.43-.35-.19-.85-.66-.01-.67.79-.01 1.35.74 1.54 1.05.9 1.55 2.34 1.11 2.91.85.09-.67.35-1.11.64-1.37-2.22-.26-4.55-1.14-4.55-5.05 0-1.11.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.71 0 0 .84-.27 2.75 1.05A9.28 9.28 0 0 1 12 6.99c.85 0 1.71.12 2.51.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.4.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.79-4.57 5.05.36.32.68.93.68 1.89 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.05 10.05 0 0 0 22 12.22C22 6.58 17.52 2 12 2Z"/>
+      </svg>
+    </a>
+  </div>
+  <div class="pagefind-search-shell" data-pagefind-ignore="all">
+    <span class="search-label">Search book</span>
+    <pagefind-modal-trigger button-text="Search the book"></pagefind-modal-trigger>
+    <pagefind-modal></pagefind-modal>
+  </div>
+  <nav class="chapter-nav" aria-label="Chapters">
+    <a class="chapter-link" href="../index.html" data-title="contents overview"><span class="chapter-code">TOC</span><span>Contents</span></a><div class="chapter-group"><img src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/Logos/DecisionIntelligenceLogo.png" alt="" aria-hidden="true"><span>Decision Intelligence</span></div><a class="chapter-link" href="../chapters/1a-introducing-the-decision-intelligence-framework.html" data-title="1a decision intelligence introducing the decision intelligence framework"><span class="chapter-code">1A</span><span>Introducing the Decision Intelligence Framework</span></a><a class="chapter-link" href="../chapters/1b-decision-framing.html" data-title="1b decision intelligence decision framing"><span class="chapter-code">1B</span><span>Decision Framing</span></a><a class="chapter-link" href="../chapters/1c-gathering-intelligence.html" data-title="1c decision intelligence gathering intelligence"><span class="chapter-code">1C</span><span>Gathering Intelligence</span></a><a class="chapter-link" href="../chapters/1d-decision-execution.html" data-title="1d decision intelligence decision execution"><span class="chapter-code">1D</span><span>Decision Execution</span></a><a class="chapter-link" href="../chapters/1e-decision-execution-with-intuition.html" data-title="1e decision intelligence decision execution with intuition"><span class="chapter-code">1E</span><span>Decision Execution with Intuition</span></a><a class="chapter-link" href="../chapters/1f-decision-execution-with-decision-rules.html" data-title="1f decision intelligence decision execution with decision rules"><span class="chapter-code">1F</span><span>Decision Execution with Decision Rules</span></a><a class="chapter-link" href="../chapters/1g-decision-execution-with-quantitative-methods.html" data-title="1g decision intelligence decision execution with quantitative methods"><span class="chapter-code">1G</span><span>Decision Execution with Quantitative Methods</span></a><a class="chapter-link" href="../chapters/1h-decision-communication.html" data-title="1h decision intelligence decision communication"><span class="chapter-code">1H</span><span>Decision Communication</span></a><a class="chapter-link" href="../chapters/1i-applying-the-decision-intelligence-framework.html" data-title="1i decision intelligence applying the decision intelligence framework"><span class="chapter-code">1I</span><span>Applying the Decision Intelligence Framework</span></a><a class="chapter-link" href="../chapters/1j-enterprise-decision-intelligence.html" data-title="1j decision intelligence enterprise decision intelligence"><span class="chapter-code">1J</span><span>Enterprise Decision Intelligence</span></a><div class="chapter-group"><img src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/Logos/DecisionIntelligenceWorkshopLogo.png" alt="" aria-hidden="true"><span>Workshop (Setup)</span></div><a class="chapter-link" href="../chapters/2a-code-execution-requirements.html" data-title="2a workshop (setup) code execution requirements"><span class="chapter-code">2A</span><span>Code Execution Requirements</span></a><a class="chapter-link" href="../chapters/2b-about-microsoft-ai-extensions.html" data-title="2b workshop (setup) about microsoft ai extensions"><span class="chapter-code">2B</span><span>About Microsoft AI Extensions</span></a><a class="chapter-link" href="../chapters/2c-microsoft-agent-framework.html" data-title="2c workshop (setup) microsoft agent framework"><span class="chapter-code">2C</span><span>Microsoft Agent Framework</span></a><div class="chapter-group"><img src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/Logos/DecisionIntelligenceWorkshopExercisesLogo.png" alt="" aria-hidden="true"><span>Workshop (AI Extensions)</span></div><a class="chapter-link" href="../chapters/3a-simple-decision-prompts.html" data-title="3a workshop (ai extensions) simple decision prompts"><span class="chapter-code">3A</span><span>Simple Decision Prompts</span></a><a class="chapter-link" href="../chapters/3b-decisions-with-chat-completions-and-responses-apis.html" data-title="3b workshop (ai extensions) decisions with chat completions &amp; responses apis"><span class="chapter-code">3B</span><span>Decisions with Chat Completions &amp; Responses APIs</span></a><a class="chapter-link" href="../chapters/3c-decisions-with-reusable-prompts-and-native-net-functions.html" data-title="3c workshop (ai extensions) decisions with reusable prompts and native .net functions"><span class="chapter-code">3C</span><span>Decisions with Reusable Prompts and Native .NET Functions</span></a><a class="chapter-link" href="../chapters/3d-private-ai-decision-intelligence.html" data-title="3d workshop (ai extensions) private ai decision intelligence"><span class="chapter-code">3D</span><span>Private AI Decision Intelligence</span></a><div class="chapter-group"><img src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/Logos/DecisionIntelligence-DecisionFraming-Logo.png" alt="" aria-hidden="true"><span>Decision Framing</span></div><a class="chapter-link" href="../chapters/4a-six-thinking-hats.html" data-title="4a decision framing six thinking hats"><span class="chapter-code">4A</span><span>Six Thinking Hats</span></a><div class="chapter-group"><img src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/Logos/DecisionIntelligence-GatheringIntelligence-Logo.png" alt="" aria-hidden="true"><span>Gathering Intelligence</span></div><a class="chapter-link active" href="../chapters/5b-collective-intelligence.html" data-title="5b gathering intelligence collective intelligence"><span class="chapter-code">5B</span><span>Collective Intelligence</span></a><div class="chapter-group"><img src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/Logos/DecisionIntelligenceAppendixLogo.png" alt="" aria-hidden="true"><span>Appendix</span></div><a class="chapter-link" href="../chapters/10b-decision-quotes.html" data-title="10b appendix decision quotes"><span class="chapter-code">10B</span><span>Decision Quotes</span></a><a class="chapter-link" href="../chapters/10c-glossary.html" data-title="10c appendix glossary"><span class="chapter-code">10C</span><span>Glossary</span></a>
+  </nav>
+</aside>
+<div class="nav-backdrop" data-close-nav></div>
+
+  <main id="main-content" class="book-main">
+    
+<article class="chapter-page">
+  <div data-pagefind-body>
+  <header class="chapter-header">
+    <a class="back-link" href="../index.html">Back to contents</a>
+    <p class="eyebrow">Chapter 5B</p>
+    <h1>Collective Intelligence</h1>
+    <p class="chapter-summary">Static reading edition generated from the Collective Intelligence notebook.</p>
+  </header>
+  
+<nav class="chapter-toc" aria-label="Chapter table of contents">
+  <strong>On this page</strong>
+  <a class="toc-h3" href="#Step-1---Initialize-Configuration-Builder-&amp;-Build-the-AI-Orchestration">Step 1 - Initialize Configuration Builder &amp; Build the AI Orchestration</a><a class="toc-h3" href="#Step-2---Chain-of-Thought-Reasoning-for-Decision-Intelligence">Step 2 - Chain of Thought Reasoning for Decision Intelligence</a><a class="toc-h3" href="#Step-3---Understanding-Collective-Intelligence-for-Decision-Intelligence">Step 3 - Understanding Collective Intelligence for Decision Intelligence</a><a class="toc-h4" href="#Collective-Intelligence---Pooling-Wisdom-of-Multiple-Opinions">Collective Intelligence - Pooling Wisdom of Multiple Opinions</a><a class="toc-h4" href="#Examples-of-%22Wisdom-of-the-Crowds%22-at-Scale">Examples of &quot;Wisdom of the Crowds&quot; at Scale</a><a class="toc-h4" href="#Statistics-Explains-why-Collective-Intelligence-Works">Statistics Explains why Collective Intelligence Works</a><a class="toc-h3" href="#Step-4---Implementing-Collective-Intelligence-with-Generative-AI">Step 4 - Implementing Collective Intelligence with Generative AI</a><a class="toc-h4" href="#Collective-Intelligence-with-AI-Scenario-Introduction">Collective Intelligence with AI Scenario Introduction</a><a class="toc-h4" href="#Single-Point-Estimates-with-Artificial-Intelligence">Single Point Estimates with Artificial Intelligence</a><a class="toc-h4" href="#Adding-variance-to-simulate-multiple-independent-estimates-with-Artifical-Intelligence">Adding variance to simulate multiple independent estimates with Artifical Intelligence</a><a class="toc-h4" href="#Conclusion">Conclusion</a>
+</nav>
+
+  <section class="notebook-content">
+    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="display: flex; align-items: center;">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/Logos/DecisionIntelligence-GatheringIntelligence-Logo.png" style="margin-right: 10px;" width="60px"/>
+<span style="font-size: 1.5em; font-weight: bold;">Gathering Intelligence - Collective Intelligence</span>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Decision Intelligence applied in this module:</p>
+<ul>
+<li>Optimize prompts for logic, reasoning decisions</li>
+<li>Chain of Thought &amp; Reasoning with decisions</li>
+<li>Understand &amp; Implement Collective Intelligence with AI</li>
+<li>Optimizing Confidence outputs with AI</li>
+<li>Reporting quantitative decision recommendations as intervals</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this module, the <strong>OpenAI Responses API specification</strong> will be used to interact with the Generative AI models. This specification includes some additional capabilities over the Chat Completions API. The main feature that will be used will be the ability to retrive the reasoning summary (internal monologue of the model before it gives the answer).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Step-1---Initialize-Configuration-Builder-&amp;-Build-the-AI-Orchestration">Step 1 - Initialize Configuration Builder &amp; Build the AI Orchestration<a class="anchor-link" href="#Step-1---Initialize-Configuration-Builder-&amp;-Build-the-AI-Orchestration">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Execute the next two cells to:</p>
+<ul>
+<li>Use the Configuration Builder to load the API secrets.</li>
+<li>Use the API configuration to build the Responses API orchestrator.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the required NuGet configuration packages</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration, 10.0.8"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration.Json, 10.0.8"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: System.Text.Json, 10.0.8"</span>
+
+<span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration.Json</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.IO</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+
+<span class="c1">// Load the configuration settings from the local.settings.json and secrets.settings.json files</span>
+<span class="c1">// The secrets.settings.json file is used to store sensitive information such as API keys</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">configurationBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConfigurationBuilder</span><span class="p">()</span>
+<span class="w">    </span><span class="p">.</span><span class="n">SetBasePath</span><span class="p">(</span><span class="n">Directory</span><span class="p">.</span><span class="n">GetCurrentDirectory</span><span class="p">())</span>
+<span class="w">    </span><span class="p">.</span><span class="n">AddJsonFile</span><span class="p">(</span><span class="s">"local.settings.json"</span><span class="p">,</span><span class="w"> </span><span class="n">optional</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="n">reloadOnChange</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">AddJsonFile</span><span class="p">(</span><span class="s">"secrets.settings.json"</span><span class="p">,</span><span class="w"> </span><span class="n">optional</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="n">reloadOnChange</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configurationBuilder</span><span class="p">.</span><span class="n">Build</span><span class="p">();</span>
+
+<span class="c1">// IMPORTANT: You ONLY NEED either Azure OpenAI or OpenAI connection info, not both.</span>
+<span class="c1">// Azure OpenAI Connection Info</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIEndpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:Endpoint"</span><span class="p">];</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIAPIKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:APIKey"</span><span class="p">];</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIModelDeploymentName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:ModelDeploymentName"</span><span class="p">];</span>
+<span class="c1">// OpenAI Connection Info </span>
+<span class="kt">var</span><span class="w"> </span><span class="n">openAIAPIKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"OpenAI:APIKey"</span><span class="p">];</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">openAIModelId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"OpenAI:ModelId"</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea">
+<div>
+<div id="dotnet-interactive-this-cell-$CACHE_BUSTER$" style="display: none">
+        The below script needs to be able to find the current output cell; this is an easy method to get it.
+    </div>
+<script type="text/javascript">
+async function probeAddresses(probingAddresses) {
+    function timeout(ms, promise) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                reject(new Error('timeout'))
+            }, ms)
+            promise.then(resolve, reject)
+        })
+    }
+
+    if (Array.isArray(probingAddresses)) {
+        for (let i = 0; i < probingAddresses.length; i++) {
+
+            let rootUrl = probingAddresses[i];
+
+            if (!rootUrl.endsWith('/')) {
+                rootUrl = `${rootUrl}/`;
+            }
+
+            try {
+                let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
+                    method: 'POST',
+                    cache: 'no-cache',
+                    mode: 'cors',
+                    timeout: 1000,
+                    headers: {
+                        'Content-Type': 'text/plain'
+                    },
+                    body: probingAddresses[i]
+                }));
+
+                if (response.status == 200) {
+                    return rootUrl;
+                }
+            }
+            catch (e) { }
+        }
+    }
+}
+
+function loadDotnetInteractiveApi() {
+    probeAddresses(["http://127.0.0.1:2049/","http://::1:2049/","http://fe80::1%1:2049/","http://fe80::1c6e:2cf6:c519:ad9%15:2049/","http://2001:4898:e820:60:e0:3c31:b4fd:f0fe:2049/","http://2001:4898:e820:60:309b:a85c:8e1c:dc56:2049/","http://10.24.1.207:2049/","http://fe80::9083:51ff:fed6:3656%16:2049/","http://fe80::72c9:9c:4341:f6f5%18:2049/","http://fe80::77c8:c6f0:86d8:d2b7%19:2049/","http://fe80::cb22:316c:186b:dad%20:2049/","http://fe80::ce81:b1c:bd2c:69e%21:2049/"])
+        .then((root) => {
+        // use probing to find host url and api resources
+        // load interactive helpers and language services
+        let dotnetInteractiveRequire = require.config({
+        context: '37623.Microsoft.DotNet.Interactive.Http.HttpPort',
+                paths:
+            {
+                'dotnet-interactive': `${root}resources`
+                }
+        }) || require;
+
+            window.dotnetInteractiveRequire = dotnetInteractiveRequire;
+
+            window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
+                let paths = {};
+                paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
+                
+                let internalRequire = require.config({
+                    context: extensionCacheBuster,
+                    paths: paths,
+                    urlArgs: `cacheBuster=${extensionCacheBuster}`
+                    }) || require;
+
+                return internalRequire
+            };
+        
+            dotnetInteractiveRequire([
+                    'dotnet-interactive/dotnet-interactive'
+                ],
+                function (dotnet) {
+                    dotnet.init(window);
+                },
+                function (error) {
+                    console.log(error);
+                }
+            );
+        })
+        .catch(error => {console.log(error);});
+    }
+
+// ensure `require` is available globally
+if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
+    let require_script = document.createElement('script');
+    require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
+    require_script.setAttribute('type', 'text/javascript');
+    
+    
+    require_script.onload = function() {
+        loadDotnetInteractiveApi();
+    };
+
+    document.getElementsByTagName('head')[0].appendChild(require_script);
+}
+else {
+    loadDotnetInteractiveApi();
+}
+
+    </script>
+</div></div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.Configuration, 10.0.8</span></li><li><span>Microsoft.Extensions.Configuration.Json, 10.0.8</span></li><li><span>System.Text.Json, 10.0.8</span></li></ul></div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the Microdoft Extensions AI NuGet Packages</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI, 10.6.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.Abstractions, 10.6.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.OpenAI, 10.6.0"</span>
+<span class="c1">// Import Azure &amp; OpenAI NuGet Packages</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Azure.AI.OpenAI, 2.9.0-beta.1"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Azure.Identity, 1.21.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: OpenAI, 2.10.0"</span>
+
+<span class="k">using</span><span class="w"> </span><span class="nn">Azure</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Azure.AI.OpenAI</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.AI</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">OpenAI.Responses</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.ClientModel</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.ComponentModel</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Text.Json</span><span class="p">;</span>
+
+
+
+<span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AzureOpenAIClient</span><span class="p">(</span>
+<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">Uri</span><span class="p">(</span><span class="n">azureOpenAIEndpoint</span><span class="p">),</span>
+<span class="w">    </span><span class="n">apiKeyCredential</span><span class="p">);</span>
+
+<span class="cp">#pragma warning disable OPENAI001</span>
+
+<span class="c1">// 1) Get the ResponsesClient from AzureOpenAIClient</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">responsesClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="p">.</span><span class="n">GetResponsesClient</span><span class="p">();</span>
+
+<span class="c1">// 2) Adapt it to Microsoft.Extensions.AI IChatClient</span>
+<span class="n">IChatClient</span><span class="w"> </span><span class="n">chatClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">responsesClient</span><span class="p">.</span><span class="n">AsIChatClient</span><span class="p">(</span><span class="n">defaultModelId</span><span class="p">:</span><span class="w"> </span><span class="n">azureOpenAIModelDeploymentName</span><span class="p">);</span>
+
+<span class="cp">#pragma warning restore OPENAI001</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Step-2---Chain-of-Thought-Reasoning-for-Decision-Intelligence">Step 2 - Chain of Thought Reasoning for Decision Intelligence<a class="anchor-link" href="#Step-2---Chain-of-Thought-Reasoning-for-Decision-Intelligence">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>📜 <strong><em>"The happiness of your life depends upon the quality of your thoughts."</em></strong></p>
+<p>-- <cite>Marcus Aurelius (Roman emperor, philosopher)</cite></p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One of the most effective techniques to improve logic, reasoning and overall decision-making for most LLMs is to use "Chain of Thought" (CoT) techniques. The "Chain of Thought" approach helps by breaking down complex tasks into smaller steps, making it easier to solve problems without missing important details. It improves accuracy because each step is made clear to the LLM and helps avoid mistakes. This method also makes the thought process easier to understand and explain, allowing for easier corrections when something goes wrong. The approach is useful for handling difficult concepts and multi-step problems like math or logic, making things clearer and more manageable.</p>
+<p>The concept of "Chain of Thought" techniques has been recently popularized by Generative AI. However, this technique is not new nor is it specific only to Generative AI models. Breaking down complex tasks into simpler more approachable steps and organizing thoughts has been used by decision-makers, professional services organizations and management consulting companies for quite some time. Prior to Generative AI, the concepts have been known as: "structured thinking", "MECE framework" (Mutually Exclusive, Collectively Exhaustive), and "hypothesis-driven problem-solving".</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>First, approach the problem with a simple Decision prompt technique. The system decisoin prompt will be set to basic &amp; clear decision assistant persona instructions. While this decision prompt is simple, it is still quite effective to instruct the LLM model on how to approach the decision problem.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Set the system prompt to behave like a decision intelligence assistant (persona)</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">systemPromptForDecisions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">You</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Decision</span><span class="w"> </span><span class="n">Intelligence</span><span class="w"> </span><span class="n">assistant</span><span class="p">.</span>
+<span class="n">Help</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">explore</span><span class="w"> </span><span class="n">options</span><span class="p">,</span><span class="w"> </span><span class="n">evaluate</span><span class="w"> </span><span class="n">tradeoffs</span><span class="p">,</span><span class="w"> </span><span class="n">reason</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">uncertainty</span><span class="p">,</span><span class="w"> </span><span class="n">solve</span><span class="w"> </span><span class="n">problems</span><span class="p">,</span><span class="w"> </span>
+<span class="k">and</span><span class="w"> </span><span class="n">apply</span><span class="w"> </span><span class="n">systems</span><span class="w"> </span><span class="n">thinking</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">personal</span><span class="p">,</span><span class="w"> </span><span class="n">professional</span><span class="p">,</span><span class="w"> </span><span class="n">strategic</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">operational</span><span class="w"> </span><span class="n">decisions</span><span class="p">.</span>
+
+<span class="n">Provide</span><span class="w"> </span><span class="n">responses</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">structured</span><span class="p">,</span><span class="w"> </span><span class="n">logical</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">thorough</span><span class="p">.</span>
+<span class="n">Aim</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">improve</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="err">'</span><span class="n">s</span><span class="w"> </span><span class="n">judgment</span><span class="w"> </span><span class="n">rather</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">choices</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">them</span><span class="p">.</span>
+<span class="n">Be</span><span class="w"> </span><span class="n">balanced</span><span class="p">,</span><span class="w"> </span><span class="n">analytical</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">pragmatic</span><span class="p">.</span>
+<span class="n">Adapt</span><span class="w"> </span><span class="n">depth</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">complexity</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="err">'</span><span class="n">s</span><span class="w"> </span><span class="n">context</span><span class="p">.</span>
+<span class="n">When</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">situation</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">ambiguous</span><span class="p">,</span><span class="w"> </span><span class="n">ask</span><span class="w"> </span><span class="n">targeted</span><span class="w"> </span><span class="n">clarifying</span><span class="w"> </span><span class="n">questions</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">reasonable</span><span class="w"> </span><span class="n">assumptions</span><span class="w"> </span><span class="n">explicitly</span><span class="p">.</span>
+<span class="n">When</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="n">paths</span><span class="w"> </span><span class="n">exist</span><span class="p">,</span><span class="w"> </span><span class="n">present</span><span class="w"> </span><span class="n">them</span><span class="w"> </span><span class="n">fairly</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">explain</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">sense</span><span class="p">.</span>
+
+<span class="o">-------------------------------</span>
+<span class="n">Output</span><span class="w"> </span><span class="n">Formatting</span><span class="w"> </span><span class="n">Instructions</span><span class="p">:</span>
+
+<span class="n">Format</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="nn">only</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Markdown</span><span class="w"> </span><span class="n">table</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Only</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Markdown</span><span class="w"> </span><span class="n">table</span><span class="p">,</span><span class="w"> </span><span class="n">unless</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">explicitly</span><span class="w"> </span><span class="n">asks</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">format</span><span class="p">.</span>
+<span class="n">Do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">enclose</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">triple</span><span class="w"> </span><span class="n">backticks</span><span class="p">.</span>
+<span class="s">""";</span>
+
+<span class="c1">// Simple instruction prompt to plan retirement</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">decisionPuzzlePrompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">A</span><span class="w"> </span><span class="n">farmer</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">side</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">river</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">wolf</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">goat</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">cabbage</span><span class="p">.</span><span class="w"> </span>
+<span class="n">When</span><span class="w"> </span><span class="n">he</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">crossing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">river</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">boat</span><span class="p">,</span><span class="w"> </span><span class="n">he</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">take</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">him</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">time</span><span class="p">.</span><span class="w"> </span>
+<span class="n">The</span><span class="w"> </span><span class="n">wolf</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">eat</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">goat</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">alone</span><span class="w"> </span><span class="n">together</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">goat</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">eat</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cabbage</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">alone</span><span class="w"> </span><span class="n">together</span><span class="p">.</span><span class="w"> </span>
+<span class="n">How</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">farmer</span><span class="w"> </span><span class="n">transport</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">goat</span><span class="w"> </span><span class="n">across</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">river</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="n">eaten</span><span class="o">?</span>
+<span class="s">""";</span>
+
+<span class="c1">// Create a new pre-mortem analysis chat</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">chatMessagesDecision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ChatMessage</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="c1">// Add system and user messages to the chat history</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">systemMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">System</span><span class="p">,</span><span class="w"> </span><span class="n">systemPromptForDecisions</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">userMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">User</span><span class="p">,</span><span class="w"> </span><span class="n">decisionPuzzlePrompt</span><span class="p">);</span>
+<span class="n">chatMessagesDecision</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">systemMessage</span><span class="p">);</span>
+<span class="n">chatMessagesDecision</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">userMessage</span><span class="p">);</span>
+
+<span class="c1">// Execute the chat messages against the AI model</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">decisionPuzzlePromptResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">chatClient</span><span class="p">.</span><span class="n">GetResponseAsync</span><span class="p">(</span><span class="n">chatMessagesDecision</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">decisionPuzzlePromptResponseText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionPuzzlePromptResponse</span><span class="p">.</span><span class="n">Text</span><span class="p">;</span>
+
+<span class="c1">// Display the response string as Markdown</span>
+<span class="n">decisionPuzzlePromptResponseText</span><span class="p">.</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+<span class="p">(</span><span class="s">"---"</span><span class="p">).</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span><span class="w"> </span><span class="c1">// Break of the ooutput section</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Action</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Take the goat across the river first.</td>
+<td>The wolf and cabbage are left together, which is safe.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Return alone to the original side.</td>
+<td>The goat remains safely across.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Take the wolf across.</td>
+<td>Now the wolf and goat would be together, so the farmer does <strong>not</strong> leave them alone.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Bring the goat back with him.</td>
+<td>This prevents the wolf from eating the goat.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Take the cabbage across.</td>
+<td>The wolf is left alone on the far side.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Return alone to the original side.</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Take the goat across again.</td>
+<td>All three items are now across, and none have been left in a dangerous pairing.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Key idea</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Why this works</td>
+<td>The farmer never leaves the wolf alone with the goat or the goat alone with the cabbage.</td>
+</tr>
+<tr>
+<td>Final outcome</td>
+<td>The goat crosses safely, and eventually all three items can be transported without anything being eaten.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<hr/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's approach the same problem with a much more sophisticated "Chain of Thought" (CoT) system prompt to break the problem down and think about it more in depth. Notice that the prompt below is much more detailed in how the "decision intelligence assistant" should approach the problem, highlighting things it should or should not consider and the way it should arrive at the final answer.</p>
+<p>Chain of Thought (CoT) prompt instructions will vary depending on how the problem needs to be approached. It can include very specific decision framework instructions, systematic decision heuristics or management consulting best practices. In general, these detailed prompts result in the LLM providing more detail and usually better outcomes. However, there are a few drawbacks to overusing Chain of Thought (CoT):</p>
+<ul>
+<li>A very long and detailed Chain of Thought (CoT) can confuse the LLM model, especially if the LLM model is smaller (i.e. GPT-4o-mini or Phi-4 etc.)</li>
+<li>GenAI LLM models can hallucinate not just on output of answers. They can also hallucinate the Chain of Thought (CoT) they are describing in the final answer! This is a very sneaky way of potentially providing a confident answer paired with a confident approach (Chain of Thought) that the LLM may not even be using!</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Set the system prompt to behave like a decision intelligence assistant (persona)</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">systemPromptForDecisionsChainOfThought</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">You</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Decision</span><span class="w"> </span><span class="n">Intelligence</span><span class="w"> </span><span class="n">assistant</span><span class="p">.</span>
+<span class="n">Help</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">explore</span><span class="w"> </span><span class="n">options</span><span class="p">,</span><span class="w"> </span><span class="n">evaluate</span><span class="w"> </span><span class="n">tradeoffs</span><span class="p">,</span><span class="w"> </span><span class="n">reason</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">uncertainty</span><span class="p">,</span><span class="w"> </span><span class="n">solve</span><span class="w"> </span><span class="n">problems</span><span class="p">,</span><span class="w"> </span>
+<span class="k">and</span><span class="w"> </span><span class="n">apply</span><span class="w"> </span><span class="n">systems</span><span class="w"> </span><span class="n">thinking</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">personal</span><span class="p">,</span><span class="w"> </span><span class="n">professional</span><span class="p">,</span><span class="w"> </span><span class="n">strategic</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">operational</span><span class="w"> </span><span class="n">decisions</span><span class="p">.</span>
+
+<span class="n">Provide</span><span class="w"> </span><span class="n">responses</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">structured</span><span class="p">,</span><span class="w"> </span><span class="n">logical</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">thorough</span><span class="p">.</span>
+<span class="n">Aim</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">improve</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="err">'</span><span class="n">s</span><span class="w"> </span><span class="n">judgment</span><span class="w"> </span><span class="n">rather</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">choices</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">them</span><span class="p">.</span>
+<span class="n">Be</span><span class="w"> </span><span class="n">balanced</span><span class="p">,</span><span class="w"> </span><span class="n">analytical</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">pragmatic</span><span class="p">.</span>
+<span class="n">Adapt</span><span class="w"> </span><span class="n">depth</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">complexity</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="err">'</span><span class="n">s</span><span class="w"> </span><span class="n">context</span><span class="p">.</span>
+<span class="n">When</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">situation</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">ambiguous</span><span class="p">,</span><span class="w"> </span><span class="n">ask</span><span class="w"> </span><span class="n">targeted</span><span class="w"> </span><span class="n">clarifying</span><span class="w"> </span><span class="n">questions</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">reasonable</span><span class="w"> </span><span class="n">assumptions</span><span class="w"> </span><span class="n">explicitly</span><span class="p">.</span>
+<span class="n">When</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="n">paths</span><span class="w"> </span><span class="n">exist</span><span class="p">,</span><span class="w"> </span><span class="n">present</span><span class="w"> </span><span class="n">them</span><span class="w"> </span><span class="n">fairly</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">explain</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">would</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">sense</span><span class="p">.</span>
+
+<span class="n">Before</span><span class="w"> </span><span class="n">providing</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">answer</span><span class="p">,</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">must</span><span class="p">:</span><span class="w"> </span>
+
+<span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">Understand</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Problem</span><span class="p">:</span><span class="w"> </span><span class="n">Carefully</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">understand</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="err">'</span><span class="n">s</span><span class="w"> </span><span class="n">question</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="w"> </span>
+
+<span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="n">Break</span><span class="w"> </span><span class="n">Down</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Reasoning</span><span class="w"> </span><span class="n">Process</span><span class="p">:</span><span class="w"> </span><span class="n">Outline</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">steps</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">solve</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">problem</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">respond</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="n">logically</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">sequentially</span><span class="p">.</span><span class="w"> </span><span class="n">Think</span><span class="w"> </span><span class="n">aloud</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">describe</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">detail</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Explain</span><span class="w"> </span><span class="n">Each</span><span class="w"> </span><span class="n">Step</span><span class="p">:</span><span class="w"> </span><span class="n">Provide</span><span class="w"> </span><span class="n">reasoning</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">calculations</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">step</span><span class="p">,</span><span class="w"> </span><span class="n">explaining</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">arrive</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">answer</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Provide</span><span class="w"> </span><span class="n">structured</span><span class="p">,</span><span class="w"> </span><span class="n">logical</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">comprehensive</span><span class="w"> </span><span class="n">advice</span><span class="p">.</span><span class="w"> </span>
+
+<span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="n">Review</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Thought</span><span class="w"> </span><span class="n">Process</span><span class="p">:</span><span class="w"> </span><span class="n">Double</span><span class="o">-</span><span class="n">check</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">reasoning</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">errors</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">gaps</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">finalizing</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Always</span><span class="w"> </span><span class="n">aim</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">thought</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">transparent</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">logical</span><span class="p">.</span>
+
+<span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="n">Arrive</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Final</span><span class="w"> </span><span class="n">Answer</span><span class="p">:</span><span class="w"> </span><span class="n">Only</span><span class="w"> </span><span class="n">after</span><span class="w"> </span><span class="n">completing</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">steps</span><span class="p">,</span><span class="w"> </span><span class="n">provide</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">very</span><span class="w"> </span><span class="n">detailed</span><span class="w"> </span><span class="n">final</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">detailed</span><span class="w"> </span><span class="n">solution</span><span class="p">.</span><span class="w"> </span>
+
+<span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="n">Ensure</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">communicate</span><span class="w"> </span><span class="n">decision</span><span class="w"> </span><span class="n">details</span><span class="p">.</span>
+
+<span class="n">Output</span><span class="w"> </span><span class="n">Format</span><span class="w"> </span><span class="n">Instructions</span><span class="p">:</span>
+<span class="n">When</span><span class="w"> </span><span class="n">generating</span><span class="w"> </span><span class="n">Markdown</span><span class="p">,</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">headings</span><span class="w"> </span><span class="n">higher</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="err">###</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Avoid</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="err">##</span><span class="w"> </span><span class="n">headers</span><span class="p">.</span><span class="w"> </span><span class="n">Use</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="err">###</span><span class="p">,</span><span class="w"> </span><span class="err">####</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">lower</span><span class="o">-</span><span class="n">level</span><span class="w"> </span><span class="n">headings</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">necessary</span><span class="p">.</span><span class="w"> </span>
+<span class="n">All</span><span class="w"> </span><span class="n">top</span><span class="o">-</span><span class="n">level</span><span class="w"> </span><span class="n">section</span><span class="w"> </span><span class="n">headers</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="err">###</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">lower</span><span class="p">.</span><span class="w"> </span>
+
+<span class="n">Format</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="nn">only</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Markdown</span><span class="w"> </span><span class="n">table</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Only</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Markdown</span><span class="w"> </span><span class="n">tables</span><span class="p">,</span><span class="w"> </span><span class="n">unless</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">explicitly</span><span class="w"> </span><span class="n">asks</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">format</span><span class="p">.</span>
+<span class="n">If</span><span class="w"> </span><span class="n">returning</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">tables</span><span class="p">,</span><span class="w"> </span><span class="n">separate</span><span class="w"> </span><span class="n">them</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">explanatory</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">ensure</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">clearly</span><span class="w"> </span><span class="n">labeled</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">descriptive</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">text</span><span class="p">.</span>
+<span class="n">Do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">enclose</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">triple</span><span class="w"> </span><span class="n">backticks</span><span class="p">.</span>
+<span class="s">""";</span>
+
+<span class="c1">// Simple instruction prompt to plan retirement</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">decisionPuzzlePrompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">A</span><span class="w"> </span><span class="n">farmer</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">side</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">river</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">wolf</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">goat</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">cabbage</span><span class="p">.</span><span class="w"> </span>
+<span class="n">When</span><span class="w"> </span><span class="n">he</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">crossing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">river</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">boat</span><span class="p">,</span><span class="w"> </span><span class="n">he</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">take</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">him</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">time</span><span class="p">.</span><span class="w"> </span>
+<span class="n">The</span><span class="w"> </span><span class="n">wolf</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">eat</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">goat</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">alone</span><span class="w"> </span><span class="n">together</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">goat</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">eat</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cabbage</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="n">alone</span><span class="w"> </span><span class="n">together</span><span class="p">.</span><span class="w"> </span>
+<span class="n">How</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">farmer</span><span class="w"> </span><span class="n">transport</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">goat</span><span class="w"> </span><span class="n">across</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">river</span><span class="w"> </span><span class="n">without</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="n">eaten</span><span class="o">?</span>
+<span class="s">""";</span>
+
+<span class="c1">// Create a new decision puzzle chat</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">chatMessagesDecisionChainOfThought</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ChatMessage</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="c1">// Add system and user messages to the chat history</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">systemMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">System</span><span class="p">,</span><span class="w"> </span><span class="n">systemPromptForDecisionsChainOfThought</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">userMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">User</span><span class="p">,</span><span class="w"> </span><span class="n">decisionPuzzlePrompt</span><span class="p">);</span>
+<span class="n">chatMessagesDecisionChainOfThought</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">systemMessage</span><span class="p">);</span>
+<span class="n">chatMessagesDecisionChainOfThought</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">userMessage</span><span class="p">);</span>
+
+<span class="c1">// Define reasoning options for the chat completion.</span>
+<span class="c1">// Note: For speed optimization, reasoning effort is set to None.</span>
+<span class="cp">#pragma warning disable OPENAI001</span>
+
+<span class="c1">// Add options to enable reasoning and include the reasoning summary in the response</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">chatOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChatOptions</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">RawRepresentationFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CreateResponseOptions</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">azureOpenAIModelDeploymentName</span><span class="p">,</span>
+<span class="w">        </span><span class="n">ReasoningOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ResponseReasoningOptions</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">ReasoningEffortLevel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ResponseReasoningEffortLevel</span><span class="p">.</span><span class="n">High</span><span class="p">,</span>
+<span class="w">            </span><span class="n">ReasoningSummaryVerbosity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ResponseReasoningSummaryVerbosity</span><span class="p">.</span><span class="n">Detailed</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="n">StoredOutputEnabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// Execute the chat messages against the AI model</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">decisionPuzzlePromptChainOfThoughtResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">chatClient</span><span class="p">.</span><span class="n">GetResponseAsync</span><span class="p">(</span><span class="n">chatMessagesDecisionChainOfThought</span><span class="p">,</span><span class="w"> </span><span class="n">chatOptions</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">decisionPuzzlePromptChainOfThoughtResponseText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionPuzzlePromptChainOfThoughtResponse</span><span class="p">.</span><span class="n">Text</span><span class="p">;</span>
+
+<span class="c1">// Retrieve the Reasoning Content/Summary</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">decisionPuzzlePromptChainOfThoughtResponseReasoningSummary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span>
+<span class="w">    </span><span class="s">"\n\n"</span><span class="p">,</span>
+<span class="w">    </span><span class="n">decisionPuzzlePromptChainOfThoughtResponse</span><span class="p">.</span><span class="n">Messages</span>
+<span class="w">        </span><span class="p">.</span><span class="n">SelectMany</span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">Contents</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="n">OfType</span><span class="o">&lt;</span><span class="n">TextReasoningContent</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="w">        </span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">Text</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">!</span><span class="kt">string</span><span class="p">.</span><span class="n">IsNullOrWhiteSpace</span><span class="p">(</span><span class="n">t</span><span class="p">)));</span>
+
+<span class="c1">// Display the reasoning summary as Markdown</span>
+<span class="p">(</span><span class="s">"### **Reasoning Summary:**"</span><span class="p">).</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+<span class="n">decisionPuzzlePromptChainOfThoughtResponseReasoningSummary</span><span class="p">.</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+
+<span class="c1">// Display the response string as Markdown</span>
+<span class="p">(</span><span class="s">"### **Answer:**"</span><span class="p">).</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+<span class="n">decisionPuzzlePromptChainOfThoughtResponseText</span><span class="p">.</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+<span class="p">(</span><span class="s">"---"</span><span class="p">).</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span><span class="w"> </span><span class="c1">// Break of the ooutput section</span>
+
+<span class="c1">// Add the summary and the response together in a single string</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">decisionPuzzlePromptChainOfThoughtResponseTextWithSummary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
+<span class="w">    </span><span class="s">$"### **Reasoning Summary:**\n\n{decisionPuzzlePromptChainOfThoughtResponseReasoningSummary}\n\n---\n\n### **Answer:**\n\n{decisionPuzzlePromptChainOfThoughtResponseText}"</span><span class="p">;</span>
+
+<span class="cp">#pragma warning restore OPENAI001</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<h3 id="Reasoning-Summary:"><strong>Reasoning Summary:</strong><a class="anchor-link" href="#Reasoning-Summary:">¶</a></h3>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<p><strong>Solving the riddle</strong></p>
+<p>I need to tackle this classic riddle about transporting a goat across a river without it being eaten. The simplest solution might be to take the goat across first, then come back. I need to ensure the wolf and cabbage aren't left alone together. If the farmer leaves the wolf and cabbage together, that’s safe. Once the goat is safely across, I could then take the wolf, bring the goat back, and finally transport the cabbage.<strong>Finding the classic solution</strong></p>
+<p>The classic solution to the riddle would be: first, take the goat over, return alone, then take the wolf over and bring the goat back. After that, transport the cabbage over and return alone for the goat. The user asks how to transport just the goat without it being eaten, leading me to think taking the goat first is fine because it’s alone on the far side. It only becomes an issue if the wolf or cabbage is left with the goat.<strong>Organizing the solution</strong></p>
+<p>The answer likely starts with taking the goat over first, but I need to sequence the moves. I'll create a Markdown table without headings, including columns for Step, What the farmer does, and Why it's safe. I’ll also express the difference between just getting the goat across versus transporting all three items.</p>
+<p>So, for just the goat, the farmer can take it over and leave the wolf and cabbage behind. If all need to go, I’ll outline the full sequence. Let's stick to just the table format!</p>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<h3 id="Answer:"><strong>Answer:</strong><a class="anchor-link" href="#Answer:">¶</a></h3>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Move(s)</th>
+<th>Why the goat is safe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Just getting the goat across</td>
+<td>Take the goat across first, then leave it alone on the far bank while you return for the others.</td>
+<td>The goat is never left alone with the wolf or the cabbage.</td>
+</tr>
+<tr>
+<td>If the goal is to move all three safely</td>
+<td>1) Take the goat across. 2) Return alone. 3) Take the wolf across. 4) Bring the goat back. 5) Take the cabbage across. 6) Return alone. 7) Take the goat across again.</td>
+<td>This avoids leaving wolf+goat or goat+cabbage alone together on either bank.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<hr/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One of the additional capabilities that reasoning models provide is the ability to retrieve the reasoning content or summary. This depends on the API interfaces exposed on the model. Therefore, the "AI internal monologue" can be provided with the answer to complete the decision recommendation.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When the Generative AI model has generated two different decision approaches to the same decision scenario, an LLM can be used to decide which decision approach is of better quality. The evaluation could be done by another AI model or an AI model from different AI provider to reduce potential bias.</p>
+<p>After running the evaluation of the decision prompts below, notice the GenAI LLM model prefers the approach of the Chain of Thought (CoT) over the simple system prompt instruction. Furthermore, the AI model appreciates using the "Decision Communication" step with the applied Minto Pyramid.</p>
+<blockquote>
+<p>📝 <strong>Note:</strong> When executing the decision approach evaluation below, you may notice that sometimes Approach 1 is preferred. This happens as Approach 2 with Chain of Thought is considered verbose and not a clear as Approach 1 to the AI model.  In a real-world implementation, the prompt instruction will have this made very clear on what the criteria are. I specifically left that instruction out of the prompt to illustrate that even an AI model can vary it's preference!</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">systemPromptEvaluateResponses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">You</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">assistant</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">evaluating</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">approach</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">question</span><span class="p">.</span>
+<span class="n">You</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">provided</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">important</span><span class="w"> </span><span class="n">decision</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">well</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">proposed</span><span class="w"> </span><span class="n">approaches</span><span class="p">.</span>
+<span class="n">The</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">approaches</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">labeled</span><span class="w"> </span><span class="s">"Approach 1"</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="s">"Approach 2"</span><span class="p">.</span>
+
+<span class="n">Compare</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">approaches</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">evaluate</span><span class="w"> </span><span class="n">them</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">their</span><span class="p">:</span><span class="w"> </span>
+<span class="n">Logical</span><span class="w"> </span><span class="n">structured</span><span class="w"> </span><span class="n">reasoning</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">approach</span><span class="p">,</span><span class="w"> </span><span class="n">detail</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">approach</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">decision</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">quality</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">communication</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">approach</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">detailed</span><span class="w"> </span><span class="n">reasoning</span><span class="w"> </span><span class="n">steps</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">approach</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">communicate</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">final</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">clearly</span><span class="p">.</span>
+
+<span class="n">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">final</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">approach</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">evaluation</span><span class="w"> </span><span class="n">criteria</span><span class="p">.</span>
+
+<span class="n">Format</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="nn">only</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Markdown</span><span class="w"> </span><span class="n">table</span><span class="p">.</span><span class="w"> </span><span class="n">Only</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Markdown</span><span class="w"> </span><span class="n">table</span><span class="p">.</span><span class="w"> </span>
+<span class="n">Do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">enclose</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">triple</span><span class="w"> </span><span class="n">backticks</span><span class="p">.</span>
+<span class="s">""";</span>
+
+<span class="kt">var</span><span class="w"> </span><span class="n">decisionEvaluationTemplateApproaches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$"""</span>
+<span class="n">Decision</span><span class="w"> </span><span class="n">Scenario</span><span class="p">:</span><span class="w"> </span>
+<span class="p">{</span><span class="n">decisionPuzzlePrompt</span><span class="p">}</span>
+<span class="o">------------------------------------------------</span>
+<span class="n">Approach</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w"> </span>
+<span class="p">{</span><span class="n">decisionPuzzlePromptResponseText</span><span class="p">}</span><span class="w"> </span>
+<span class="n">End</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">Approach</span><span class="w"> </span><span class="mi">1</span>
+<span class="o">------------------------------------------------</span>
+<span class="n">Approach</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span><span class="w"> </span>
+<span class="p">{</span><span class="n">decisionPuzzlePromptChainOfThoughtResponseTextWithSummary</span><span class="p">}</span><span class="w"> </span>
+<span class="n">End</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">Approach</span><span class="w"> </span><span class="mi">2</span>
+<span class="s">""";</span>
+
+<span class="c1">// Create new decision puzzle chat messages</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">chatMessagesDecisionApproachEvaluation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ChatMessage</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="c1">// Add system and user messages to the chat history</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">systemMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">System</span><span class="p">,</span><span class="w"> </span><span class="n">systemPromptEvaluateResponses</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">userMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">User</span><span class="p">,</span><span class="w"> </span><span class="n">decisionEvaluationTemplateApproaches</span><span class="p">);</span>
+<span class="n">chatMessagesDecisionApproachEvaluation</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">systemMessage</span><span class="p">);</span>
+<span class="n">chatMessagesDecisionApproachEvaluation</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">userMessage</span><span class="p">);</span>
+
+<span class="c1">// Execute the chat messages against the AI model</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">decisionApproachEvaluationResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">chatClient</span><span class="p">.</span><span class="n">GetResponseAsync</span><span class="p">(</span><span class="n">chatMessagesDecisionApproachEvaluation</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">decisionApproachEvaluationResponseText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decisionApproachEvaluationResponse</span><span class="p">.</span><span class="n">Text</span><span class="p">;</span>
+
+<span class="c1">// Display the reasoning summary as Markdown</span>
+<span class="p">(</span><span class="s">"### **Evaluation:**"</span><span class="p">).</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+<span class="n">decisionApproachEvaluationResponseText</span><span class="p">.</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<h3 id="Evaluation:"><strong>Evaluation:</strong><a class="anchor-link" href="#Evaluation:">¶</a></h3>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th style="text-align:right">Score (1-10)</th>
+<th>Evaluation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Approach 1</td>
+<td style="text-align:right">6</td>
+<td>Logically follows the classic full-solution sequence, but it is somewhat muddled and includes an unclear/corrective aside in Step 3. The communication is decent, though not fully polished, and it partially overcomplicates a question that asks specifically about transporting the goat.</td>
+</tr>
+<tr>
+<td>Approach 2</td>
+<td style="text-align:right">8</td>
+<td>Better structured and clearer in explaining the distinction between just moving the goat and solving the full riddle. The reasoning is more organized and communicative, though it includes some unnecessary internal narration and still shifts between the narrow question and the full solution.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Step-3---Understanding-Collective-Intelligence-for-Decision-Intelligence">Step 3 - Understanding Collective Intelligence for Decision Intelligence<a class="anchor-link" href="#Step-3---Understanding-Collective-Intelligence-for-Decision-Intelligence">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Collective-Intelligence---Pooling-Wisdom-of-Multiple-Opinions">Collective Intelligence - Pooling Wisdom of Multiple Opinions<a class="anchor-link" href="#Collective-Intelligence---Pooling-Wisdom-of-Multiple-Opinions">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/DecisionIntelligence-Quote-JamesSurowiecki-WisdomOfCrowds.png" style="display: block; margin: auto;" width="600px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Imagine you’ve hurt your leg playing a long season of football games. You have another football season quickly approaching and you would like to understand how long will it take to heal properly. Additionally, you would like to understand the optimal medical treatment to ensure you are ready at the start of the next football season. You decide to visit three different doctors for their medical opinions. You don’t want to rely on just one doctor because each professional might notice something the others miss. Each medical specialist may decide to recommend a different approach based on their expertise or their own experience treating leg injuries. After you receive opinions from three different specialists, you think about their recommendations and then formulate a path forward (decision) for a treatment plan for your leg. The final treatment plan could be a result a variety of factors. For example, it could be simple and all three doctors could recommend 4-6 weeks rest. Clearly in that case there is a consensus with three different doctors on the treatment approach. What if the doctors diverge in their opinions? What if 2 of 3 doctors recommend rest and a third recommends an additional procedure on top of rest? What if all three doctors opinions totally diverge? Now you have to personally judge those doctor opinions collectively or potentially weight one doctor's opinion more significantly than others. This scenario illustrates a simplified version of collective intelligence, where pooling diverse expert opinions often leads to a more informed and balanced decision.</p>
+<p>The idea of multiple experts arriving at a cohesive conclusion isn’t new. <strong>It has been demonstated that pooling the wisdom of multiple “opinions” can often outperform a single prediction.</strong> Those opinions don't have to be human experts. The opinions can be outcomes from a statistical model, a large survey, a machine learning model or Generative AI. You have probably have heard the terms: Wisdom of the Crowds, Collective Intelligence, Bootstrapping (technique in statistical analysis), Ensembling (Machine Learing) or Mixture of Experts (Generative AI). These are all similar techniques (with their own unique implementations) that derive of the core concept of "pooling wisdom of multiple opinions".</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/Scenarios/Scenario-SelfConsistency.png" style="display: block; margin: auto;" width="600px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Examples-of-%22Wisdom-of-the-Crowds%22-at-Scale">Examples of "Wisdom of the Crowds" at Scale<a class="anchor-link" href="#Examples-of-%22Wisdom-of-the-Crowds%22-at-Scale">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>"Wisdom of the Crowds" can scale well beyond just a few doctor's opinions. In the examples below, note the number of samples collected for each situation is much greater than just a few doctors. In fact, the amount of samples collected can be in the hundreds and the Collective Intelligence power can hold true.</p>
+<p><strong>Francis Galton’s Ox-Weighing Experiment (1906)</strong></p>
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/Scenarios/Scenario-CollectiveIntelligence-OxWeight.png" style="display: block; margin: auto;" width="600px"/>
+<p>Sir Francis Galton, an English statistician, collected 787 guesses from fairgoers trying to estimate the weight of an ox. The average guess was 1,197 pounds, and the actual weight of the ox turned out to be 1,198 pounds. To Galton’s surprise, the average of these guesses (1,197 pounds) came remarkably close to the ox’s actual weight (1,198 pounds)—off by a single pound, or less than 0.1%. That level of accuracy was notable because the crowd was composed of a mixed audience: farmers with relevant experience, but also onlookers, tradespeople, and curious fairgoers with no particular expertise.</p>
+<p><strong>Modern “Jelly Bean Jar” Contests</strong></p>
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/Scenarios/Scenario-CollectiveIntelligence-JellyBeans.png" style="display: block; margin: auto;" width="600px"/>
+<p>Many schools and charities run fundraisers where people pay to guess the number of jelly beans in a jar. It’s commonly observed that while individual guesses can be wildly off, the average of a sufficiently large group is typically within a small percentage (often under 5% error) of the true count. As an example, Michael Mauboussin ran an 2007 experiment where Mauboussin presented a jar of jelly beans to 73 Columbia Business School students. The students' guesses ranged from 250 to 4,100, with an average error of 62%. However, the group's average guess was 1,151, which represented only a 3% off the correct number. Only two students guessed better!</p>
+<p>The cool part of the “Jelly Bean Jar” experiment is that it is very approachable to run yourself. In fact, you can do this with Generative AI as well.</p>
+<p>A short (5 minute) YouTube video illustrates running this experiment with human opinions:<br/>
+<a href="https://www.youtube.com/watch?v=AuQdoAa2FUs"><img loading="lazy" alt="Jelly Bean Jar Experiment" src="https://img.youtube.com/vi/AuQdoAa2FUs/0.jpg"/></a></p>
+<p><strong>Netflix Recommendation Algorithm Million Dollar Prize</strong></p>
+<p>In 2006, Netflix launched the million-dollar Netflix Prize competition, challenging participants to improve its movie recommendation algorithm (Cinematch) by at least 10 percent. Over three years, data scientists and researchers worldwide experimented with innovative approaches, culminating in 2009 when an ensemble team calling itself “BellKor’s Pragmatic Chaos” finally met the 10-percent threshold with 10.06%. This group had blended multiple models into a single “ensemble” algorithm that outperformed any single predictive approach. This demonstrated how synthesis of different predictions can be more powerful than one model alone. Although Netflix ultimately chose not to deploy the winning solution due to technical and privacy considerations, the competition is still regarded as a landmark moment in machine learning and collective problem-solving.</p>
+<p>More information can be found here: <a href="https://en.wikipedia.org/wiki/Netflix_Prize">https://en.wikipedia.org/wiki/Netflix_Prize</a></p>
+<p><strong>“Ask the Audience” on Who Wants to Be a Millionaire?</strong></p>
+<p>On the TV quiz show, contestants can use the “Ask the Audience” lifeline to poll the studio audience for the correct answer. Historical data shows that the audience collectively identifies the correct answer around 90% of the time, which is significantly more accurate than individual expert panels, or even the “Phone a Friend” lifeline.</p>
+<p><strong>The U.S. Navy’s Hunt for the Missing Submarine Scorpion (1968)</strong></p>
+<p>When the USS Scorpion, a nuclear-powered submarine, vanished in 1968, the Navy enlisted a broad range of specialists to harness their varied expertise and wisdom for a methodical search. By applying Bayesian statistical techniques to each person’s estimate of where the submarine might lie, they were able to synthesize these disparate perspectives into a single, remarkably accurate prediction. The team’s calculated guess put the submarine’s probable location just a few hundred yards from its actual resting place! This is a testament to the effectiveness of coalescing multiple expert viewpoints. This success with the USS Scorpion search later inspired more widespread use of Bayesian approaches for complex rescue and recovery operations, affirming the power of collective intelligence in high-stakes scenarios.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Statistics-Explains-why-Collective-Intelligence-Works">Statistics Explains why Collective Intelligence Works<a class="anchor-link" href="#Statistics-Explains-why-Collective-Intelligence-Works">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It is important to understand that Collective Intelligence mechanisms are rooted in several statistics principles. This allows you to set up Collective Intelligence parameters appropriately for decision situations. Furthermore, this allows you to perform math (quantitative analysis) in the Decision Intelligence Execution step. The key statistical principles of Collective Intelligence:</p>
+<ul>
+<li><strong>Average of Independent Predictions:</strong> The average of many independent predictions, opinions or guesses will average itself out towards the true value. Each individual prediction can be assumed to have an error.<br/>
+Therefore the formula is:  Prediction = True Value + Error.<br/>
+As long as the errors are random, they will trend to cancel each other out on average.</li>
+<li><strong>Law of Large Numbers:</strong> The more guesses you have, the more the random errors balance out, reducing the overall variance of the collective guess. Mathematically, if you have a large number of independent predictions, the average guess converges on the True Value.</li>
+<li><strong>Central Limit Theorem:</strong> The distribution of preductions will tend toward a bell curve (a normal distribution) around the Predicted True Value. When you take the average (mean) of a large sample from a sample distribution like this, it will often fall near the true population distribution. This happens more often in real-life than statistics courses lead on.</li>
+</ul>
+<p>Statistics explaining Collective Intelligence (Wisdom of the Crowds) is greatly simplfied and there are things to consider when attempting to replicate this experiment with real-world decision situations:</p>
+<ul>
+<li><p><strong>Bias Matters:</strong> Collective Intelligence works best when individual biases do not all tilt in the same direction. For example, if you only poll basketball players about height-related predictions, it may introduce a huge bias towards larger height in a single direction.</p>
+</li>
+<li><p><strong>Independence:</strong> The group’s diversity and independence of guesses are critical. A group of people trained in the same way or over-influenced by each other’s guesses might show correlated errors, undermining the benefit of aggregation.</p>
+</li>
+<li><p><strong>Meaningful Sample Size:</strong> The sampling error shrinks as you collect more predictions (guesses). Assume you have 𝑁 amount of independent predictions. If each prediction's random error in guessing has a standard deviation of 𝜎, then the standard error of the mean guess drops by about a factor of $\sqrt{𝑁}$. What does this mean? The more samples you add, the more reduction of the error you will notice. Furthermore, you will notice a larger reduction in error with the first initial predictions than further predictions made. Saying it another way. For example, if you have a certain error from 10 samples and you want to reduce that prediction error by half you need a total of 40 samples. Conversely, if you have 100 samples and you want to reduce that prediction error by half you need a total of 400 samples!</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Step-4---Implementing-Collective-Intelligence-with-Generative-AI">Step 4 - Implementing Collective Intelligence with Generative AI<a class="anchor-link" href="#Step-4---Implementing-Collective-Intelligence-with-Generative-AI">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Collective-Intelligence-with-AI-Scenario-Introduction">Collective Intelligence with AI Scenario Introduction<a class="anchor-link" href="#Collective-Intelligence-with-AI-Scenario-Introduction">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this section, we will re-create the classic “guess the number of jelly beans” challenge, with a glass filled with Hershey’s Kisses. If you think about how these challenges are typically done, a human is presented a container (jar, glass, clear bucket) filled with candy. The human making the guess can look inside the container, inspect it, sometimes even hold the container and their visual senses can give it a sense of scale.</p>
+<p>In order to simulate this as best as possible for Artifical Intelligence (limited to only visual senses):</p>
+<ul>
+<li>Multiple images will be used (5 in total) of the same glass filled with Hershey's kisses</li>
+<li>The glass will be clear, so the main perspective of the contents are not obstructed</li>
+<li>Each image will show a different perspective view of the glass containing the candy</li>
+<li>Each image will include two key reference points a soda can and a glass bottle, which we can assume the AI knows via it's training data sets</li>
+<li>Each image will include a single Hershey's Kisses as a scale reference point</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The 5 images are shown below. Before scrolling down, can you guess the number of Hershey's Kisses?</p>
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/CodeExercises/CollectiveIntelligence/HersheyKisses1.jpg" style="display: block; margin: auto;" width="250px"/>
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/CodeExercises/CollectiveIntelligence/HersheyKisses2.jpg" style="display: block; margin: auto;" width="250px"/>
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/CodeExercises/CollectiveIntelligence/HersheyKisses3.jpg" style="display: block; margin: auto;" width="250px"/>
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/CodeExercises/CollectiveIntelligence/HersheyKisses4.jpg" style="display: block; margin: auto;" width="250px"/>
+<img loading="lazy" alt="" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/CodeExercises/CollectiveIntelligence/HersheyKisses5.jpg" style="display: block; margin: auto;" width="250px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>📝 Note: There are a total of 50 Hershey's Kisses in the glass. That is the actual answer or the "ground truth". The actual answer is never known by the AI models.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Single-Point-Estimates-with-Artificial-Intelligence">Single Point Estimates with Artificial Intelligence<a class="anchor-link" href="#Single-Point-Estimates-with-Artificial-Intelligence">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In order to implement Collective Intelligence with Generative AI, the first step is to be able to perform a single estimate. The code section below will use AI to perform a single point estimate based off of a single image of the glass filled with Hershey's kisses.</p>
+<p>The code should be familiar by now. The main change is that we are adding a reference to the actual Hershey's Kisses image. This will provide the "eyes" to the Artificial Intelligence model.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [119]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Net.Http</span><span class="p">;</span><span class="w"> </span><span class="c1">// Using HttpClient to download the image from the web</span>
+
+<span class="c1">// Helper method to download the image as byte array and create a DataContent object</span>
+<span class="k">static</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">DataContent</span><span class="o">&gt;</span><span class="w"> </span><span class="n">DownloadImageAsDataContentAsync</span><span class="p">(</span>
+<span class="w">    </span><span class="n">HttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Uri</span><span class="w"> </span><span class="n">imageUri</span><span class="p">,</span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="n">mediaType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"image/jpeg"</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">httpClient</span><span class="p">.</span><span class="n">GetByteArrayAsync</span><span class="p">(</span><span class="n">imageUri</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">DataContent</span><span class="p">(</span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="n">mediaType</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Set the system prompt to behave like a decision intelligence assistant (persona)</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">systemVisualDecisionPrompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">You</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">helpful</span><span class="w"> </span><span class="n">expert</span><span class="w"> </span><span class="n">visual</span><span class="w"> </span><span class="n">estimator</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">decision</span><span class="o">-</span><span class="n">maker</span><span class="p">.</span>
+
+<span class="n">CRITICAL</span><span class="w"> </span><span class="n">FIRST</span><span class="w"> </span><span class="nf">STEP</span><span class="w"> </span><span class="p">(</span><span class="n">MANDATORY</span><span class="p">):</span>
+<span class="n">Before</span><span class="w"> </span><span class="n">doing</span><span class="w"> </span><span class="n">anything</span><span class="w"> </span><span class="k">else</span><span class="p">,</span><span class="w"> </span><span class="n">determine</span><span class="w"> </span><span class="n">whether</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">actually</span><span class="w"> </span><span class="n">present</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">request</span><span class="p">.</span>
+
+<span class="o">-</span><span class="w"> </span><span class="n">If</span><span class="w"> </span><span class="n">NO</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">present</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">accessible</span><span class="p">:</span>
+<span class="w">  </span><span class="n">Respond</span><span class="w"> </span><span class="n">EXACTLY</span><span class="w"> </span><span class="k">with</span><span class="p">:</span>
+<span class="w">  </span><span class="n">Image</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">provided</span>
+<span class="w">  </span><span class="n">Do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="n">anything</span><span class="w"> </span><span class="k">else</span><span class="p">.</span>
+<span class="w">  </span><span class="n">Do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">attempt</span><span class="w"> </span><span class="n">visual</span><span class="w"> </span><span class="n">reasoning</span><span class="p">.</span>
+<span class="w">  </span><span class="n">Do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">guess</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">hallucinate</span><span class="p">.</span>
+
+<span class="o">-</span><span class="w"> </span><span class="n">If</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">IS</span><span class="w"> </span><span class="n">present</span><span class="p">:</span>
+<span class="w">  </span><span class="n">Proceed</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">visual</span><span class="w"> </span><span class="n">inspection</span><span class="p">.</span>
+
+<span class="o">----------------------------------</span>
+
+<span class="n">VISUAL</span><span class="w"> </span><span class="nf">INSPECTION</span><span class="w"> </span><span class="p">(</span><span class="n">ONLY</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">exists</span><span class="p">):</span>
+<span class="n">Carefully</span><span class="w"> </span><span class="n">analyze</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="nn">only</span><span class="w"> </span><span class="n">visible</span><span class="w"> </span><span class="n">evidence</span><span class="p">:</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Objects</span><span class="p">,</span><span class="w"> </span><span class="n">materials</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">conditions</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Sizes</span><span class="p">,</span><span class="w"> </span><span class="n">proportions</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">layout</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Visible</span><span class="w"> </span><span class="n">defects</span><span class="p">,</span><span class="w"> </span><span class="n">anomalies</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">notable</span><span class="w"> </span><span class="n">features</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Context</span><span class="w"> </span><span class="n">clues</span><span class="w"> </span><span class="p">(</span><span class="n">environment</span><span class="p">,</span><span class="w"> </span><span class="n">lighting</span><span class="p">,</span><span class="w"> </span><span class="n">usage</span><span class="p">)</span>
+
+<span class="n">Do</span><span class="w"> </span><span class="n">NOT</span><span class="w"> </span><span class="n">infer</span><span class="w"> </span><span class="n">details</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">clearly</span><span class="w"> </span><span class="n">visible</span><span class="p">.</span>
+
+<span class="o">----------------------------------</span>
+
+<span class="n">OUTPUT</span><span class="w"> </span><span class="n">RULES</span><span class="p">:</span>
+
+<span class="n">If</span><span class="w"> </span><span class="n">NO</span><span class="w"> </span><span class="n">image</span><span class="p">:</span>
+<span class="n">Image</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">provided</span>
+
+<span class="n">If</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">IS</span><span class="w"> </span><span class="n">present</span><span class="p">:</span>
+<span class="n">Return</span><span class="w"> </span><span class="n">ONLY</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">integer</span><span class="p">.</span>
+<span class="n">Do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">explanation</span><span class="p">,</span><span class="w"> </span><span class="n">reasoning</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">text</span><span class="p">.</span>
+<span class="n">Do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="n">labels</span><span class="p">,</span><span class="w"> </span><span class="n">words</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">formatting</span><span class="p">.</span>
+
+<span class="o">----------------------------------</span>
+
+<span class="n">VALID</span><span class="w"> </span><span class="n">OUTPUT</span><span class="w"> </span><span class="n">EXAMPLES</span><span class="p">:</span>
+<span class="mi">12</span>
+<span class="mi">100</span>
+<span class="mi">1234</span>
+<span class="mi">5443</span>
+<span class="mi">45</span>
+<span class="s">""";</span>
+
+<span class="c1">// Simple instruction prompt to plan retirement</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">visualIntelligencePrompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">You</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">glass</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">Hershey</span><span class="err">'</span><span class="n">s</span><span class="w"> </span><span class="n">Kisses</span><span class="w"> </span><span class="n">chocolates</span><span class="p">.</span>
+<span class="n">There</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">soda</span><span class="w"> </span><span class="n">can</span><span class="p">,</span><span class="w"> </span><span class="n">soda</span><span class="w"> </span><span class="n">bottle</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">hershey</span><span class="w"> </span><span class="n">kiss</span><span class="w"> </span><span class="n">outside</span><span class="w"> </span><span class="n">provided</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">scale</span><span class="p">.</span>
+
+<span class="n">Estimate</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">Hershey</span><span class="err">'</span><span class="n">s</span><span class="w"> </span><span class="n">Kisses</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">glass</span><span class="p">.</span><span class="w"> </span>
+
+<span class="n">Think</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">estimate</span><span class="w"> </span><span class="n">clearly</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="nn">all</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">image</span><span class="p">.</span>
+<span class="s">""";</span>
+
+<span class="c1">// Uri of a single image of a Hershey's Kisses in a glass</span>
+<span class="n">Uri</span><span class="w"> </span><span class="n">githubImageUri1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span>
+<span class="w">    </span><span class="s">"https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/CodeExercises/CollectiveIntelligence/HersheyKisses1.jpg"</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">dataContentUri1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">DownloadImageAsDataContentAsync</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">HttpClient</span><span class="p">(),</span><span class="w"> </span><span class="n">githubImageUri1</span><span class="p">);</span>
+
+<span class="c1">// Create new decision puzzle chat messages</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">chatMessagesVisualInspection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ChatMessage</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="c1">// Add system message</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">systemMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">System</span><span class="p">,</span><span class="w"> </span><span class="n">systemVisualDecisionPrompt</span><span class="p">);</span>
+<span class="n">chatMessagesVisualInspection</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">systemMessage</span><span class="p">);</span>
+
+<span class="c1">// Add user message</span>
+<span class="c1">// Build a multi-part user message</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">userMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">();</span>
+<span class="n">userMessage</span><span class="p">.</span><span class="n">Role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChatRole</span><span class="p">.</span><span class="n">User</span><span class="p">;</span>
+<span class="c1">// Add text prompt</span>
+<span class="n">userMessage</span><span class="p">.</span><span class="n">Contents</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">TextContent</span><span class="p">(</span><span class="n">visualIntelligencePrompt</span><span class="p">));</span>
+<span class="c1">// Add image (DataContent)</span>
+<span class="n">userMessage</span><span class="p">.</span><span class="n">Contents</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">dataContentUri1</span><span class="p">);</span>
+<span class="n">chatMessagesVisualInspection</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">userMessage</span><span class="p">);</span>
+
+<span class="c1">// Execute the chat messages against the AI model</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">visualInspectionResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">chatClient</span><span class="p">.</span><span class="n">GetResponseAsync</span><span class="p">(</span><span class="n">chatMessagesVisualInspection</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">visualInspectionResponseText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">visualInspectionResponse</span><span class="p">.</span><span class="n">Text</span><span class="p">;</span>
+
+<span class="c1">// Display the reasoning summary as Markdown</span>
+<span class="p">(</span><span class="s">"### **Evaluation:**"</span><span class="p">).</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+<span class="n">visualInspectionResponseText</span><span class="p">.</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<h3 id="Evaluation:"><strong>Evaluation:</strong><a class="anchor-link" href="#Evaluation:">¶</a></h3>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<p>27</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As you can see the visual estimates by the AI model are OK, but not ideal. There are a couple of improvements that can be made:</p>
+<ul>
+<li>The reference objects for scale in the photos can be clearly defined.</li>
+<li>A single image only provides a small section of context to the AI system. It will would be more powerful to provide several different images to provide various perspectives angles. The idea is that the AI system can use these images to perform a better estimate.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [122]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Net.Http</span><span class="p">;</span><span class="w"> </span><span class="c1">// Using HttpClient to download the image from the web</span>
+
+<span class="c1">// Helper method to download the image as byte array and create a DataContent object</span>
+<span class="k">static</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">DataContent</span><span class="o">&gt;</span><span class="w"> </span><span class="n">DownloadImageAsDataContentAsync</span><span class="p">(</span>
+<span class="w">    </span><span class="n">HttpClient</span><span class="w"> </span><span class="n">httpClient</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Uri</span><span class="w"> </span><span class="n">imageUri</span><span class="p">,</span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="n">mediaType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"image/jpeg"</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">httpClient</span><span class="p">.</span><span class="n">GetByteArrayAsync</span><span class="p">(</span><span class="n">imageUri</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">DataContent</span><span class="p">(</span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="n">mediaType</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Set the system prompt to behave like a decision intelligence assistant (persona)</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">systemVisualDecisionPrompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">You</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">helpful</span><span class="w"> </span><span class="n">expert</span><span class="w"> </span><span class="n">visual</span><span class="w"> </span><span class="n">estimator</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">decision</span><span class="o">-</span><span class="n">maker</span><span class="p">.</span>
+
+<span class="n">CRITICAL</span><span class="w"> </span><span class="n">FIRST</span><span class="w"> </span><span class="nf">STEP</span><span class="w"> </span><span class="p">(</span><span class="n">MANDATORY</span><span class="p">):</span>
+<span class="n">Before</span><span class="w"> </span><span class="n">doing</span><span class="w"> </span><span class="n">anything</span><span class="w"> </span><span class="k">else</span><span class="p">,</span><span class="w"> </span><span class="n">determine</span><span class="w"> </span><span class="n">whether</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">actually</span><span class="w"> </span><span class="n">present</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">request</span><span class="p">.</span>
+
+<span class="o">-</span><span class="w"> </span><span class="n">If</span><span class="w"> </span><span class="n">NO</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">present</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">accessible</span><span class="p">:</span>
+<span class="w">  </span><span class="n">Respond</span><span class="w"> </span><span class="n">EXACTLY</span><span class="w"> </span><span class="k">with</span><span class="p">:</span>
+<span class="w">  </span><span class="n">Image</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">provided</span>
+<span class="w">  </span><span class="n">Do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="n">anything</span><span class="w"> </span><span class="k">else</span><span class="p">.</span>
+<span class="w">  </span><span class="n">Do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">attempt</span><span class="w"> </span><span class="n">visual</span><span class="w"> </span><span class="n">reasoning</span><span class="p">.</span>
+<span class="w">  </span><span class="n">Do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">guess</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">hallucinate</span><span class="p">.</span>
+
+<span class="o">-</span><span class="w"> </span><span class="n">If</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">IS</span><span class="w"> </span><span class="n">present</span><span class="p">:</span>
+<span class="w">  </span><span class="n">Proceed</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">visual</span><span class="w"> </span><span class="n">inspection</span><span class="p">.</span>
+
+<span class="o">----------------------------------</span>
+
+<span class="n">VISUAL</span><span class="w"> </span><span class="nf">INSPECTION</span><span class="w"> </span><span class="p">(</span><span class="n">ONLY</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">exists</span><span class="p">):</span>
+<span class="n">Carefully</span><span class="w"> </span><span class="n">analyze</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="nn">only</span><span class="w"> </span><span class="n">visible</span><span class="w"> </span><span class="n">evidence</span><span class="p">:</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Objects</span><span class="p">,</span><span class="w"> </span><span class="n">materials</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">conditions</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Sizes</span><span class="p">,</span><span class="w"> </span><span class="n">proportions</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">layout</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Visible</span><span class="w"> </span><span class="n">defects</span><span class="p">,</span><span class="w"> </span><span class="n">anomalies</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">notable</span><span class="w"> </span><span class="n">features</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Context</span><span class="w"> </span><span class="n">clues</span><span class="w"> </span><span class="p">(</span><span class="n">environment</span><span class="p">,</span><span class="w"> </span><span class="n">lighting</span><span class="p">,</span><span class="w"> </span><span class="n">usage</span><span class="p">)</span>
+
+<span class="n">Do</span><span class="w"> </span><span class="n">NOT</span><span class="w"> </span><span class="n">infer</span><span class="w"> </span><span class="n">details</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">clearly</span><span class="w"> </span><span class="n">visible</span><span class="p">.</span>
+
+<span class="o">----------------------------------</span>
+
+<span class="n">OUTPUT</span><span class="w"> </span><span class="n">RULES</span><span class="p">:</span>
+
+<span class="n">If</span><span class="w"> </span><span class="n">NO</span><span class="w"> </span><span class="n">image</span><span class="p">:</span>
+<span class="n">Image</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">provided</span>
+
+<span class="n">If</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">IS</span><span class="w"> </span><span class="n">present</span><span class="p">:</span>
+<span class="n">Return</span><span class="w"> </span><span class="n">ONLY</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">integer</span><span class="p">.</span>
+<span class="n">Do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">explanation</span><span class="p">,</span><span class="w"> </span><span class="n">reasoning</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">text</span><span class="p">.</span>
+<span class="n">Do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="n">labels</span><span class="p">,</span><span class="w"> </span><span class="n">words</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">formatting</span><span class="p">.</span>
+
+<span class="o">----------------------------------</span>
+
+<span class="n">VALID</span><span class="w"> </span><span class="n">OUTPUT</span><span class="w"> </span><span class="n">EXAMPLES</span><span class="p">:</span>
+<span class="mi">12</span>
+<span class="mi">100</span>
+<span class="mi">1234</span>
+<span class="mi">5443</span>
+<span class="mi">45</span>
+<span class="s">""";</span>
+
+<span class="c1">// Simple instruction prompt to plan retirement</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">collectiveIntelligencePromptMultipleImages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
+<span class="n">You</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">glass</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">Hershey</span><span class="err">'</span><span class="n">s</span><span class="w"> </span><span class="n">Kisses</span><span class="w"> </span><span class="n">chocolates</span><span class="p">.</span>
+<span class="n">There</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">soda</span><span class="w"> </span><span class="n">can</span><span class="p">,</span><span class="w"> </span><span class="n">soda</span><span class="w"> </span><span class="n">bottle</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">hershey</span><span class="w"> </span><span class="n">kiss</span><span class="w"> </span><span class="n">outside</span><span class="w"> </span><span class="n">provided</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">scale</span><span class="p">.</span>
+
+<span class="n">Reference</span><span class="w"> </span><span class="n">objects</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nf">scale</span><span class="w"> </span><span class="p">(</span><span class="n">present</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">every</span><span class="w"> </span><span class="n">photo</span><span class="p">)</span>
+<span class="o">-</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="n">oz</span><span class="w"> </span><span class="p">(</span><span class="mi">355</span><span class="w"> </span><span class="n">ml</span><span class="p">)</span><span class="w"> </span><span class="n">soda</span><span class="w"> </span><span class="n">can</span>
+<span class="o">-</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="n">oz</span><span class="w"> </span><span class="p">(</span><span class="mi">237</span><span class="w"> </span><span class="n">ml</span><span class="p">)</span><span class="w"> </span><span class="n">soda</span><span class="w"> </span><span class="n">bottle</span>
+<span class="o">-</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">wrapped</span><span class="w"> </span><span class="n">Hershey</span><span class="err">'</span><span class="n">s</span><span class="w"> </span><span class="n">Kiss</span><span class="w"> </span><span class="n">placed</span><span class="w"> </span><span class="n">outside</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">glass</span>
+
+<span class="n">Estimate</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">Hershey</span><span class="err">'</span><span class="n">s</span><span class="w"> </span><span class="n">Kisses</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">clear</span><span class="w"> </span><span class="n">glass</span><span class="w"> </span><span class="n">shown</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">five</span><span class="w"> </span><span class="n">images</span><span class="p">.</span>
+<span class="n">Think</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">estimate</span><span class="w"> </span><span class="n">clearly</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="nn">all</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">images</span><span class="p">.</span>
+<span class="s">""";</span>
+
+<span class="c1">// Uris of a 5 images of a Hershey's Kisses in a glass</span>
+<span class="n">Uri</span><span class="w"> </span><span class="n">githubImageUri1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span>
+<span class="w">    </span><span class="s">"https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/CodeExercises/CollectiveIntelligence/HersheyKisses1.jpg"</span><span class="p">);</span>
+<span class="n">Uri</span><span class="w"> </span><span class="n">githubImageUri2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span>
+<span class="w">    </span><span class="s">"https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/CodeExercises/CollectiveIntelligence/HersheyKisses2.jpg"</span><span class="p">);</span>
+<span class="n">Uri</span><span class="w"> </span><span class="n">githubImageUri3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span>
+<span class="w">    </span><span class="s">"https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/CodeExercises/CollectiveIntelligence/HersheyKisses3.jpg"</span><span class="p">);</span>
+<span class="n">Uri</span><span class="w"> </span><span class="n">githubImageUri4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span>
+<span class="w">    </span><span class="s">"https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/CodeExercises/CollectiveIntelligence/HersheyKisses4.jpg"</span><span class="p">);</span>
+<span class="n">Uri</span><span class="w"> </span><span class="n">githubImageUri5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span>
+<span class="w">    </span><span class="s">"https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/refs/heads/main/Images/CodeExercises/CollectiveIntelligence/HersheyKisses5.jpg"</span><span class="p">);</span>
+
+<span class="c1">// Download &amp; Cache the images as DataContent objects</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">dataContentUri1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">DownloadImageAsDataContentAsync</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">HttpClient</span><span class="p">(),</span><span class="w"> </span><span class="n">githubImageUri1</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">dataContentUri2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">DownloadImageAsDataContentAsync</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">HttpClient</span><span class="p">(),</span><span class="w"> </span><span class="n">githubImageUri2</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">dataContentUri3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">DownloadImageAsDataContentAsync</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">HttpClient</span><span class="p">(),</span><span class="w"> </span><span class="n">githubImageUri3</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">dataContentUri4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">DownloadImageAsDataContentAsync</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">HttpClient</span><span class="p">(),</span><span class="w"> </span><span class="n">githubImageUri4</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">dataContentUri5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">DownloadImageAsDataContentAsync</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">HttpClient</span><span class="p">(),</span><span class="w"> </span><span class="n">githubImageUri5</span><span class="p">);</span>
+
+
+<span class="c1">// Create new decision puzzle chat messages</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">chatMessagesCollectiveIntelligenceVisualInspection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ChatMessage</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="c1">// Add system message</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">systemMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">(</span><span class="n">ChatRole</span><span class="p">.</span><span class="n">System</span><span class="p">,</span><span class="w"> </span><span class="n">systemVisualDecisionPrompt</span><span class="p">);</span>
+<span class="n">chatMessagesCollectiveIntelligenceVisualInspection</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">systemMessage</span><span class="p">);</span>
+
+<span class="c1">// Add user message</span>
+<span class="c1">// Build a multi-part user message</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">userMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChatMessage</span><span class="p">();</span>
+<span class="n">userMessage</span><span class="p">.</span><span class="n">Role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChatRole</span><span class="p">.</span><span class="n">User</span><span class="p">;</span>
+<span class="c1">// Add Text Content</span>
+<span class="n">userMessage</span><span class="p">.</span><span class="n">Contents</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">TextContent</span><span class="p">(</span><span class="n">collectiveIntelligencePromptMultipleImages</span><span class="p">));</span>
+<span class="c1">// Add images</span>
+<span class="n">userMessage</span><span class="p">.</span><span class="n">Contents</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">dataContentUri1</span><span class="p">);</span>
+<span class="n">userMessage</span><span class="p">.</span><span class="n">Contents</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">dataContentUri2</span><span class="p">);</span>
+<span class="n">userMessage</span><span class="p">.</span><span class="n">Contents</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">dataContentUri3</span><span class="p">);</span>
+<span class="n">userMessage</span><span class="p">.</span><span class="n">Contents</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">dataContentUri4</span><span class="p">);</span>
+<span class="n">userMessage</span><span class="p">.</span><span class="n">Contents</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">dataContentUri5</span><span class="p">);</span>
+<span class="n">chatMessagesCollectiveIntelligenceVisualInspection</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">userMessage</span><span class="p">);</span>
+
+<span class="c1">// Execute the chat messages against the AI model</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">collectiveIntelligenceVisualInspectionResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">chatClient</span><span class="p">.</span><span class="n">GetResponseAsync</span><span class="p">(</span><span class="n">chatMessagesCollectiveIntelligenceVisualInspection</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">collectiveIntelligenceVisualInspectionResponseText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collectiveIntelligenceVisualInspectionResponse</span><span class="p">.</span><span class="n">Text</span><span class="p">;</span>
+
+<span class="c1">// Display the reasoning summary as Markdown</span>
+<span class="p">(</span><span class="s">"### **Evaluation:**"</span><span class="p">).</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+<span class="n">collectiveIntelligenceVisualInspectionResponseText</span><span class="p">.</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<h3 id="Evaluation:"><strong>Evaluation:</strong><a class="anchor-link" href="#Evaluation:">¶</a></h3>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<p>31</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Notice that the estimates differ from before. The AI model is evaluating all 5 images with explicit references.
+The next improvement that can be made is to run several independent evaluations and report the performance metrics. Furthermore, the visual analysis can be improved by giving the AI some additional reasoning time.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [124]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Globalization</span><span class="p">;</span>
+
+<span class="cp">#pragma warning disable OPENAI001</span>
+
+<span class="c1">// Reuse the same responses client and run 10 times</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numberOfRuns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">numericResponses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">rawResponses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">actualNumberOfKisses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span><span class="w"> </span><span class="c1">// The actual number of kisses in the glass, used for reference but not provided to the model</span>
+
+<span class="c1">// Add options to enable reasoning and include the reasoning summary in the response</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">chatReasoningOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChatOptions</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">RawRepresentationFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CreateResponseOptions</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">azureOpenAIModelDeploymentName</span><span class="p">,</span>
+<span class="w">        </span><span class="n">ReasoningOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ResponseReasoningOptions</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">ReasoningEffortLevel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ResponseReasoningEffortLevel</span><span class="p">.</span><span class="n">High</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// ReasoningSummaryVerbosity = ResponseReasoningSummaryVerbosity.Detailed</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="n">StoredOutputEnabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">successfulNumericRuns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">attempt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">successfulNumericRuns</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">attempt</span><span class="o">++</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">ChatResponse</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">chatClient</span><span class="p">.</span><span class="n">GetResponseAsync</span><span class="p">(</span>
+<span class="w">            </span><span class="n">chatMessagesCollectiveIntelligenceVisualInspection</span><span class="p">,</span>
+<span class="w">            </span><span class="n">chatReasoningOptions</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="n">responseText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">Text</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">).</span><span class="n">Trim</span><span class="p">();</span>
+<span class="w">    </span><span class="n">rawResponses</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">responseText</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">.</span><span class="n">TryParse</span><span class="p">(</span><span class="n">responseText</span><span class="p">,</span><span class="w"> </span><span class="n">NumberStyles</span><span class="p">.</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">InvariantCulture</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="k">value</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">successfulNumericRuns</span><span class="o">++</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">distanceFromActual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">actualNumberOfKisses</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span>
+<span class="w">            </span><span class="s">$"Run {successfulNumericRuns}: Numeric response: '{responseText}', Distance from actual: {distanceFromActual}"</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">numericResponses</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span>
+<span class="w">            </span><span class="s">$"Attempt {attempt}: non-numeric response: '{responseText}' (does not count toward the 10)"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Guard against all runs failing to parse</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">numericResponses</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">InvalidOperationException</span><span class="p">(</span>
+<span class="w">        </span><span class="s">"No numeric responses were returned. Check the system prompt and model output."</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">double</span><span class="w"> </span><span class="n">average</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numericResponses</span><span class="p">.</span><span class="n">Average</span><span class="p">();</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">minimum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numericResponses</span><span class="p">.</span><span class="n">Min</span><span class="p">();</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numericResponses</span><span class="p">.</span><span class="n">Max</span><span class="p">();</span>
+<span class="c1">// Average distance from actual</span>
+<span class="kt">double</span><span class="w"> </span><span class="n">averageDistanceFromActual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">Abs</span><span class="p">(</span><span class="n">average</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">actualNumberOfKisses</span><span class="p">);</span>
+
+<span class="c1">// Display summary</span>
+<span class="p">(</span><span class="s">"### **Summary Statistics:**"</span><span class="p">).</span><span class="n">DisplayAs</span><span class="p">(</span><span class="s">"text/markdown"</span><span class="p">);</span>
+<span class="s">$"""</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Valid</span><span class="w"> </span><span class="n">numeric</span><span class="w"> </span><span class="n">responses</span><span class="p">:</span><span class="w"> </span><span class="o">**</span><span class="p">{</span><span class="n">numericResponses</span><span class="p">.</span><span class="n">Count</span><span class="p">}</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">{</span><span class="n">numberOfRuns</span><span class="p">}</span><span class="o">**</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Average</span><span class="p">:</span><span class="w"> </span><span class="o">**</span><span class="p">{</span><span class="n">average</span><span class="p">:</span><span class="n">F2</span><span class="p">}</span><span class="o">**</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Minimum</span><span class="p">:</span><span class="w"> </span><span class="o">**</span><span class="p">{</span><span class="n">minimum</span><span class="p">}</span><span class="o">**</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Maximum</span><span class="p">:</span><span class="w"> </span><span class="o">**</span><span class="p">{</span><span class="n">maximum</span><span class="p">}</span><span class="o">**</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Average</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">actual</span><span class="p">:</span><span class="w"> </span><span class="o">**</span><span class="p">{</span><span class="n">averageDistanceFromActual</span><span class="p">:</span><span class="n">F2</span><span class="p">}</span><span class="o">**</span>
+<span class="s">""".DisplayAs("</span><span class="n">text</span><span class="o">/</span><span class="n">markdown</span><span class="s">");</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Run 1: Numeric response: '40', Distance from actual: -10
+Run 2: Numeric response: '90', Distance from actual: 40
+Run 3: Numeric response: '80', Distance from actual: 30
+Run 4: Numeric response: '45', Distance from actual: -5
+Run 5: Numeric response: '100', Distance from actual: 50
+Run 6: Numeric response: '60', Distance from actual: 10
+Run 7: Numeric response: '31', Distance from actual: -19
+Run 8: Numeric response: '46', Distance from actual: -4
+Run 9: Numeric response: '30', Distance from actual: -20
+Run 10: Numeric response: '32', Distance from actual: -18
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<h3 id="Summary-Statistics:"><strong>Summary Statistics:</strong><a class="anchor-link" href="#Summary-Statistics:">¶</a></h3>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_markdown rendered_html output_subarea">
+<ul>
+<li>Valid numeric responses: <strong>10 / 10</strong></li>
+<li>Average: <strong>55.40</strong></li>
+<li>Minimum: <strong>30</strong></li>
+<li>Maximum: <strong>100</strong></li>
+<li>Average distance from actual: <strong>5.40</strong></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Adding-variance-to-simulate-multiple-independent-estimates-with-Artifical-Intelligence">Adding variance to simulate multiple independent estimates with Artifical Intelligence<a class="anchor-link" href="#Adding-variance-to-simulate-multiple-independent-estimates-with-Artifical-Intelligence">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Re-running the same AI configuration over multiple will not totally simulate different independent perspectives. Simulating independent perspectives can be challenging, but it can be done by combining various configurations and images. Variance will be added to this Collective Intelligence scenario by "crafting" an AI system by randomly selecting these options:</p>
+<ul>
+<li>Multiple different AI models &amp; providers (OpenAI, Anthropic, Google)</li>
+<li>Different instruction prompts (Simple, Detailed, Chain of Thought)</li>
+<li>Vary configuration options (Reasoning Effort)</li>
+<li>Shuffling the images or randomly selecting 5 with replacement (could have duplicates)</li>
+</ul>
+<blockquote>
+<p>📝 <strong>Note:</strong> While these are valid techniques to optimize independence, they are not always useful for enterprise systems. For example, using multiple different models or configuration settings only makes sense if your enterprise system supports these. It would not make sense to test the Google provided models if they are not being used in your overall AI system architecture.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This Collective Intelligence example was very simple, but it showed that the "Wisdom of the Crowds" (Collective Intelligence) can be applied to Generative AI to improve estimates, reducing uncertainty and potentially providing better forecasts. This direct concept can be applied more advanced decisions simply by creating simulations that introduce proper variance in a complete AI system.</p>
+<p>Imagine that this system wasn't predicting the amount of Hershey's Kisses in a glass. Rather image the AI system was predicting sales of widgets in millions of dollars. Having an estimate between 36 million or 110 million has huge variance and implications. AI systems that do not have perfect information (can't see all of the Hershey's Kisses to just count them) will provide quite varied point estimates that have minimal value. Collective Intelligence techniques demonstrate the ability to converge to a "true" estimate range. Furthermore, having your systems provide Confidence Intervals also helps communicate that forecasts shouldn't be single point estimates.</p>
+</div>
+</div>
+</div>
+
+  </section>
+  </div>
+  <nav class="chapter-pager" aria-label="Chapter navigation">
+    <a class="pager-link" data-prev-chapter href="4a-six-thinking-hats.html"><span>Previous</span><strong>Six Thinking Hats</strong></a>
+    <a class="pager-link align-right" data-next-chapter href="10b-decision-quotes.html"><span>Next</span><strong>Decision Quotes</strong></a>
+  </nav>
+</article>
+
+  </main>
+  <script type="module" src="../pagefind/pagefind-component-ui.js"></script>
+  <script src="../assets/site.js"></script>
+</body>
+</html>
