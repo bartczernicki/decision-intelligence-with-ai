@@ -88,59 +88,11 @@
       "include_in_build": true
     },
     {
-      "file": "4d - Semantic Kernel - Gathering Intelligence with Generative AI.ipynb",
-      "include_in_build": false
+      "file": "4a - Decision Framing - Six Thinking Hats.ipynb",
+      "include_in_build": true
     },
     {
-      "file": "4x - Workshop (AI Extensions) - Engineering Better Decisions & Collective Intelligence.ipynb",
-      "include_in_build": false
-    },
-    {
-      "file": "4x - Workshop (AI Extensions) - Optimizing with Decision Frames.ipynb",
-      "include_in_build": false
-    },
-    {
-      "file": "4x - Workshop (AI Extensions) - Premortem (What-If) Decision Analysis.ipynb",
-      "include_in_build": false
-    },
-    {
-      "file": "5a - Semantic Kernel - Scale Decision Processes with Plugins.ipynb",
-      "include_in_build": false
-    },
-    {
-      "file": "5b - Semantic Kernel - Plugins for Decision Communication.ipynb",
-      "include_in_build": false
-    },
-    {
-      "file": "5c - Semantic Kernel - Custom Plugins for Decision Recommendation.ipynb",
-      "include_in_build": false
-    },
-    {
-      "file": "5d - Semantic Kernel - Diverse Plugins for Decision Making.ipynb",
-      "include_in_build": false
-    },
-    {
-      "file": "6a - OpenAI - Improving Decisions with OpenAI LogProbs.ipynb",
-      "include_in_build": false
-    },
-    {
-      "file": "6b - OpenAI - Measuring GenAI Probabilistic Accuracy with LogProbs.ipynb",
-      "include_in_build": false
-    },
-    {
-      "file": "6c - OpenAI - Validating Multiple Decisions with Aggregated Brier Scores.ipynb",
-      "include_in_build": false
-    },
-    {
-      "file": "7a - Semantic Kernel - Decisions with AI Agent Personas.ipynb",
-      "include_in_build": false
-    },
-    {
-      "file": "7b - Semantic Kernel - Decisions with Multi-AI Agent Personas.ipynb",
-      "include_in_build": false
-    },
-    {
-      "file": "10a - Appendix - Book Resources.ipynb",
+      "file": "5b - Gathering Intelligence - Collective Intelligence.ipynb",
       "include_in_build": true
     },
     {
