@@ -78,7 +78,7 @@
   
 <nav class="chapter-toc" aria-label="Chapter table of contents">
   <strong>On this page</strong>
-  <a class="toc-h3" href="#Step-1---Initialize-Configuration-Builder-&amp;-Build-the-AI-Orchestration">Step 1 - Initialize Configuration Builder &amp; Build the AI Orchestration</a><a class="toc-h3" href="#Step-2---Execute-Decision-Chat-Completion-with-Prompt-Execution-Settings">Step 2 - Execute Decision Chat Completion with Prompt Execution Settings</a><a class="toc-h3" href="#Step-3---Execute-Decision-Chat-Completion-with-a-System-Prompt-&amp;-Chat-History">Step 3 - Execute Decision Chat Completion with a System Prompt &amp; Chat History</a><a class="toc-h3" href="#Step-4---Execute-Decision-Chat-Completion-with-a-Multi-Turn-Conversation-Scenario">Step 4 - Execute Decision Chat Completion with a Multi-Turn Conversation Scenario</a><a class="toc-h3" href="#Step-5---Inspect-&amp;-Optimize-Gathered-Intelligence-of-Chat-History">Step 5 - Inspect &amp; Optimize Gathered Intelligence of Chat History</a>
+  <a class="toc-h3" href="#Step-1---Initialize-Configuration-Builder-&amp;-Build-the-AI-Orchestration">Step 1 - Initialize Configuration Builder &amp; Build the AI Orchestration</a><a class="toc-h3" href="#Step-2---Chat-Completions:-Decisions-with-Prompt-Execution-Settings">Step 2 - Chat Completions: Decisions with Prompt Execution Settings</a><a class="toc-h3" href="#Step-3---Chat-Completions:-Decision-Chat-with-a-System-Prompt-&amp;-Chat-History">Step 3 - Chat Completions: Decision Chat with a System Prompt &amp; Chat History</a><a class="toc-h3" href="#Step-4---Chat-Completions:-Decision-Conversation-with-a-Multi-Turn-Conversation-Scenario">Step 4 - Chat Completions: Decision Conversation with a Multi-Turn Conversation Scenario</a><a class="toc-h3" href="#Step-5---Chat-Completions:-Inspect-&amp;-Optimize-Gathered-Intelligence-of-Chat-Completion-History">Step 5 - Chat Completions: Inspect &amp; Optimize Gathered Intelligence of Chat Completion History</a>
 </nav>
 
   <section class="notebook-content">
@@ -97,9 +97,10 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Decision Intelligence applied in this module:</p>
 <ul>
-<li>Listing of various decision-making frameworks and with their descriptions by using Chat Completion</li>
-<li>Decision Scenario: Recommendation of a decision-making framework for specific higher-stakes decisions (purchase of a car)</li>
-<li>Illustrating a domain specific decision-making framework (millitary intelligence)</li>
+<li>Introduces the OpenAI Chat Completions API &amp; Responses API as LLM AI interfaces</li>
+<li>Chat Completions: Composing decisions with system and instruction prompts. Listing of various decision-making frameworks and with their descriptions</li>
+<li>Chat Completions: Crafting a multi-turn decision scenario</li>
+<li>Chat Completions: Inspecting the gathered intelligence (chat history)</li>
 </ul>
 </div>
 </div>
@@ -217,12 +218,12 @@ async function probeAddresses(probingAddresses) {
 }
 
 function loadDotnetInteractiveApi() {
-    probeAddresses(["http://127.0.0.1:2048/","http://::1:2048/","http://fe80::1%1:2048/","http://fe80::1c6e:2cf6:c519:ad9%15:2048/","http://2001:4898:e820:60:e0:3c31:b4fd:f0fe:2048/","http://2001:4898:e820:60:309b:a85c:8e1c:dc56:2048/","http://10.24.1.207:2048/","http://fe80::9083:51ff:fed6:3656%16:2048/","http://fe80::72c9:9c:4341:f6f5%18:2048/","http://fe80::77c8:c6f0:86d8:d2b7%19:2048/","http://fe80::cb22:316c:186b:dad%20:2048/","http://fe80::ce81:b1c:bd2c:69e%21:2048/"])
+    probeAddresses(["http://127.0.0.1:2048/","http://::1:2048/","http://fe80::1%1:2048/","http://fe80::18b4:90da:8915:df76%15:2048/","http://10.0.0.21:2048/","http://fe80::9083:51ff:fed6:3656%16:2048/","http://fe80::72c9:9c:4341:f6f5%18:2048/","http://fe80::77c8:c6f0:86d8:d2b7%19:2048/","http://fe80::cb22:316c:186b:dad%20:2048/","http://fe80::ce81:b1c:bd2c:69e%21:2048/"])
         .then((root) => {
         // use probing to find host url and api resources
         // load interactive helpers and language services
         let dotnetInteractiveRequire = require.config({
-        context: '37479.Microsoft.DotNet.Interactive.Http.HttpPort',
+        context: '68885.Microsoft.DotNet.Interactive.Http.HttpPort',
                 paths:
             {
                 'dotnet-interactive': `${root}resources`
@@ -321,7 +322,6 @@ else {
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="p">);</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AzureOpenAIClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Uri</span><span class="p">(</span><span class="n">azureOpenAIEndpoint</span><span class="p">),</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="p">);</span>
 
-<span class="w">    </span><span class="cp">#pragma warning disable OPENAI001</span>
 <span class="w">    </span><span class="n">chatClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="p">.</span><span class="n">GetChatClient</span><span class="p">(</span><span class="n">azureOpenAIModelDeploymentName</span><span class="p">).</span><span class="n">AsIChatClient</span><span class="p">();</span>
 <span class="p">}</span>
 <span class="k">else</span>
@@ -331,7 +331,6 @@ else {
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="p">);</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AzureOpenAIClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Uri</span><span class="p">(</span><span class="n">azureOpenAIEndpoint</span><span class="p">),</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="p">);</span>
 
-<span class="w">    </span><span class="cp">#pragma warning disable OPENAI001</span>
 <span class="w">    </span><span class="n">chatClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="p">.</span><span class="n">GetChatClient</span><span class="p">(</span><span class="n">azureOpenAIModelDeploymentName</span><span class="p">).</span><span class="n">AsIChatClient</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div>
@@ -343,7 +342,7 @@ else {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Step-2---Execute-Decision-Chat-Completion-with-Prompt-Execution-Settings">Step 2 - Execute Decision Chat Completion with Prompt Execution Settings<a class="anchor-link" href="#Step-2---Execute-Decision-Chat-Completion-with-Prompt-Execution-Settings">¶</a></h3>
+<h3 id="Step-2---Chat-Completions:-Decisions-with-Prompt-Execution-Settings">Step 2 - Chat Completions: Decisions with Prompt Execution Settings<a class="anchor-link" href="#Step-2---Chat-Completions:-Decisions-with-Prompt-Execution-Settings">¶</a></h3>
 </div>
 </div>
 </div>
@@ -360,7 +359,7 @@ else {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Simple prompt to list some decision frameworks this GenAI LLM is familiar with </span>
@@ -376,7 +375,6 @@ else {
 <span class="n">Never</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="o">---</span><span class="p">,</span><span class="w"> </span><span class="o">***</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">___</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">horizontal</span><span class="w"> </span><span class="n">lines</span><span class="p">.</span><span class="w"> </span><span class="n">There</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">horizontal</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="p">.</span>
 <span class="n">For</span><span class="w"> </span><span class="n">separation</span><span class="p">,</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">extra</span><span class="w"> </span><span class="n">spacing</span><span class="p">.</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">render</span><span class="w"> </span><span class="n">horizontal</span><span class="w"> </span><span class="n">lines</span><span class="p">.</span>
 <span class="s">""";</span>
-
 
 <span class="c1">// Execute the prompt against the AI model</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">simpleDecisionPromptResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">chatClient</span><span class="p">.</span><span class="n">GetResponseAsync</span><span class="p">(</span><span class="n">simpleDecisionPrompt</span><span class="p">);</span>
@@ -439,7 +437,7 @@ else {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr/>
-<h3 id="Step-3---Execute-Decision-Chat-Completion-with-a-System-Prompt-&amp;-Chat-History">Step 3 - Execute Decision Chat Completion with a System Prompt &amp; Chat History<a class="anchor-link" href="#Step-3---Execute-Decision-Chat-Completion-with-a-System-Prompt-&amp;-Chat-History">¶</a></h3>
+<h3 id="Step-3---Chat-Completions:-Decision-Chat-with-a-System-Prompt-&amp;-Chat-History">Step 3 - Chat Completions: Decision Chat with a System Prompt &amp; Chat History<a class="anchor-link" href="#Step-3---Chat-Completions:-Decision-Chat-with-a-System-Prompt-&amp;-Chat-History">¶</a></h3>
 </div>
 </div>
 </div>
@@ -636,7 +634,7 @@ else {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr/>
-<h3 id="Step-4---Execute-Decision-Chat-Completion-with-a-Multi-Turn-Conversation-Scenario">Step 4 - Execute Decision Chat Completion with a Multi-Turn Conversation Scenario<a class="anchor-link" href="#Step-4---Execute-Decision-Chat-Completion-with-a-Multi-Turn-Conversation-Scenario">¶</a></h3>
+<h3 id="Step-4---Chat-Completions:-Decision-Conversation-with-a-Multi-Turn-Conversation-Scenario">Step 4 - Chat Completions: Decision Conversation with a Multi-Turn Conversation Scenario<a class="anchor-link" href="#Step-4---Chat-Completions:-Decision-Conversation-with-a-Multi-Turn-Conversation-Scenario">¶</a></h3>
 </div>
 </div>
 </div>
@@ -803,7 +801,7 @@ else {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr/>
-<h3 id="Step-5---Inspect-&amp;-Optimize-Gathered-Intelligence-of-Chat-History">Step 5 - Inspect &amp; Optimize Gathered Intelligence of Chat History<a class="anchor-link" href="#Step-5---Inspect-&amp;-Optimize-Gathered-Intelligence-of-Chat-History">¶</a></h3>
+<h3 id="Step-5---Chat-Completions:-Inspect-&amp;-Optimize-Gathered-Intelligence-of-Chat-Completion-History">Step 5 - Chat Completions: Inspect &amp; Optimize Gathered Intelligence of Chat Completion History<a class="anchor-link" href="#Step-5---Chat-Completions:-Inspect-&amp;-Optimize-Gathered-Intelligence-of-Chat-Completion-History">¶</a></h3>
 </div>
 </div>
 </div>
