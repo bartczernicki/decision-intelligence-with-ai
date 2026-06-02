@@ -144,7 +144,11 @@
       "include_in_build": true
     },
     {
-      "file": "10b - Appendix - Glossary.ipynb",
+      "file": "10b - Appendix - Decision Quotes.ipynb",
+      "include_in_build": true
+    },
+    {
+      "file": "10c - Appendix - Glossary.ipynb",
       "include_in_build": true
     }
   ]
