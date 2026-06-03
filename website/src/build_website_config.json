@@ -104,6 +104,10 @@
       "include_in_build": true
     },
     {
+      "file": "10a - Appendix - Book Resources.ipynb",
+      "include_in_build": true
+    },
+    {
       "file": "10b - Appendix - Decision Quotes.ipynb",
       "include_in_build": true
     },
