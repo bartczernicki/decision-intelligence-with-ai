@@ -108,8 +108,29 @@
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this module, the Microsoft Extensions for AI (MEAI) ability to create a chat experience will be introduced. This is a much richer experience than just sending simple prompts that are stateless and context is forgotten.</p>
-<p>MEAI has first-class support for chat scenarios, where the user talks back and forth with the LLM, the arguments get populated with the history of the conversation. During each new run of the kernel, the arguments will be provided to the AI with content. This allows the LLM to know the historical context of the conversation.</p>
+<p>OpenAI offers two main APIs for building with its models: <strong>Chat Completions</strong> and the <strong>Responses API</strong>. Chat Completions is the established interface for sending conversational messages and receiving model-generated replies, making it useful for chatbots, assistants, and straightforward text generation workflows. The Responses API is the newer, more flexible interface designed to support modern AI applications, including multimodal inputs, structured outputs, tool use, and stateful interactions.</p>
+<p><strong>Chat Completions commonly provides:</strong></p>
+<ul>
+<li>Message-based chat interactions using roles like system, user, and assistant</li>
+<li>Stateless requests by default; your application sends prior messages each turn</li>
+<li>Full control over what conversation history and context the model receives</li>
+<li>Broad compatibility with existing OpenAI chat-based implementations</li>
+</ul>
+<p><strong>Responses API commonly provides:</strong></p>
+<ul>
+<li>A unified interface for text, multimodal inputs, tools, and structured outputs</li>
+<li>Built-in stateful context using store: true and prior response chaining</li>
+<li>Easier multi-turn interactions without always resending the full message history</li>
+<li>Better support for deeper reasoning models (GPT-5.4+)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this module, the Microsoft Extensions for AI (MEAI) ability to create a Chat experience will be introduced. This is a much richer experience than just sending simple prompts that are stateless and context is forgotten in subsequent requests.</p>
+<p>MEAI has first-class support for chat scenarios, where the user talks back and forth with the LLM, the arguments get populated with the history of the conversation. During each new run of the decision chats, the arguments will be provided to the AI with content. This allows the LLM to know the historical context of the conversation.</p>
 </div>
 </div>
 </div>
