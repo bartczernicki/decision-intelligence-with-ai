@@ -1148,6 +1148,36 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); }
 .chapter-toc a:hover { color: var(--berry); }
 .chapter-toc .toc-h4 { padding-left: 16px; color: var(--muted); }
 
+body[data-page="10c-glossary.html"] .chapter-toc {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+body[data-page="10c-glossary.html"] .chapter-toc strong {
+  flex-basis: 100%;
+}
+body[data-page="10c-glossary.html"] .chapter-toc a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  min-height: 38px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg);
+  font-weight: 800;
+}
+body[data-page="10c-glossary.html"] .chapter-toc a:hover {
+  border-color: var(--teal);
+  background: rgba(46, 125, 117, 0.1);
+}
+body[data-page="10c-glossary.html"] .chapter-toc a:first-of-type {
+  min-width: auto;
+  padding-inline: 12px;
+}
+
 .notebook-content { padding: 0; background: transparent; }
 .notebook-content .cell { margin: 0 0 18px; }
 .notebook-content .prompt { display: none; }
