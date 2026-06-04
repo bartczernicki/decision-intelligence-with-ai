@@ -275,10 +275,40 @@ def remove_warning_outputs(html: str) -> str:
     )
 
 
+def tag_case_study_blockquotes(html: str) -> str:
+    blockquote_pattern = re.compile(
+        r"<blockquote\b(?P<attrs>[^>]*)>(?P<body>.*?)</blockquote>",
+        re.IGNORECASE | re.DOTALL,
+    )
+
+    def add_case_study_class(match: re.Match[str]) -> str:
+        attrs = match.group("attrs")
+        body = match.group("body")
+        first_paragraph = re.match(r"\s*<p>\s*📰", body)
+        if not first_paragraph:
+            return match.group(0)
+        if "case-study-callout" in attrs:
+            return match.group(0)
+        if re.search(r'\bclass=["\']', attrs, re.IGNORECASE):
+            attrs = re.sub(
+                r'\bclass=(["\'])(.*?)\1',
+                r'class=\1\2 case-study-callout\1',
+                attrs,
+                count=1,
+                flags=re.IGNORECASE,
+            )
+        else:
+            attrs = f'{attrs} class="case-study-callout"'
+        return f"<blockquote{attrs}>{body}</blockquote>"
+
+    return blockquote_pattern.sub(add_case_study_class, html)
+
+
 def normalize_notebook_html(html: str) -> str:
     html = html.replace('alt="No description has been provided for this image"', 'alt=""')
     html = re.sub(r"<img(?![^>]*\bloading=)", '<img loading="lazy"', html)
     html = remove_warning_outputs(html)
+    html = tag_case_study_blockquotes(html)
     return html
 
 
@@ -1186,11 +1216,80 @@ body[data-page="10c-glossary.html"] .chapter-toc a:first-of-type {
 .notebook-content p { margin: 0 0 1rem; }
 .notebook-content img { max-width: 100%; height: auto; }
 .notebook-content blockquote {
+  position: relative;
   margin: 24px 0;
-  padding: 18px 22px;
-  border-left: 4px solid var(--gold);
-  background: var(--panel-warm);
-  color: var(--ink);
+  padding: 26px;
+  border: 1px solid rgba(154, 107, 29, 0.28);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0)),
+    #fbf7ee;
+  color: #282724;
+  box-shadow: var(--shadow);
+}
+.notebook-content blockquote::after {
+  content: "";
+  position: absolute;
+  inset: 12px 12px auto auto;
+  width: 44px;
+  height: 4px;
+  background: linear-gradient(90deg, #3b746e, #9a6b1d, #8f2d46);
+}
+.notebook-content blockquote p:first-child {
+  padding-right: 32px;
+  color: #1f211f;
+  font-size: clamp(1.18rem, 2vw, 1.5rem);
+  line-height: 1.5;
+}
+.notebook-content blockquote p + p {
+  margin-top: 14px;
+}
+.notebook-content blockquote cite {
+  color: #68645d;
+  font-style: normal;
+  font-weight: 750;
+}
+.notebook-content blockquote.case-study-callout {
+  display: grid;
+  grid-template-columns: minmax(160px, 0.36fr) minmax(0, 1fr);
+  padding: 0;
+  border: 1px solid #d8d3c8;
+  background: #ffffff;
+  color: #282724;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.notebook-content blockquote.case-study-callout::before {
+  content: "Case Study";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  background:
+    linear-gradient(135deg, rgba(143, 45, 70, 0.16), transparent),
+    #eeece6;
+  color: #275652;
+  font-size: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.notebook-content blockquote.case-study-callout::after {
+  content: none;
+}
+.notebook-content blockquote.case-study-callout p {
+  margin: 0;
+  padding: 22px 24px;
+  font-size: 0.98rem;
+  line-height: 1.68;
+}
+.notebook-content blockquote.case-study-callout p:first-child {
+  padding-right: 24px;
+  color: #282724;
+  font-size: 0.98rem;
+  line-height: 1.68;
+}
+.notebook-content blockquote.case-study-callout strong {
+  color: #1f211f;
+  font-weight: 850;
 }
 .notebook-content table {
   display: block;
@@ -1374,6 +1473,12 @@ body[data-page="10c-glossary.html"] .chapter-toc a:first-of-type {
   .chapter-page { padding-top: 74px; }
   .chapter-pager { grid-template-columns: 1fr; }
   .pager-link.align-right { text-align: left; }
+  .notebook-content blockquote.case-study-callout {
+    grid-template-columns: 1fr;
+  }
+  .notebook-content blockquote.case-study-callout::before {
+    min-height: 78px;
+  }
 }
 
 @media print {
