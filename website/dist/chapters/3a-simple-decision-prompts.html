@@ -9,11 +9,11 @@
   <meta property="og:title" content="Simple Decision Prompts | Decision Intelligence">
   <meta property="og:description" content="Static reading edition generated from the Simple Decision Prompts notebook.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png">
+  <meta property="og:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence-Cover.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Simple Decision Prompts | Decision Intelligence">
   <meta name="twitter:description" content="Static reading edition generated from the Simple Decision Prompts notebook.">
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence-Cover.png">
   <script>
     (function () {
       try {
@@ -132,7 +132,7 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [1]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the required NuGet configuration packages</span>
@@ -171,116 +171,6 @@
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_html rendered_html output_subarea">
-<div>
-<div id="dotnet-interactive-this-cell-$CACHE_BUSTER$" style="display: none">
-        The below script needs to be able to find the current output cell; this is an easy method to get it.
-    </div>
-<script type="text/javascript">
-async function probeAddresses(probingAddresses) {
-    function timeout(ms, promise) {
-        return new Promise(function (resolve, reject) {
-            setTimeout(function () {
-                reject(new Error('timeout'))
-            }, ms)
-            promise.then(resolve, reject)
-        })
-    }
-
-    if (Array.isArray(probingAddresses)) {
-        for (let i = 0; i < probingAddresses.length; i++) {
-
-            let rootUrl = probingAddresses[i];
-
-            if (!rootUrl.endsWith('/')) {
-                rootUrl = `${rootUrl}/`;
-            }
-
-            try {
-                let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
-                    method: 'POST',
-                    cache: 'no-cache',
-                    mode: 'cors',
-                    timeout: 1000,
-                    headers: {
-                        'Content-Type': 'text/plain'
-                    },
-                    body: probingAddresses[i]
-                }));
-
-                if (response.status == 200) {
-                    return rootUrl;
-                }
-            }
-            catch (e) { }
-        }
-    }
-}
-
-function loadDotnetInteractiveApi() {
-    probeAddresses(["http://127.0.0.1:2048/","http://::1:2048/","http://fe80::1%1:2048/","http://fe80::f3:f26f:63fc:8a52%14:2048/","http://10.0.0.14:2048/","http://fe80::828:aaff:fe2c:6927%16:2048/","http://fe80::9c9d:2668:169e:249c%18:2048/","http://fe80::f14:4d06:c765:63a3%19:2048/","http://fe80::4f7f:bae2:201b:a576%20:2048/","http://fe80::ce81:b1c:bd2c:69e%21:2048/","http://10.10.10.10:2048/","http://fe80::34ca:fe44:e5bb:265c%22:2048/","http://fd00::1:2048/"])
-        .then((root) => {
-        // use probing to find host url and api resources
-        // load interactive helpers and language services
-        let dotnetInteractiveRequire = require.config({
-        context: '41136.Microsoft.DotNet.Interactive.Http.HttpPort',
-                paths:
-            {
-                'dotnet-interactive': `${root}resources`
-                }
-        }) || require;
-
-            window.dotnetInteractiveRequire = dotnetInteractiveRequire;
-
-            window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
-                let paths = {};
-                paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
-                
-                let internalRequire = require.config({
-                    context: extensionCacheBuster,
-                    paths: paths,
-                    urlArgs: `cacheBuster=${extensionCacheBuster}`
-                    }) || require;
-
-                return internalRequire
-            };
-        
-            dotnetInteractiveRequire([
-                    'dotnet-interactive/dotnet-interactive'
-                ],
-                function (dotnet) {
-                    dotnet.init(window);
-                },
-                function (error) {
-                    console.log(error);
-                }
-            );
-        })
-        .catch(error => {console.log(error);});
-    }
-
-// ensure `require` is available globally
-if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
-    let require_script = document.createElement('script');
-    require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
-    require_script.setAttribute('type', 'text/javascript');
-    
-    
-    require_script.onload = function() {
-        loadDotnetInteractiveApi();
-    };
-
-    document.getElementsByTagName('head')[0].appendChild(require_script);
-}
-else {
-    loadDotnetInteractiveApi();
-}
-
-    </script>
-</div></div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
 <div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.Configuration, 10.0.8</span></li><li><span>Microsoft.Extensions.Configuration.Json, 10.0.8</span></li><li><span>System.Text.Json, 10.0.8</span></li></ul></div></div></div>
 </div>
 </div>
@@ -288,7 +178,7 @@ else {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the Microdoft Extensions AI NuGet Packages</span>
@@ -366,7 +256,7 @@ else {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Text.Json</span><span class="p">;</span>
@@ -392,34 +282,29 @@ else {
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Here are 5 decision-making frameworks that can improve decision quality, along with how each supports stronger analysis and reasoning:
+<pre>Here are **5 decision-making frameworks** that can improve the quality of decisions, along with a brief explanation of how each helps with analysis and reasoning:
 
 1. **SWOT Analysis**
-   - **What it is:** A framework for evaluating **Strengths, Weaknesses, Opportunities, and Threats**.
-   - **How it helps:** It gives a structured way to assess both internal and external factors, helping you compare advantages, risks, and strategic options before deciding.
-   - **Useful for:** Business strategy, project planning, product decisions.
+   - **What it is:** Evaluates **Strengths, Weaknesses, Opportunities, and Threats**.
+   - **How it helps:** It provides a structured way to compare internal and external factors, making it useful for strategic planning, business decisions, and evaluating options in uncertain environments.
 
 2. **Cost-Benefit Analysis**
-   - **What it is:** A method for comparing the **expected costs** of a choice against its **expected benefits**.
-   - **How it helps:** It encourages quantitative and logical thinking by making trade-offs explicit, which reduces decisions based only on intuition or emotion.
-   - **Useful for:** Investments, policy decisions, purchasing, operational changes.
+   - **What it is:** Compares the expected costs of a decision against its expected benefits.
+   - **How it helps:** It supports more rational decisions by making trade-offs explicit, especially when resources are limited or when choosing between competing investments or actions.
 
 3. **Decision Matrix**
-   - **What it is:** A tool that scores multiple options against a set of criteria, often with weights assigned to each criterion.
-   - **How it helps:** It brings objectivity and consistency to comparing alternatives, especially when several factors matter at once.
-   - **Useful for:** Vendor selection, hiring, prioritizing projects, choosing among alternatives.
+   - **What it is:** A table used to score multiple options against a set of weighted criteria.
+   - **How it helps:** It reduces bias by forcing a systematic comparison of alternatives, making it especially useful when several factors matter and decisions involve multiple stakeholders.
 
-4. **OODA Loop**
-   - **What it is:** A cycle of **Observe, Orient, Decide, Act**.
-   - **How it helps:** It supports fast, adaptive reasoning in changing environments by emphasizing continuous learning and adjustment rather than one-time decisions.
-   - **Useful for:** Military, emergency response, competitive business, operations management.
+4. **Six Thinking Hats**
+   - **What it is:** A framework that examines a problem from six perspectives: facts, emotions, caution, benefits, creativity, and process.
+   - **How it helps:** It encourages balanced thinking and reduces one-sided reasoning, which is valuable in team decisions, brainstorming, and complex problems.
 
-5. **Pros and Cons Analysis**
-   - **What it is:** A simple framework that lists the advantages and disadvantages of each option.
-   - **How it helps:** It clarifies the immediate positives and negatives of a choice, making it easier to identify major trade-offs and spot overlooked issues.
-   - **Useful for:** Everyday personal decisions, team discussions, and preliminary evaluation of options.
+5. **OODA Loop**
+   - **What it is:** Stands for **Observe, Orient, Decide, Act**.
+   - **How it helps:** It promotes fast, iterative decision-making by continuously updating understanding and adjusting actions. This is useful in dynamic, fast-changing situations such as crisis response, management, and competitive environments.
 
-If you want, I can also provide these in a **table** or suggest **which framework fits which type of decision**.
+If you'd like, I can also provide these in a **table format** or suggest **which framework fits best for business, personal, or team decisions**.
 </pre>
 </div>
 </div>
