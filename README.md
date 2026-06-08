@@ -2,7 +2,7 @@
 
 **[Work In Progress - Estimated Beta Launch: August 2026]**
 
-<img style="display: block; margin: auto;" width ="700px" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence.png">
+<img style="display: block; margin: auto;" width ="700px" src="https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence-Cover.png">
 <br/>  
 
 Contents:  
