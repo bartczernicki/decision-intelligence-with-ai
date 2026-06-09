@@ -135,6 +135,13 @@ CONFIG, CHAPTERS = load_build_config()
 CHAPTER_GROUP_LOGOS = load_chapter_groups(CONFIG)
 BOOK_VERSION = str(CONFIG["book_version"])
 BOOK_TITLE = "Decision Intelligence with AI"
+SITE_URL = str(CONFIG.get("site_url", "")).strip().rstrip("/")
+SITE_DESCRIPTION = (
+    "A practical Decision Intelligence with AI workshop covering decision framing, "
+    "intelligence gathering, execution, communication, and generative AI decision workflows."
+)
+AUTHOR_NAME = "Bart Czernicki"
+AUTHOR_URL = "https://github.com/bartczernicki"
 
 
 class HeadingParser(HTMLParser):
@@ -346,6 +353,64 @@ def chapter_group_heading(
     return f'<{tag} class="{class_name}"{id_attr}>{logo}<span>{escape(group)}</span></{tag}>'
 
 
+def absolute_url(path: str) -> str:
+    if not SITE_URL:
+        return ""
+    normalized_path = path.strip("/")
+    if not normalized_path or normalized_path == "index.html":
+        return f"{SITE_URL}/"
+    return f"{SITE_URL}/{normalized_path}"
+
+
+def json_ld(data: dict[str, object]) -> str:
+    return (
+        '<script type="application/ld+json">'
+        f"{json.dumps(data, separators=(',', ':'))}"
+        "</script>"
+    )
+
+
+def structured_data(
+    *, title: str, description: str, page_url: str, is_home: bool
+) -> str:
+    if not page_url:
+        return ""
+    if is_home:
+        data: dict[str, object] = {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": BOOK_TITLE,
+            "url": page_url,
+            "description": description,
+            "image": FRAMEWORK_URL,
+            "author": {
+                "@type": "Person",
+                "name": AUTHOR_NAME,
+                "url": AUTHOR_URL,
+            },
+        }
+    else:
+        data = {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": title,
+            "url": page_url,
+            "description": description,
+            "image": FRAMEWORK_URL,
+            "author": {
+                "@type": "Person",
+                "name": AUTHOR_NAME,
+                "url": AUTHOR_URL,
+            },
+            "isPartOf": {
+                "@type": "Book",
+                "name": BOOK_TITLE,
+                "url": absolute_url("index.html"),
+            },
+        }
+    return json_ld(data)
+
+
 def sidebar(prefix: str, current_file: str) -> str:
     home_active = " active" if current_file == "index.html" else ""
     items = [
@@ -409,11 +474,26 @@ def page_shell(
     current_file: str,
     description: str,
     social_title: str | None = None,
+    canonical_path: str | None = None,
+    page_type: str = "website",
 ) -> str:
     pagefind_prefix = prefix
-    site_url = ""
+    page_path = canonical_path or current_file
+    canonical_url = absolute_url(page_path)
+    url_meta = (
+        f'\n  <link rel="canonical" href="{escape(canonical_url, quote=True)}">'
+        f'\n  <meta property="og:url" content="{escape(canonical_url, quote=True)}">'
+        if canonical_url
+        else ""
+    )
     full_title = f"{title} | Decision Intelligence"
     preview_title = social_title or full_title
+    structured_metadata = structured_data(
+        title=preview_title,
+        description=description,
+        page_url=canonical_url,
+        is_home=page_path == "index.html",
+    )
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -421,15 +501,20 @@ def page_shell(
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{escape(full_title)}</title>
   <meta name="description" content="{escape(description, quote=True)}">
+  <meta name="author" content="{escape(AUTHOR_NAME, quote=True)}">
+  <meta name="robots" content="index, follow">
   <meta name="book-version" content="{escape(BOOK_VERSION, quote=True)}">
+  {url_meta}
   <meta property="og:title" content="{escape(preview_title, quote=True)}">
   <meta property="og:description" content="{escape(description, quote=True)}">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="{escape(page_type, quote=True)}">
+  <meta property="og:site_name" content="{escape(BOOK_TITLE, quote=True)}">
   <meta property="og:image" content="{FRAMEWORK_URL}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{escape(preview_title, quote=True)}">
   <meta name="twitter:description" content="{escape(description, quote=True)}">
   <meta name="twitter:image" content="{FRAMEWORK_URL}">
+  {structured_metadata}
   <script>
     (function () {{
       try {{
@@ -444,7 +529,6 @@ def page_shell(
   <link rel="icon" href="{prefix}assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="{prefix}assets/site.css">
   <link rel="stylesheet" href="{pagefind_prefix}pagefind/pagefind-component-ui.css">
-  {site_url}
 </head>
 <body data-page="{escape(current_file, quote=True)}">
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -544,8 +628,9 @@ def build_index() -> None:
             body=body,
             prefix="",
             current_file="index.html",
-            description="Decision Intelligence read-only book",
+            description=SITE_DESCRIPTION,
             social_title=BOOK_TITLE,
+            canonical_path="index.html",
         ),
         encoding="utf-8",
     )
@@ -597,9 +682,33 @@ def build_chapters() -> None:
                 prefix="../",
                 current_file=chapter["file"],
                 description=chapter["description"],
+                canonical_path=f"chapters/{chapter['file']}",
+                page_type="article",
             ),
             encoding="utf-8",
         )
+
+
+def write_seo_files() -> None:
+    if not SITE_URL:
+        return
+
+    paths = ["index.html", *(f"chapters/{chapter['file']}" for chapter in CHAPTERS)]
+    sitemap_entries = "\n".join(
+        f"  <url><loc>{escape(absolute_url(path))}</loc></url>" for path in paths
+    )
+    sitemap = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{sitemap_entries}
+</urlset>
+"""
+    robots = f"""User-agent: *
+Allow: /
+
+Sitemap: {absolute_url("sitemap.xml")}
+"""
+    (WEBSITE / "sitemap.xml").write_text(sitemap, encoding="utf-8")
+    (WEBSITE / "robots.txt").write_text(robots, encoding="utf-8")
 
 
 def write_assets() -> None:
@@ -637,6 +746,7 @@ def main() -> None:
     build_index()
     build_chapters()
     shutil.rmtree(RAW)
+    write_seo_files()
     write_assets()
     generate_pagefind()
     validate_links()
@@ -656,7 +766,7 @@ This folder contains the source automation and generated output for the static w
 ## Folder Layout
 
 - `src/` contains the build and deploy scripts.
-- `src/build_website_config.json` controls the book version and which notebooks are included.
+- `src/build_website_config.json` controls the book version, production site URL, and which notebooks are included.
 - `dist/` contains the generated static website.
 
 ## Build
@@ -670,6 +780,8 @@ python3 website/src/build_website.py
 The build converts notebooks to HTML, wraps them in the static book shell, generates the Pagefind index, and validates local links.
 
 To include or exclude notebooks, edit `src/build_website_config.json` and change `include_in_build`.
+
+To update canonical links, Open Graph URLs, `robots.txt`, and `sitemap.xml` for a different deployment host, edit `site_url` in `src/build_website_config.json`.
 
 For compatibility, the root wrapper still works:
 

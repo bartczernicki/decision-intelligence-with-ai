@@ -1,5 +1,6 @@
 {
-  "book_version": "0.3-preview.20260531",
+  "book_version": "0.4-preview.20260608",
+  "site_url": "https://bartczernicki.github.io/DecisionIntelligence.GenAI.Workshop/",
   "chapter_groups": [
     {
       "name": "Decision Intelligence",

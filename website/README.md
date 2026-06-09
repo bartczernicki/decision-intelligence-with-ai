@@ -5,7 +5,7 @@ This folder contains the source automation and generated output for the static w
 ## Folder Layout
 
 - `src/` contains the build and deploy scripts.
-- `src/build_website_config.json` controls the book version and which notebooks are included.
+- `src/build_website_config.json` controls the book version, production site URL, and which notebooks are included.
 - `dist/` contains the generated static website.
 
 ## Build
@@ -19,6 +19,8 @@ python3 website/src/build_website.py
 The build converts notebooks to HTML, wraps them in the static book shell, generates the Pagefind index, and validates local links.
 
 To include or exclude notebooks, edit `src/build_website_config.json` and change `include_in_build`.
+
+To update canonical links, Open Graph URLs, `robots.txt`, and `sitemap.xml` for a different deployment host, edit `site_url` in `src/build_website_config.json`.
 
 For compatibility, the root wrapper still works:
 
