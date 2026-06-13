@@ -37,9 +37,9 @@ NOTEBOOK_DESCRIPTIONS = {
 }
 
 
-IMAGE_BASE_URL = "https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images"
-LOGO_URL = "https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/Logos/DecisionIntelligenceLogo.png"
-FRAMEWORK_URL = "https://raw.githubusercontent.com/bartczernicki/DecisionIntelligence.GenAI.Workshop/main/Images/DecisionIntelligenceFramework/DecisionIntelligence-Cover.png"
+IMAGE_BASE_URL = "https://raw.githubusercontent.com/bartczernicki/decision-intelligence-with-ai/main/Images"
+LOGO_URL = "https://raw.githubusercontent.com/bartczernicki/decision-intelligence-with-ai/main/Images/Logos/DecisionIntelligenceLogo.png"
+FRAMEWORK_URL = "https://raw.githubusercontent.com/bartczernicki/decision-intelligence-with-ai/main/Images/DecisionIntelligenceFramework/DecisionIntelligence-Cover.png"
 
 
 def slugify(value: str) -> str:
@@ -446,7 +446,7 @@ def sidebar(prefix: str, current_file: str) -> str:
     <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
       <span class="theme-toggle-icon" aria-hidden="true">☀</span>
     </button>
-    <a class="source-link" href="https://github.com/bartczernicki/DecisionIntelligence.GenAI.Workshop" target="_blank" rel="noopener noreferrer">
+    <a class="source-link" href="https://github.com/bartczernicki/decision-intelligence-with-ai" target="_blank" rel="noopener noreferrer">
       <span>Source</span>
       <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
         <path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.22c0 4.52 2.87 8.35 6.84 9.71.5.09.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.51.47-3.16-.62-3.36-1.19-.11-.29-.6-1.19-1.03-1.43-.35-.19-.85-.66-.01-.67.79-.01 1.35.74 1.54 1.05.9 1.55 2.34 1.11 2.91.85.09-.67.35-1.11.64-1.37-2.22-.26-4.55-1.14-4.55-5.05 0-1.11.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.71 0 0 .84-.27 2.75 1.05A9.28 9.28 0 0 1 12 6.99c.85 0 1.71.12 2.51.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.4.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.79-4.57 5.05.36.32.68.93.68 1.89 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.05 10.05 0 0 0 22 12.22C22 6.58 17.52 2 12 2Z"/>

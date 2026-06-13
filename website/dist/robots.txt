@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bartczernicki.github.io/DecisionIntelligence.GenAI.Workshop/sitemap.xml
+Sitemap: https://www.decisionintelligencebook.ai/sitemap.xml
