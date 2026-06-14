@@ -579,24 +579,29 @@ body[data-page="10c-glossary.html"] .chapter-toc a:first-of-type {
   color: #1f211f;
   font-weight: 850;
 }
-.notebook-content table {
+.notebook-content .text_cell_render > table {
   display: block;
   width: 100%;
   overflow-x: auto;
   border-collapse: collapse;
   margin: 22px 0;
-  background: var(--panel);
+  background: var(--panel-warm);
   border: 1px solid var(--line);
+  box-shadow: inset 0 3px 0 var(--gold);
 }
-.notebook-content th,
-.notebook-content td {
+.notebook-content .text_cell_render > table th,
+.notebook-content .text_cell_render > table td {
   padding: 12px 14px;
-  border: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
   vertical-align: top;
 }
-.notebook-content th {
-  background: var(--panel-subtle);
-  color: var(--teal-dark);
+.notebook-content .text_cell_render > table th {
+  background: color-mix(in srgb, var(--panel-warm) 84%, var(--gold));
+  border-bottom: 1px solid color-mix(in srgb, var(--gold) 46%, var(--line));
+  color: var(--heading);
+}
+.notebook-content .text_cell_render > table tbody tr:hover {
+  background: color-mix(in srgb, var(--panel-warm) 72%, var(--gold));
 }
 .notebook-content code,
 .notebook-content pre {
