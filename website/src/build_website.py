@@ -429,8 +429,8 @@ def structured_data(
 def sidebar(prefix: str, current_file: str) -> str:
     home_active = " active" if current_file == "index.html" else ""
     items = [
-        f'<a class="chapter-link{home_active}" href="{prefix}index.html" data-title="contents overview">'
-        '<span class="chapter-code">TOC</span><span>Contents</span></a>'
+        f'<a class="chapter-link{home_active}" href="{prefix}index.html" data-title="chapters overview">'
+        '<span class="chapter-code">TOC</span><span>Chapters</span></a>'
     ]
 
     current_group = None
@@ -629,9 +629,9 @@ def build_index() -> None:
   </div>
   <img class="hero-image" src="{image_url("", FRAMEWORK_IMAGE)}" alt="Decision Intelligence Framework">
 </section>
-<section id="chapters" class="chapter-grid-section" aria-label="Contents">
+<section id="chapters" class="chapter-grid-section" aria-label="Chapters">
   <div class="section-heading">
-    <p class="eyebrow">Contents</p>
+    <p class="eyebrow">Chapters</p>
   </div>
   {''.join(group_sections)}
 </section>
@@ -661,20 +661,20 @@ def build_chapters() -> None:
             f'<a class="pager-link" data-prev-chapter href="{prev_chapter["file"]}">'
             f'<span>Previous</span><strong>{escape(prev_chapter["short"])}</strong></a>'
             if prev_chapter
-            else '<span class="pager-link disabled"><span>Previous</span><strong>Contents</strong></span>'
+            else '<span class="pager-link disabled"><span>Previous</span><strong>Chapters</strong></span>'
         )
         next_link = (
             f'<a class="pager-link align-right" data-next-chapter href="{next_chapter["file"]}">'
             f'<span>Next</span><strong>{escape(next_chapter["short"])}</strong></a>'
             if next_chapter
-            else '<a class="pager-link align-right" data-next-chapter href="../index.html"><span>Next</span><strong>Back to Contents</strong></a>'
+            else '<a class="pager-link align-right" data-next-chapter href="../index.html"><span>Next</span><strong>Back to Chapters</strong></a>'
         )
 
         body = f"""
 <article class="chapter-page">
   <div data-pagefind-body>
   <header class="chapter-header">
-    <a class="back-link" href="../index.html">Back to contents</a>
+    <a class="back-link" href="../index.html">Back to chapters</a>
     <p class="eyebrow">Chapter {chapter['code'].upper()}</p>
     <h1>{escape(chapter['title'])}</h1>
     <p class="chapter-summary">{escape(chapter['description'])}</p>
