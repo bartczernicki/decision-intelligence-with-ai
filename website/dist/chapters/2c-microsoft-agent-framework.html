@@ -84,7 +84,7 @@
   
 <nav class="chapter-toc" aria-label="Chapter table of contents">
   <strong>On this page</strong>
-  <a class="toc-h3" href="#How-MAF-Builds-on-Microsoft.Extensions.AI-(MEAI)">How MAF Builds on Microsoft.Extensions.AI (MEAI)</a><a class="toc-h3" href="#Microsoft-Agent-Framework-Resources">Microsoft Agent Framework Resources</a>
+  <a class="toc-h3" href="#How-MAF-Builds-on-Microsoft.Extensions.AI-(MEAI)">How MAF Builds on Microsoft.Extensions.AI (MEAI)</a><a class="toc-h3" href="#Current-Microsoft-Resources">Current Microsoft Resources</a>
 </nav>
 
   <section class="notebook-content">
@@ -103,25 +103,24 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Microsoft Agent Framework (MAF) is an <strong>open-source, code-first</strong> framework from Microsoft for building AI agents and multi-agent workflows in <strong>.NET and Python</strong>.</p>
 <img loading="lazy" alt="" src="https://learn.microsoft.com/en-us/agent-framework/workflows/resources/images/ai-agent.png" style="display: block; margin: auto;" width="700px"/>
-<p>MAF is designed for production-grade agentic systems:</p>
+<p>MAF offers two primary capability areas:</p>
 <ul>
-<li><strong>Supported by Microsoft</strong> with active engineering investment across the Foundry ecosystem</li>
-<li>Unified agent abstraction across providers such as <strong>Azure OpenAI, OpenAI, Anthropic, and Ollama</strong></li>
-<li>Built-in support for <strong>tools, MCP servers, sessions, middleware, and telemetry</strong></li>
-<li>First-class <strong>workflow orchestration</strong> for deterministic, multi-step processes</li>
-<li>Open-source development with public releases, issues, and migration guidance</li>
+<li><strong>Agents</strong>: individual agents that use LLMs to process inputs, call tools and MCP servers, maintain sessions, and generate responses across providers such as <strong>Microsoft Foundry, Azure OpenAI, OpenAI, Anthropic, and Ollama</strong>.</li>
+<li><strong>Workflows</strong>: graph-based workflows that connect agents and normal functions for multi-step tasks with type-safe routing, checkpointing, and human-in-the-loop support.</li>
 </ul>
+<p>The framework also includes model clients, agent sessions for state management, context providers for memory, middleware for intercepting agent actions, and MCP clients for tool integration.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>MAF is an AI orchestration layer between your application experiences and model providers.</p>
-<p>It provides two complementary execution modes:</p>
+<p>MAF is an orchestration layer between your application experiences and model providers.</p>
+<p>Use the two execution styles intentionally:</p>
 <ul>
-<li><strong>Agents</strong> for dynamic, LLM-driven reasoning and tool use</li>
-<li><strong>Workflows</strong> for explicit, graph-based control flow with checkpoints and human-in-the-loop support</li>
+<li>Use an <strong>agent</strong> when the task is open-ended or conversational, needs autonomous tool use and planning, or can be solved by a single LLM call with optional tools.</li>
+<li>Use a <strong>workflow</strong> when the process has well-defined steps, requires explicit execution order, or coordinates multiple agents and functions.</li>
+<li>If you can write a normal deterministic function to handle the task, prefer that function over an AI agent.</li>
 </ul>
 <img loading="lazy" alt="" src="https://learn.microsoft.com/en-us/agent-framework/workflows/resources/images/workflows-overview.png" style="display: block; margin: auto;" width="700px"/>
 <p>This combination lets you blend flexible agent behavior with deterministic process control in one architecture.</p>
@@ -131,13 +130,13 @@
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="How-MAF-Builds-on-Microsoft.Extensions.AI-(MEAI)">How MAF Builds on Microsoft.Extensions.AI (MEAI)<a class="anchor-link" href="#How-MAF-Builds-on-Microsoft.Extensions.AI-(MEAI)">¶</a></h3><p>MAF extends the MEAI foundation instead of replacing it.</p>
+<h3 id="How-MAF-Builds-on-Microsoft.Extensions.AI-(MEAI)">How MAF Builds on Microsoft.Extensions.AI (MEAI)<a class="anchor-link" href="#How-MAF-Builds-on-Microsoft.Extensions.AI-(MEAI)">¶</a></h3><p>MAF builds on the MEAI ecosystem instead of replacing it. MEAI gives .NET developers unified abstractions for generative AI components, while MAF adds agent and workflow orchestration on top.</p>
 <ul>
-<li><strong>Shared model abstractions</strong>: MEAI standardizes model interaction (for example through <code>IChatClient</code>), while MAF adds agent and workflow orchestration on top.</li>
-<li><strong>Dependency injection patterns</strong>: MAF aligns with familiar <code>Microsoft.Extensions.*</code> host and service registration patterns used across .NET apps.</li>
-<li><strong>Middleware composition</strong>: MEAI middleware concepts (telemetry, caching, resilience, safety) map naturally into MAF agent/workflow middleware pipelines.</li>
-<li><strong>Provider portability</strong>: both MEAI and MAF are designed to reduce provider lock-in and support interchangeable model backends.</li>
-<li><strong>Operational observability</strong>: MAF runtime events and tracing can be integrated with the same OpenTelemetry-first operating model commonly used with MEAI.</li>
+<li><strong>Shared model abstractions</strong>: MEAI standardizes provider access through abstractions such as <code>IChatClient</code>, <code>IEmbeddingGenerator&lt;TInput,TEmbedding&gt;</code>, and the experimental <code>IImageGenerator</code>.</li>
+<li><strong>Provider portability</strong>: consuming applications usually reference <code>Microsoft.Extensions.AI</code> plus one or more provider-specific packages, while libraries can reference <code>Microsoft.Extensions.AI.Abstractions</code>.</li>
+<li><strong>Middleware composition</strong>: MEAI supports familiar dependency injection and middleware patterns for automatic function invocation, telemetry, caching, and other cross-cutting concerns.</li>
+<li><strong>Agent orchestration</strong>: MAF uses MEAI-style model clients and middleware patterns, then adds <code>AIAgent</code>, sessions, tools, MCP integration, context providers, workflows, and hosting support.</li>
+<li><strong>Operational observability</strong>: MAF runtime events and tracing can fit into the same OpenTelemetry-first operating model commonly used with MEAI.</li>
 </ul>
 <img loading="lazy" alt="" src="https://devblogs.microsoft.com/dotnet/wp-content/uploads/sites/10/2025/10/agent-framework-foundations.png" style="display: block; margin: auto;" width="700px"/>
 <img loading="lazy" alt="" src="https://learn.microsoft.com/en-us/dotnet/ai/media/ai-extensions/meai-architecture-diagram.png" style="display: block; margin: auto;" width="700px"/>
@@ -147,22 +146,21 @@
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>A typical MAF pipeline combines key building blocks:</p>
+<p>Typical setup packages and concepts:</p>
 <ul>
-<li><strong>AIAgent / Agent</strong> abstractions for provider-agnostic execution</li>
-<li><strong>Executors and edges</strong> to model multi-agent workflow paths</li>
-<li><strong>Agent sessions</strong> to manage conversation state</li>
-<li><strong>Context providers and tools</strong> to ground decisions with memory and external capabilities</li>
-<li><strong>Events and middleware</strong> for observability, safety, and operational controls</li>
+<li><strong>.NET Agent Framework</strong>: current Microsoft Learn examples use packages such as <code>Microsoft.Agents.AI.Foundry --prerelease</code>; other scenarios may add packages such as <code>Microsoft.Agents.AI</code>, <code>Microsoft.Agents.AI.Workflows</code>, or hosting integrations.</li>
+<li><strong>Python Agent Framework</strong>: install with <code>pip install agent-framework</code> and use provider integrations such as <code>agent_framework.foundry</code>.</li>
+<li><strong>MEAI application code</strong>: reference <code>Microsoft.Extensions.AI</code> plus a concrete provider implementation such as OpenAI, Azure OpenAI, Ollama, Foundry Local, or another compatible client.</li>
+<li><strong>Core MAF building blocks</strong>: <code>AIAgent</code>/agent abstractions, sessions, context providers, tools, MCP clients, middleware, and graph workflow routing.</li>
 </ul>
-<p>These building blocks make it practical to move from prototype agent interactions to enterprise decision orchestration.</p>
+<p>These building blocks make it practical to move from simple agent interactions to enterprise decision orchestration without hard-coding the application to one provider.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Microsoft-Agent-Framework-Resources">Microsoft Agent Framework Resources<a class="anchor-link" href="#Microsoft-Agent-Framework-Resources">¶</a></h3>
+<h3 id="Current-Microsoft-Resources">Current Microsoft Resources<a class="anchor-link" href="#Current-Microsoft-Resources">¶</a></h3>
 </div>
 </div>
 </div>
@@ -170,17 +168,16 @@
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>GitHub Repo: <a href="https://github.com/microsoft/agent-framework">https://github.com/microsoft/agent-framework</a> (.NET, Python)</li>
-<li>Microsoft Learn Overview: <a href="https://learn.microsoft.com/en-us/agent-framework/overview/">https://learn.microsoft.com/en-us/agent-framework/overview/</a></li>
-<li>Get Started Tutorial: <a href="https://learn.microsoft.com/en-us/agent-framework/get-started/">https://learn.microsoft.com/en-us/agent-framework/get-started/</a></li>
-<li>Agent Types: <a href="https://learn.microsoft.com/en-us/agent-framework/agents/">https://learn.microsoft.com/en-us/agent-framework/agents/</a></li>
+<li>Microsoft Agent Framework Overview: <a href="https://learn.microsoft.com/en-us/agent-framework/overview/">https://learn.microsoft.com/en-us/agent-framework/overview/</a></li>
+<li>Get Started with Agent Framework: <a href="https://learn.microsoft.com/en-us/agent-framework/get-started/">https://learn.microsoft.com/en-us/agent-framework/get-started/</a></li>
+<li>Agents Overview: <a href="https://learn.microsoft.com/en-us/agent-framework/agents/">https://learn.microsoft.com/en-us/agent-framework/agents/</a></li>
 <li>Workflows Overview: <a href="https://learn.microsoft.com/en-us/agent-framework/workflows/">https://learn.microsoft.com/en-us/agent-framework/workflows/</a></li>
+<li>Microsoft.Extensions.AI Libraries Overview: <a href="https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai">https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai</a></li>
 <li>Migration Guide from Semantic Kernel: <a href="https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-semantic-kernel/">https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-semantic-kernel/</a></li>
 <li>Migration Guide from AutoGen: <a href="https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/">https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/</a></li>
+<li>GitHub Repo: <a href="https://github.com/microsoft/agent-framework">https://github.com/microsoft/agent-framework</a> (.NET, Python)</li>
 <li>Introducing Microsoft Agent Framework (Microsoft Foundry Blog): <a href="https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/">https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/</a></li>
 <li>Introducing Microsoft Agent Framework Preview (.NET Blog): <a href="https://devblogs.microsoft.com/dotnet/introducing-microsoft-agent-framework-preview/">https://devblogs.microsoft.com/dotnet/introducing-microsoft-agent-framework-preview/</a></li>
-<li>Microsoft.Extensions.AI Libraries Overview: <a href="https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai">https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai</a></li>
-<li>Introducing Microsoft.Extensions.AI Preview (.NET Blog): <a href="https://devblogs.microsoft.com/dotnet/introducing-microsoft-extensions-ai-preview/">https://devblogs.microsoft.com/dotnet/introducing-microsoft-extensions-ai-preview/</a></li>
 </ul>
 </div>
 </div>
