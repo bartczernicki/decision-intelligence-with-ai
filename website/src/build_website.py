@@ -37,9 +37,8 @@ NOTEBOOK_DESCRIPTIONS = {
 }
 
 
-IMAGE_BASE_URL = "https://raw.githubusercontent.com/bartczernicki/decision-intelligence-with-ai/main/Images"
-LOGO_URL = "https://raw.githubusercontent.com/bartczernicki/decision-intelligence-with-ai/main/Images/Logos/DecisionIntelligenceLogo.png"
-FRAMEWORK_URL = "https://raw.githubusercontent.com/bartczernicki/decision-intelligence-with-ai/main/Images/DecisionIntelligenceFramework/DecisionIntelligence-Cover.png"
+LOGO_IMAGE = "Logos/DecisionIntelligenceLogo.png"
+FRAMEWORK_IMAGE = "DecisionIntelligenceFramework/DecisionIntelligence-Cover.png"
 
 
 def slugify(value: str) -> str:
@@ -73,8 +72,12 @@ def notebook_metadata(notebook_file: str) -> dict[str, str]:
     }
 
 
-def image_url(filename: str) -> str:
-    return f"{IMAGE_BASE_URL}/{filename}"
+def image_url(prefix: str, filename: str) -> str:
+    return f"{prefix}Images/{filename}"
+
+
+def image_absolute_url(filename: str) -> str:
+    return absolute_url(f"Images/{filename}")
 
 
 def load_chapter_groups(config: dict[str, object]) -> dict[str, str]:
@@ -96,7 +99,7 @@ def load_chapter_groups(config: dict[str, object]) -> dict[str, str]:
             raise ValueError(f"Duplicate chapter group in config: {name}")
         if not (IMAGES_DIR / logo).exists():
             raise FileNotFoundError(f"Configured chapter group logo does not exist: {logo}")
-        chapter_groups[name] = image_url(logo)
+        chapter_groups[name] = logo
     return chapter_groups
 
 
@@ -214,6 +217,14 @@ def clean() -> None:
     CHAPTERS_DIR.mkdir(parents=True)
     ASSETS_DIR.mkdir(parents=True)
     RAW.mkdir(parents=True)
+
+
+def copy_images() -> None:
+    shutil.copytree(
+        IMAGES_DIR,
+        WEBSITE / "Images",
+        ignore=shutil.ignore_patterns(".DS_Store"),
+    )
 
 
 def convert_notebooks() -> None:
@@ -341,11 +352,15 @@ def chapter_toc(raw_html: str) -> str:
 
 
 def chapter_group_heading(
-    group: str, class_name: str, heading_id: str | None = None, tag: str = "div"
+    group: str,
+    class_name: str,
+    heading_id: str | None = None,
+    tag: str = "div",
+    prefix: str = "",
 ) -> str:
     group_logo = CHAPTER_GROUP_LOGOS.get(group)
     logo = (
-        f'<img src="{escape(group_logo, quote=True)}" alt="" aria-hidden="true">'
+        f'<img src="{escape(image_url(prefix, group_logo), quote=True)}" alt="" aria-hidden="true">'
         if group_logo
         else ""
     )
@@ -382,7 +397,7 @@ def structured_data(
             "name": BOOK_TITLE,
             "url": page_url,
             "description": description,
-            "image": FRAMEWORK_URL,
+            "image": image_absolute_url(FRAMEWORK_IMAGE),
             "author": {
                 "@type": "Person",
                 "name": AUTHOR_NAME,
@@ -396,7 +411,7 @@ def structured_data(
             "headline": title,
             "url": page_url,
             "description": description,
-            "image": FRAMEWORK_URL,
+            "image": image_absolute_url(FRAMEWORK_IMAGE),
             "author": {
                 "@type": "Person",
                 "name": AUTHOR_NAME,
@@ -422,7 +437,7 @@ def sidebar(prefix: str, current_file: str) -> str:
     for chapter in CHAPTERS:
         if chapter["group"] != current_group:
             current_group = chapter["group"]
-            items.append(chapter_group_heading(current_group, "chapter-group"))
+            items.append(chapter_group_heading(current_group, "chapter-group", prefix=prefix))
 
         active = " active" if chapter["file"] == current_file else ""
         data_title = escape(
@@ -436,7 +451,7 @@ def sidebar(prefix: str, current_file: str) -> str:
     return f"""
 <aside class="book-sidebar" aria-label="Book navigation">
   <a class="book-brand" href="{prefix}index.html">
-    <img src="{LOGO_URL}" alt="Decision Intelligence logo">
+    <img src="{image_url(prefix, LOGO_IMAGE)}" alt="Decision Intelligence logo">
     <span class="book-brand-text">
       <span>{escape(BOOK_TITLE)}</span>
       <span class="book-version">Version {escape(BOOK_VERSION)}</span>
@@ -509,11 +524,11 @@ def page_shell(
   <meta property="og:description" content="{escape(description, quote=True)}">
   <meta property="og:type" content="{escape(page_type, quote=True)}">
   <meta property="og:site_name" content="{escape(BOOK_TITLE, quote=True)}">
-  <meta property="og:image" content="{FRAMEWORK_URL}">
+  <meta property="og:image" content="{image_absolute_url(FRAMEWORK_IMAGE)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{escape(preview_title, quote=True)}">
   <meta name="twitter:description" content="{escape(description, quote=True)}">
-  <meta name="twitter:image" content="{FRAMEWORK_URL}">
+  <meta name="twitter:image" content="{image_absolute_url(FRAMEWORK_IMAGE)}">
   {structured_metadata}
   <script>
     (function () {{
@@ -612,7 +627,7 @@ def build_index() -> None:
       <a class="secondary-action" href="#chapters">Browse chapters</a>
     </div>
   </div>
-  <img class="hero-image" src="{FRAMEWORK_URL}" alt="Decision Intelligence Framework">
+  <img class="hero-image" src="{image_url("", FRAMEWORK_IMAGE)}" alt="Decision Intelligence Framework">
 </section>
 <section id="chapters" class="chapter-grid-section" aria-label="Contents">
   <div class="section-heading">
@@ -742,6 +757,7 @@ def validate_links() -> None:
 
 def main() -> None:
     clean()
+    copy_images()
     convert_notebooks()
     build_index()
     build_chapters()
