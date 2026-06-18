@@ -580,14 +580,13 @@ def build_index() -> None:
             cards = []
 
         data_title = escape(
-            f"{chapter['code']} {chapter['title']} {chapter['description']}".lower(),
+            f"{chapter['code']} {chapter['title']}".lower(),
             quote=True,
         )
         cards.append(
             f"""
 <a class="chapter-card" href="chapters/{chapter['file']}" data-title="{data_title}">
   <strong>{escape(chapter['title'])}</strong>
-  <span>{escape(chapter['description'])}</span>
 </a>"""
         )
 
@@ -621,7 +620,7 @@ def build_index() -> None:
     </div>
   </div>
   <div class="book-hero-copy">
-    <p class="lede">Interactive companion website to the Decision Intelligence with AI book.</p>
+    <p class="lede">Digital version of Decision Intelligence with AI</p>
     <div class="hero-actions">
       <a class="primary-action" href="chapters/{CHAPTERS[0]['file']}">Start reading</a>
       <a class="secondary-action" href="#chapters">Browse chapters</a>
@@ -677,7 +676,6 @@ def build_chapters() -> None:
     <a class="back-link" href="../index.html">Back to chapters</a>
     <p class="eyebrow">Chapter {chapter['code'].upper()}</p>
     <h1>{escape(chapter['title'])}</h1>
-    <p class="chapter-summary">{escape(chapter['description'])}</p>
   </header>
   {chapter_toc(raw_html)}
   <section class="notebook-content">
@@ -1187,8 +1185,7 @@ h1, h2, h3, h4 {
 }
 h1 { margin: 0; font-size: clamp(2.25rem, 5vw, 4.9rem); }
 h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); }
-.lede,
-.chapter-summary {
+.lede {
   max-width: 760px;
   color: var(--muted);
   font-size: 1.14rem;
@@ -1248,9 +1245,9 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); }
 }
 .chapter-card {
   display: grid;
-  grid-template-rows: auto auto 1fr;
+  align-content: center;
   gap: 12px;
-  min-height: 210px;
+  min-height: 128px;
   padding: 22px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -1265,7 +1262,6 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); }
   box-shadow: var(--shadow);
 }
 .chapter-card strong { font-size: 1.16rem; line-height: 1.25; }
-.chapter-card span:last-child { color: var(--muted); }
 
 .chapter-page {
   width: min(100%, 1040px);
