@@ -194,7 +194,7 @@ Note that there are some commercial providers like Meta or Cohere that provide o
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the required NuGet configuration packages</span>
@@ -233,14 +233,124 @@ Note that there are some commercial providers like Meta or Cohere that provide o
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
+<div class="output_html rendered_html output_subarea">
+<div>
+<div id="dotnet-interactive-this-cell-$CACHE_BUSTER$" style="display: none">
+        The below script needs to be able to find the current output cell; this is an easy method to get it.
+    </div>
+<script type="text/javascript">
+async function probeAddresses(probingAddresses) {
+    function timeout(ms, promise) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                reject(new Error('timeout'))
+            }, ms)
+            promise.then(resolve, reject)
+        })
+    }
+
+    if (Array.isArray(probingAddresses)) {
+        for (let i = 0; i < probingAddresses.length; i++) {
+
+            let rootUrl = probingAddresses[i];
+
+            if (!rootUrl.endsWith('/')) {
+                rootUrl = `${rootUrl}/`;
+            }
+
+            try {
+                let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
+                    method: 'POST',
+                    cache: 'no-cache',
+                    mode: 'cors',
+                    timeout: 1000,
+                    headers: {
+                        'Content-Type': 'text/plain'
+                    },
+                    body: probingAddresses[i]
+                }));
+
+                if (response.status == 200) {
+                    return rootUrl;
+                }
+            }
+            catch (e) { }
+        }
+    }
+}
+
+function loadDotnetInteractiveApi() {
+    probeAddresses(["http://127.0.0.1:2048/","http://::1:2048/","http://fe80::1%1:2048/","http://fe80::2c7c:d0ff:fe2a:6705%16:2048/","http://fe80::72c9:9c:4341:f6f5%18:2048/","http://fe80::77c8:c6f0:86d8:d2b7%19:2048/","http://fe80::cb22:316c:186b:dad%20:2048/","http://fe80::ce81:b1c:bd2c:69e%21:2048/"])
+        .then((root) => {
+        // use probing to find host url and api resources
+        // load interactive helpers and language services
+        let dotnetInteractiveRequire = require.config({
+        context: '78612.Microsoft.DotNet.Interactive.Http.HttpPort',
+                paths:
+            {
+                'dotnet-interactive': `${root}resources`
+                }
+        }) || require;
+
+            window.dotnetInteractiveRequire = dotnetInteractiveRequire;
+
+            window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
+                let paths = {};
+                paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
+                
+                let internalRequire = require.config({
+                    context: extensionCacheBuster,
+                    paths: paths,
+                    urlArgs: `cacheBuster=${extensionCacheBuster}`
+                    }) || require;
+
+                return internalRequire
+            };
+        
+            dotnetInteractiveRequire([
+                    'dotnet-interactive/dotnet-interactive'
+                ],
+                function (dotnet) {
+                    dotnet.init(window);
+                },
+                function (error) {
+                    console.log(error);
+                }
+            );
+        })
+        .catch(error => {console.log(error);});
+    }
+
+// ensure `require` is available globally
+if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
+    let require_script = document.createElement('script');
+    require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
+    require_script.setAttribute('type', 'text/javascript');
+    
+    
+    require_script.onload = function() {
+        loadDotnetInteractiveApi();
+    };
+
+    document.getElementsByTagName('head')[0].appendChild(require_script);
+}
+else {
+    loadDotnetInteractiveApi();
+}
+
+    </script>
+</div></div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.Configuration, 10.0.8</span></li><li><span>Microsoft.Extensions.Configuration.Json, 10.0.8</span></li><li><span>System.Text.Json, 10.0.8</span></li></ul></div></div></div>
 </div>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Local AI Endpoint: http://10.0.0.21:1234/v1
+<pre>Local AI Endpoint: http://localhost:1234/v1/
 Local AI API Key: not_needed_for_lmstudio_ollama_etc
-Local AI Model Deployment Name: google/gemma-4-26b-a4b
+Local AI Model Deployment Name: google/gemma-4-12b-qat
 </pre>
 </div>
 </div>
@@ -249,7 +359,7 @@ Local AI Model Deployment Name: google/gemma-4-26b-a4b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Install the required AI packages</span>
@@ -312,7 +422,7 @@ Local AI Model Deployment Name: google/gemma-4-26b-a4b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Define the system prompt for the Decision Intelligence assistant</span>
@@ -384,65 +494,83 @@ Local AI Model Deployment Name: google/gemma-4-26b-a4b
 <thead>
 <tr>
 <th style="text-align:left">Category</th>
-<th style="text-align:left">Key Evaluation Factor</th>
-<th style="text-align:left">Critical Assessment Criteria &amp; Steps</th>
-<th style="text-align:left">Potential Risks to Mitigate</th>
+<th style="text-align:left">Key Factor</th>
+<th style="text-align:left">Evaluation Criteria &amp; Action Items</th>
+<th style="text-align:left">Tradeoffs &amp; Risks</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">Financial</td>
+<td style="text-align:left"><strong>Financial Feasibility</strong></td>
 <td style="text-align:left">Cash Flow Analysis</td>
-<td style="text-align:left">Calculate Net Operating Income (NOI) by subtracting all operating expenses (taxes, insurance, maintenance, utilities, management fees) from Gross Rental Income. Aim for a positive monthly spread.</td>
-<td style="text-align:left">Vacancy periods, unexpected repair costs, and rising utility prices.</td>
+<td style="text-align:left">Calculate Net Operating Income (NOI) after property taxes, insurance, maintenance, and management fees.</td>
+<td style="text-align:left">High yield may come with high turnover costs or lower-quality tenants.</td>
 </tr>
 <tr>
-<td style="text-align:left">Financial</td>
-<td style="text-align:left">Return on Investment (ROI/Cap Rate)</td>
-<td style="text-align:left">Calculate Capitalization Rate (NOI / Purchase Price) and Cash-on-Cash Return (Annual Pre-tax Cash Flow / Total Cash Invested). Compare these against market benchmarks.</td>
-<td style="text-align:left">Overestimation of rental yields or underestimation of initial capital outlay.</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Financing Options</td>
+<td style="text-align:left">Compare Fixed-rate vs. ARM mortgages; evaluate down payment requirements and interest rate impacts on DTI.</td>
+<td style="text-align:left">Lower interest rates may require higher initial capital (down payment).</td>
 </tr>
 <tr>
-<td style="text-align:left">Financial</td>
-<td style="text-align:left">Financing &amp; Leverage</td>
-<td style="text-align:left">Compare fixed vs. adjustable-rate mortgages. Evaluate Debt Service Coverage Ratio (DSCR) to ensure the property generates enough income to cover its own debt.</td>
-<td style="text-align:left">Interest rate volatility and inability to service debt during low occupancy.</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">ROI Metrics</td>
+<td style="text-align:left">Calculate Cap Rate, Cash-on-Cash Return, and Internal Rate of Return (IRR) over 5-10 years.</td>
+<td style="text-align:left">Short-term cash flow may be sacrificed for long-term capital appreciation.</td>
 </tr>
 <tr>
-<td style="text-align:left">Market</td>
-<td style="text-align:left">Location Dynamics</td>
-<td style="text-align:left">Analyze proximity to "demand drivers" (universities, hospitals, business hubs, or tourist attractions). Check local employment growth rates and school district quality.</td>
-<td style="text-align:left">Economic downturn in a single-industry town or rezoning changes.</td>
+<td style="text-align:left"><strong>Market Dynamics</strong></td>
+<td style="text-align:left">Location Analysis</td>
+<td style="text-align:left">Assess neighborhood demographics, job growth, school ratings, and proximity to transit/amenities.</td>
+<td style="text-align:left">Desirable "A+" locations often have lower rental yields and higher competition.</td>
 </tr>
 <tr>
-<td style="text-align:left">Market</td>
-<td style="text-align:left">Rental Demand &amp; Trends</td>
-<td style="text-align:left">Review historical absorption rates (how fast units rent) and seasonal demand fluctuations. Use tools like AirDNA (for short-term) or Rentometer (for long-term) to validate pricing.</td>
-<td style="text-align:left">Over-saturation of similar rental types (e.g., too many Airbnbs in one area).</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Supply &amp; Demand</td>
+<td style="text-align:left">Analyze local vacancy rates and new construction pipelines in the target zip code.</td>
+<td style="text-align:left">Oversupply in a specific area can lead to stagnant rents and price drops.</td>
 </tr>
 <tr>
-<td style="text-align:left">Property</td>
-<td style="text-align:left">Physical Condition &amp; CapEx</td>
-<td style="text-align:left">Perform a professional inspection focusing on the "Big Five": Roof, HVAC, Foundation, Plumbing, and Electrical. Estimate a Capital Expenditure (CapEx) reserve fund.</td>
-<td style="text-align:left">Hidden structural defects or immediate high-cost maintenance requirements.</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Appreciation Trends</td>
+<td style="text-align:left">Review historical price growth and local economic drivers (e.g., new tech hubs, hospitals).</td>
+<td style="text-align:left">Past performance is not a guarantee of future growth; local economy shifts can be volatile.</td>
 </tr>
 <tr>
-<td style="text-align:left">Property</td>
-<td style="text-align:left">Regulatory Environment</td>
-<td style="text-align:left">Research local zoning laws, Short-Term Rental (STR) ordinances, HOA restrictions, and landlord-tenant laws regarding evictions and rent control.</td>
-<td style="text-align:left">Sudden bans on short-term rentals or restrictive homeowner association rules.</td>
+<td style="text-align:left"><strong>Property Specifics</strong></td>
+<td style="text-align:left">Physical Condition</td>
+<td style="text-align:left">Conduct a professional inspection to identify "CapEx" items (roof, HVAC, plumbing, foundation).</td>
+<td style="text-align:left">A "fixer-upper" offers higher equity gain but carries higher immediate risk and stress.</td>
 </tr>
 <tr>
-<td style="text-align:left">Long-Term Strategy</td>
-<td style="text-align:left">Appreciation Potential</td>
-<td style="text-align:left">Evaluate urban development plans, infrastructure projects (new highways/transit), and historical property value trends in the micro-market.</td>
-<td style="text-align:left">Market stagnation or localized economic decline affecting property liquidity.</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Rental Suitability</td>
+<td style="text-align:left">Evaluate floor plan, number of bedrooms/bathrooms, and "move-in ready" status for target demographic.</td>
+<td style="text-align:left">Unique architectural features may increase value but limit the pool of eligible renters.</td>
 </tr>
 <tr>
-<td style="text-align:left">Risk Management</td>
-<td style="text-align:left">Diversification &amp; Exit Strategy</td>
-<td style="text-align:left">Determine if this investment complements your current portfolio. Define an exit plan: Will you sell in 5 years, refinance, or transition from short-term to long-term rental?</td>
-<td style="text-align:left">Lack of liquidity (difficulty selling quickly) and concentration risk in one asset class.</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Management Strategy</td>
+<td style="text-align:left">Decide between self-management (higher profit/higher effort) vs. professional property management.</td>
+<td style="text-align:left">Outsourcing management reduces "headache" but cuts into monthly net cash flow.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Risk &amp; Contingency</strong></td>
+<td style="text-align:left">Vacancy Risk</td>
+<td style="text-align:left">Model 5-10% vacancy rates into all financial projections to ensure the property remains viable.</td>
+<td style="text-align:left">Underestimating vacancy can lead to negative cash flow during lean months.</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Regulatory Risk</td>
+<td style="text-align:left">Research local landlord-tenant laws, short-term rental (STR) restrictions, and potential tax changes.</td>
+<td style="text-align:left">Strict zoning laws can suddenly render an investment property non-viable.</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">Liquidity Risk</td>
+<td style="text-align:left">Acknowledge that real estate is an illiquid asset; determine a "hold period" before needing to exit.</td>
+<td style="text-align:left">Capital is "locked" in the asset; selling quickly during a downturn results in losses.</td>
 </tr>
 </tbody>
 </table>

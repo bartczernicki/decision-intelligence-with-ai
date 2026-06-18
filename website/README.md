@@ -25,7 +25,7 @@ To update canonical links, Open Graph URLs, `robots.txt`, and `sitemap.xml` for 
 For compatibility, the root wrapper still works:
 
 ```bash
-python3 scripts/build_website.py
+python3 website/src/build_website.py
 ```
 
 ## Test Locally
