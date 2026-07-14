@@ -1,5 +1,6 @@
 {
   "AzureOpenAI": {
+
     "Endpoint": "https://YOURENDPOINT.openai.azure.com",
     "APIKey": "AZUREOPENAIAPIKEY",
     "ModelDeploymentName": "MODELDEPLOYMENTNAME",
@@ -8,6 +9,7 @@
     "ReasoningAPIKey": "AZUREOPENAIAPIKEY",
     "ReasoningModelDeploymentName": "MODELDEPLOYMENTNAME",
 
+    "UseAzureOpenAI": "true"
   },
   "OpenAI": {
     "APIKey": "OPENAIAPIKEY",
