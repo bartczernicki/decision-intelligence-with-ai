@@ -164,9 +164,9 @@
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the required NuGet configuration packages</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration, 10.0.8"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration.Json, 10.0.8"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: System.Text.Json, 10.0.8"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration, 10.0.9"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration.Json, 10.0.9"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: System.Text.Json, 10.0.9"</span>
 
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration.Json</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
@@ -189,6 +189,8 @@
 <span class="c1">// OpenAI Connection Info </span>
 <span class="kt">var</span><span class="w"> </span><span class="n">openAIAPIKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"OpenAI:APIKey"</span><span class="p">];</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">openAIModelId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"OpenAI:ModelId"</span><span class="p">];</span>
+<span class="c1">// AzureOpenAI or OpenAI selection flag</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">useAzureOpenAI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">bool</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:UseAzureOpenAI"</span><span class="p">]</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s">"true"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -244,12 +246,12 @@ async function probeAddresses(probingAddresses) {
 }
 
 function loadDotnetInteractiveApi() {
-    probeAddresses(["http://127.0.0.1:2048/","http://::1:2048/","http://fe80::1%1:2048/","http://fe80::18b4:90da:8915:df76%15:2048/","http://10.0.0.21:2048/","http://fe80::9083:51ff:fed6:3656%16:2048/","http://fe80::72c9:9c:4341:f6f5%18:2048/","http://fe80::77c8:c6f0:86d8:d2b7%19:2048/","http://fe80::cb22:316c:186b:dad%20:2048/","http://fe80::ce81:b1c:bd2c:69e%21:2048/"])
+    probeAddresses(["http://127.0.0.1:2052/","http://::1:2052/","http://fe80::1%1:2052/","http://fe80::1cec:2e58:9d34:a855%15:2052/","http://10.0.0.39:2052/","http://fe80::809c:30ff:fe00:28d4%16:2052/","http://fe80::6369:a43a:160d:c30f%18:2052/","http://fe80::bf5b:2e73:9282:f192%19:2052/","http://fe80::498f:d3c3:59c0:6dcd%20:2052/","http://fe80::ce81:b1c:bd2c:69e%21:2052/","http://10.211.55.2:2052/","http://fe80::fcb2:14ff:fe1e:4064%26:2052/","http://fdb2:2c26:f4e4::1:2052/","http://10.37.129.2:2052/","http://fe80::fcb2:14ff:fe1e:4065%28:2052/","http://fdb2:2c26:f4e4:1::1:2052/"])
         .then((root) => {
         // use probing to find host url and api resources
         // load interactive helpers and language services
         let dotnetInteractiveRequire = require.config({
-        context: '68885.Microsoft.DotNet.Interactive.Http.HttpPort',
+        context: '16992.Microsoft.DotNet.Interactive.Http.HttpPort',
                 paths:
             {
                 'dotnet-interactive': `${root}resources`
@@ -307,46 +309,49 @@ else {
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.Configuration, 10.0.8</span></li><li><span>Microsoft.Extensions.Configuration.Json, 10.0.8</span></li><li><span>System.Text.Json, 10.0.8</span></li></ul></div></div></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.Configuration, 10.0.9</span></li><li><span>Microsoft.Extensions.Configuration.Json, 10.0.9</span></li><li><span>System.Text.Json, 10.0.9</span></li></ul></div></div></div>
 </div>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the Microdoft Extensions AI NuGet Packages</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI, 10.6.0"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.Abstractions, 10.6.0"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.OpenAI, 10.6.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI, 10.7.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.Abstractions, 10.7.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.OpenAI, 10.7.0"</span>
 <span class="c1">// Import Azure &amp; OpenAI NuGet Packages</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Azure.AI.OpenAI, 2.9.0-beta.1"</span>
 <span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Azure.Identity, 1.21.0"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: OpenAI, 2.10.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: OpenAI, 2.11.0"</span>
 
 <span class="k">using</span><span class="w"> </span><span class="nn">Azure</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Azure.AI.OpenAI</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.AI</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">OpenAI</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.ClientModel</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.ComponentModel</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.Text.Json</span><span class="p">;</span>
 
-<span class="c1">// Set the flag to use Azure OpenAI or OpenAI. False to use OpenAI, True to use Azure OpenAI</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">useAzureOpenAI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
 
 <span class="c1">// Create the IChatClient based on the selected service</span>
 <span class="n">IChatClient</span><span class="w"> </span><span class="n">chatClient</span><span class="p">;</span>
 
-<span class="c1">// Create a new MEAI ChatClient based on the Azure OpenAI Service or OpenAI Service depending on the flag</span>
+<span class="c1">// Create a new MEAI ChatClient instance</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">useAzureOpenAI</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Using Azure OpenAI Service"</span><span class="p">);</span>
 
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="p">);</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AzureOpenAIClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Uri</span><span class="p">(</span><span class="n">azureOpenAIEndpoint</span><span class="p">),</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="o">!</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OpenAIClient</span><span class="p">(</span>
+<span class="w">        </span><span class="n">apiKeyCredential</span><span class="p">,</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">OpenAIClientOptions</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Uri</span><span class="p">(</span><span class="s">$"{azureOpenAIEndpoint!.TrimEnd('/')}/openai/v1"</span><span class="p">)</span>
+<span class="w">        </span><span class="p">});</span>
 
 <span class="w">    </span><span class="n">chatClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="p">.</span><span class="n">GetChatClient</span><span class="p">(</span><span class="n">azureOpenAIModelDeploymentName</span><span class="p">).</span><span class="n">AsIChatClient</span><span class="p">();</span>
 <span class="p">}</span>
@@ -355,15 +360,30 @@ else {
 <span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Using OpenAI Service"</span><span class="p">);</span>
 
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="p">);</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AzureOpenAIClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Uri</span><span class="p">(</span><span class="n">azureOpenAIEndpoint</span><span class="p">),</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">openAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OpenAIClient</span><span class="p">(</span><span class="n">apiKeyCredential</span><span class="p">);</span>
 
-<span class="w">    </span><span class="n">chatClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="p">.</span><span class="n">GetChatClient</span><span class="p">(</span><span class="n">azureOpenAIModelDeploymentName</span><span class="p">).</span><span class="n">AsIChatClient</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">// #pragma warning disable OPENAI001</span>
+<span class="w">    </span><span class="n">chatClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">openAIClient</span><span class="p">.</span><span class="n">GetChatClient</span><span class="p">(</span><span class="n">openAIModelId</span><span class="p">).</span><span class="n">AsIChatClient</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Azure.Identity, 1.21.0</span></li><li><span>Microsoft.Extensions.AI, 10.7.0</span></li><li><span>Microsoft.Extensions.AI.Abstractions, 10.7.0</span></li><li><span>Microsoft.Extensions.AI.OpenAI, 10.7.0</span></li><li><span>OpenAI, 2.11.0</span></li></ul></div></div></div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Using Azure OpenAI Service
+</pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -382,7 +402,7 @@ else {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Simple prompt to list some decision frameworks this GenAI LLM is familiar with </span>
@@ -414,43 +434,49 @@ else {
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_markdown rendered_html output_subarea">
-<h3 id="5-decision-frameworks-to-improve-decision-quality">5 decision frameworks to improve decision quality<a class="anchor-link" href="#5-decision-frameworks-to-improve-decision-quality">¶</a></h3><ol>
-<li><p><strong>Decision Matrix</strong></p>
+<h3 id="1.-Decision-Matrix">1. Decision Matrix<a class="anchor-link" href="#1.-Decision-Matrix">¶</a></h3><p>Compare options against consistent criteria such as cost, risk, impact, and feasibility.</p>
 <ul>
-<li>List your options and the criteria that matter most.</li>
-<li>Score each option against each criterion, then weight the criteria by importance.</li>
-<li>Helpful when comparing multiple alternatives systematically.</li>
+<li>Define the criteria.</li>
+<li>Assign each criterion a weight.</li>
+<li>Score each option.</li>
+<li>Calculate weighted totals.</li>
+<li>Review whether the result matches your judgment.</li>
 </ul>
-</li>
-<li><p><strong>Pros and Cons Analysis</strong></p>
+<p>Useful for: choosing vendors, projects, products, or strategic priorities.</p>
+<h3 id="2.-Cost%E2%80%93Benefit-Analysis">2. Cost–Benefit Analysis<a class="anchor-link" href="#2.-Cost%E2%80%93Benefit-Analysis">¶</a></h3><p>Evaluate whether the expected benefits of an option justify its costs.</p>
 <ul>
-<li>Write down the benefits and drawbacks of each option.</li>
-<li>Best for quick, simple decisions where you need clarity on tradeoffs.</li>
-<li>Can be improved by assigning rough weights to the pros and cons.</li>
+<li>Identify direct and indirect costs.</li>
+<li>Estimate tangible and intangible benefits.</li>
+<li>Account for uncertainty and timing.</li>
+<li>Compare alternatives using net value or return on investment.</li>
 </ul>
-</li>
-<li><p><strong>Cost-Benefit Analysis</strong></p>
+<p>Useful for: investments, process changes, and resource allocation.</p>
+<h3 id="3.-Premortem-Analysis">3. Premortem Analysis<a class="anchor-link" href="#3.-Premortem-Analysis">¶</a></h3><p>Assume the decision has failed and work backward to identify why.</p>
 <ul>
-<li>Estimate the total expected costs and benefits of each option.</li>
-<li>Useful when decisions have financial, operational, or measurable outcomes.</li>
-<li>Helps determine whether the likely value outweighs the downside.</li>
+<li>Imagine a future failure.</li>
+<li>List the causes that might have led to it.</li>
+<li>Identify which risks are preventable.</li>
+<li>Add safeguards or adjust the decision.</li>
 </ul>
-</li>
-<li><p><strong>Pre-Mortem</strong></p>
+<p>Useful for: high-stakes decisions, major projects, and risk management.</p>
+<h3 id="4.-OODA-Loop">4. OODA Loop<a class="anchor-link" href="#4.-OODA-Loop">¶</a></h3><p>Make decisions through a repeated cycle of observing, interpreting, acting, and learning.</p>
 <ul>
-<li>Imagine the decision has failed and ask: “What went wrong?”</li>
-<li>Identifies risks, blind spots, and weak assumptions before committing.</li>
-<li>Especially useful for high-stakes or uncertain decisions.</li>
+<li><strong>Observe:</strong> Gather relevant information.</li>
+<li><strong>Orient:</strong> Analyze the context and implications.</li>
+<li><strong>Decide:</strong> Select a course of action.</li>
+<li><strong>Act:</strong> Implement it and observe the results.</li>
 </ul>
-</li>
-<li><p><strong>RICE Prioritization</strong></p>
+<p>Useful for: fast-changing environments where decisions need continuous adjustment.</p>
+<h3 id="5.-Six-Thinking-Hats">5. Six Thinking Hats<a class="anchor-link" href="#5.-Six-Thinking-Hats">¶</a></h3><p>Examine a decision from several distinct perspectives to reduce bias and improve completeness.</p>
 <ul>
-<li>Score options by Reach, Impact, Confidence, and Effort.</li>
-<li>Often used for prioritizing projects, features, or initiatives.</li>
-<li>Helps choose what is likely to deliver the most value relative to effort.</li>
+<li><strong>White hat:</strong> Facts and information</li>
+<li><strong>Red hat:</strong> Emotions and intuition</li>
+<li><strong>Black hat:</strong> Risks and weaknesses</li>
+<li><strong>Yellow hat:</strong> Benefits and opportunities</li>
+<li><strong>Green hat:</strong> Alternatives and creativity</li>
+<li><strong>Blue hat:</strong> Process and next steps</li>
 </ul>
-</li>
-</ol>
+<p>Useful for: team decisions, complex problems, and situations where competing viewpoints matter.</p>
 </div>
 </div>
 </div>
@@ -480,7 +506,7 @@ else {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Set the overall system prompt to behave like a decision intelligence assistant (persona)</span>
@@ -536,48 +562,54 @@ else {
 <table>
 <thead>
 <tr>
-<th>Framework</th>
-<th>Core idea</th>
+<th style="text-align:right">#</th>
+<th>Decision framework</th>
 <th>Best used for</th>
-<th>How it improves decision quality</th>
-<th>Simple application steps</th>
+<th>How to apply</th>
+<th>Key benefit</th>
+<th>Common caution</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Cost-Benefit Analysis</td>
-<td>Compare expected benefits against expected costs for each option.</td>
-<td>Choices with measurable tradeoffs, especially when resources are limited.</td>
-<td>Makes tradeoffs explicit and helps avoid decisions based only on intuition or isolated pros and cons.</td>
-<td>1) List options 2) Identify costs and benefits 3) Estimate magnitude and timing 4) Compare net value 5) Choose the highest expected return.</td>
+<td style="text-align:right">1</td>
+<td><strong>Expected Value Analysis</strong></td>
+<td>Decisions involving uncertainty, probabilities, and measurable outcomes</td>
+<td>List possible outcomes, estimate the probability and value of each, multiply probability × value, then add the results to compare options</td>
+<td>Makes trade-offs and uncertainty explicit</td>
+<td>Can create false precision when probabilities or values are unreliable</td>
 </tr>
 <tr>
-<td>Decision Matrix</td>
-<td>Score multiple options against criteria that matter most.</td>
-<td>Multi-factor decisions with several competing priorities.</td>
-<td>Reduces bias by forcing a structured comparison across all relevant criteria.</td>
-<td>1) Define criteria 2) Assign weights 3) Score each option 4) Multiply and total scores 5) Review sensitivity of results.</td>
+<td style="text-align:right">2</td>
+<td><strong>Decision Matrix</strong></td>
+<td>Comparing several options against multiple criteria</td>
+<td>Define evaluation criteria, assign importance weights, score each option, multiply scores by weights, and compare totals</td>
+<td>Provides a transparent and repeatable comparison</td>
+<td>Results depend heavily on the selected criteria, weights, and scoring scale</td>
 </tr>
 <tr>
-<td>Expected Value Analysis</td>
-<td>Multiply each outcome by its probability and sum the results.</td>
-<td>Decisions under uncertainty with identifiable outcomes.</td>
-<td>Helps quantify uncertainty instead of ignoring it, making risk clearer.</td>
-<td>1) List possible outcomes 2) Estimate probability of each 3) Assign payoff or loss values 4) Calculate expected value 5) Compare options.</td>
+<td style="text-align:right">3</td>
+<td><strong>Pre-Mortem Analysis</strong></td>
+<td>High-stakes decisions with significant downside risk</td>
+<td>Imagine the decision has failed, identify likely causes, and add safeguards or modify the plan to address them</td>
+<td>Reduces overconfidence and surfaces overlooked risks</td>
+<td>Can overemphasize unlikely negative scenarios if not balanced with opportunity analysis</td>
 </tr>
 <tr>
-<td>Pre-Mortem Analysis</td>
-<td>Imagine the decision failed and work backward to find why.</td>
-<td>High-stakes or risky decisions where blind spots matter.</td>
-<td>Surfaces hidden risks, assumptions, and failure modes before commitment.</td>
-<td>1) Assume failure 2) Brainstorm causes 3) Identify weak assumptions 4) Add safeguards 5) Revise the decision plan.</td>
+<td style="text-align:right">4</td>
+<td><strong>Reversible vs. Irreversible Decision Framework</strong></td>
+<td>Determining how much time and analysis a decision deserves</td>
+<td>Classify the decision by cost of reversal; act quickly on reversible choices and use deeper analysis, consultation, and safeguards for irreversible ones</td>
+<td>Allocates decision effort according to potential consequences</td>
+<td>Some decisions appear reversible but create hidden long-term commitments</td>
 </tr>
 <tr>
-<td>OODA Loop</td>
-<td>Observe, Orient, Decide, Act in a repeated cycle.</td>
-<td>Dynamic environments that change quickly.</td>
-<td>Encourages learning, adaptation, and faster correction when conditions shift.</td>
-<td>1) Observe current conditions 2) Orient using context and data 3) Decide on action 4) Act 5) Repeat and adjust.</td>
+<td style="text-align:right">5</td>
+<td><strong>OODA Loop: Observe, Orient, Decide, Act</strong></td>
+<td>Fast-moving, uncertain, or competitive environments</td>
+<td>Gather current information, interpret it in context, choose an action, act, and use the results to update the next cycle</td>
+<td>Encourages learning and adaptation rather than waiting for perfect information</td>
+<td>Rapid action without adequate observation or reflection can reinforce bad assumptions</td>
 </tr>
 </tbody>
 </table>
@@ -596,7 +628,7 @@ else {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Add the assistant message to the chat history</span>
@@ -632,16 +664,18 @@ else {
 <table>
 <thead>
 <tr>
-<th>Selected framework</th>
-<th>Why it is the single best fit for the military intelligence community</th>
-<th>Short rationale</th>
+<th>Selection</th>
+<th>Best framework</th>
+<th>Why it is best suited to the military intelligence community</th>
+<th>How it applies</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>OODA Loop</td>
-<td>Military intelligence operates in fast-changing, adversarial, information-rich environments where conditions can shift quickly and decisions must be continuously updated. OODA is designed for observe-orient-decide-act cycles under uncertainty and conflict, making it the most operationally relevant of the five.</td>
-<td>It best matches the need for rapid sensing, interpretation, adaptation, and repeated reassessment in dynamic situations.</td>
+<td><strong>1</strong></td>
+<td><strong>OODA Loop: Observe, Orient, Decide, Act</strong></td>
+<td>Military intelligence operates in dynamic, adversarial environments where information is incomplete, time-sensitive, and continuously changing. The OODA Loop supports rapid adaptation, integrates new intelligence as it arrives, and emphasizes acting before an opponent can adjust.</td>
+<td>Collect and validate intelligence (<strong>Observe</strong>), assess it within operational and strategic context (<strong>Orient</strong>), select a course of action or intelligence priority (<strong>Decide</strong>), act and monitor the results (<strong>Act</strong>), then repeat the cycle as conditions evolve.</td>
 </tr>
 </tbody>
 </table>
@@ -675,7 +709,7 @@ else {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Set the overall system prompt to behave like a decision intelligence assistant (persona)</span>
@@ -772,7 +806,7 @@ else {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [7]:</div>
+<div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">userPromptDecisionConversationFinalDecision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
@@ -803,15 +837,16 @@ else {
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_markdown rendered_html output_subarea">
-<p>That sounds like a sensible choice.</p>
-<p>Quick final thoughts:</p>
+<p>The <strong>Fitbit Inspire 3</strong> sounds well matched to your priorities:</p>
 <ul>
-<li>Good match for your priorities: The Inspire 3 is a strong fit if you care most about battery life and sleep tracking.</li>
-<li>Low-friction daily use: Its multi-day battery makes it easier to wear consistently, which helps sleep data quality.</li>
-<li>Budget-friendly: You’re getting the core health features without paying for extras you may not need.</li>
-<li>Tradeoff to keep in mind: It won’t be as feature-rich as an Apple Watch or higher-end Garmin, especially for apps and smartwatch functions.</li>
+<li><strong>Battery:</strong> Rated for up to about <strong>10 days</strong>, though frequent workouts, notifications, and screen use can reduce that.</li>
+<li><strong>Sleep tracking:</strong> Good for trends such as sleep duration, stages, schedule, and sleep score. Treat the stages and sleep-score details as estimates—not medical measurements.</li>
+<li><strong>Comfort:</strong> Slim and lightweight, making it suitable for overnight wear.</li>
+<li><strong>Trade-offs:</strong> It lacks built-in GPS, so outdoor route tracking requires your phone. Its screen and smartwatch features are also fairly basic.</li>
+<li><strong>Subscription:</strong> Check which insights require <strong>Fitbit Premium</strong>; core tracking works without it, but some advanced reports and coaching may be paywalled.</li>
+<li><strong>Practical tip:</strong> Wear it snugly but comfortably, and charge it during a routine gap—such as while showering—to preserve continuous sleep data.</li>
 </ul>
-<p>If your main goal is to build a consistent habit of tracking sleep and general activity, it’s a practical, well-balanced pick.</p>
+<p>Overall, if you value long battery life and straightforward sleep tracking more than advanced smartwatch features or standalone GPS, it is a sensible choice.</p>
 </div>
 </div>
 </div>
@@ -844,7 +879,7 @@ else {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [8]:</div>
+<div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Print the number of chat interactions and the chat history (turns)</span>
@@ -933,15 +968,16 @@ Thank you for all of that information, I think I'll go with a Fitbit.
 The Fitbit Inspire 3 seems like a good fit for my budget and needs.</p>
 <p>Any quick final thoughts or insights on my decision?</p>
 <p><strong>ASSISTANT</strong>:
-That sounds like a sensible choice.</p>
-<p>Quick final thoughts:</p>
+The <strong>Fitbit Inspire 3</strong> sounds well matched to your priorities:</p>
 <ul>
-<li>Good match for your priorities: The Inspire 3 is a strong fit if you care most about battery life and sleep tracking.</li>
-<li>Low-friction daily use: Its multi-day battery makes it easier to wear consistently, which helps sleep data quality.</li>
-<li>Budget-friendly: You’re getting the core health features without paying for extras you may not need.</li>
-<li>Tradeoff to keep in mind: It won’t be as feature-rich as an Apple Watch or higher-end Garmin, especially for apps and smartwatch functions.</li>
+<li><strong>Battery:</strong> Rated for up to about <strong>10 days</strong>, though frequent workouts, notifications, and screen use can reduce that.</li>
+<li><strong>Sleep tracking:</strong> Good for trends such as sleep duration, stages, schedule, and sleep score. Treat the stages and sleep-score details as estimates—not medical measurements.</li>
+<li><strong>Comfort:</strong> Slim and lightweight, making it suitable for overnight wear.</li>
+<li><strong>Trade-offs:</strong> It lacks built-in GPS, so outdoor route tracking requires your phone. Its screen and smartwatch features are also fairly basic.</li>
+<li><strong>Subscription:</strong> Check which insights require <strong>Fitbit Premium</strong>; core tracking works without it, but some advanced reports and coaching may be paywalled.</li>
+<li><strong>Practical tip:</strong> Wear it snugly but comfortably, and charge it during a routine gap—such as while showering—to preserve continuous sleep data.</li>
 </ul>
-<p>If your main goal is to build a consistent habit of tracking sleep and general activity, it’s a practical, well-balanced pick.</p>
+<p>Overall, if you value long battery life and straightforward sleep tracking more than advanced smartwatch features or standalone GPS, it is a sensible choice.</p>
 </div>
 </div>
 </div>
@@ -959,7 +995,7 @@ That sounds like a sensible choice.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [9]:</div>
+<div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">userPromptSummarizeTheDecisionChat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
@@ -983,7 +1019,8 @@ That sounds like a sensible choice.</p>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_markdown rendered_html output_subarea">
-<p>You asked what matters most in a fitness tracker, and we discussed key factors like fitness features, health monitoring, battery life, comfort, phone compatibility, and price. You then said battery life and sleep tracking were your priorities, so I explained that trackers usually range from about 2–3 days to 10–14 days of battery life, with many offering sleep-stage tracking and some advanced overnight health metrics. I suggested a few popular options that balance those needs: Fitbit Inspire 3/Charge 5, Garmin Vivosmart 5, and Xiaomi Mi Band 7. When you asked about the Apple Watch, I noted that it has stronger smartwatch and health features but much shorter battery life, typically around 18–24 hours, which makes constant sleep tracking less convenient. In the end, you chose the Fitbit Inspire 3 as a budget-friendly fit for your needs, and I agreed it’s a practical choice if your main goals are reliable sleep tracking and long battery life.</p>
+<p>You prioritized <strong>long battery life and reliable sleep tracking</strong> when choosing a fitness tracker. We discussed typical battery ranges of roughly <strong>2–3 days to 10–14 days</strong>, along with common sleep metrics such as sleep duration, stages, breathing rate, and oxygen saturation.</p>
+<p>We compared several options, including Fitbit, Garmin, Xiaomi, and Apple Watch. The Apple Watch offers stronger smartwatch and health features but generally requires daily charging. You decided that the <strong>Fitbit Inspire 3</strong> best fits your budget and needs, while noting its approximately <strong>10-day battery life</strong>, useful sleep trends, lack of built-in GPS, and some Fitbit Premium limitations.</p>
 </div>
 </div>
 </div>
@@ -998,10 +1035,11 @@ That sounds like a sensible choice.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [10]:</div>
+<div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Optimize the chat history for any future decision interactions</span>
+<span class="c1">// Prompt to look at the chat history and provide recommendations for optimizing decision-making</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">userPromptOptimizeTheDecisionChat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"""</span>
 <span class="n">Based</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">chat</span><span class="w"> </span><span class="n">conversation</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">far</span><span class="p">...</span>
 <span class="n">Provide</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">recommendations</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">decision</span><span class="w"> </span><span class="n">interactions</span><span class="w"> </span><span class="n">could</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">optimized</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">decision</span><span class="o">-</span><span class="n">making</span><span class="p">.</span>
@@ -1028,114 +1066,113 @@ That sounds like a sensible choice.</p>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_markdown rendered_html output_subarea">
-<p>Here are some ways the decision interaction could be optimized to help the user make better choices.</p>
-<h2 id="What-could-be-improved-in-the-interaction">What could be improved in the interaction<a class="anchor-link" href="#What-could-be-improved-in-the-interaction">¶</a></h2><h3 id="1.-Clarify-the-decision-context-earlier">1. Clarify the decision context earlier<a class="anchor-link" href="#1.-Clarify-the-decision-context-earlier">¶</a></h3><p>The conversation focused on battery life and sleep tracking, but a stronger decision process would first ask:</p>
+<h2 id="How-the-decision-interaction-could-be-improved">How the decision interaction could be improved<a class="anchor-link" href="#How-the-decision-interaction-could-be-improved">¶</a></h2><p>The conversation was helpful, but it moved to a recommendation somewhat quickly. A stronger decision process would do the following.</p>
+<h3 id="1.-Clarify-the-user%E2%80%99s-priorities-before-recommending-models">1. Clarify the user’s priorities before recommending models<a class="anchor-link" href="#1.-Clarify-the-user%E2%80%99s-priorities-before-recommending-models">¶</a></h3><p>“Battery life” and “sleep tracking” are useful starting points, but the AI should ask:</p>
 <ul>
-<li>What is the main use case: sleep, workouts, general health, or smartwatch features?</li>
-<li>What phone do they use: iPhone or Android?</li>
-<li>What budget range are they comfortable with?</li>
-<li>Are there must-have features like GPS, ECG, or phone notifications?</li>
+<li>What phone do you use—iPhone or Android?</li>
+<li>What is your budget, including any subscription costs?</li>
+<li>Do you need built-in GPS, or is phone-connected GPS enough?</li>
+<li>Do you want notifications, calls, payments, music, or apps?</li>
+<li>Is sleep tracking mainly about sleep duration, sleep stages, snoring/breathing, or identifying possible health concerns?</li>
+<li>Are you comfortable charging every few days, or do you want a week-plus?</li>
+<li>Do you have preferences about size, comfort, appearance, or wristband materials?</li>
+<li>Are there medical conditions or symptoms involved? If so, the device should be framed as a wellness aid, not a diagnostic tool.</li>
 </ul>
-<p>This would help avoid recommending options before the decision criteria are fully defined.</p>
-<h3 id="2.-Make-tradeoffs-explicit">2. Make tradeoffs explicit<a class="anchor-link" href="#2.-Make-tradeoffs-explicit">¶</a></h3><p>The responses gave useful product suggestions, but could have more clearly framed the tradeoffs, for example:</p>
+<p>These questions help distinguish a simple tracker from a smartwatch and avoid recommending a device that fits one priority while failing another.</p>
+<h3 id="2.-Define-measurable-decision-criteria">2. Define measurable decision criteria<a class="anchor-link" href="#2.-Define-measurable-decision-criteria">¶</a></h3><p>The AI could translate preferences into criteria such as:</p>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th style="text-align:right">Example importance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Battery life</td>
+<td style="text-align:right">Very high</td>
+</tr>
+<tr>
+<td>Sleep tracking</td>
+<td style="text-align:right">Very high</td>
+</tr>
+<tr>
+<td>Comfort overnight</td>
+<td style="text-align:right">High</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td style="text-align:right">High</td>
+</tr>
+<tr>
+<td>GPS</td>
+<td style="text-align:right">Low or medium</td>
+</tr>
+<tr>
+<td>Notifications/apps</td>
+<td style="text-align:right">Low</td>
+</tr>
+<tr>
+<td>Subscription requirements</td>
+<td style="text-align:right">High</td>
+</tr>
+<tr>
+<td>Phone compatibility</td>
+<td style="text-align:right">Essential</td>
+</tr>
+</tbody>
+</table>
+<p>Then it could use a simple weighted comparison rather than a general statement that several devices are “good.” This makes the recommendation transparent and easier to revise.</p>
+<h3 id="3.-Distinguish-advertised-capability-from-real-world-performance">3. Distinguish advertised capability from real-world performance<a class="anchor-link" href="#3.-Distinguish-advertised-capability-from-real-world-performance">¶</a></h3><p>Battery claims such as “up to 10 days” are laboratory or light-use estimates. The AI should explain that actual life depends on:</p>
 <ul>
-<li>Longer battery life often means fewer smartwatch features</li>
-<li>Better sleep tracking may come at a higher price or more frequent charging</li>
-<li>Apple Watch offers more smart features, but worse battery life for 24/7 wear</li>
-<li>Fitbit may be a better “health-first” choice than a “smartwatch-first” choice</li>
+<li>Always-on display settings</li>
+<li>Frequent workouts and GPS use</li>
+<li>Notifications</li>
+<li>SpO₂ or other overnight sensors</li>
+<li>Battery age and software updates</li>
 </ul>
-<p>Making these tradeoffs explicit helps the user understand why a model fits.</p>
-<h3 id="3.-Compare-options-using-a-decision-framework">3. Compare options using a decision framework<a class="anchor-link" href="#3.-Compare-options-using-a-decision-framework">¶</a></h3><p>A simple comparison table would make the decision easier. For example:</p>
+<p>Similarly, sleep stages and sleep scores are estimates. Consumer trackers are generally more useful for <strong>trends</strong>—sleep timing, duration, and consistency—than for precise diagnosis of individual sleep stages.</p>
+<h3 id="4.-Compare-the-relevant-alternatives-directly">4. Compare the relevant alternatives directly<a class="anchor-link" href="#4.-Compare-the-relevant-alternatives-directly">¶</a></h3><p>Instead of listing several popular products, the AI could provide a focused comparison:</p>
 <ul>
-<li>Battery life</li>
-<li>Sleep tracking quality</li>
-<li>App ecosystem</li>
-<li>Price</li>
-<li>Comfort</li>
-<li>Compatibility</li>
-<li>Workout tracking</li>
+<li><strong>Fitbit Inspire 3:</strong> Strong fit for low cost, light weight, long battery life, and basic sleep trends; lacks built-in GPS and has relatively limited smartwatch features.</li>
+<li><strong>Fitbit Charge line:</strong> More features and often better exercise tracking, but usually higher cost and potentially shorter battery life.</li>
+<li><strong>Garmin fitness bands or watches:</strong> Often strong battery life and exercise features; sleep insights and app experience may appeal differently than Fitbit’s.</li>
+<li><strong>Apple Watch:</strong> Better smartwatch and health ecosystem, but substantially shorter battery life and less convenient overnight charging.</li>
+<li><strong>Budget bands:</strong> Long battery life and low cost, but app quality, data interpretation, privacy, and long-term support may be weaker.</li>
 </ul>
-<p>This supports more structured thinking instead of relying on isolated recommendations.</p>
-<h3 id="4.-Explore-user-priorities-more-deeply">4. Explore user priorities more deeply<a class="anchor-link" href="#4.-Explore-user-priorities-more-deeply">¶</a></h3><p>The interaction identified battery life and sleep tracking, which is good. But the AI could go further by asking:</p>
+<p>The comparison should also note model age and availability. Product lines change, and some previously popular models may be discontinued or replaced.</p>
+<h3 id="5.-Include-total-cost-and-ecosystem-considerations">5. Include total cost and ecosystem considerations<a class="anchor-link" href="#5.-Include-total-cost-and-ecosystem-considerations">¶</a></h3><p>For Fitbit specifically, the AI should prompt the user to check:</p>
 <ul>
-<li>How often are you willing to charge it?</li>
-<li>Do you want detailed sleep insights or just basic sleep duration/stages?</li>
-<li>Do you need a display always on?</li>
-<li>Are you okay with a smaller screen if it improves battery life?</li>
+<li>Whether the device works with their phone and required Fitbit/Google account</li>
+<li>Which features require Fitbit Premium</li>
+<li>Replacement band and charger costs</li>
+<li>Warranty and return policy</li>
+<li>Data export and privacy settings</li>
+<li>Whether the manufacturer is likely to provide app and firmware support</li>
 </ul>
-<p>These details would help identify the best-fit model more accurately.</p>
-<h3 id="5.-Separate-facts-from-preferences">5. Separate facts from preferences<a class="anchor-link" href="#5.-Separate-facts-from-preferences">¶</a></h3><p>The AI could be more careful to distinguish:</p>
+<p>A low purchase price can be less attractive if important insights require an ongoing subscription.</p>
+<h3 id="6.-Address-the-charging%E2%80%93sleep-trade-off-explicitly">6. Address the charging–sleep trade-off explicitly<a class="anchor-link" href="#6.-Address-the-charging%E2%80%93sleep-trade-off-explicitly">¶</a></h3><p>The key question is not only “How long does the battery last?” but also:</p>
+<blockquote>
+<p>Can the user charge it regularly without missing the sleep data they care about?</p>
+</blockquote>
+<p>Useful advice would include charging during showering or another daily routine, checking whether the device charges quickly, and considering whether short gaps in data are acceptable.</p>
+<h3 id="7.-Communicate-uncertainty-and-avoid-overclaiming">7. Communicate uncertainty and avoid overclaiming<a class="anchor-link" href="#7.-Communicate-uncertainty-and-avoid-overclaiming">¶</a></h3><p>The AI should avoid implying that a tracker can reliably detect medical conditions or precisely measure sleep stages. It should state:</p>
 <ul>
-<li>Objective product features and battery estimates</li>
-<li>Subjective fit based on the user’s lifestyle</li>
-<li>The user’s preference weighting</li>
+<li>Sleep tracking is useful for personal trends, not diagnosis.</li>
+<li>Oxygen saturation and breathing metrics may be estimates and can be affected by fit and movement.</li>
+<li>If the user has persistent insomnia, loud snoring, or suspected sleep apnea, a clinician or formal sleep evaluation is more appropriate.</li>
 </ul>
-<p>For example, “The Inspire 3 is a good fit if battery life and sleep tracking matter more than smartwatch features.”<br/>
-That’s better than presenting it as universally “best.”</p>
-<h3 id="6.-Include-confidence-and-caveats">6. Include confidence and caveats<a class="anchor-link" href="#6.-Include-confidence-and-caveats">¶</a></h3><p>Helpful decision support should note where information may vary:</p>
-<ul>
-<li>Battery life depends on usage, notifications, and display settings</li>
-<li>Sleep tracking quality varies by algorithm and user comfort</li>
-<li>App quality and ecosystem matter a lot for long-term satisfaction</li>
-</ul>
-<p>This improves realism and helps the user avoid surprises.</p>
-<h2 id="What-the-AI-should-consider-to-help-the-user-make-better-decisions">What the AI should consider to help the user make better decisions<a class="anchor-link" href="#What-the-AI-should-consider-to-help-the-user-make-better-decisions">¶</a></h2><h3 id="1.-Decision-criteria-hierarchy">1. Decision criteria hierarchy<a class="anchor-link" href="#1.-Decision-criteria-hierarchy">¶</a></h3><p>The AI should help the user rank what matters most:</p>
-<ul>
-<li>Must-have</li>
-<li>Nice-to-have</li>
-<li>Dealbreaker</li>
-</ul>
-<p>That makes the decision more robust.</p>
-<h3 id="2.-Hidden-constraints">2. Hidden constraints<a class="anchor-link" href="#2.-Hidden-constraints">¶</a></h3><p>The AI should check for constraints such as:</p>
-<ul>
-<li>Phone compatibility</li>
-<li>Wrist comfort</li>
-<li>Budget ceiling</li>
-<li>Charging habits</li>
-<li>Sensitivity to subscriptions</li>
-<li>Preference for discrete versus bulky devices</li>
-</ul>
-<h3 id="3.-Use-case-fit">3. Use-case fit<a class="anchor-link" href="#3.-Use-case-fit">¶</a></h3><p>Different devices are optimized for different jobs:</p>
-<ul>
-<li>Fitbit: health and wellness tracking</li>
-<li>Garmin: battery and fitness focus</li>
-<li>Apple Watch: smartwatch and ecosystem integration</li>
-<li>Budget trackers: basic tracking at lower cost</li>
-</ul>
-<p>The AI should map the device to the use case rather than just listing features.</p>
-<h3 id="4.-Long-term-satisfaction">4. Long-term satisfaction<a class="anchor-link" href="#4.-Long-term-satisfaction">¶</a></h3><p>The best purchase is not only the one with the most features, but the one the user will actually wear consistently.<br/>
-So the AI should consider:</p>
-<ul>
-<li>Ease of use</li>
-<li>Comfort</li>
-<li>Charge frequency</li>
-<li>App engagement</li>
-<li>Whether the device matches daily habits</li>
-</ul>
-<h3 id="5.-Opportunity-cost">5. Opportunity cost<a class="anchor-link" href="#5.-Opportunity-cost">¶</a></h3><p>If the user buys one tracker, what are they giving up?</p>
-<ul>
-<li>More smartwatch functions</li>
-<li>Better battery</li>
-<li>Lower price</li>
-<li>More advanced metrics</li>
-</ul>
-<p>Thinking in terms of tradeoffs helps avoid regret.</p>
-<h2 id="A-better-decision-support-interaction-would-do-this">A better decision-support interaction would do this<a class="anchor-link" href="#A-better-decision-support-interaction-would-do-this">¶</a></h2><p>A strong version of the conversation would:</p>
+<h2 id="Example-of-a-better-decision-interaction">Example of a better decision interaction<a class="anchor-link" href="#Example-of-a-better-decision-interaction">¶</a></h2><p>A stronger sequence would be:</p>
 <ol>
-<li>Ask 3–5 key questions up front</li>
-<li>Rank the user’s priorities</li>
-<li>Compare a small set of relevant options</li>
-<li>Explain tradeoffs clearly</li>
-<li>End with a recommendation matched to the user’s specific needs</li>
+<li><strong>Identify goals:</strong> “You prioritize overnight wear, long battery life, and useful sleep trends.”</li>
+<li><strong>Ask constraints:</strong> Phone type, budget, GPS needs, subscription tolerance, and desired smartwatch functions.</li>
+<li><strong>Rank criteria:</strong> Battery and sleep tracking are essential; GPS and apps may be secondary.</li>
+<li><strong>Shortlist two or three devices:</strong> Include only models compatible with those constraints.</li>
+<li><strong>Show trade-offs:</strong> Battery, real-world sleep features, subscription costs, comfort, and limitations.</li>
+<li><strong>Test the recommendation:</strong> Encourage checking current pricing, app requirements, return policy, and user reviews focused on sleep comfort and battery performance.</li>
+<li><strong>Give a conditional recommendation:</strong> For example, “Choose the Inspire 3 if you want a lightweight, low-cost tracker and do not need standalone GPS; choose an Apple Watch only if smartwatch functions outweigh daily charging.”</li>
 </ol>
-<h2 id="Bottom-line">Bottom line<a class="anchor-link" href="#Bottom-line">¶</a></h2><p>For this kind of product decision, the AI should help the user:</p>
-<ul>
-<li>define priorities,</li>
-<li>compare tradeoffs,</li>
-<li>account for constraints,</li>
-<li>and choose the option most likely to be used consistently.</li>
-</ul>
-<p>If you want, I can also turn this into a short “ideal AI decision-making checklist” for future product recommendations.</p>
+<p>Overall, the Fitbit Inspire 3 recommendation was reasonable based on the stated priorities, but the decision would be more robust if it were based on explicitly ranked criteria, current product information, total ownership cost, and the user’s phone and feature requirements.</p>
 </div>
 </div>
 </div>

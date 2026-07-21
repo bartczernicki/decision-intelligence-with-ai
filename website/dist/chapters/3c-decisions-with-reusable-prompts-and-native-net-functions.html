@@ -141,18 +141,21 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [11]:</div>
+<div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration, 10.0.8"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration.Json, 10.0.8"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: System.Text.Json, 10.0.8"</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the required NuGet configuration packages</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration, 10.0.9"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration.Json, 10.0.9"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: System.Text.Json, 10.0.9"</span>
 
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration.Json</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.IO</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
 
+<span class="c1">// Load the configuration settings from the local.settings.json and secrets.settings.json files</span>
+<span class="c1">// The secrets.settings.json file is used to store sensitive information such as API keys</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">configurationBuilder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConfigurationBuilder</span><span class="p">()</span>
 <span class="w">    </span><span class="p">.</span><span class="n">SetBasePath</span><span class="p">(</span><span class="n">Directory</span><span class="p">.</span><span class="n">GetCurrentDirectory</span><span class="p">())</span>
 <span class="w">    </span><span class="p">.</span><span class="n">AddJsonFile</span><span class="p">(</span><span class="s">"local.settings.json"</span><span class="p">,</span><span class="w"> </span><span class="n">optional</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="n">reloadOnChange</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">)</span>
@@ -167,6 +170,8 @@
 <span class="c1">// OpenAI Connection Info </span>
 <span class="kt">var</span><span class="w"> </span><span class="n">openAIAPIKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"OpenAI:APIKey"</span><span class="p">];</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">openAIModelId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"OpenAI:ModelId"</span><span class="p">];</span>
+<span class="c1">// AzureOpenAI or OpenAI selection flag</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">useAzureOpenAI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">bool</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:UseAzureOpenAI"</span><span class="p">]</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s">"true"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -175,62 +180,172 @@
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.Configuration, 10.0.8</span></li><li><span>Microsoft.Extensions.Configuration.Json, 10.0.8</span></li><li><span>System.Text.Json, 10.0.8</span></li></ul></div></div></div>
+<div class="output_html rendered_html output_subarea">
+<div>
+<div id="dotnet-interactive-this-cell-$CACHE_BUSTER$" style="display: none">
+        The below script needs to be able to find the current output cell; this is an easy method to get it.
+    </div>
+<script type="text/javascript">
+async function probeAddresses(probingAddresses) {
+    function timeout(ms, promise) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                reject(new Error('timeout'))
+            }, ms)
+            promise.then(resolve, reject)
+        })
+    }
+
+    if (Array.isArray(probingAddresses)) {
+        for (let i = 0; i < probingAddresses.length; i++) {
+
+            let rootUrl = probingAddresses[i];
+
+            if (!rootUrl.endsWith('/')) {
+                rootUrl = `${rootUrl}/`;
+            }
+
+            try {
+                let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
+                    method: 'POST',
+                    cache: 'no-cache',
+                    mode: 'cors',
+                    timeout: 1000,
+                    headers: {
+                        'Content-Type': 'text/plain'
+                    },
+                    body: probingAddresses[i]
+                }));
+
+                if (response.status == 200) {
+                    return rootUrl;
+                }
+            }
+            catch (e) { }
+        }
+    }
+}
+
+function loadDotnetInteractiveApi() {
+    probeAddresses(["http://127.0.0.1:2049/","http://::1:2049/","http://fe80::1%1:2049/","http://fe80::1cec:2e58:9d34:a855%15:2049/","http://10.0.0.39:2049/","http://fe80::809c:30ff:fe00:28d4%16:2049/","http://fe80::6369:a43a:160d:c30f%18:2049/","http://fe80::bf5b:2e73:9282:f192%19:2049/","http://fe80::498f:d3c3:59c0:6dcd%20:2049/","http://fe80::ce81:b1c:bd2c:69e%21:2049/","http://10.211.55.2:2049/","http://fe80::fcb2:14ff:fe1e:4064%26:2049/","http://fdb2:2c26:f4e4::1:2049/","http://10.37.129.2:2049/","http://fe80::fcb2:14ff:fe1e:4065%28:2049/","http://fdb2:2c26:f4e4:1::1:2049/"])
+        .then((root) => {
+        // use probing to find host url and api resources
+        // load interactive helpers and language services
+        let dotnetInteractiveRequire = require.config({
+        context: '17050.Microsoft.DotNet.Interactive.Http.HttpPort',
+                paths:
+            {
+                'dotnet-interactive': `${root}resources`
+                }
+        }) || require;
+
+            window.dotnetInteractiveRequire = dotnetInteractiveRequire;
+
+            window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
+                let paths = {};
+                paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
+                
+                let internalRequire = require.config({
+                    context: extensionCacheBuster,
+                    paths: paths,
+                    urlArgs: `cacheBuster=${extensionCacheBuster}`
+                    }) || require;
+
+                return internalRequire
+            };
+        
+            dotnetInteractiveRequire([
+                    'dotnet-interactive/dotnet-interactive'
+                ],
+                function (dotnet) {
+                    dotnet.init(window);
+                },
+                function (error) {
+                    console.log(error);
+                }
+            );
+        })
+        .catch(error => {console.log(error);});
+    }
+
+// ensure `require` is available globally
+if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
+    let require_script = document.createElement('script');
+    require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
+    require_script.setAttribute('type', 'text/javascript');
+    
+    
+    require_script.onload = function() {
+        loadDotnetInteractiveApi();
+    };
+
+    document.getElementsByTagName('head')[0].appendChild(require_script);
+}
+else {
+    loadDotnetInteractiveApi();
+}
+
+    </script>
+</div></div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.Configuration, 10.0.9</span></li><li><span>Microsoft.Extensions.Configuration.Json, 10.0.9</span></li><li><span>System.Text.Json, 10.0.9</span></li></ul></div></div></div>
 </div>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [12]:</div>
+<div class="prompt input_prompt">In [23]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the Microsoft Extensions AI NuGet Packages</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI, 10.6.0"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.Abstractions, 10.6.0"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.OpenAI, 10.6.0"</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the Microdoft Extensions AI NuGet Packages</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI, 10.7.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.Abstractions, 10.7.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.OpenAI, 10.7.0"</span>
 <span class="c1">// Import Azure &amp; OpenAI NuGet Packages</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Azure.AI.OpenAI, 2.9.0-beta.1"</span>
 <span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Azure.Identity, 1.21.0"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: OpenAI, 2.10.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: OpenAI, 2.11.0"</span>
 
-<span class="k">using</span><span class="w"> </span><span class="nn">Azure.AI.OpenAI</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Azure</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.AI</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">OpenAI</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">OpenAI.Responses</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.ClientModel</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.ComponentModel</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Threading.Tasks</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.Text.Json</span><span class="p">;</span>
 
-<span class="c1">// Set the flag to use Azure OpenAI or OpenAI. False to use OpenAI, True to use Azure OpenAI</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">useAzureOpenAI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
 
 <span class="c1">// Create the IChatClient based on the selected service</span>
 <span class="n">IChatClient</span><span class="w"> </span><span class="n">chatClient</span><span class="p">;</span>
 
-<span class="cp">#pragma warning disable OPENAI001</span>
-
+<span class="c1">// Create a new MEAI ChatClient instance</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">useAzureOpenAI</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Using Azure OpenAI Service"</span><span class="p">);</span>
 
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="p">);</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AzureOpenAIClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Uri</span><span class="p">(</span><span class="n">azureOpenAIEndpoint</span><span class="p">),</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="o">!</span><span class="p">);</span>
 
-<span class="w">    </span><span class="c1">// Get the ResponsesClient from AzureOpenAIClient and adapt it to Microsoft.Extensions.AI.</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OpenAIClient</span><span class="p">(</span>
+<span class="w">        </span><span class="n">apiKeyCredential</span><span class="p">,</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">OpenAIClientOptions</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Uri</span><span class="p">(</span><span class="s">$"{azureOpenAIEndpoint!.TrimEnd('/')}/openai/v1"</span><span class="p">)</span>
+<span class="w">        </span><span class="p">});</span>
+
+<span class="w">    </span><span class="cp">#pragma warning disable OPENAI001</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">responsesClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="p">.</span><span class="n">GetResponsesClient</span><span class="p">();</span>
-<span class="w">    </span><span class="n">chatClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">responsesClient</span><span class="p">.</span><span class="n">AsIChatClient</span><span class="p">(</span><span class="n">defaultModelId</span><span class="p">:</span><span class="w"> </span><span class="n">azureOpenAIModelDeploymentName</span><span class="p">);</span>
+<span class="w">    </span><span class="n">chatClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">responsesClient</span><span class="p">.</span><span class="n">AsIChatClient</span><span class="p">(</span><span class="n">azureOpenAIModelDeploymentName</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="k">else</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Using OpenAI Service"</span><span class="p">);</span>
 
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">openAIAPIKey</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="p">);</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">openAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OpenAIClient</span><span class="p">(</span><span class="n">apiKeyCredential</span><span class="p">);</span>
 
-<span class="w">    </span><span class="c1">// Get the ResponsesClient from OpenAIClient and adapt it to Microsoft.Extensions.AI.</span>
+<span class="w">    </span><span class="cp">#pragma warning disable OPENAI001</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">responsesClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">openAIClient</span><span class="p">.</span><span class="n">GetResponsesClient</span><span class="p">();</span>
 <span class="w">    </span><span class="n">chatClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">responsesClient</span><span class="p">.</span><span class="n">AsIChatClient</span><span class="p">(</span><span class="n">defaultModelId</span><span class="p">:</span><span class="w"> </span><span class="n">openAIModelId</span><span class="p">);</span>
 <span class="p">}</span>
@@ -286,7 +401,34 @@
 </div>
 </div>
 </div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Azure.Identity, 1.21.0</span></li><li><span>Microsoft.Extensions.AI, 10.7.0</span></li><li><span>Microsoft.Extensions.AI.Abstractions, 10.7.0</span></li><li><span>Microsoft.Extensions.AI.OpenAI, 10.7.0</span></li><li><span>OpenAI, 2.11.0</span></li></ul></div></div></div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Using Azure OpenAI Service
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>
+(60,61): warning CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
 
+(66,73): warning CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+
+(78,43): warning CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+
+</pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -315,7 +457,7 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [13]:</div>
+<div class="prompt input_prompt">In [27]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Simple prompt to list some decision frameworks this GenAI LLM is familiar with</span>
@@ -353,111 +495,186 @@
 <table>
 <thead>
 <tr>
-<th>Framework</th>
+<th>Decision-making framework</th>
 <th>How it supports better analysis and reasoning</th>
-<th>Best fit / typical scenarios</th>
+<th>Useful scenarios</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Cost-Benefit Analysis</td>
-<td>Compares expected benefits against costs to clarify whether a choice creates net value. Helps make tradeoffs explicit and prevents decisions based only on intuition.</td>
-<td>Investments, projects, policy choices, purchasing decisions</td>
+<td>Rational decision-making model</td>
+<td>Defines the problem, establishes objectives, generates alternatives, evaluates evidence, and selects the option with the greatest expected value.</td>
+<td>Structured business, operational, and resource-allocation decisions</td>
 </tr>
 <tr>
-<td>SWOT Analysis</td>
-<td>Organizes internal strengths and weaknesses alongside external opportunities and threats. Supports structured situational awareness and strategic thinking.</td>
-<td>Strategy, competitive positioning, planning, career moves</td>
+<td>Cost–benefit analysis</td>
+<td>Compares the expected costs and benefits of alternatives, often using monetary estimates and time horizons.</td>
+<td>Investments, projects, public policy, and procurement</td>
 </tr>
 <tr>
-<td>Decision Matrix / Weighted Scoring</td>
-<td>Assigns criteria and weights to options, making comparisons more objective and transparent. Useful when multiple factors matter and choices are hard to compare directly.</td>
-<td>Vendor selection, hiring, product choices, prioritization</td>
+<td>Decision matrix</td>
+<td>Scores options against weighted criteria, making tradeoffs and priorities explicit.</td>
+<td>Vendor selection, hiring, product choices, and project prioritization</td>
 </tr>
 <tr>
-<td>Expected Value Analysis</td>
-<td>Combines probabilities with outcomes to estimate average long-run value. Improves reasoning under uncertainty by comparing risk-adjusted outcomes.</td>
-<td>Gambling-like decisions, finance, forecasting, risk choices</td>
+<td>Expected utility theory</td>
+<td>Weighs possible outcomes by their probability and value, supporting choices under uncertainty.</td>
+<td>Financial decisions, insurance, strategy, and risk management</td>
 </tr>
 <tr>
-<td>Decision Trees</td>
-<td>Maps sequential choices, probabilities, and outcomes in a visual branching structure. Helps reason through contingent decisions and identify optimal paths.</td>
-<td>Multi-stage decisions, investment strategy, medical decisions</td>
+<td>Expected value analysis</td>
+<td>Calculates the probability-weighted average outcome of each option.</td>
+<td>Repeated decisions involving measurable risks and returns</td>
 </tr>
 <tr>
-<td>OODA Loop</td>
-<td>Observe, Orient, Decide, Act; emphasizes fast feedback and adaptation. Improves decision quality in dynamic environments where conditions change quickly.</td>
-<td>Operations, competitive environments, crisis response</td>
+<td>Decision trees</td>
+<td>Maps decisions, uncertain events, probabilities, and consequences in sequence.</td>
+<td>Multi-stage choices, clinical decisions, investments, and contingency planning</td>
 </tr>
 <tr>
-<td>Cynefin Framework</td>
-<td>Categorizes problems as simple, complicated, complex, or chaotic to match the decision approach to the situation. Reduces misapplication of overly rigid analysis to messy problems.</td>
-<td>Organizational decisions, strategy, incident response</td>
+<td>Bayesian decision-making</td>
+<td>Updates beliefs and estimates as new evidence becomes available, rather than treating initial assumptions as fixed.</td>
+<td>Diagnosis, forecasting, intelligence analysis, and experimentation</td>
 </tr>
 <tr>
-<td>Premortem Analysis</td>
-<td>Assumes a decision failed and asks why, surfacing hidden risks and blind spots. Strengthens risk identification and contingency planning.</td>
-<td>Projects, launches, major commitments</td>
+<td>Scenario planning</td>
+<td>Develops multiple plausible futures and tests strategies against each one.</td>
+<td>Long-term strategy, uncertain markets, climate risks, and geopolitical planning</td>
 </tr>
 <tr>
-<td>Red Team / Devil’s Advocate</td>
-<td>Intentionally challenges assumptions, arguments, and plans from an opposing perspective. Improves robustness by exposing weaknesses and alternative interpretations.</td>
-<td>Strategy, security, policy, high-stakes decisions</td>
+<td>SWOT analysis</td>
+<td>Examines strengths, weaknesses, opportunities, and threats to connect internal capabilities with external conditions.</td>
+<td>Strategic reviews, market entry, organizational planning, and competitive analysis</td>
+</tr>
+<tr>
+<td>PESTLE analysis</td>
+<td>Assesses political, economic, social, technological, legal, and environmental influences.</td>
+<td>Environmental scanning, policy decisions, and long-range planning</td>
+</tr>
+<tr>
+<td>Porter’s Five Forces</td>
+<td>Evaluates industry attractiveness through rivalry, supplier power, buyer power, substitutes, and new entrants.</td>
+<td>Competitive strategy, market analysis, and business-model decisions</td>
+</tr>
+<tr>
+<td>OODA loop</td>
+<td>Uses observe, orient, decide, and act cycles to make and revise decisions quickly as conditions change.</td>
+<td>Operations, crisis response, military contexts, and dynamic competition</td>
+</tr>
+<tr>
+<td>Cynefin framework</td>
+<td>Classifies situations as clear, complicated, complex, chaotic, or disorderly, then matches the response to the type of uncertainty.</td>
+<td>Ambiguous problems, crisis management, organizational change, and innovation</td>
 </tr>
 <tr>
 <td>Six Thinking Hats</td>
-<td>Separates thinking into distinct modes such as facts, emotions, risks, creativity, and process. Prevents one-sided reasoning and improves group discussion quality.</td>
-<td>Team meetings, brainstorming, complex group decisions</td>
+<td>Separates analysis into perspectives such as facts, risks, benefits, creativity, emotions, and process control.</td>
+<td>Group decisions, workshops, brainstorming, and conflict reduction</td>
 </tr>
 <tr>
-<td>Pareto Analysis (80/20)</td>
-<td>Focuses attention on the few causes or options that produce most of the impact. Helps prioritize effort where it matters most.</td>
-<td>Process improvement, problem solving, resource allocation</td>
+<td>First-principles thinking</td>
+<td>Breaks a problem into fundamental facts and constraints, then reconstructs solutions from the basics.</td>
+<td>Innovation, engineering, cost reduction, and challenging industry assumptions</td>
 </tr>
 <tr>
-<td>Root Cause Analysis</td>
-<td>Looks beyond symptoms to identify underlying causes of a problem. Improves long-term decision quality by addressing system drivers rather than quick fixes.</td>
-<td>Quality issues, operational problems, recurring failures</td>
+<td>Systems thinking</td>
+<td>Examines relationships, feedback loops, delays, dependencies, and unintended consequences across a whole system.</td>
+<td>Public policy, organizational change, sustainability, and complex operations</td>
 </tr>
 <tr>
-<td>Scenario Planning</td>
-<td>Builds several plausible future scenarios and tests decisions against them. Enhances resilience and prepares decision-makers for uncertainty and change.</td>
-<td>Strategy, forecasting, long-term planning</td>
+<td>Pareto analysis</td>
+<td>Identifies the small number of causes or actions likely to produce most of the impact.</td>
+<td>Prioritization, quality improvement, troubleshooting, and workload management</td>
+</tr>
+<tr>
+<td>Root-cause analysis</td>
+<td>Investigates underlying causes rather than treating only visible symptoms.</td>
+<td>Recurring failures, safety incidents, service problems, and process improvement</td>
+</tr>
+<tr>
+<td>Pre-mortem analysis</td>
+<td>Assumes a proposed decision has failed and asks what caused the failure, exposing overlooked risks.</td>
+<td>Major projects, strategic commitments, product launches, and high-stakes decisions</td>
+</tr>
+<tr>
+<td>Red-team analysis</td>
+<td>Assigns people to challenge assumptions, identify vulnerabilities, and construct opposing arguments.</td>
+<td>Security, policy, strategy, investment review, and adversarial environments</td>
+</tr>
+<tr>
+<td>Devil’s advocacy</td>
+<td>Deliberately argues against a preferred option to reduce confirmation bias and groupthink.</td>
+<td>Executive decisions, board reviews, and controversial proposals</td>
+</tr>
+<tr>
+<td>Real options analysis</td>
+<td>Treats flexibility, delay, expansion, or abandonment as valuable options when uncertainty is high.</td>
+<td>Research and development, staged investments, technology adoption, and exploration</td>
+</tr>
+<tr>
+<td>Multi-criteria decision analysis</td>
+<td>Integrates quantitative and qualitative criteria while making stakeholder preferences and tradeoffs visible.</td>
+<td>Public policy, infrastructure, sustainability, and complex procurement</td>
+</tr>
+<tr>
+<td>Value of information analysis</td>
+<td>Estimates whether obtaining additional information is worth its cost and delay.</td>
+<td>Medical testing, market research, due diligence, and uncertain investments</td>
+</tr>
+<tr>
+<td>Minimax regret</td>
+<td>Chooses the option that limits the worst possible feeling of having made the wrong choice.</td>
+<td>Decisions with ambiguous probabilities or irreversible consequences</td>
 </tr>
 <tr>
 <td>Satisficing</td>
-<td>Chooses the first option that meets acceptable criteria rather than optimizing endlessly. Useful when time, information, or cognitive resources are limited.</td>
-<td>Routine decisions, time-sensitive choices, hiring under constraints</td>
+<td>Selects an option that meets essential requirements rather than optimizing every criterion.</td>
+<td>Time-constrained decisions, routine management, and situations with limited information</td>
 </tr>
 <tr>
-<td>Bayesian Reasoning</td>
-<td>Updates beliefs as new evidence arrives, rather than treating initial assumptions as fixed. Supports probabilistic thinking and continuous learning from new information.</td>
-<td>Forecasting, diagnostics, iterative decisions</td>
+<td>Recognition-primed decision-making</td>
+<td>Uses experience to recognize patterns and rapidly evaluate a workable course of action.</td>
+<td>Emergency response, frontline operations, and experienced professional judgment</td>
 </tr>
 <tr>
-<td>Influence Diagram</td>
-<td>Shows relationships among decisions, uncertainties, and outcomes in a compact model. Helps clarify what variables matter and how they interact.</td>
-<td>Complex decision analysis, risk management, operations</td>
+<td>Delphi method</td>
+<td>Collects and iteratively refines anonymous expert judgments to build a more informed consensus.</td>
+<td>Forecasting, technology assessment, policy planning, and expert estimation</td>
 </tr>
 <tr>
-<td>Moral / Ethical Frameworks</td>
-<td>Apply principles such as utilitarianism, rights, duties, or virtue ethics to evaluate what ought to be done. Improves reasoning when decisions have value conflicts or stakeholder impacts.</td>
-<td>Leadership, healthcare, public policy, people decisions</td>
+<td>Nominal group technique</td>
+<td>Structures individual idea generation, discussion, and ranking to prevent dominant voices from controlling the decision.</td>
+<td>Team prioritization, problem solving, and stakeholder workshops</td>
 </tr>
 <tr>
-<td>Five Whys</td>
-<td>Repeatedly asks “why” to trace a problem back through causal layers. Supports deeper diagnosis and reduces superficial problem solving.</td>
-<td>Troubleshooting, operational improvement, incident analysis</td>
+<td>A/B testing and experimentation</td>
+<td>Compares alternatives under controlled conditions, using observed outcomes rather than assumptions.</td>
+<td>Product design, marketing, process changes, and digital services</td>
 </tr>
 <tr>
-<td>RAPID / DACI / RACI</td>
-<td>Clarifies who recommends, decides, contributes, and executes. Improves decision quality by reducing ambiguity, delays, and role conflict.</td>
-<td>Team governance, organizational decision processes</td>
+<td>After-action review</td>
+<td>Evaluates what was expected, what happened, why differences occurred, and what should change next time.</td>
+<td>Projects, operations, incidents, and continuous improvement</td>
 </tr>
 <tr>
-<td>Heuristic-Driven Decision Making</td>
-<td>Uses tested rules of thumb when full analysis is too costly or unavailable. Can improve speed and effectiveness when applied with awareness of bias and context.</td>
-<td>Real-time decisions, expert judgment, high-frequency choices</td>
+<td>Ethics-based decision framework</td>
+<td>Tests options against principles such as fairness, rights, duties, harm reduction, and stakeholder impact.</td>
+<td>Healthcare, AI, public policy, compliance, and people-related decisions</td>
+</tr>
+<tr>
+<td>RAPID or RACI decision-rights frameworks</td>
+<td>Clarifies who recommends, decides, contributes, executes, and is accountable, reducing ambiguity and delay.</td>
+<td>Cross-functional projects, governance, and organizational decisions</td>
+</tr>
+<tr>
+<td>10-10-10 framework</td>
+<td>Considers how an option may feel or matter in 10 minutes, 10 months, and 10 years.</td>
+<td>Personal decisions, career choices, and emotionally charged tradeoffs</td>
+</tr>
+<tr>
+<td>Reversibility framework</td>
+<td>Distinguishes easily reversible choices from difficult-to-reverse commitments and adjusts decision speed accordingly.</td>
+<td>Product experiments, hiring, capital investments, and strategic commitments</td>
 </tr>
 </tbody>
 </table>
@@ -503,7 +720,7 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [14]:</div>
+<div class="prompt input_prompt">In [28]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Takes input variables and creates a dynamic prompt that can be used to invoke the GenAI model.</span>
@@ -566,26 +783,22 @@
 <table>
 <thead>
 <tr>
-<th>Framework</th>
-<th>Core idea</th>
-<th>How it supports better long-term strategic decision-making with probabilistic outcomes</th>
+<th>Decision-making framework</th>
+<th>How it supports better analysis and reasoning in long-term strategic decisions with probabilistic outcomes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Expected Utility / Expected Value Analysis</td>
-<td>Compares options by estimating the probability-weighted outcomes of each choice, often adjusted for risk preferences.</td>
-<td>Helps decision-makers quantify tradeoffs under uncertainty, compare alternatives on a common basis, and avoid being misled by the most likely or most dramatic outcome. Useful when strategic choices depend on long-run payoff distributions rather than single-point forecasts.</td>
+<td><strong>Scenario Planning</strong></td>
+<td>Develops multiple plausible future scenarios rather than relying on a single forecast. It helps decision-makers test strategies against uncertainty, identify key drivers and early-warning indicators, and build flexible plans that remain effective across different future conditions.</td>
 </tr>
 <tr>
-<td>Decision Trees with Scenario Analysis</td>
-<td>Maps choices, uncertainties, and possible consequences in a branching structure across multiple future states.</td>
-<td>Makes complex strategic decisions more transparent by showing how early choices lead to different future paths. Supports better reasoning by clarifying assumptions, revealing critical uncertainties, and identifying where probabilities and payoffs have the greatest impact over time.</td>
+<td><strong>Expected Value and Decision-Tree Analysis</strong></td>
+<td>Breaks complex choices into alternatives, uncertain events, probabilities, and outcomes. By calculating probability-weighted results and comparing pathways, it clarifies trade-offs, exposes assumptions, and supports disciplined evaluation of risks, benefits, and contingent decisions over time.</td>
 </tr>
 <tr>
-<td>Bayesian Updating</td>
-<td>Revises beliefs and probabilities as new evidence becomes available.</td>
-<td>Improves long-term decision quality by treating strategy as adaptive rather than fixed. It helps decision-makers continuously update forecasts, reduce overconfidence, and respond rationally to new information in environments where outcomes are uncertain and conditions evolve.</td>
+<td><strong>Real Options Analysis</strong></td>
+<td>Treats strategic choices as options that can be expanded, delayed, modified, or abandoned as information emerges. This framework accounts for the value of flexibility and staged commitment, helping organizations manage uncertainty while preserving the ability to benefit from favorable future developments.</td>
 </tr>
 </tbody>
 </table>
@@ -603,7 +816,7 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [15]:</div>
+<div class="prompt input_prompt">In [29]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Dynamically set the number of frameworks and decision type -&gt; requiring fast action</span>
@@ -629,36 +842,36 @@
 <table>
 <thead>
 <tr>
-<th>Framework</th>
-<th>Core Idea</th>
-<th>How It Supports Better Analysis and Reasoning in Quick-to-Implement Decision-Making Scenarios</th>
+<th>Decision-making framework</th>
+<th>How it supports better analysis and reasoning</th>
+<th>Quick implementation for rapid decisions</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>OODA Loop (Observe–Orient–Decide–Act)</td>
-<td>Make decisions by rapidly cycling through observation, context-setting, choice, and action.</td>
-<td>Helps you move quickly without freezing on analysis. It encourages fast information gathering, real-time interpretation, and short feedback loops, which is useful when conditions change fast and decisions must be adjusted on the fly.</td>
+<td><strong>OODA Loop</strong> — Observe, Orient, Decide, Act</td>
+<td>Creates a fast feedback cycle, helping decision-makers update their view as new information appears rather than relying on a one-time judgment.</td>
+<td>Spend a few minutes identifying current facts, interpreting their meaning, selecting an action, and defining what signal will trigger the next review.</td>
 </tr>
 <tr>
-<td>80/20 Rule (Pareto Principle)</td>
-<td>Focus on the small number of factors that create most of the impact.</td>
-<td>Improves speed by directing attention to the highest-leverage variables instead of overanalyzing everything. This makes it easier to identify the few actions most likely to drive results in time-sensitive situations.</td>
+<td><strong>80/20 Rule (Pareto Principle)</strong></td>
+<td>Focuses attention on the small number of factors likely to produce most of the impact, reducing analysis of low-value details.</td>
+<td>Ask: “Which two or three factors will most influence the outcome?” Prioritize those before deciding.</td>
 </tr>
 <tr>
-<td>SWOT Analysis</td>
-<td>Evaluate Strengths, Weaknesses, Opportunities, and Threats.</td>
-<td>Provides a fast, structured snapshot of internal and external factors. It supports clearer reasoning by separating what you control from what you face in the environment, helping you compare options quickly and avoid blind spots.</td>
+<td><strong>Expected Value Analysis</strong></td>
+<td>Compares options by weighing potential benefits, costs, and probabilities, making uncertainty explicit instead of relying only on intuition.</td>
+<td>Estimate the likely outcome of each option, multiply impact by probability, and choose the option with the strongest risk-adjusted value.</td>
 </tr>
 <tr>
-<td>Decision Matrix / Weighted Scoring</td>
-<td>Compare options against criteria and assign weights and scores.</td>
-<td>Reduces bias by making tradeoffs explicit and comparable. In rapid decisions, it helps you evaluate alternatives systematically, even under time pressure, by highlighting the option with the strongest overall fit.</td>
+<td><strong>Satisficing</strong></td>
+<td>Prevents analysis paralysis by defining what “good enough” means and selecting the first option that meets essential requirements.</td>
+<td>Set three to five non-negotiable criteria, reject options that fail them, and stop searching once a viable option meets the threshold.</td>
 </tr>
 <tr>
-<td>Eisenhower Matrix (Urgent vs. Important)</td>
-<td>Prioritize tasks based on urgency and importance.</td>
-<td>Helps you quickly distinguish what needs immediate action from what truly matters strategically. This prevents reactive decisions, improves prioritization, and ensures limited attention goes to the most consequential choices first.</td>
+<td><strong>Pre-mortem Analysis</strong></td>
+<td>Challenges overconfidence by imagining that a decision failed and identifying plausible causes before action is taken.</td>
+<td>Ask the team, “Assume this decision went badly—what caused the failure?” Address the top one or two risks with safeguards or contingency plans.</td>
 </tr>
 </tbody>
 </table>
@@ -693,7 +906,7 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [16]:</div>
+<div class="prompt input_prompt">In [30]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the Microsoft.DotNet.Interactive namespace for user input</span>
@@ -765,9 +978,9 @@
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Michael's Net Worth: 10000000
-Level of Restaurant Competition: low
-Michael's level of Family Support: low
+<pre>Michael's Net Worth: 1000000000000
+Level of Restaurant Competition: High
+Michael's level of Family Support: Low
 
 </pre>
 </div>
@@ -778,54 +991,58 @@ Michael's level of Family Support: low
 <table>
 <thead>
 <tr>
-<th>Factor</th>
+<th>Decision factor</th>
 <th>Assessment</th>
-<th>Implication</th>
-<th>Recommendation</th>
+<th>Implication for Michael</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Financial capacity</td>
-<td>Michael’s net worth is very high at $10,000,000</td>
-<td>He can absorb startup costs, early losses, and operational risk more comfortably than most people</td>
-<td>Financially, he is well positioned to pursue the restaurant</td>
+<td>Extremely strong, with a net worth of $1 trillion</td>
+<td>He can fund a high-quality concept, absorb losses, and hire experienced operators without putting his personal security at risk.</td>
 </tr>
 <tr>
 <td>Market competition</td>
-<td>Competition is low</td>
-<td>The business may have a better chance of standing out and capturing demand</td>
-<td>This is a favorable condition for opening, assuming demand is real and sustainable</td>
+<td>High</td>
+<td>Opening a generic restaurant would be risky. He needs a clearly differentiated concept, compelling location, strong branding, and a defensible customer experience.</td>
 </tr>
 <tr>
-<td>Personal support</td>
-<td>Support from friends and family is low</td>
-<td>He may face less emotional support and possibly more stress during launch</td>
-<td>Build a strong external support system: mentors, advisors, and experienced operators</td>
+<td>Friends and family support</td>
+<td>Low</td>
+<td>He should not rely on informal emotional, operational, or financial support. He should build a professional support network, including an experienced restaurant operator, financial controller, legal adviser, and trusted mentors.</td>
 </tr>
 <tr>
-<td>Career fit</td>
-<td>He is a professional chef</td>
-<td>He has relevant expertise and likely understands kitchen operations and food quality</td>
-<td>His background makes this a credible next step, especially if he has a strong concept</td>
+<td>Personal readiness</td>
+<td>Michael has professional culinary experience, but running a restaurant also requires expertise in staffing, marketing, purchasing, compliance, cash-flow management, and operations</td>
+<td>He should assess whether he wants to be an owner-operator or primarily a chef. If he lacks business experience, he should partner with or hire someone strong in restaurant management.</td>
 </tr>
 <tr>
-<td>Overall risk</td>
-<td>High personal and operational commitment required</td>
-<td>Restaurant ownership can affect lifestyle, time, and relationships</td>
-<td>Use a phased approach rather than a full leap if possible</td>
-</tr>
-<tr>
-<td>Recommendation</td>
-<td>Proceed, but carefully</td>
-<td>The opportunity looks promising, with manageable financial risk and favorable market conditions</td>
-<td>Michael should consider opening his own restaurant, ideally after validating the concept, creating a detailed business plan, and securing strong operational support</td>
-</tr>
-<tr>
-<td>Decision Summary</td>
 <td>Recommended approach</td>
-<td>Best path is a cautious “yes” rather than an impulsive one</td>
-<td>Open the restaurant only if Michael can test demand, control costs, and surround himself with experienced support; his finances and low competition make this a viable opportunity, despite limited family/friend backing</td>
+<td>Proceed, but through a staged and disciplined launch</td>
+<td>Start with market research, customer testing, a pop-up, catering operation, or smaller pilot concept before committing to a permanent flagship location.</td>
+</tr>
+<tr>
+<td>Financial discipline</td>
+<td>Wealth reduces personal financial risk but does not eliminate business risk</td>
+<td>Set a defined investment limit, require milestone-based funding, and establish clear criteria for continuing, changing, or closing the venture.</td>
+</tr>
+<tr>
+<td>Overall recommendation</td>
+<td>Open a restaurant only if the concept demonstrates genuine market demand and Michael assembles a capable operating team</td>
+<td>His financial position makes this a reasonable opportunity to explore, but money alone cannot overcome weak differentiation, poor execution, or lack of support.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Decision Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Michael should <strong>move forward cautiously rather than immediately opening a full-scale restaurant</strong>. His extraordinary financial resources make the downside manageable, but high competition and low personal support increase execution risk. The best path is to validate a distinctive concept through a smaller pilot, recruit experienced business and operations partners, and expand only after the pilot demonstrates strong demand, reliable unit economics, and operational readiness.</td>
 </tr>
 </tbody>
 </table>
@@ -852,7 +1069,7 @@ Michael's level of Family Support: low
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [17]:</div>
+<div class="prompt input_prompt">In [31]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Create an AIFunction from an inline C# method.</span>
@@ -900,7 +1117,7 @@ Michael's level of Family Support: low
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [18]:</div>
+<div class="prompt input_prompt">In [32]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Create an AIFunction from an inline C# method with parameters.</span>
@@ -971,7 +1188,7 @@ Pareto Principle
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [19]:</div>
+<div class="prompt input_prompt">In [33]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="kt">string</span><span class="w"> </span><span class="nf">RetrieveMonteCarloDistributionMarkdown</span><span class="p">(</span>
@@ -1059,7 +1276,7 @@ Pareto Principle
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [21]:</div>
+<div class="prompt input_prompt">In [34]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">retrieveMonteCarloDistribution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AIFunctionFactory</span><span class="p">.</span><span class="n">Create</span><span class="p">(</span>

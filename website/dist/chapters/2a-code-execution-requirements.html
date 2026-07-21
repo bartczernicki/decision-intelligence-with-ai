@@ -154,7 +154,7 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [1]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Run this cell to see information about the Polyglot Notebook environment</span>
@@ -167,116 +167,6 @@
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_html rendered_html output_subarea">
-<div>
-<div id="dotnet-interactive-this-cell-$CACHE_BUSTER$" style="display: none">
-        The below script needs to be able to find the current output cell; this is an easy method to get it.
-    </div>
-<script type="text/javascript">
-async function probeAddresses(probingAddresses) {
-    function timeout(ms, promise) {
-        return new Promise(function (resolve, reject) {
-            setTimeout(function () {
-                reject(new Error('timeout'))
-            }, ms)
-            promise.then(resolve, reject)
-        })
-    }
-
-    if (Array.isArray(probingAddresses)) {
-        for (let i = 0; i < probingAddresses.length; i++) {
-
-            let rootUrl = probingAddresses[i];
-
-            if (!rootUrl.endsWith('/')) {
-                rootUrl = `${rootUrl}/`;
-            }
-
-            try {
-                let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
-                    method: 'POST',
-                    cache: 'no-cache',
-                    mode: 'cors',
-                    timeout: 1000,
-                    headers: {
-                        'Content-Type': 'text/plain'
-                    },
-                    body: probingAddresses[i]
-                }));
-
-                if (response.status == 200) {
-                    return rootUrl;
-                }
-            }
-            catch (e) { }
-        }
-    }
-}
-
-function loadDotnetInteractiveApi() {
-    probeAddresses(["http://127.0.0.1:2048/","http://::1:2048/","http://fe80::1%1:2048/","http://fe80::1c6e:2cf6:c519:ad9%15:2048/","http://2001:4898:e820:60:e0:3c31:b4fd:f0fe:2048/","http://2001:4898:e820:60:309b:a85c:8e1c:dc56:2048/","http://10.24.1.207:2048/","http://fe80::9083:51ff:fed6:3656%16:2048/","http://fe80::72c9:9c:4341:f6f5%18:2048/","http://fe80::77c8:c6f0:86d8:d2b7%19:2048/","http://fe80::cb22:316c:186b:dad%20:2048/","http://fe80::ce81:b1c:bd2c:69e%21:2048/"])
-        .then((root) => {
-        // use probing to find host url and api resources
-        // load interactive helpers and language services
-        let dotnetInteractiveRequire = require.config({
-        context: '36702.Microsoft.DotNet.Interactive.Http.HttpPort',
-                paths:
-            {
-                'dotnet-interactive': `${root}resources`
-                }
-        }) || require;
-
-            window.dotnetInteractiveRequire = dotnetInteractiveRequire;
-
-            window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
-                let paths = {};
-                paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
-                
-                let internalRequire = require.config({
-                    context: extensionCacheBuster,
-                    paths: paths,
-                    urlArgs: `cacheBuster=${extensionCacheBuster}`
-                    }) || require;
-
-                return internalRequire
-            };
-        
-            dotnetInteractiveRequire([
-                    'dotnet-interactive/dotnet-interactive'
-                ],
-                function (dotnet) {
-                    dotnet.init(window);
-                },
-                function (error) {
-                    console.log(error);
-                }
-            );
-        })
-        .catch(error => {console.log(error);});
-    }
-
-// ensure `require` is available globally
-if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
-    let require_script = document.createElement('script');
-    require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
-    require_script.setAttribute('type', 'text/javascript');
-    
-    
-    require_script.onload = function() {
-        loadDotnetInteractiveApi();
-    };
-
-    document.getElementsByTagName('head')[0].appendChild(require_script);
-}
-else {
-    loadDotnetInteractiveApi();
-}
-
-    </script>
-</div></div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
 <div class="output_html rendered_html output_subarea"><table><tbody><tr><td><img loading="lazy" alt="" src="data:image/png;base64, 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" width="125em"/></td><td style="line-height:.8em"><p style="font-size:1.5em"><b>.NET Interactive</b></p><p>© 2020-2025 Microsoft Corporation</p><p><b>Version: </b>1.0.712001+df4e5cbcbe1b5d0ea85247226b7b896765a54611</p><p><b>Library version: </b>1.0.0-beta.26120.1+df4e5cbcbe1b5d0ea85247226b7b896765a54611</p><p><a href="https://github.com/dotnet/interactive">https://github.com/dotnet/interactive</a></p></td></tr></tbody></table></div>
 </div>
 </div>
@@ -284,12 +174,12 @@ else {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [1]:</div>
+<div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the required NuGet configuration packages</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration, 10.0.8"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration.Json, 10.0.8"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration, 10.0.9"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration.Json, 10.0.9"</span>
 
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration.Json</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
@@ -311,6 +201,8 @@ else {
 <span class="c1">// OpenAI Connection Info </span>
 <span class="kt">var</span><span class="w"> </span><span class="n">openAIAPIKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"OpenAI:APIKey"</span><span class="p">];</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">openAIModelId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"OpenAI:ModelId"</span><span class="p">];</span>
+<span class="c1">// AzureOpenAI or OpenAI selection flag</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">useAzureOpenAI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">bool</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:UseAzureOpenAI"</span><span class="p">]</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s">"true"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -319,117 +211,7 @@ else {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_html rendered_html output_subarea">
-<div>
-<div id="dotnet-interactive-this-cell-$CACHE_BUSTER$" style="display: none">
-        The below script needs to be able to find the current output cell; this is an easy method to get it.
-    </div>
-<script type="text/javascript">
-async function probeAddresses(probingAddresses) {
-    function timeout(ms, promise) {
-        return new Promise(function (resolve, reject) {
-            setTimeout(function () {
-                reject(new Error('timeout'))
-            }, ms)
-            promise.then(resolve, reject)
-        })
-    }
-
-    if (Array.isArray(probingAddresses)) {
-        for (let i = 0; i < probingAddresses.length; i++) {
-
-            let rootUrl = probingAddresses[i];
-
-            if (!rootUrl.endsWith('/')) {
-                rootUrl = `${rootUrl}/`;
-            }
-
-            try {
-                let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
-                    method: 'POST',
-                    cache: 'no-cache',
-                    mode: 'cors',
-                    timeout: 1000,
-                    headers: {
-                        'Content-Type': 'text/plain'
-                    },
-                    body: probingAddresses[i]
-                }));
-
-                if (response.status == 200) {
-                    return rootUrl;
-                }
-            }
-            catch (e) { }
-        }
-    }
-}
-
-function loadDotnetInteractiveApi() {
-    probeAddresses(["http://127.0.0.1:2049/","http://::1:2049/","http://fe80::1%1:2049/","http://fe80::f3:f26f:63fc:8a52%14:2049/","http://10.0.0.14:2049/","http://fe80::828:aaff:fe2c:6927%16:2049/","http://fe80::9c9d:2668:169e:249c%18:2049/","http://fe80::f14:4d06:c765:63a3%19:2049/","http://fe80::4f7f:bae2:201b:a576%20:2049/","http://fe80::ce81:b1c:bd2c:69e%21:2049/","http://10.10.10.10:2049/","http://fe80::34ca:fe44:e5bb:265c%22:2049/","http://fd00::1:2049/"])
-        .then((root) => {
-        // use probing to find host url and api resources
-        // load interactive helpers and language services
-        let dotnetInteractiveRequire = require.config({
-        context: '71231.Microsoft.DotNet.Interactive.Http.HttpPort',
-                paths:
-            {
-                'dotnet-interactive': `${root}resources`
-                }
-        }) || require;
-
-            window.dotnetInteractiveRequire = dotnetInteractiveRequire;
-
-            window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
-                let paths = {};
-                paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
-                
-                let internalRequire = require.config({
-                    context: extensionCacheBuster,
-                    paths: paths,
-                    urlArgs: `cacheBuster=${extensionCacheBuster}`
-                    }) || require;
-
-                return internalRequire
-            };
-        
-            dotnetInteractiveRequire([
-                    'dotnet-interactive/dotnet-interactive'
-                ],
-                function (dotnet) {
-                    dotnet.init(window);
-                },
-                function (error) {
-                    console.log(error);
-                }
-            );
-        })
-        .catch(error => {console.log(error);});
-    }
-
-// ensure `require` is available globally
-if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
-    let require_script = document.createElement('script');
-    require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
-    require_script.setAttribute('type', 'text/javascript');
-    
-    
-    require_script.onload = function() {
-        loadDotnetInteractiveApi();
-    };
-
-    document.getElementsByTagName('head')[0].appendChild(require_script);
-}
-else {
-    loadDotnetInteractiveApi();
-}
-
-    </script>
-</div></div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.Configuration, 10.0.8</span></li><li><span>Microsoft.Extensions.Configuration.Json, 10.0.8</span></li></ul></div></div></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.Configuration, 10.0.9</span></li><li><span>Microsoft.Extensions.Configuration.Json, 10.0.9</span></li></ul></div></div></div>
 </div>
 </div>
 </div>
@@ -447,21 +229,20 @@ else {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIEndpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:Endpoint"</span><span class="p">];</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIAPIKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:APIKey"</span><span class="p">];</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIModelDeploymentName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:ModelDeploymentName"</span><span class="p">];</span>
 
-<span class="c1">// Test the configuration, You should see the values in the Polyglot Notebook output</span>
-
 <span class="c1">// Uncomment the relevant lines to view the configuration settings</span>
 <span class="c1">// Console.WriteLine(azureOpenAIEndpoint);</span>
-<span class="c1">// Console.WriteLine(azureOpenAIAPIKey);</span>
 <span class="c1">// Console.WriteLine(azureOpenAIModelDeploymentName);</span>
+<span class="c1">// Console.WriteLine(!string.IsNullOrWhiteSpace(azureOpenAIAPIKey));</span>
 <span class="c1">// Console.WriteLine(config["OpenAI:APIKey"]);</span>
 <span class="c1">// Console.WriteLine(config["OpenAI:ModelId"]);</span>
+<span class="c1">// Console.WriteLine(useAzureOpenAI);</span>
 </pre></div>
 </div>
 </div>
@@ -478,33 +259,34 @@ else {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the Microdoft Extensions AI NuGet Packages</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI, 10.6.0"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.Abstractions, 10.6.0"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.OpenAI, 10.6.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI, 10.7.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.Abstractions, 10.7.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.OpenAI, 10.7.0"</span>
 <span class="c1">// Import Azure &amp; OpenAI NuGet Packages</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Azure.AI.OpenAI, 2.9.0-beta.1"</span>
 <span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Azure.Identity, 1.21.0"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: OpenAI, 2.10.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: OpenAI, 2.11.0"</span>
 
 <span class="k">using</span><span class="w"> </span><span class="nn">Azure</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Azure.AI.OpenAI</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.AI</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">OpenAI</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">OpenAI.Chat</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.ClientModel</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.ComponentModel</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.Runtime.InteropServices</span><span class="p">;</span>
 
-<span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="p">);</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClientOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AzureOpenAIClientOptions</span><span class="p">(</span><span class="n">AzureOpenAIClientOptions</span><span class="p">.</span><span class="n">ServiceVersion</span><span class="p">.</span><span class="n">V2025_04_01_Preview</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="o">!</span><span class="p">);</span>
 
-<span class="c1">// #pragma warning disable OPENAI001</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="nf">AzureOpenAIClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Uri</span><span class="p">(</span><span class="n">azureOpenAIEndpoint</span><span class="p">),</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="p">,</span><span class="w"> </span><span class="n">azureOpenAIClientOptions</span><span class="p">);</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OpenAIClient</span><span class="p">(</span>
+<span class="w">    </span><span class="n">apiKeyCredential</span><span class="p">,</span>
+<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">OpenAIClientOptions</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Uri</span><span class="p">(</span><span class="s">$"{azureOpenAIEndpoint!.TrimEnd('/')}/openai/v1"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">});</span>
 
 <span class="cp">#pragma warning disable OPENAI001</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIChatClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="p">.</span><span class="n">GetChatClient</span><span class="p">(</span><span class="n">azureOpenAIModelDeploymentName</span><span class="p">).</span><span class="n">AsIChatClient</span><span class="p">();</span>
@@ -520,7 +302,22 @@ else {
 </div>
 </div>
 </div>
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Azure.Identity, 1.21.0</span></li><li><span>Microsoft.Extensions.AI, 10.7.0</span></li><li><span>Microsoft.Extensions.AI.Abstractions, 10.7.0</span></li><li><span>Microsoft.Extensions.AI.OpenAI, 10.7.0</span></li><li><span>OpenAI, 2.11.0</span></li></ul></div></div></div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Code execution has made it this far, therefore the Microsoft AI NuGet packages appear to be correctly installed.
+The application is running on: .NET 10.0.7
+</pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">

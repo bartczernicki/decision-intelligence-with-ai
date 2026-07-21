@@ -83,7 +83,7 @@
   
 <nav class="chapter-toc" aria-label="Chapter table of contents">
   <strong>On this page</strong>
-  <a class="toc-h3" href="#Step-1---Initialize-Configuration-Builder-&amp;-Build-the-AI-Extensions-Responses-API-Orchestration">Step 1 - Initialize Configuration Builder &amp; Build the AI Extensions Responses API Orchestration</a><a class="toc-h3" href="#Step-2---Decision-Frames-(Thinking-Hats)-Scenario-for-a-Major-Purchase">Step 2 - Decision Frames (Thinking Hats) Scenario for a Major Purchase</a><a class="toc-h4" href="#Single-Decision-Prompt">Single Decision Prompt</a>
+  <a class="toc-h3" href="#Step-1---Initialize-Configuration-Builder-&amp;-Build-the-AI-Extensions-Responses-API-Orchestration">Step 1 - Initialize Configuration Builder &amp; Build the AI Extensions Responses API Orchestration</a><a class="toc-h3" href="#Step-2---Decision-Frames-(Thinking-Hats)-Scenario-for-a-Major-Purchase">Step 2 - Decision Frames (Thinking Hats) Scenario for a Major Purchase</a><a class="toc-h3" href="#Step-3---Applying-the-Decision-Frame-to-a-Decision">Step 3 - Applying the Decision Frame to a Decision</a>
 </nav>
 
   <section class="notebook-content">
@@ -113,18 +113,19 @@
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<hr/>
 <h3 id="Step-1---Initialize-Configuration-Builder-&amp;-Build-the-AI-Extensions-Responses-API-Orchestration">Step 1 - Initialize Configuration Builder &amp; Build the AI Extensions Responses API Orchestration<a class="anchor-link" href="#Step-1---Initialize-Configuration-Builder-&amp;-Build-the-AI-Extensions-Responses-API-Orchestration">¶</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [1]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration, 10.0.8"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration.Json, 10.0.8"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: System.Text.Json, 10.0.8"</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration, 10.0.9"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration.Json, 10.0.9"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: System.Text.Json, 10.0.9"</span>
 
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration.Json</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
@@ -145,6 +146,8 @@
 <span class="c1">// OpenAI Connection Info </span>
 <span class="kt">var</span><span class="w"> </span><span class="n">openAIAPIKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"OpenAI:APIKey"</span><span class="p">];</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">openAIModelId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"OpenAI:ModelId"</span><span class="p">];</span>
+<span class="c1">// AzureOpenAI or OpenAI selection flag</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">useAzureOpenAI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">bool</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:UseAzureOpenAI"</span><span class="p">]</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s">"true"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -153,170 +156,62 @@
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_html rendered_html output_subarea">
-<div>
-<div id="dotnet-interactive-this-cell-$CACHE_BUSTER$" style="display: none">
-        The below script needs to be able to find the current output cell; this is an easy method to get it.
-    </div>
-<script type="text/javascript">
-async function probeAddresses(probingAddresses) {
-    function timeout(ms, promise) {
-        return new Promise(function (resolve, reject) {
-            setTimeout(function () {
-                reject(new Error('timeout'))
-            }, ms)
-            promise.then(resolve, reject)
-        })
-    }
-
-    if (Array.isArray(probingAddresses)) {
-        for (let i = 0; i < probingAddresses.length; i++) {
-
-            let rootUrl = probingAddresses[i];
-
-            if (!rootUrl.endsWith('/')) {
-                rootUrl = `${rootUrl}/`;
-            }
-
-            try {
-                let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
-                    method: 'POST',
-                    cache: 'no-cache',
-                    mode: 'cors',
-                    timeout: 1000,
-                    headers: {
-                        'Content-Type': 'text/plain'
-                    },
-                    body: probingAddresses[i]
-                }));
-
-                if (response.status == 200) {
-                    return rootUrl;
-                }
-            }
-            catch (e) { }
-        }
-    }
-}
-
-function loadDotnetInteractiveApi() {
-    probeAddresses(["http://127.0.0.1:2053/","http://::1:2053/","http://fe80::1%1:2053/","http://fe80::18b4:90da:8915:df76%15:2053/","http://10.0.0.71:2053/","http://fe80::9083:51ff:fed6:3656%16:2053/","http://fe80::72c9:9c:4341:f6f5%18:2053/","http://fe80::77c8:c6f0:86d8:d2b7%19:2053/","http://fe80::cb22:316c:186b:dad%20:2053/","http://fe80::ce81:b1c:bd2c:69e%21:2053/"])
-        .then((root) => {
-        // use probing to find host url and api resources
-        // load interactive helpers and language services
-        let dotnetInteractiveRequire = require.config({
-        context: '46051.Microsoft.DotNet.Interactive.Http.HttpPort',
-                paths:
-            {
-                'dotnet-interactive': `${root}resources`
-                }
-        }) || require;
-
-            window.dotnetInteractiveRequire = dotnetInteractiveRequire;
-
-            window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
-                let paths = {};
-                paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
-                
-                let internalRequire = require.config({
-                    context: extensionCacheBuster,
-                    paths: paths,
-                    urlArgs: `cacheBuster=${extensionCacheBuster}`
-                    }) || require;
-
-                return internalRequire
-            };
-        
-            dotnetInteractiveRequire([
-                    'dotnet-interactive/dotnet-interactive'
-                ],
-                function (dotnet) {
-                    dotnet.init(window);
-                },
-                function (error) {
-                    console.log(error);
-                }
-            );
-        })
-        .catch(error => {console.log(error);});
-    }
-
-// ensure `require` is available globally
-if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
-    let require_script = document.createElement('script');
-    require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
-    require_script.setAttribute('type', 'text/javascript');
-    
-    
-    require_script.onload = function() {
-        loadDotnetInteractiveApi();
-    };
-
-    document.getElementsByTagName('head')[0].appendChild(require_script);
-}
-else {
-    loadDotnetInteractiveApi();
-}
-
-    </script>
-</div></div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.Configuration, 10.0.8</span></li><li><span>Microsoft.Extensions.Configuration.Json, 10.0.8</span></li><li><span>System.Text.Json, 10.0.8</span></li></ul></div></div></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.Configuration, 10.0.9</span></li><li><span>Microsoft.Extensions.Configuration.Json, 10.0.9</span></li><li><span>System.Text.Json, 10.0.9</span></li></ul></div></div></div>
 </div>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the Microsoft Extensions AI NuGet Packages</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI, 10.6.0"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.Abstractions, 10.6.0"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.OpenAI, 10.6.0"</span>
+<div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the Microdoft Extensions AI NuGet Packages</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI, 10.7.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.Abstractions, 10.7.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.OpenAI, 10.7.0"</span>
 <span class="c1">// Import Azure &amp; OpenAI NuGet Packages</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Azure.AI.OpenAI, 2.9.0-beta.1"</span>
 <span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Azure.Identity, 1.21.0"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: OpenAI, 2.10.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: OpenAI, 2.11.0"</span>
 
-<span class="k">using</span><span class="w"> </span><span class="nn">Azure.AI.OpenAI</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Azure</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.AI</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">OpenAI</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">OpenAI.Responses</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.ClientModel</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Threading.Tasks</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.ComponentModel</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Text.Json</span><span class="p">;</span>
 
-<span class="c1">// Set the flag to use Azure OpenAI or OpenAI. False to use OpenAI, True to use Azure OpenAI.</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">useAzureOpenAI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
 
-<span class="c1">// Create the IChatClient based on the selected service.</span>
+<span class="c1">// Create the IChatClient based on the selected service</span>
 <span class="n">IChatClient</span><span class="w"> </span><span class="n">chatClient</span><span class="p">;</span>
 
-<span class="cp">#pragma warning disable OPENAI001</span>
-
+<span class="c1">// Create a new MEAI ChatClient instance</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">useAzureOpenAI</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Using Azure OpenAI Service"</span><span class="p">);</span>
 
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="p">);</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AzureOpenAIClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Uri</span><span class="p">(</span><span class="n">azureOpenAIEndpoint</span><span class="p">),</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="o">!</span><span class="p">);</span>
 
-<span class="w">    </span><span class="c1">// Get the ResponsesClient from AzureOpenAIClient and adapt it to Microsoft.Extensions.AI.</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OpenAIClient</span><span class="p">(</span>
+<span class="w">        </span><span class="n">apiKeyCredential</span><span class="p">,</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">OpenAIClientOptions</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Uri</span><span class="p">(</span><span class="s">$"{azureOpenAIEndpoint!.TrimEnd('/')}/openai/v1"</span><span class="p">)</span>
+<span class="w">        </span><span class="p">});</span>
+
+<span class="w">    </span><span class="cp">#pragma warning disable OPENAI001</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">responsesClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="p">.</span><span class="n">GetResponsesClient</span><span class="p">();</span>
-<span class="w">    </span><span class="n">chatClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">responsesClient</span><span class="p">.</span><span class="n">AsIChatClient</span><span class="p">(</span><span class="n">defaultModelId</span><span class="p">:</span><span class="w"> </span><span class="n">azureOpenAIModelDeploymentName</span><span class="p">);</span>
+<span class="w">    </span><span class="n">chatClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">responsesClient</span><span class="p">.</span><span class="n">AsIChatClient</span><span class="p">(</span><span class="n">azureOpenAIModelDeploymentName</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="k">else</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Using OpenAI Service"</span><span class="p">);</span>
 
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">openAIAPIKey</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="p">);</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">openAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OpenAIClient</span><span class="p">(</span><span class="n">apiKeyCredential</span><span class="p">);</span>
 
-<span class="w">    </span><span class="c1">// Get the ResponsesClient from OpenAIClient and adapt it to Microsoft.Extensions.AI.</span>
+<span class="w">    </span><span class="cp">#pragma warning disable OPENAI001</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">responsesClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">openAIClient</span><span class="p">.</span><span class="n">GetResponsesClient</span><span class="p">();</span>
 <span class="w">    </span><span class="n">chatClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">responsesClient</span><span class="p">.</span><span class="n">AsIChatClient</span><span class="p">(</span><span class="n">defaultModelId</span><span class="p">:</span><span class="w"> </span><span class="n">openAIModelId</span><span class="p">);</span>
 <span class="p">}</span>
@@ -346,7 +241,7 @@ else {
 <span class="n">Make</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="n">syntactically</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="n">Markdown</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">exactly</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">header</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">separator</span><span class="w"> </span><span class="n">row</span><span class="p">.</span>
 <span class="s">""";</span>
 
-<span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">RunDecisionFramePromptAsync</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">userPrompt</span><span class="p">,</span><span class="w"> </span><span class="n">ChatOptions</span><span class="o">?</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+<span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">RunDecisionFramePromptAsync</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">userPrompt</span><span class="p">,</span><span class="w"> </span><span class="n">ChatOptions</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">chatMessages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ChatMessage</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="p">{</span>
@@ -379,11 +274,26 @@ else {
 </div>
 </div>
 </div>
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Azure.Identity, 1.21.0</span></li><li><span>Microsoft.Extensions.AI, 10.7.0</span></li><li><span>Microsoft.Extensions.AI.Abstractions, 10.7.0</span></li><li><span>Microsoft.Extensions.AI.OpenAI, 10.7.0</span></li><li><span>OpenAI, 2.11.0</span></li></ul></div></div></div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Using Azure OpenAI Service
+</pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<hr/>
 <h3 id="Step-2---Decision-Frames-(Thinking-Hats)-Scenario-for-a-Major-Purchase">Step 2 - Decision Frames (Thinking Hats) Scenario for a Major Purchase<a class="anchor-link" href="#Step-2---Decision-Frames-(Thinking-Hats)-Scenario-for-a-Major-Purchase">¶</a></h3>
 </div>
 </div>
@@ -407,7 +317,7 @@ else {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Decision Frames Prompt that lists the Six Thinking Hats approach to purchasing a house.</span>
@@ -451,46 +361,46 @@ else {
 </thead>
 <tbody>
 <tr>
-<td>White Hat</td>
-<td>Facts, data, and known information</td>
-<td>What is the asking price, recent sale price, monthly payment estimate, property tax, insurance, HOA, utilities, commute time, school ratings, and maintenance cost? What are the objective strengths and weaknesses of the property and neighborhood?</td>
-<td>Comparative market analysis, mortgage pre-approval, tax records, inspection report, utility bills, HOA documents, flood and zoning data, commute estimates, school and crime data</td>
-<td>Grounds the decision in verifiable facts and reduces guesswork, helping you compare homes consistently</td>
+<td>White Hat: Facts and Information</td>
+<td>Objective property, financial, and market data</td>
+<td>What is the total purchase cost, including taxes, insurance, maintenance, closing costs, and likely renovations? How does the monthly payment compare with reliable household income? What are the property’s age, size, condition, energy costs, and recent sale prices nearby?</td>
+<td>Mortgage preapproval, interest-rate options, inspection report, survey, title records, tax history, utility bills, insurance quotes, comparable sales, homeowners association documents, and a full cash-flow budget</td>
+<td>Establishes a factual baseline and exposes missing information before emotion or assumptions influence the decision</td>
 </tr>
 <tr>
-<td>Red Hat</td>
-<td>Feelings, intuition, and emotional response</td>
-<td>How do I feel when I walk through the home and neighborhood? Do I feel calm, excited, constrained, or uneasy? Does the space fit my lifestyle and long-term sense of “home”?</td>
-<td>Personal reactions after each visit, feedback from all decision-makers, notes on what felt energizing or off-putting, impressions from different times of day</td>
-<td>Surfaces emotional fit and hidden concerns that data alone may miss, especially for a high-stakes, long-term purchase</td>
+<td>Red Hat: Feelings and Intuition</td>
+<td>Emotional response, comfort, identity, and unease</td>
+<td>How do I feel when entering and leaving the property? Does the location feel safe and suitable? Am I excited about this home, or mainly afraid of missing out? Are there concerns I cannot yet explain?</td>
+<td>Written reactions after each viewing, separate buyer preferences, feedback from trusted people, neighborhood visits at different times, and a record of emotional triggers or reservations</td>
+<td>Recognizes important personal signals while preventing unexamined emotions from becoming the sole basis for a major financial commitment</td>
 </tr>
 <tr>
-<td>Black Hat</td>
-<td>Risks, downsides, and failure modes</td>
-<td>What could go wrong financially, structurally, or socially? Could rates rise, repairs exceed budget, resale be weak, or the area change negatively? What assumptions are fragile?</td>
-<td>Inspection findings, repair estimates, reserve and emergency fund analysis, stress test of monthly budget, neighborhood trend data, legal/title review, insurance exclusions</td>
-<td>Protects against optimism bias and helps avoid costly mistakes by stress-testing the purchase</td>
+<td>Black Hat: Risks and Caution</td>
+<td>Downside exposure, constraints, and failure scenarios</td>
+<td>What could make this purchase unaffordable or unsuitable? What if income falls, rates rise, repairs are larger than expected, or the home takes longer to sell? Are there flood, fire, structural, legal, environmental, or neighborhood risks?</td>
+<td>Independent inspection, flood and hazard maps, insurance availability and premiums, repair estimates, legal and title review, lending stress test, employment stability assessment, resale analysis, and contingency reserves</td>
+<td>Prevents avoidable mistakes by identifying vulnerabilities, worst cases, and conditions that should stop or renegotiate the purchase</td>
 </tr>
 <tr>
-<td>Yellow Hat</td>
-<td>Benefits, value, and upside</td>
-<td>What are the best-case and likely benefits of buying this home? Will it improve stability, commute, quality of life, equity building, or flexibility? Is there renovation upside or resale potential?</td>
-<td>Appreciation trends, rent-vs-buy comparison, renovation ROI estimates, mortgage amortization schedule, lifestyle benefits by location, long-term neighborhood plans</td>
-<td>Highlights the strategic upside and clarifies whether the home meaningfully supports your goals</td>
+<td>Yellow Hat: Benefits and Opportunity</td>
+<td>Value, advantages, resilience, and future usefulness</td>
+<td>What benefits does this home provide compared with renting or other properties? Does it support work, family, lifestyle, accessibility, or long-term plans? Could improvements increase usefulness or value?</td>
+<td>Comparison with realistic alternatives, location and commute analysis, school or service information where relevant, renovation feasibility, projected ownership costs, and evidence of neighborhood demand</td>
+<td>Clarifies why the purchase may be worthwhile and distinguishes durable benefits from optimistic speculation</td>
 </tr>
 <tr>
-<td>Green Hat</td>
-<td>Creativity, alternatives, and options</td>
-<td>Could I negotiate price, ask for repairs, buy with a contingency, or wait for another listing? Is there a different neighborhood, property type, or renovation plan that better fits my needs?</td>
-<td>Alternative listings, negotiation benchmarks, renovation scenarios, lender options, closing-cost comparisons, timeline flexibility, “must-have” versus “nice-to-have” list</td>
-<td>Expands the solution space and helps you avoid false dilemmas, often revealing better or lower-risk paths</td>
+<td>Green Hat: Alternatives and Creativity</td>
+<td>New possibilities, deal structures, and solutions</td>
+<td>Could I buy a different property, wait, rent longer, expand the search area, or change the financing structure? Can defects be negotiated, repaired, staged, or converted into useful features? What nontraditional options reduce risk?</td>
+<td>Alternative property shortlist, rent-versus-buy scenarios, renovation concepts and quotes, seller concessions, rate-buydown options, shared-equity or other financing terms, and flexibility analysis</td>
+<td>Expands the choice set, reducing the risk of treating one attractive house as the only viable opportunity</td>
 </tr>
 <tr>
-<td>Blue Hat</td>
-<td>Process, structure, and decision discipline</td>
-<td>What is the decision criteria, timeline, and threshold for saying yes or no? Have I collected enough evidence and involved the right people? What is the review process if new information appears?</td>
-<td>Decision checklist, weighted criteria matrix, decision deadline, advisor input, pre-commitment rules, documentation of tradeoffs and non-negotiables</td>
-<td>Keeps the process organized, prevents emotional drift, and ensures the final decision is deliberate and repeatable</td>
+<td>Blue Hat: Process and Decision Control</td>
+<td>Decision rules, sequencing, governance, and review</td>
+<td>What are my must-have criteria, walk-away conditions, and maximum affordable price? Which checks must occur before making an offer or removing contingencies? Who provides independent challenge? When will I make the final decision?</td>
+<td>Written decision criteria, weighted comparison matrix, affordability ceiling, due-diligence timeline, professional roles, offer and contingency checklist, scenario results, and a documented final rationale</td>
+<td>Converts the six perspectives into a disciplined process, limits bias and urgency, and ensures the decision is revisited when evidence changes</td>
 </tr>
 </tbody>
 </table>
@@ -509,7 +419,7 @@ else {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Decision Frames Prompt that ranks the Six Thinking Hats approach to purchasing a house.</span>
@@ -544,7 +454,7 @@ else {
 <table>
 <thead>
 <tr>
-<th>Rank</th>
+<th style="text-align:right">Rank</th>
 <th>Decision Frame</th>
 <th>Why It Matters For A House Purchase</th>
 <th>Impact / Influence</th>
@@ -553,46 +463,46 @@ else {
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td>White Hat</td>
-<td>Buying a home is a major financial commitment, so objective facts usually drive the quality of the decision: budget, interest rate, monthly payment, taxes, insurance, comps, inspection results, commute time, school data, and resale fundamentals. If the facts are wrong, every other judgment is weakened.</td>
-<td>Highest</td>
+<td style="text-align:right">1</td>
+<td>White Hat: Facts and Evidence</td>
+<td>Establishes affordability, financing terms, market data, inspection findings, taxes, insurance, maintenance costs, location factors, and legal details. Reliable facts prevent decisions based on assumptions or incomplete information.</td>
+<td>Very high: factual errors can create long-term financial stress and poor valuation decisions.</td>
 <td>Heavily</td>
 </tr>
 <tr>
-<td>2</td>
-<td>Black Hat</td>
-<td>The downside risk is large and often expensive: hidden defects, overpaying, market softness, repair surprises, HOA constraints, title issues, and affordability strain. This hat protects the buyer from avoidable regret and financial stress.</td>
-<td>High</td>
+<td style="text-align:right">2</td>
+<td>Black Hat: Risks and Caution</td>
+<td>Tests downside scenarios such as unaffordable payments, hidden defects, falling property values, unfavorable contingencies, climate exposure, and costly repairs.</td>
+<td>Very high: the financial consequences of overlooking major risks are substantial and often difficult to reverse.</td>
 <td>Heavily</td>
 </tr>
 <tr>
-<td>3</td>
-<td>Yellow Hat</td>
-<td>A house is not only a liability; it can also deliver long-term value through stability, equity building, lifestyle fit, tax advantages, and future flexibility. This hat helps balance the caution of Black Hat with a realistic view of upside.</td>
-<td>Medium-High</td>
+<td style="text-align:right">3</td>
+<td>Blue Hat: Process and Control</td>
+<td>Structures the decision through criteria, budget limits, due diligence, offer strategy, professional input, deadlines, and a clear go or no-go process.</td>
+<td>High: disciplined process reduces emotional bias, rushed decisions, and missed checks.</td>
+<td>Heavily</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Red Hat: Feelings and Intuition</td>
+<td>Captures emotional fit, comfort, sense of belonging, stress, concerns about the neighborhood, and reactions that may not yet be fully rationalized.</td>
+<td>High: emotional satisfaction affects long-term wellbeing, but feelings can also encourage overpaying or ignoring risks.</td>
 <td>Moderately</td>
 </tr>
 <tr>
-<td>4</td>
-<td>Blue Hat</td>
-<td>A disciplined process prevents emotional drift: setting criteria, defining a maximum budget, comparing options consistently, deciding when to walk away, and sequencing due diligence. For a house purchase, good process often matters because it prevents costly mistakes.</td>
-<td>Medium-High</td>
+<td style="text-align:right">5</td>
+<td>Yellow Hat: Benefits and Value</td>
+<td>Identifies potential advantages such as lifestyle improvement, stability, appreciation potential, convenience, community, rental potential, and alignment with future plans.</td>
+<td>Moderate: benefits help compare homes and justify the purchase, but optimistic assumptions should be tested against evidence.</td>
 <td>Moderately</td>
 </tr>
 <tr>
-<td>5</td>
-<td>Red Hat</td>
-<td>Emotions matter because a home is also a lived-in environment, not just an asset. Comfort, stress, sense of belonging, and family reactions can reveal fit that data alone misses, but this hat should not override affordability or risk analysis.</td>
-<td>Medium</td>
-<td>Lightly</td>
-</tr>
-<tr>
-<td>6</td>
-<td>Green Hat</td>
-<td>Creativity helps with alternative neighborhoods, renovation potential, financing structures, negotiation tactics, or rethinking what “ideal” looks like. Useful, but for most home purchases it has less influence than facts, risk control, and process discipline.</td>
-<td>Medium-Low</td>
-<td>Lightly</td>
+<td style="text-align:right">6</td>
+<td>Green Hat: Alternatives and Creativity</td>
+<td>Encourages considering other neighborhoods, property types, renovation options, different financing structures, renting longer, or delaying the purchase.</td>
+<td>Moderate to lower: alternatives can materially improve the outcome, but they generally influence the choice after core facts, risks, and constraints are understood.</td>
+<td>Lightly to moderately</td>
 </tr>
 </tbody>
 </table>
@@ -604,21 +514,22 @@ else {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>So far, GenAI has helped create decision frames with the Six Thinking Hats framework, rank them from most to least impactful, and identify where to focus attention. The next step is to apply the selected decision frames directly to the house-purchase decision.</p>
-<p>This notebook uses a single optimized prompt for that final step: the model performs the ranking and frame selection internally, then returns only the applied decision-frame approach as a Markdown table.</p>
+<hr/>
+<h3 id="Step-3---Applying-the-Decision-Frame-to-a-Decision">Step 3 - Applying the Decision Frame to a Decision<a class="anchor-link" href="#Step-3---Applying-the-Decision-Frame-to-a-Decision">¶</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Single-Decision-Prompt">Single Decision Prompt<a class="anchor-link" href="#Single-Decision-Prompt">¶</a></h4>
+<p>So far, Generative AI has helped create decision frames with the Six Thinking Hats framework, rank them from most to least impactful, and identify where to focus attention. The next step is to apply the selected decision frames directly to the house-purchase decision.</p>
+<p>This notebook uses a single optimized prompt for that final step: the model performs the ranking and frame selection internally, then returns only the applied decision-frame approach as a Markdown table.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Decision Frames Prompt that internally ranks and selects the strongest frames, then only returns the applied approach.</span>
@@ -667,46 +578,46 @@ else {
 </thead>
 <tbody>
 <tr>
-<td>White Hat: Facts and data</td>
-<td>Build a fact base before forming opinions. Treat the home as an information problem first. Inspect the property, documents, and market context.</td>
-<td>What are the exact square footage, lot size, age, permits, taxes, HOA rules, utility costs, and repair history? What are comparable recent sale prices? What is the inspection history?</td>
-<td>Seller disclosure, listing details, county records, comparable sales, inspection reports, appraisal, permit history, HOA documents, flood and hazard maps, utility bills.</td>
-<td>Collect and organize all documents in one place. Verify any missing or inconsistent data before making an offer.</td>
+<td>White Hat: Facts and evidence</td>
+<td>Establish an objective picture of the property, transaction, and ongoing ownership costs before forming a preference.</td>
+<td>What is the verified purchase price, floor area, age, ownership history, and time on market?<br/>What are the taxes, insurance, utilities, maintenance, and association fees?<br/>Are permits, boundaries, disclosures, and legal title clear?</td>
+<td>Comparable recent sales, official property records, inspection report, survey, utility bills, tax records, insurance quote, seller disclosures, and association documents.</td>
+<td>Create a property fact sheet and verify important claims independently. Do not make an offer until material unknowns have owners, deadlines, and acceptable answers.</td>
 </tr>
 <tr>
-<td>Red Hat: Gut feeling and fit</td>
-<td>Notice emotional reactions and instinctive comfort. A house must feel livable, not just look good on paper.</td>
-<td>Do I feel calm, energized, or uneasy in this space? Does the neighborhood feel safe and welcoming? Can I imagine daily life here?</td>
-<td>Immediate emotional reaction during visits, sense of noise, light, layout flow, privacy, and neighborhood vibe. Reactions from all decision makers after separate visits.</td>
-<td>Record first impressions immediately after each showing. Compare gut reactions across times of day and with different weather or traffic conditions.</td>
+<td>Red Hat: Emotions and intuition</td>
+<td>Treat emotional reactions as useful signals, while separating genuine fit from excitement, fear, scarcity pressure, or attachment to appearance.</td>
+<td>How do I feel about living here on an ordinary weekday?<br/>What concerns keep recurring even when I try to dismiss them?<br/>Am I responding to the home itself or to staging, competition, or fear of missing out?</td>
+<td>Notes after visiting at different times, reactions from trusted observers, commute trial, neighborhood walk, and a written record of concerns before discussing price.</td>
+<td>Record immediate reactions privately, then investigate recurring concerns. Pause if emotion is driving a higher offer, waived safeguards, or acceptance of an obvious compromise.</td>
 </tr>
 <tr>
 <td>Black Hat: Risks and downside</td>
-<td>Stress-test the decision for failure modes. Focus on hidden costs, defects, and worst-case scenarios.</td>
-<td>What could make this a bad purchase? What repairs are likely soon? Could the area decline, flood, or become hard to resell? Can we comfortably afford the mortgage if rates, taxes, or income change?</td>
-<td>Structural inspection findings, roof and HVAC age, mold or pest evidence, insurance quotes, flood or wildfire risk, resale comparables, debt-to-income ratio, cash reserve needs.</td>
-<td>Add protective contingencies, price for repairs, cap your maximum offer based on risk, and walk away if major red flags are unresolved.</td>
+<td>Stress-test the purchase for physical, financial, legal, environmental, and lifestyle risks, including plausible adverse scenarios.</td>
+<td>What could require a major repair soon?<br/>Could rates, income, taxes, insurance, or utilities make the home unaffordable?<br/>Are there flood, fire, drainage, mold, structural, zoning, noise, safety, or resale risks?<br/>What happens if the home takes longer to sell later?</td>
+<td>Independent inspection, specialist reports, flood and hazard maps, insurance availability and exclusions, repair history, permits, neighborhood crime and infrastructure data, lender appraisal, and conservative affordability scenarios.</td>
+<td>Set non-negotiable deal-breakers, retain inspection and financing contingencies, maintain a cash reserve, and walk away when downside exceeds the household’s tolerance.</td>
 </tr>
 <tr>
 <td>Yellow Hat: Benefits and value</td>
-<td>Evaluate the upside in practical terms. Focus on long-term value, lifestyle gains, and strategic advantages.</td>
-<td>How does this home improve daily life, commute, family needs, or remote work? Is there likely appreciation, strong rental potential, or tax benefit? Does the layout support future needs?</td>
-<td>School quality, commute time, neighborhood demand, historical price trends, renovation potential, energy efficiency, and livability features such as bedrooms, yard, or office space.</td>
-<td>Prioritize homes that create durable value, not just short-term appeal. If benefits are strong, move quickly with a competitive but disciplined offer.</td>
+<td>Test the realistic upside and long-term usefulness of the home rather than relying on optimistic appreciation assumptions.</td>
+<td>Does the location support work, schooling, health, transport, relationships, and daily routines?<br/>Which features reduce future costs or improve flexibility?<br/>Would the home remain valuable if prices stagnate?</td>
+<td>Commute measurements, service and school information, planned infrastructure, rental or resale comparables, energy performance, layout adaptability, and estimated value of included improvements.</td>
+<td>Identify benefits that matter to the buyer’s life and assign conservative value to them. Prefer durable utility and flexibility over speculative appreciation.</td>
 </tr>
 <tr>
-<td>Green Hat: Alternatives and creativity</td>
-<td>Expand the option set before committing. Look for ways to solve problems creatively instead of accepting the first apparent choice.</td>
-<td>Is there another neighborhood, house type, or timeline that fits better? Could renovations, concessions, or financing changes improve the fit? Would renting longer, waiting, or buying smaller be smarter?</td>
-<td>Alternative listings, renovation estimates, seller concessions, rate buy-down options, inspection negotiation room, and scenarios for different budgets or locations.</td>
-<td>Compare at least three viable alternatives. Consider creative structures such as repair credits, price adjustments, or a delayed closing if they improve the deal.</td>
+<td>Green Hat: Alternatives and creative options</td>
+<td>Expand the choice set and find ways to reduce risk or improve fit before treating this property as the only opportunity.</td>
+<td>Could a different neighborhood, smaller home, renovation, new build, or continued renting meet the same goals?<br/>Can price, closing date, repairs, credits, or contingencies be negotiated?<br/>Can a room, layout, or energy system be adapted?</td>
+<td>Market inventory, rejected and accepted alternatives, renovation estimates, rent-versus-buy analysis, financing products, seller constraints, and opportunity cost of the down payment.</td>
+<td>Compare at least three viable alternatives using the same criteria. Consider a conditional offer, repair credit, phased improvements, or waiting rather than stretching to secure this home.</td>
 </tr>
 <tr>
 <td>Blue Hat: Process and decision control</td>
-<td>Manage the decision process deliberately. Define criteria, sequence, and decision thresholds before emotional momentum takes over.</td>
-<td>What are our must-haves, nice-to-haves, deal breakers, budget ceiling, and decision deadline? Who approves what? What evidence is required before offer, contract, and closing?</td>
-<td>Written criteria, scorecard, budget model, timeline, contingency plan, lender preapproval, professional inspections, and agreed decision rules.</td>
-<td>Use a formal home-buying checklist and scorecard. Set go or no-go thresholds in advance, review them after each visit, and only proceed when the home meets the pre-set standard.</td>
+<td>Run a disciplined decision process with explicit criteria, thresholds, independent checks, and a defined stop or proceed point.</td>
+<td>What must be true for this purchase to work?<br/>Which criteria are essential, desirable, or negotiable?<br/>Who has authority to approve the offer?<br/>What evidence would change the decision?<br/>What is the maximum all-in price?</td>
+<td>Written affordability limit, weighted scorecard, inspection and appraisal deadlines, lender preapproval, solicitor or attorney review, decision log, and independent second opinions.</td>
+<td>Set a maximum all-in budget before bidding, complete due diligence in sequence, review evidence at a scheduled decision meeting, and proceed only if essential criteria pass and risks are funded.</td>
 </tr>
 </tbody>
 </table>

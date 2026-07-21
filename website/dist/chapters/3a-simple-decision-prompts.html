@@ -137,13 +137,13 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the required NuGet configuration packages</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration, 10.0.8"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration.Json, 10.0.8"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: System.Text.Json, 10.0.8"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration, 10.0.9"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration.Json, 10.0.9"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: System.Text.Json, 10.0.9"</span>
 
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration.Json</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
@@ -165,6 +165,8 @@
 <span class="c1">// OpenAI Connection Info </span>
 <span class="kt">var</span><span class="w"> </span><span class="n">openAIAPIKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"OpenAI:APIKey"</span><span class="p">];</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">openAIModelId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"OpenAI:ModelId"</span><span class="p">];</span>
+<span class="c1">// AzureOpenAI or OpenAI selection flag</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">useAzureOpenAI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">bool</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s">"AzureOpenAI:UseAzureOpenAI"</span><span class="p">]</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s">"true"</span><span class="p">);</span>
 
 <span class="c1">// Console.WriteLine(azureOpenAIEndpoint);</span>
 <span class="c1">// Console.WriteLine(azureOpenAIModelDeploymentName);</span>
@@ -176,36 +178,143 @@
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.Configuration, 10.0.8</span></li><li><span>Microsoft.Extensions.Configuration.Json, 10.0.8</span></li><li><span>System.Text.Json, 10.0.8</span></li></ul></div></div></div>
+<div class="output_html rendered_html output_subarea">
+<div>
+<div id="dotnet-interactive-this-cell-$CACHE_BUSTER$" style="display: none">
+        The below script needs to be able to find the current output cell; this is an easy method to get it.
+    </div>
+<script type="text/javascript">
+async function probeAddresses(probingAddresses) {
+    function timeout(ms, promise) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                reject(new Error('timeout'))
+            }, ms)
+            promise.then(resolve, reject)
+        })
+    }
+
+    if (Array.isArray(probingAddresses)) {
+        for (let i = 0; i < probingAddresses.length; i++) {
+
+            let rootUrl = probingAddresses[i];
+
+            if (!rootUrl.endsWith('/')) {
+                rootUrl = `${rootUrl}/`;
+            }
+
+            try {
+                let response = await timeout(1000, fetch(`${rootUrl}discovery`, {
+                    method: 'POST',
+                    cache: 'no-cache',
+                    mode: 'cors',
+                    timeout: 1000,
+                    headers: {
+                        'Content-Type': 'text/plain'
+                    },
+                    body: probingAddresses[i]
+                }));
+
+                if (response.status == 200) {
+                    return rootUrl;
+                }
+            }
+            catch (e) { }
+        }
+    }
+}
+
+function loadDotnetInteractiveApi() {
+    probeAddresses(["http://127.0.0.1:2051/","http://::1:2051/","http://fe80::1%1:2051/","http://fe80::1cec:2e58:9d34:a855%15:2051/","http://10.0.0.39:2051/","http://fe80::809c:30ff:fe00:28d4%16:2051/","http://fe80::6369:a43a:160d:c30f%18:2051/","http://fe80::bf5b:2e73:9282:f192%19:2051/","http://fe80::498f:d3c3:59c0:6dcd%20:2051/","http://fe80::ce81:b1c:bd2c:69e%21:2051/","http://10.211.55.2:2051/","http://fe80::fcb2:14ff:fe1e:4064%26:2051/","http://fdb2:2c26:f4e4::1:2051/","http://10.37.129.2:2051/","http://fe80::fcb2:14ff:fe1e:4065%28:2051/","http://fdb2:2c26:f4e4:1::1:2051/"])
+        .then((root) => {
+        // use probing to find host url and api resources
+        // load interactive helpers and language services
+        let dotnetInteractiveRequire = require.config({
+        context: '16833.Microsoft.DotNet.Interactive.Http.HttpPort',
+                paths:
+            {
+                'dotnet-interactive': `${root}resources`
+                }
+        }) || require;
+
+            window.dotnetInteractiveRequire = dotnetInteractiveRequire;
+
+            window.configureRequireFromExtension = function(extensionName, extensionCacheBuster) {
+                let paths = {};
+                paths[extensionName] = `${root}extensions/${extensionName}/resources/`;
+                
+                let internalRequire = require.config({
+                    context: extensionCacheBuster,
+                    paths: paths,
+                    urlArgs: `cacheBuster=${extensionCacheBuster}`
+                    }) || require;
+
+                return internalRequire
+            };
+        
+            dotnetInteractiveRequire([
+                    'dotnet-interactive/dotnet-interactive'
+                ],
+                function (dotnet) {
+                    dotnet.init(window);
+                },
+                function (error) {
+                    console.log(error);
+                }
+            );
+        })
+        .catch(error => {console.log(error);});
+    }
+
+// ensure `require` is available globally
+if ((typeof(require) !==  typeof(Function)) || (typeof(require.config) !== typeof(Function))) {
+    let require_script = document.createElement('script');
+    require_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
+    require_script.setAttribute('type', 'text/javascript');
+    
+    
+    require_script.onload = function() {
+        loadDotnetInteractiveApi();
+    };
+
+    document.getElementsByTagName('head')[0].appendChild(require_script);
+}
+else {
+    loadDotnetInteractiveApi();
+}
+
+    </script>
+</div></div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.Configuration, 10.0.9</span></li><li><span>Microsoft.Extensions.Configuration.Json, 10.0.9</span></li><li><span>System.Text.Json, 10.0.9</span></li></ul></div></div></div>
 </div>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the Microdoft Extensions AI NuGet Packages</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI, 10.6.0"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.Abstractions, 10.6.0"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.OpenAI, 10.6.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI, 10.7.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.Abstractions, 10.7.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.OpenAI, 10.7.0"</span>
 <span class="c1">// Import Azure &amp; OpenAI NuGet Packages</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Azure.AI.OpenAI, 2.9.0-beta.1"</span>
 <span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Azure.Identity, 1.21.0"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: OpenAI, 2.10.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: OpenAI, 2.11.0"</span>
 
 <span class="k">using</span><span class="w"> </span><span class="nn">Azure</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">Azure.AI.OpenAI</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.AI</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">OpenAI</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">OpenAI.Chat</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.ClientModel</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">System.ComponentModel</span><span class="p">;</span>
-<span class="k">using</span><span class="w"> </span><span class="nn">System.Text.Json</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Runtime.InteropServices</span><span class="p">;</span>
 
-<span class="c1">// Set the flag to use Azure OpenAI or OpenAI. False to use OpenAI, True to use Azure OpenAI</span>
-<span class="kt">var</span><span class="w"> </span><span class="n">useAzureOpenAI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
 
 <span class="c1">// Create the IChatClient based on the selected service</span>
 <span class="n">IChatClient</span><span class="w"> </span><span class="n">chatClient</span><span class="p">;</span>
@@ -215,10 +324,15 @@
 <span class="p">{</span>
 <span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Using Azure OpenAI Service"</span><span class="p">);</span>
 
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="p">);</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AzureOpenAIClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Uri</span><span class="p">(</span><span class="n">azureOpenAIEndpoint</span><span class="p">),</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="o">!</span><span class="p">);</span>
 
-<span class="w">    </span><span class="c1">// #pragma warning disable OPENAI001</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OpenAIClient</span><span class="p">(</span>
+<span class="w">        </span><span class="n">apiKeyCredential</span><span class="p">,</span>
+<span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">OpenAIClientOptions</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Uri</span><span class="p">(</span><span class="s">$"{azureOpenAIEndpoint!.TrimEnd('/')}/openai/v1"</span><span class="p">)</span>
+<span class="w">        </span><span class="p">});</span>
+
 <span class="w">    </span><span class="n">chatClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="p">.</span><span class="n">GetChatClient</span><span class="p">(</span><span class="n">azureOpenAIModelDeploymentName</span><span class="p">).</span><span class="n">AsIChatClient</span><span class="p">();</span>
 <span class="p">}</span>
 <span class="k">else</span>
@@ -226,16 +340,30 @@
 <span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Using OpenAI Service"</span><span class="p">);</span>
 
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiKeyCredential</span><span class="p">(</span><span class="n">azureOpenAIAPIKey</span><span class="p">);</span>
-<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AzureOpenAIClient</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Uri</span><span class="p">(</span><span class="n">azureOpenAIEndpoint</span><span class="p">),</span><span class="w"> </span><span class="n">apiKeyCredential</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">openAIClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OpenAIClient</span><span class="p">(</span><span class="n">apiKeyCredential</span><span class="p">);</span>
 
 <span class="w">    </span><span class="c1">// #pragma warning disable OPENAI001</span>
-<span class="w">    </span><span class="n">chatClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">azureOpenAIClient</span><span class="p">.</span><span class="n">GetChatClient</span><span class="p">(</span><span class="n">azureOpenAIModelDeploymentName</span><span class="p">).</span><span class="n">AsIChatClient</span><span class="p">();</span>
+<span class="w">    </span><span class="n">chatClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">openAIClient</span><span class="p">.</span><span class="n">GetChatClient</span><span class="p">(</span><span class="n">openAIModelId</span><span class="p">).</span><span class="n">AsIChatClient</span><span class="p">();</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Azure.Identity, 1.21.0</span></li><li><span>Microsoft.Extensions.AI, 10.7.0</span></li><li><span>Microsoft.Extensions.AI.Abstractions, 10.7.0</span></li><li><span>Microsoft.Extensions.AI.OpenAI, 10.7.0</span></li><li><span>OpenAI, 2.11.0</span></li></ul></div></div></div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Using Azure OpenAI Service
+</pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -261,7 +389,7 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Text.Json</span><span class="p">;</span>
@@ -287,29 +415,13 @@
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Here are **5 decision-making frameworks** that can improve the quality of decisions, along with a brief explanation of how each helps with analysis and reasoning:
-
-1. **SWOT Analysis**
-   - **What it is:** Evaluates **Strengths, Weaknesses, Opportunities, and Threats**.
-   - **How it helps:** It provides a structured way to compare internal and external factors, making it useful for strategic planning, business decisions, and evaluating options in uncertain environments.
-
-2. **Cost-Benefit Analysis**
-   - **What it is:** Compares the expected costs of a decision against its expected benefits.
-   - **How it helps:** It supports more rational decisions by making trade-offs explicit, especially when resources are limited or when choosing between competing investments or actions.
-
-3. **Decision Matrix**
-   - **What it is:** A table used to score multiple options against a set of weighted criteria.
-   - **How it helps:** It reduces bias by forcing a systematic comparison of alternatives, making it especially useful when several factors matter and decisions involve multiple stakeholders.
-
-4. **Six Thinking Hats**
-   - **What it is:** A framework that examines a problem from six perspectives: facts, emotions, caution, benefits, creativity, and process.
-   - **How it helps:** It encourages balanced thinking and reduces one-sided reasoning, which is valuable in team decisions, brainstorming, and complex problems.
-
-5. **OODA Loop**
-   - **What it is:** Stands for **Observe, Orient, Decide, Act**.
-   - **How it helps:** It promotes fast, iterative decision-making by continuously updating understanding and adjusting actions. This is useful in dynamic, fast-changing situations such as crisis response, management, and competitive environments.
-
-If you'd like, I can also provide these in a **table format** or suggest **which framework fits best for business, personal, or team decisions**.
+<pre>| Framework | How it improves decision-making | Best suited for |
+|---|---|---|
+| **1. Weighted Decision Matrix** | Lists alternatives, establishes evaluation criteria, assigns importance weights, and scores each option. This makes trade-offs explicit and reduces reliance on intuition or a single attractive feature. | Selecting vendors, hiring candidates, choosing projects, or comparing products. |
+| **2. Decision Tree and Expected Value Analysis** | Maps possible choices, outcomes, probabilities, and consequences. Calculating expected values helps compare options under uncertainty and clarifies where additional information would be valuable. | Investment decisions, medical choices, business strategy, and risk management. |
+| **3. OODA Loop—Observe, Orient, Decide, Act** | Encourages a continuous cycle of gathering information, interpreting changing conditions, making a decision, and adapting based on results. It prevents decisions from becoming static when circumstances change. | Crisis response, competitive environments, operations, and rapidly changing markets. |
+| **4. Six Thinking Hats** | Separates different modes of thought: facts, emotions, cautions, benefits, creativity, and process. By considering each perspective deliberately, teams reduce groupthink and generate more balanced judgments. | Team meetings, strategic planning, innovation, and resolving complex disagreements. |
+| **5. Premortem Analysis** | Assumes a decision has failed and asks participants to explain why. This surfaces hidden risks, weak assumptions, implementation problems, and unintended consequences before action is taken. | Major projects, product launches, policy decisions, and high-stakes investments. |
 </pre>
 </div>
 </div>
@@ -353,29 +465,15 @@ If you'd like, I can also provide these in a **table format** or suggest **which
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Here are 5 decision-making frameworks that can improve decision quality, along with how they help with analysis and reasoning:
+<pre>| Framework | How it improves analysis and reasoning | Useful scenarios |
+|---|---|---|
+| **1. Rational Decision-Making Model** | Uses a structured sequence: define the problem, establish criteria, generate alternatives, evaluate options, choose, implement, and review. It reduces impulsive decisions and makes assumptions explicit. | Strategic planning, hiring, budgeting, and other situations with clear objectives and time to analyze. |
+| **2. Weighted Decision Matrix** | Compares alternatives against multiple criteria, assigning each criterion a weight based on importance. This makes trade-offs visible and limits the influence of one attractive but less important feature. | Vendor selection, product choices, project prioritization, and career or investment decisions. |
+| **3. Decision Tree and Expected-Value Analysis** | Maps possible choices, outcomes, probabilities, and consequences. Expected values help compare options when outcomes are uncertain, while the visual structure clarifies risks and dependencies. | Insurance, medical treatment choices, investment decisions, product launches, and “build versus buy” choices. |
+| **4. OODA Loop** | The cycle—**Observe, Orient, Decide, Act**—supports rapid decisions by continuously incorporating new information and adjusting actions. It discourages rigid adherence to an outdated plan. | Crisis management, military or emergency operations, competitive business environments, and fast-moving projects. |
+| **5. Cynefin Framework** | Classifies situations as **clear, complicated, complex, chaotic, or disorderly**, then recommends an appropriate decision approach. It helps prevent applying a rigid analytical method to problems that require experimentation or rapid action. | Organizational change, innovation, public policy, crises, and problems involving unclear cause-and-effect relationships. |
 
-1. **SWOT Analysis**
-   - **What it is:** A framework for evaluating **Strengths, Weaknesses, Opportunities, and Threats**.
-   - **How it helps:** It gives a balanced view of internal and external factors, making it easier to compare options and anticipate risks or advantages. Useful for business planning, career decisions, and strategic choices.
-
-2. **Cost-Benefit Analysis**
-   - **What it is:** A method for comparing the expected costs of a decision against its expected benefits.
-   - **How it helps:** It encourages structured thinking by quantifying trade-offs, helping decision-makers choose the option with the best net value. Useful in project selection, budgeting, and policy decisions.
-
-3. **Decision Matrix**
-   - **What it is:** A tool that scores different options against a set of criteria, often with weights assigned to each criterion.
-   - **How it helps:** It reduces bias by making comparisons systematic and transparent. Helpful when multiple factors matter, such as choosing vendors, hiring candidates, or selecting products.
-
-4. **OODA Loop**
-   - **What it is:** A cycle of **Observe, Orient, Decide, Act**.
-   - **How it helps:** It supports rapid, adaptive decision-making by encouraging continuous reassessment as conditions change. Especially useful in dynamic environments like operations, emergency response, and competitive strategy.
-
-5. **Six Thinking Hats**
-   - **What it is:** A framework that looks at a problem from six perspectives: facts, emotions, risks, benefits, creativity, and process control.
-   - **How it helps:** It improves reasoning by forcing consideration of multiple viewpoints rather than relying on one mode of thinking. Useful for group decisions, brainstorming, and solving complex problems.
-
-If you want, I can also provide these frameworks in a table or give real-world examples for each.</pre>
+Together, these frameworks support different needs: structured evaluation, comparison of alternatives, uncertainty analysis, rapid adaptation, and selecting the right reasoning style for the situation.</pre>
 </div>
 </div>
 </div>
@@ -399,7 +497,7 @@ If you want, I can also provide these frameworks in a table or give real-world e
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// A new decision prompt to help with describing decision-making frameworks using table Markdown format</span>
@@ -430,29 +528,35 @@ If you want, I can also provide these frameworks in a table or give real-world e
 <thead>
 <tr>
 <th>Decision-Making Framework</th>
-<th>How It Improves Analysis and Reasoning</th>
+<th>How It Enhances Analysis and Reasoning</th>
+<th>Useful Scenarios</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>SWOT Analysis</td>
-<td>Organizes a decision by separating internal strengths and weaknesses from external opportunities and threats, helping compare options and anticipate risks.</td>
+<td>Examines strengths, weaknesses, opportunities, and threats to provide a balanced view of internal capabilities and external conditions.</td>
+<td>Strategic planning, business initiatives, and competitive analysis</td>
 </tr>
 <tr>
-<td>Cost-Benefit Analysis</td>
-<td>Quantifies expected gains and costs to support more objective comparisons between alternatives, especially when trade-offs must be weighed.</td>
+<td>Cost–Benefit Analysis</td>
+<td>Compares expected advantages with costs, risks, and resource requirements to assess whether an option creates sufficient value.</td>
+<td>Investments, project selection, and policy decisions</td>
 </tr>
 <tr>
 <td>Decision Matrix</td>
-<td>Uses weighted criteria to score multiple options consistently, making complex choices more transparent and less driven by intuition alone.</td>
+<td>Scores alternatives against weighted criteria, making trade-offs explicit and reducing the influence of personal bias.</td>
+<td>Vendor selection, hiring, product choices, and prioritization</td>
 </tr>
 <tr>
-<td>Pareto Analysis (80/20 Rule)</td>
-<td>Focuses attention on the few factors that produce the greatest impact, improving prioritization in situations with limited time or resources.</td>
+<td>First-Principles Thinking</td>
+<td>Breaks a complex problem into fundamental facts and assumptions, then rebuilds solutions from the ground up.</td>
+<td>Innovation, technical challenges, and unfamiliar problems</td>
 </tr>
 <tr>
-<td>OODA Loop (Observe, Orient, Decide, Act)</td>
-<td>Encourages rapid, iterative decision-making by continuously updating understanding and adjusting actions as new information emerges.</td>
+<td>Scenario Planning</td>
+<td>Explores multiple plausible future conditions and evaluates how each option performs under different circumstances.</td>
+<td>Long-term strategy, uncertainty, risk management, and crisis preparation</td>
 </tr>
 </tbody>
 </table>
@@ -472,9 +576,9 @@ If you want, I can also provide these frameworks in a table or give real-world e
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The Microsoft AI clients support the configuration of prompt execution. The typical OpenAI and Azure OpenAI settings are exposed as configuration options that provide a different AI output experience. Non-reasoning models GPT-3.5 through GPT4.1 support settings like Temperature, LogProbs, TopK to optimize returns. Most recently (in the year 2026), most top performing Generative AI models are reasoning models, which simplify the configuration to reasoning effort (Minimal, Low, Medium, High) or token thinking budgets. This basically is a reasoning setting that correlates to how many resources the AI models spend "thinking" (internal monologue) before the AI executes the prompt instructions.</p>
+<p>The Microsoft AI clients support the configuration of prompt execution. The typical OpenAI and Azure OpenAI settings are exposed as configuration options that provide a different AI output experience. Non-reasoning models GPT-3.5 through GPT4.1 support settings like Temperature, LogProbs, TopK to optimize returns. Most recently (in the year 2026), most top performing Generative AI models are reasoning models, which simplify the configuration to reasoning effort (Minimal, Low, Medium, High, XHigh) or token thinking budgets. This basically is a reasoning setting that correlates to how many resources the AI models spend "thinking" (internal monologue) before the AI executes the prompt instructions. Some models can also turn off "reasoning" model and expose the classic settings as well.</p>
 <blockquote>
-<p><strong>📝 Note:</strong> The supported prompt settings are dependent on the API plus the specific model version. For example, an AI model paired with an older API may not expose all the configuration settings available. Conversely, a new preview model may not have all the settings available until it becomes generally available. Types of model execution (general versus reasoning) will also have different execution setting parameters.</p>
+<p><strong>📝 Note:</strong> The supported prompt settings are dependent on the API plus the specific model version. For example, an AI model paired with an older API may not expose all the configuration settings available. Conversely, a new preview model may not have all the settings available until it becomes generally available. Types of model execution (general versus reasoning) will also have different execution setting parameters. Microsoft Azure makes this much easier, by providing a single versionless API layer that handles both GA and preview features (/v1).</p>
 </blockquote>
 </div>
 </div>
@@ -482,24 +586,22 @@ If you want, I can also provide these frameworks in a table or give real-world e
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Execute the code cell below. Note there is a new ChatOptions object instantiated that specifies how we would like the AI to process the decision intelligence prompt. Note two key changes:</p>
+<p>Execute the code cell below. Note there is a new ChatOptions object instantiated that specifies how we would like the AI to process the decision intelligence prompt. Note the key change:</p>
 <ul>
-<li><strong>MaxOutputTokens</strong> setting is set at 100, which will set a maximum of tokens allowed for the AI model to output</li>
 <li><strong>ResponseFormat</strong> setting is set to JSON, which will return the response in a structured JSON object. An optional JSON schema can be supplied to enforce output in more specific ways.</li>
 </ul>
-<p>Notice the output difference below is greatly truncated, try changing MaxOutputTokens to a higher value and re-run.</p>
+<p>Notice the output difference below is formatted with JSON output.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Declare new chat options setting MaxOutputTokens and ResponseFormat to JSON explicitly</span>
 <span class="kt">var</span><span class="w"> </span><span class="n">chatOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChatOptions</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">MaxOutputTokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
 <span class="w">    </span><span class="n">ResponseFormat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Microsoft</span><span class="p">.</span><span class="n">Extensions</span><span class="p">.</span><span class="n">AI</span><span class="p">.</span><span class="n">ChatResponseFormat</span><span class="p">.</span><span class="n">Json</span>
 <span class="p">};</span>
 
@@ -525,7 +627,30 @@ If you want, I can also provide these frameworks in a table or give real-world e
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>
+<pre>{
+  "frameworks": [
+    {
+      "name": "SWOT Analysis",
+      "description": "Evaluates strengths, weaknesses, opportunities, and threats. It supports strategic decisions by combining internal capabilities with external conditions and revealing risks or areas for advantage."
+    },
+    {
+      "name": "Weighted Decision Matrix",
+      "description": "Compares options against defined criteria, assigning importance weights and scores. It improves objectivity and transparency when choosing among alternatives with multiple competing factors."
+    },
+    {
+      "name": "Cost-Benefit Analysis",
+      "description": "Estimates and compares the expected costs and benefits of each option. It supports resource-allocation decisions by clarifying trade-offs, financial implications, and potential returns."
+    },
+    {
+      "name": "OODA Loop",
+      "description": "Organizes decisions into four stages: Observe, Orient, Decide, and Act. It helps individuals and teams make adaptive decisions in dynamic or time-sensitive environments by incorporating feedback and updating actions."
+    },
+    {
+      "name": "Premortem Analysis",
+      "description": "Assumes that a proposed decision has failed and asks why it failed. This encourages people to identify hidden risks, challenge assumptions, and develop mitigation plans before implementation."
+    }
+  ]
+}
 </pre>
 </div>
 </div>
@@ -571,7 +696,7 @@ If you want, I can also provide these frameworks in a table or give real-world e
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [7]:</div>
+<div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Create a System Prompt instruction to override the default system prompt</span>
@@ -628,126 +753,52 @@ If you want, I can also provide these frameworks in a table or give real-world e
 <tr>
 <th style="text-align:right">Rank</th>
 <th>Decision framework</th>
-<th>What it is</th>
-<th>How to use it in daily situations</th>
+<th>Core question</th>
+<th>Simple steps</th>
 <th>Best for</th>
-<th>Example daily use</th>
+<th>Quick example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:right">1</td>
-<td><strong>Pros / Cons + Weighting</strong></td>
-<td>A simple comparison of options by listing positives and negatives, then giving each one a score or importance weight.</td>
-<td>1) List options. 2) Write pros and cons. 3) Give each factor a weight from 1–5 based on importance. 4) Score each option. 5) Pick the highest total.</td>
-<td>Fast, practical choices with multiple factors.</td>
-<td>Choosing between two laptops, job offers, or weekend plans.</td>
+<td><strong>Pros-and-cons matrix</strong></td>
+<td>“What are the benefits and drawbacks of each option?”</td>
+<td>1. List options<br/>2. Identify key advantages and disadvantages<br/>3. Rate each factor from 1–5<br/>4. Choose the strongest overall option</td>
+<td>Everyday choices with a few clear alternatives</td>
+<td>Comparing two restaurants, phones, or travel options</td>
 </tr>
 <tr>
 <td style="text-align:right">2</td>
-<td><strong>OODA Loop</strong></td>
-<td>A rapid decision cycle: <strong>Observe, Orient, Decide, Act</strong>.</td>
-<td>1) Observe the situation. 2) Orient by interpreting what matters. 3) Decide on the best move. 4) Act quickly. Repeat as conditions change.</td>
-<td>Dynamic situations where speed matters.</td>
-<td>Handling a customer issue, reacting to a schedule change, or responding to a sudden problem at work.</td>
+<td><strong>Weighted decision matrix</strong></td>
+<td>“Which option performs best against what matters most?”</td>
+<td>1. Define decision criteria<br/>2. Assign each criterion an importance weight totaling 100%<br/>3. Score each option from 1–5<br/>4. Multiply scores by weights and add the results</td>
+<td>Decisions involving multiple priorities or trade-offs</td>
+<td>Choosing a job based on salary, flexibility, growth, and commute</td>
 </tr>
 <tr>
 <td style="text-align:right">3</td>
-<td><strong>First Principles Thinking</strong></td>
-<td>Break a problem down to its most basic truths and rebuild the answer from there.</td>
-<td>1) Define the problem. 2) Ask “What do I know for sure?” 3) Separate assumptions from facts. 4) Rebuild options from fundamentals.</td>
-<td>When you want to avoid bias or inherited assumptions.</td>
-<td>Deciding whether to buy vs. rent, start a side business, or improve a process.</td>
+<td><strong>80/20 rule</strong></td>
+<td>“Which small number of actions will create most of the value?”</td>
+<td>1. List possible actions or problems<br/>2. Estimate their likely impact<br/>3. Focus on the top 20% producing roughly 80% of results<br/>4. Review whether the impact matches expectations</td>
+<td>Prioritizing tasks, problems, or opportunities</td>
+<td>Focusing on the few customers, tasks, or habits that matter most</td>
 </tr>
 <tr>
 <td style="text-align:right">4</td>
-<td><strong>80/20 Rule (Pareto Principle)</strong></td>
-<td>Roughly 80% of results often come from 20% of actions. Focus on the highest-impact items first.</td>
-<td>1) List all possible actions. 2) Identify which few drive most value. 3) Prioritize those. 4) Ignore low-impact tasks when possible.</td>
-<td>Productivity, prioritization, and simplifying choices.</td>
-<td>Deciding which tasks to do today, which clients to prioritize, or which habits to build.</td>
+<td><strong>Reversibility test</strong></td>
+<td>“Can I easily undo this decision if it goes poorly?”</td>
+<td>1. Determine whether the decision is reversible<br/>2. If reversible, act quickly and learn from results<br/>3. If difficult to reverse, gather more information and plan safeguards<br/>4. Set a review point</td>
+<td>Avoiding overanalysis while managing risk</td>
+<td>Trying a software subscription versus buying a house</td>
 </tr>
 <tr>
 <td style="text-align:right">5</td>
-<td><strong>Decision Matrix</strong></td>
-<td>A structured scoring tool that compares options across criteria.</td>
-<td>1) List options. 2) Choose criteria. 3) Assign weights to criteria. 4) Score each option. 5) Multiply and total scores.</td>
-<td>Multi-criteria decisions that need a more objective comparison.</td>
-<td>Choosing a phone, apartment, vacation spot, or vendor.</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Framework</th>
-<th>Why it is easy to use</th>
-<th>Main advantage</th>
-<th>Main limitation</th>
-<th>Quick rule of thumb</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Pros / Cons + Weighting</strong></td>
-<td>Very intuitive and familiar</td>
-<td>Balances simplicity with structure</td>
-<td>Can be subjective if weights are careless</td>
-<td>Use when you need a quick, well-rounded choice</td>
-</tr>
-<tr>
-<td><strong>OODA Loop</strong></td>
-<td>Natural step-by-step flow</td>
-<td>Helps with fast, changing situations</td>
-<td>Less useful for slow, one-time, high-stakes decisions</td>
-<td>Use when the situation may change before you finish deciding</td>
-</tr>
-<tr>
-<td><strong>First Principles Thinking</strong></td>
-<td>Uses basic “why” questions</td>
-<td>Reduces faulty assumptions</td>
-<td>Takes more mental effort</td>
-<td>Use when common advice may be wrong or misleading</td>
-</tr>
-<tr>
-<td><strong>80/20 Rule</strong></td>
-<td>Easy mental shortcut</td>
-<td>Great for prioritization</td>
-<td>Can oversimplify if overused</td>
-<td>Use when time and attention are limited</td>
-</tr>
-<tr>
-<td><strong>Decision Matrix</strong></td>
-<td>Simple spreadsheet-style method</td>
-<td>Makes tradeoffs clearer and more objective</td>
-<td>Depends on good criteria and scores</td>
-<td>Use when comparing several options across several factors</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Recommendation</th>
-<th>Why it belongs in your daily toolkit</th>
-<th>When to use it most often</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Best all-around framework: Decision Matrix</strong></td>
-<td>It is easy to learn, works in many situations, and helps reduce emotional bias.</td>
-<td>Choosing among multiple options with several important factors.</td>
-</tr>
-<tr>
-<td><strong>Best for speed: OODA Loop</strong></td>
-<td>It helps you act quickly without waiting for perfect information.</td>
-<td>Busy days, urgent issues, and changing environments.</td>
-</tr>
-<tr>
-<td><strong>Best for prioritization: 80/20 Rule</strong></td>
-<td>It helps you focus on what matters most and avoid wasted effort.</td>
-<td>Daily task management and time allocation.</td>
+<td><strong>Expected-value decision</strong></td>
+<td>“Which option has the best likely outcome after considering probability and impact?”</td>
+<td>1. Identify possible outcomes<br/>2. Estimate the probability of each outcome<br/>3. Estimate the value or cost of each outcome<br/>4. Multiply probability × impact<br/>5. Choose the option with the best expected result</td>
+<td>Decisions involving uncertainty, risk, or potential losses</td>
+<td>Deciding whether to pay for insurance or invest in a new opportunity</td>
 </tr>
 </tbody>
 </table>
@@ -783,7 +834,7 @@ If you want, I can also provide these frameworks in a table or give real-world e
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [8]:</div>
+<div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Create a system prompt instruction to override the default system prompt</span>
@@ -865,17 +916,20 @@ If you want, I can also provide these frameworks in a table or give real-world e
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_markdown rendered_html output_subarea">
-<h3 id="Recommendation">Recommendation<a class="anchor-link" href="#Recommendation">¶</a></h3><table>
+<table>
 <thead>
 <tr>
-<th>Decision</th>
-<th>Why this is the better fit for Alex</th>
+<th>Recommendation</th>
+<th>Rationale</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><strong>Enroll directly in the well-regarded four-year university, while beginning with an intentional exploration plan and strict borrowing limits.</strong></td>
+<td>Alex values building a professional network, gaining relevant experience, and establishing relationships with professors early. She is not primarily motivated by the social experience, but the four-year university offers earlier access to internships, research, campus organizations, and career services. Although community college would reduce costs and provide flexibility while she explores majors, transferring could disrupt academic continuity and delay the network and experience Alex wants. Since the family can afford the university and cost is only a medium concern, direct enrollment is the stronger overall choice—provided Alex takes introductory courses across business, psychology, and the arts, meets regularly with academic and career advisors, and avoids unnecessary student loans.</td>
+</tr>
 </tbody>
 </table>
-<p>| <strong>Enroll directly in the well-regarded four-year university</strong> | Alex’s strongest priorities are building a solid professional network, gaining relevant experience sooner, and minimizing the risk of transfer-related disruption. Since her family can afford the four-year option with some loans and cost is only a medium concern, the added expense is manageable relative to the long-term benefits. Although she is unsure about her major, a four-year university offers broader exploration, earlier access to professors, internships, research, and campus opportunities that can help her clarify her path without delaying graduation. Starting there also reduces the uncertainty and friction of transferring later, which could be harder to remediate.</p>
 </div>
 </div>
 </div>
