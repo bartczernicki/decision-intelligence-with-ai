@@ -83,7 +83,7 @@
   
 <nav class="chapter-toc" aria-label="Chapter table of contents">
   <strong>On this page</strong>
-  <a class="toc-h3" href="#Introducing-Decision-Execution-with-Quantitative-Methods">Introducing Decision Execution with Quantitative Methods</a><a class="toc-h3" href="#The-Value-of-Quantitative-Methods-(Performing-Math)">The Value of Quantitative Methods (Performing Math)</a><a class="toc-h3" href="#Quantifying-Uncertainty-(Working-with-Probabilities)">Quantifying Uncertainty (Working with Probabilities)</a><a class="toc-h3" href="#Math-is-hard-for-Humans.-Like-Really-Hard!">Math is hard for Humans. Like Really Hard!</a><a class="toc-h3" href="#Arriving-at-Quantitative-Conclusions-using-Simulations">Arriving at Quantitative Conclusions using Simulations</a><a class="toc-h4" href="#Simulations-in-Decision-Forecasting">Simulations in Decision Forecasting</a><a class="toc-h4" href="#Introducing-the-Monte-Carlo:-Running-Thousands-of-%22What-If%22-Decision-Scenarios">Introducing the Monte Carlo: Running Thousands of &quot;What-If&quot; Decision Scenarios</a><a class="toc-h4" href="#Decision-Scenario:-Monte-Carlo-to-Determine-Total-Cost-of-Car-Ownership">Decision Scenario: Monte Carlo to Determine Total Cost of Car Ownership</a>
+  <a class="toc-h3" href="#Introducing-Decision-Execution-with-Quantitative-Methods">Introducing Decision Execution with Quantitative Methods</a><a class="toc-h3" href="#Math-is-hard-for-Humans.-Like-Really-Hard!">Math is hard for Humans. Like Really Hard!</a><a class="toc-h4" href="#When-a-Bigger-Burger-Looked-Smaller:-A&amp;W%E2%80%99s-Fraction-Problem">When a Bigger Burger Looked Smaller: A&amp;W’s Fraction Problem</a><a class="toc-h3" href="#The-Value-of-Quantitative-Methods-(Performing-Math)">The Value of Quantitative Methods (Performing Math)</a><a class="toc-h3" href="#Quantifying-Uncertainty-(Working-with-Probabilities)">Quantifying Uncertainty (Working with Probabilities)</a><a class="toc-h4" href="#A-Probabilistic-Sports-Betting-Example">A Probabilistic Sports-Betting Example</a><a class="toc-h3" href="#Arriving-at-Quantitative-Conclusions-using-Simulations">Arriving at Quantitative Conclusions using Simulations</a><a class="toc-h4" href="#Simulations-in-Decision-Forecasting">Simulations in Decision Forecasting</a><a class="toc-h4" href="#Introducing-the-Monte-Carlo:-Running-Thousands-of-%22What-If%22-Decision-Scenarios">Introducing the Monte Carlo: Running Thousands of &quot;What-If&quot; Decision Scenarios</a><a class="toc-h4" href="#Decision-Scenario:-Monte-Carlo-to-Determine-Total-Cost-of-Car-Ownership">Decision Scenario: Monte Carlo to Determine Total Cost of Car Ownership</a>
 </nav>
 
   <section class="notebook-content">
@@ -137,6 +137,50 @@
 <p><strong>📝 EXPLANATION</strong></p>
 <p>You have seen some simple math formulas in the previous <strong>"Decision Execution with Decision Rules"</strong> section. What is the difference between the math in this section? The calculations needed to be performed for Decision Rules are quite simple and the formulas have already been defined ready for use. For example, the "10,000 Step Decision Rule" is simply implemented by gathering information on the amount of daily steps and comparing it to the 10,000 step decision threshold. You are just plugging in gather information to a decision rule to execute a decision. Whereas using more advanced quantitative methods you may first use your own body composition to create an optimized formula that is different than 10,000 steps (9,550 steps). Decisions that are less defined require a breadth of more quantitative tools.</p>
 <hr/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Math-is-hard-for-Humans.-Like-Really-Hard!">Math is hard for Humans. Like Really Hard!<a class="anchor-link" href="#Math-is-hard-for-Humans.-Like-Really-Hard!">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Humans are naturally bad at math. While we’ve built complex mathematical systems and advanced sciences, our brains simply weren’t designed to handle numbers intuitively. Exceptinonal humans invented all of the mathematical advancements over thousands of years. To name one example, Isaac Newton before turning 26 years old came up with the laws of motion and invented calculus! However, most of us struggle with the basics: large numbers, fail at simple fractions, and often don't use probabilities correctly. Rather than talk about many different background reasons, let's illustrate this with some material examples.</p>
+<p>The most basic example in mathematics is counting numbers (1, 2, 3, 4, 5...). However, once we get to large numbers interesting things start to happen with being able to grasp the enormity of some extreme numbers. Studies have shown that people can’t truly internalize the difference between a million, a billion, and a trillion; leading to major misconceptions and poor decisions. Let's do a simple comparison of a million and a billion dollars. Let's hypothetically say that you have two bank accounts; one with a million dollars and one with a billion dollars. You could withdraw $100,000 each year from each bank account. The bank account with one million dollars would last 10 years before going to $0. Conversely, the bank account with a billion dollars (even with withdrawing the same monthly $100,000) would last 10,000 years! Did framing this comparison make you say "Wow"? Most people know a billion is much larger than a million and that they would prefer to have a billion dollars over a million dollars. However, most people can't grasp the size of the differences. However, this is where doing mathematical comparisons helps us grasp the information needed for decisions.</p>
+<p>One of the areas where these large numbers are hard to grasp the purchasing power of extreme wealth. In the same manner above, it would not be shocking for someone to understand that a very wealthy person can just buy a multiple very nice cars. However, when comparing spending power, that is when the differences can be illustrated. For example, one can compare a wealthy person’s spending on a Lamborghini to an average person spending $25 on lunch by simply looking at the proportion of their wealth or income that each expense represents. For a billionaire, **a $250,000 luxury car might be just 0.025% of their $1 billion net worth—the same way $25 is 0.025% of $100,000 (an average annual income)!!** In both cases, the purchase takes up the same tiny fraction of their total financial resources, making the Lamborghini feel as “affordable” to the billionaire as lunch does to the average person. To give another perspective a Lamborghini purchase to a billionaire is a simple as grocery list item. This comparison is called relative spending or spending as a percentage of wealth.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>These invoices below are vastly different mathematically. However, the relative spending comparison from a billionare to a middle-class person is equal!</p>
+<img loading="lazy" alt="" src="../Images/DecisionIntelligenceFramework/DecisionExecution-QuantMethods-Lambo.png" style="display: block; margin: auto;" width="600px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="When-a-Bigger-Burger-Looked-Smaller:-A&amp;W%E2%80%99s-Fraction-Problem">When a Bigger Burger Looked Smaller: A&amp;W’s Fraction Problem<a class="anchor-link" href="#When-a-Bigger-Burger-Looked-Smaller:-A&amp;W%E2%80%99s-Fraction-Problem">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let take a look at how poor math skills &amp; decision-making translates into business impact. One famous &amp; humorous example where simple understanding of math has had dramatic impact in business is A&amp;W's Restaurants failed attempt to compete with McDonald’s Quarter Pounder.</p>
+<p>In the 1980s McDonald's restaurant chains were starting to become a dominant restaurant chanin. However, they were the global juggernaunt they are today. McDonald's did not have a huge presence in Eastern Europe, Asia, South America etc. A&amp;W Restaurants saw an opportunity to compete with McDonald's leading fast food sandwich the quartner pounder. As you know know the McDonald's quarter pounder includes a 1/4 pound meat patty.</p>
+<p>A&amp;W Restaurants decided to introduce a 1/3 pound burger at the same price and with higher quality beef, thinking customers would see the obvious value in more burger meat for the same cost. An entire nationwide marketing campaign was created around this promotion called "Third is the Word". This marketing campaign was a marketing flop as it did not lead to more A&amp;W burger sales. A&amp;W Restaurants sought to understand why by creating a focus group. The outcome was a complete surprise: <strong>a plurality of consumers assumed that 1/3 was SMALLER than 1/4 because “4 is bigger than 3”</strong>! Basically, most consumers were math illiterate and didn't understand they were getting a better deal with the 1/3 A&amp;W burger.</p>
+<p>This famous example is sometimes hard to imagine is real, so A&amp;W have a dedicated web page confirming it's reality. A&amp;W Restaurants has videos and case studies posted on this. The business scenario became so famous, it has its own Wikipedia page about it: <a href="https://en.wikipedia.org/wiki/Third-pound_burger">https://en.wikipedia.org/wiki/Third-pound_burger</a></p>
+<img loading="lazy" alt="" src="../Images/DecisionIntelligenceFramework/DecisionExecution-QuantMethods-DecidingWhichBurger.png" style="display: block; margin: auto;" width="600px"/>
+<p>In a twist, years later A&amp;W Restaurants used poor consumer math understanding to their advantage and introduced a marketing campaign of a 3/9 burger. As you probably know 3/9 is the same as 1/3. However, A&amp;W Restaurants used the number 3/9 to show a larger denominator in the fraction to burger customers to play on their perception that 3/9 is somehow a bigger burger and thus a better deal!</p>
+<img loading="lazy" alt="" src="../Images/AWBurgerThreeNinths.png" style="display: block; margin: auto;" width="600px"/>
 </div>
 </div>
 </div>
@@ -219,34 +263,38 @@
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Math-is-hard-for-Humans.-Like-Really-Hard!">Math is hard for Humans. Like Really Hard!<a class="anchor-link" href="#Math-is-hard-for-Humans.-Like-Really-Hard!">¶</a></h3>
+<p>The data visualization above shows that probability (forecasting) words do not have one universally understood numerical meaning. Each row represents a phrase such as highly likely, probable, about even, or highly unlikely. The horizontal axis runs from 0 to 100 percent, and the shaded curve shows the range of probabilities that people may associate with that phrase. The highest point of each curve represents the interpretation people are most likely to give it, while the width of the curve shows how much interpretations vary.</p>
+<p>For example, "Almost Certainly" is concentrated near the upper end of the scale with a peak of 80 percent, while "About Even" is centered near 50 percent. But many of the other phrases overlap substantially. A person hearing "Likely" might interpret it as roughly 60 percent, while someone else might hear the same word and think 75 or 80 percent. Likewise, phrases such as "Probably", very good chance, and we believe can cover overlapping ranges. The data visualization's main message is therefore not that every phrase has an exact numerical translation. It is that verbal descriptions of uncertainty are inherently ambiguous.</p>
+<p>Sherman Kent encountered this problem in intelligence analysis. Analysts routinely wrote that an event was "Probable", "Unlikely", or "Almost Certain", but senior decision-makers did not always interpret those terms in the same way the analysts intended. Kent’s <strong>“Words of Estimative Probability”</strong> sought to connect verbal expressions with more consistent probability ranges. This helped intelligence estimates communicate not only what analysts believed, but also how strongly they believed it.</p>
+<p>For quantitative decision-making, numerical probabilities are more useful because they can be compared and combined mathematically. We cannot calculate "Likely" × "Unlikely" because those words do not have fixed numerical values. But we can work with 70 percent and 10 percent.</p>
+<p>Suppose there is a 70 percent chance that a product will pass its technical tests and, independently, a 10 percent chance that customer demand will be weak. The probability that both independent events occur is: 70% × 10% = 7%. Therefore, the forecast states there is a 7 percent chance that the product passes its tests but still encounters weak demand.</p>
+<p>It is super important to understand that once uncertainty or risk is expressed as a probability, it becomes something we can work with mathematically. That opens the door to much more than simple multiplication. Probabilities can be used in forecasting, simulation, expected-value calculations, scenario analysis, Bayesian updating, insurance pricing, medical diagnosis, weather prediction, credit scoring, and many other forms of probabilistic analysis.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Humans are naturally bad at math. While we’ve built complex mathematical systems and advanced sciences, our brains simply weren’t designed to handle numbers intuitively. Exceptinonal humans invented all of the mathematical advancements over thousands of years. To name one example, Isaac Newton before turning 26 years old came up with the laws of motion and invented calculus! However, most of us struggle with the basics: large numbers, fail at simple fractions, and often don't use probabilities correctly. Rather than talk about many different background reasons, let's illustrate this with some material examples.</p>
-<p>The most basic example in mathematics is counting numbers (1, 2, 3, 4, 5...). However, once we get to large numbers interesting things start to happen with being able to grasp the enormity of some extreme numbers. Studies have shown that people can’t truly internalize the difference between a million, a billion, and a trillion; leading to major misconceptions and poor decisions. Let's do a simple comparison of a million and a billion dollars. Let's hypothetically say that you have two bank accounts; one with a million dollars and one with a billion dollars. You could withdraw $100,000 each year from each bank account. The bank account with one million dollars would last 10 years before going to $0. Conversely, the bank account with a billion dollars (even with withdrawing the same monthly $100,000) would last 10,000 years! Did framing this comparison make you say "Wow"? Most people know a billion is much larger than a million and that they would prefer to have a billion dollars over a million dollars. However, most people can't grasp the size of the differences. However, this is where doing mathematical comparisons helps us grasp the information needed for decisions.</p>
-<p>One of the areas where these large numbers are hard to grasp the purchasing power of extreme wealth. In the same manner above, it would not be shocking for someone to understand that a very wealthy person can just buy a multiple very nice cars. However, when comparing spending power, that is when the differences can be illustrated. For example, one can compare a wealthy person’s spending on a Lamborghini to an average person spending $25 on lunch by simply looking at the proportion of their wealth or income that each expense represents. For a billionaire, **a $250,000 luxury car might be just 0.025% of their $1 billion net worth—the same way $25 is 0.025% of $100,000 (an average annual income)!!** In both cases, the purchase takes up the same tiny fraction of their total financial resources, making the Lamborghini feel as “affordable” to the billionaire as lunch does to the average person. To give another perspective a Lamborghini purchase to a billionaire is a simple as grocery list item. This comparison is called relative spending or spending as a percentage of wealth.</p>
+<h4 id="A-Probabilistic-Sports-Betting-Example">A Probabilistic Sports-Betting Example<a class="anchor-link" href="#A-Probabilistic-Sports-Betting-Example">¶</a></h4>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>These invoices below are vastly different mathematically. However, the relative spending comparison from a billionare to a middle-class person is equal!</p>
-<img loading="lazy" alt="" src="../Images/DecisionIntelligenceFramework/DecisionExecution-QuantMethods-Lambo.png" style="display: block; margin: auto;" width="600px"/>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Let take a look at how poor math skills &amp; decision-making translates into business impact. One famous &amp; humorous example where simple understanding of math has had dramatic impact in business is A&amp;W’s failed attempt to compete with McDonald’s Quarter Pounder. A&amp;W restaurants introduced a 1/3 pound burger at the same price, thinking customers would see the obvious value in more burger meat for the same cost. But instead, it led to a marketing flop. When A&amp;W conducted a focus group, <strong>a majority of consumers assumed that 1/3 was SMALLER than 1/4 because “4 is bigger than 3”</strong>! This famous example is sometimes hard to imagine is real, so A&amp;W have a dedicated web page confirming it's reality. A&amp;W has videos, case studies and even a dedicated brief about it: <a href="https://staging.awrestaurants.com/blog/memories-history/the-truth-about-aws-third-pound-burger-and-the-major-math-mix-up/">https://staging.awrestaurants.com/blog/memories-history/the-truth-about-aws-third-pound-burger-and-the-major-math-mix-up/</a>.</p>
-<img loading="lazy" alt="" src="../Images/DecisionIntelligenceFramework/DecisionExecution-QuantMethods-DecidingWhichBurger.png" style="display: block; margin: auto;" width="600px"/>
-<p>In fact, in later years A&amp;W used poor consumer math understanding to their advantage and introduced a marketing campaign of a 3/9" burger. As you probably know 3/9 is the same as 1/3. However, A&amp;W used the number 3/9 to show larger numbers in the fraction to burger enthusiasts to play on their perception that 3/9 is somehow a bigger burger and thus a better deal.</p>
-<img loading="lazy" alt="" src="../Images/AWBurgerThreeNinths.png" style="display: block; margin: auto;" width="600px"/>
+<p>Suppose a basketball team has a 60 percent chance of winning a game. A sportsbook offers a bet where you risk $100 and receive a $100 profit if the team wins.</p>
+<p>The expected value is:</p>
+<ul>
+<li>60% chance of winning $100</li>
+<li>40% chance of losing $100</li>
+</ul>
+<p>Expected value = 0.60 × $100 + 0.40 × −$100
+Expected value = $60 − $40 = $20</p>
+<p>The bet has an expected value of +$20 per $100 wagered.</p>
+<p>That does not mean the bettor will earn $20 on this one game. They will either win $100 or lose $100. The expected value becomes meaningful over many similar bets. If the 60 percent estimate is accurate and the same opportunity is repeated many times, the average result should move toward a $20 profit per bet.</p>
+<p>Now suppose the sportsbook pays only $60 profit on a $100 wager. The calculation changes:
+0.60 × $60 + 0.40 × −$100 = $36 − $40 = −$4</p>
+<p>Even though the team is more likely to win than lose, the bet has a negative expected value. This illustrates an important lesson: a likely outcome is not automatically a good decision. The payoff matters just as much as the probability. This was all possible to calculate with math and apply simple statistical probability calculations. Imagine trying todo this with estimates like "Likely" or "Maybe" the basketball team will win. Behind the scenes each sporsbook operates like a casino. It is all based on math and statistics. This is how one calculate an edge or avoid poor betting strategies.</p>
 </div>
 </div>
 </div>
@@ -274,14 +322,15 @@
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Imagine you need to climb a ladder to change a lightbulb. Instead of pulling out a calculator to precisely compute the ladder’s weight distribution, friction, or the exact roughness of the floor, you give the ladder a quick shake. If it wobbles dangerously, you adjust it; if it feels steady, you proceed to climb. In effect, each shake is like a mini-simulation of the physical forces that could tip the ladder. You’re sampling a few possible disturbances to see how the ladder holds up. By shaking the ladder, you’re testing how it will behave under slightly different conditions. You move it a bit forward, a bit backward, a gentle nudge or a harder push; all without needing to know every detail of physics at play​. If the ladder remains sturdy through these random “what-if” tests, you gain confidence that normal movements (like you climbing up) won’t cause it to slip​. This simple practice replaces complex quantitative calculations with an intuitive experiment, demonstrating how a trivial simulation helps us gauge stability with imperfect information.</p>
+<p>Imagine you need to climb a ladder to change a lightbulb. Instead of pulling out a calculator to precisely compute the ladder’s weight distribution, friction, or the exact roughness of the floor, you give the ladder a quick shake. If it wobbles dangerously, you adjust it; if it feels steady. If it seems sturdy enough and you proceed to climb the ladder.</p>
+<p>Each shake is like a mini-simulation of the physical forces that could tip the ladder. You’re sampling a few possible disturbances to see how the ladder holds up. By shaking the ladder, you’re testing how it will behave under slightly different conditions. You move it a bit forward, a bit backward, a gentle nudge or a harder push; all without needing to know every detail of physics at play​. If the ladder remains sturdy through these random “what-if” tests, you gain confidence that normal movements (like you climbing up) won’t cause it to slip​. This simple practice replaces complex quantitative calculations with an intuitive experiment, demonstrating how a trivial simulation helps us gauge stability with imperfect information.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<img loading="lazy" alt="" src="../Images/DecisionIntelligenceFramework/DecisionExecution-QuantMethods-LadderSimulation.png" style="display: block; margin: auto;" width="700px"/>
+<img loading="lazy" alt="" src="../Images/DecisionIntelligenceFramework/DecisionExecution-QuantMethods-LadderSimulation.png" style="display: block; margin: auto;" width="600px"/>
 </div>
 </div>
 </div>
@@ -295,7 +344,7 @@
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The ladder example is a microcosm of how mathematical simulations aid decision-making. In real-world decisions we almost never have perfect information. For example, when forecasting the economy, planning a project, or predicting the weather there are too many unknown variables that can impact the outcome. Instead of trusting a single set of assumptions (which is like climbing the ladder without testing it), analysts build a model of the situation and then “shake” that model by trying many different inputs and scenarios. The idea is to see how the outcomes might change if certain factors turn out differently than expected.</p>
+<p>The ladder simulation is an example of how mathematical simulations aid decision-making. In real-world decisions we almost never have perfect information. For example, when forecasting the economy, planning a project, or predicting the weather there are too many unknown variables that can impact the outcome. Instead of trusting a single set of assumptions (which is like climbing the ladder without testing it), analysts build a model of the situation(s) and then “shake” that model by trying many different inputs and scenarios. The idea is to see how the outcomes might change if certain factors turn out differently than expected.</p>
 <p>By using simulations, decision-makers can explore a wide range of “what-if” scenarios without needing exact data for every variable. For example, a business might simulate how different sales numbers, costs, or market conditions affect its profits, rather than assuming one fixed plan. A weather model might be run multiple times with slight changes in initial conditions to see various possible storm tracks. Each run of the model is like one shake of the ladder – a trial to see what could happen.</p>
 <p>Simulation methods offer several benefits for making decisions under uncertainty:</p>
 <ul>
@@ -318,11 +367,21 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>One of the most widely used simulation techniques is Monte Carlo simulation. Named after the famous casino town (due to its reliance on random chance), Monte Carlo simulation is essentially a way to model uncertainty by running a scenario over and over with various inputs. Instead of shaking a physical ladder, you let a computer shake your virtual model. For example, if you’re forecasting future sales, a Monte Carlo model would randomly vary key factors (market growth, customer behavior, etc.) within plausible ranges and calculate the outcome thousands of times. By doing so, it builds up a broad view of possible futures.</p>
 <p>Monte Carlo methods use repeated random sampling to explore outcomes. Unlike a single-point forecast, which uses fixed inputs, a Monte Carlo simulation runs the model with a variety of values for uncertain factors. Each trial might pick a random value for, say, future inflation rate, within an expected range. Then it computes the result (e.g. company profit) and repeats this process with a new random draw for each uncertain input. Over many iterations, this produces a large number of possible results. In a typical Monte Carlo experiment, the model can be recalculated thousands of times with different random inputs, yielding a wide array of likely outcomes​.  What do we get from these thousands of “what-if” trials? Essentially, we get a distribution of outcomes. Monte Carlo simulation furnishes decision-makers with a range of possible outcomes and the probability of each outcome​. Therefore, instead of saying “We predict next year’s profit will be $1M,” a Monte Carlo result might say, “There is a 50% chance profit will be between $0.9M and $1.1M, a 25% chance it’s higher, and a 25% chance it’s lower.” This is incredibly powerful as it reveals the spectrum of possibilities and extreme cases. It then allows decision-makers to allocate an appropriate amount of risk or opportunity mitigation for those extremes.</p>
-<blockquote>
-<p>📜 <strong><em>"All models are wrong, but some are useful."</em></strong></p>
-<p>-- <cite>George E.P. Box (Statistician, known for his contributions to quality control and time series analysis)</cite></p>
-</blockquote>
-<p>It’s important to note that simulation-based decision-making is about getting “good enough” intelligence, not delivering a perfect decision forecast. Obviously no simulation can capture reality in full detail. The ladder shake test, for instance, isn’t a flawless physics calculation. In fact, the pattern in which you shake the ladder with your hands might not exactly match the forces that will occur when you’re standing on it. Yet it’s still a very useful test. In our ladder example, even if your shaking doesn’t perfectly mimic every real force, it can still reveal a loose screw or a slippery foot before you climb. This is insight you’d miss if you demanded perfect information. The same applies for mathematical simulations. The quality of the output depends on the quality of the input assumptions (and we should be as reasonable as possible with those), but we don’t need perfect precision to benefit. By understanding the broad set of possible outcomes, we can make better decisions under uncertainty, which are decisions that are resilient across different scenarios.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="../Images/DecisionIntelligence-DecisionExecution-GeorgeEPBoxQuote-SomeModels.png" style="display: block; margin: auto;" width="600px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It is important to note that simulation-based decision-making is about getting “good enough” intelligence, not delivering a perfect decision forecast. Obviously no simulation can capture reality in full detail. The ladder shake test, for instance, isn’t a flawless physics calculation. In fact, the pattern in which you shake the ladder with your hands might not exactly match the forces that will occur when you’re standing on it. Yet it’s still a very useful test. Repeated often enough, the ladder shake test can become a useful model because each trial reveals patterns: how much movement is acceptable, which surfaces create instability, and what warning signs appear before the ladder feels unsafe. The test does not need to reproduce reality perfectly; it only needs to be consistent and informative enough to help execute the decision to climb the ladder.</p>
+<p>Even if your shaking doesn’t perfectly mimic every real force, it can still reveal a loose screw or a weak rung before you climb. The same applies for mathematical simulations. The quality of the output depends on the quality of the input assumptions (and we should be as reasonable as possible with those), but we don’t need perfect precision to benefit. By understanding the broad set of possible outcomes, we can make better decisions under uncertainty, which are decisions that are resilient across different scenarios.</p>
 </div>
 </div>
 </div>
