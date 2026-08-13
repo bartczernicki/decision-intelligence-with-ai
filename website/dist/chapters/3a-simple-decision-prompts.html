@@ -7,7 +7,7 @@
   <meta name="description" content="Static reading edition generated from the Simple Decision Prompts notebook.">
   <meta name="author" content="Bart Czernicki">
   <meta name="robots" content="index, follow">
-  <meta name="book-version" content="0.5-preview.20260614">
+  <meta name="book-version" content="0.6-preview.20260812">
   
   <link rel="canonical" href="https://www.decisionintelligencebook.ai/chapters/3a-simple-decision-prompts.html">
   <meta property="og:url" content="https://www.decisionintelligencebook.ai/chapters/3a-simple-decision-prompts.html">
@@ -46,7 +46,7 @@
     <img src="../Images/Logos/DecisionIntelligenceLogo.png" alt="Decision Intelligence logo">
     <span class="book-brand-text">
       <span>Decision Intelligence with AI</span>
-      <span class="book-version">Version 0.5-preview.20260614</span>
+      <span class="book-version">Version 0.6-preview.20260812</span>
     </span>
   </a>
   <div class="sidebar-actions" data-pagefind-ignore="all">
@@ -141,9 +141,9 @@
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the required NuGet configuration packages</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration, 10.0.9"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration.Json, 10.0.9"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: System.Text.Json, 10.0.9"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration, 10.0.10"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.Configuration.Json, 10.0.10"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: System.Text.Json, 10.0.10"</span>
 
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration.Json</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
@@ -225,12 +225,12 @@ async function probeAddresses(probingAddresses) {
 }
 
 function loadDotnetInteractiveApi() {
-    probeAddresses(["http://127.0.0.1:2051/","http://::1:2051/","http://fe80::1%1:2051/","http://fe80::1cec:2e58:9d34:a855%15:2051/","http://10.0.0.39:2051/","http://fe80::809c:30ff:fe00:28d4%16:2051/","http://fe80::6369:a43a:160d:c30f%18:2051/","http://fe80::bf5b:2e73:9282:f192%19:2051/","http://fe80::498f:d3c3:59c0:6dcd%20:2051/","http://fe80::ce81:b1c:bd2c:69e%21:2051/","http://10.211.55.2:2051/","http://fe80::fcb2:14ff:fe1e:4064%26:2051/","http://fdb2:2c26:f4e4::1:2051/","http://10.37.129.2:2051/","http://fe80::fcb2:14ff:fe1e:4065%28:2051/","http://fdb2:2c26:f4e4:1::1:2051/"])
+    probeAddresses(["http://127.0.0.1:2048/","http://::1:2048/","http://fe80::1%1:2048/","http://fe80::102e:400e:c244:19f7%15:2048/","http://10.0.0.39:2048/","http://fe80::1891:f0ff:fec6:b993%16:2048/","http://fe80::b9e7:6f69:6049:857c%18:2048/","http://fe80::5f04:4327:92e6:e3ab%19:2048/","http://fe80::61fd:6bce:b3f2:5443%20:2048/","http://fe80::ce81:b1c:bd2c:69e%21:2048/","http://fe80::5810:2aff:fee3:f01e%23:2048/","http://fe80::408:f706:dc8f:9de7%24:2048/","http://169.254.81.247:2048/"])
         .then((root) => {
         // use probing to find host url and api resources
         // load interactive helpers and language services
         let dotnetInteractiveRequire = require.config({
-        context: '16833.Microsoft.DotNet.Interactive.Http.HttpPort',
+        context: '16337.Microsoft.DotNet.Interactive.Http.HttpPort',
                 paths:
             {
                 'dotnet-interactive': `${root}resources`
@@ -288,7 +288,7 @@ else {
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.Configuration, 10.0.9</span></li><li><span>Microsoft.Extensions.Configuration.Json, 10.0.9</span></li><li><span>System.Text.Json, 10.0.9</span></li></ul></div></div></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Microsoft.Extensions.Configuration, 10.0.10</span></li><li><span>Microsoft.Extensions.Configuration.Json, 10.0.10</span></li><li><span>System.Text.Json, 10.0.10</span></li></ul></div></div></div>
 </div>
 </div>
 </div>
@@ -299,12 +299,12 @@ else {
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Import the Microdoft Extensions AI NuGet Packages</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI, 10.7.0"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.Abstractions, 10.7.0"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.OpenAI, 10.7.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI, 10.8.3"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.Abstractions, 10.8.3"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Microsoft.Extensions.AI.OpenAI, 10.8.3"</span>
 <span class="c1">// Import Azure &amp; OpenAI NuGet Packages</span>
 <span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: Azure.Identity, 1.21.0"</span>
-<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: OpenAI, 2.11.0"</span>
+<span class="err">#</span><span class="n">r</span><span class="w"> </span><span class="s">"nuget: OpenAI, 2.12.0"</span>
 
 <span class="k">using</span><span class="w"> </span><span class="nn">Azure</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.AI</span><span class="p">;</span>
@@ -353,7 +353,7 @@ else {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Azure.Identity, 1.21.0</span></li><li><span>Microsoft.Extensions.AI, 10.7.0</span></li><li><span>Microsoft.Extensions.AI.Abstractions, 10.7.0</span></li><li><span>Microsoft.Extensions.AI.OpenAI, 10.7.0</span></li><li><span>OpenAI, 2.11.0</span></li></ul></div></div></div>
+<div class="output_html rendered_html output_subarea"><div><div></div><div></div><div><strong>Installed Packages</strong><ul><li><span>Azure.Identity, 1.21.0</span></li><li><span>Microsoft.Extensions.AI, 10.8.3</span></li><li><span>Microsoft.Extensions.AI.Abstractions, 10.8.3</span></li><li><span>Microsoft.Extensions.AI.OpenAI, 10.8.3</span></li><li><span>OpenAI, 2.12.0</span></li></ul></div></div></div>
 </div>
 <div class="output_area">
 <div class="prompt"></div>
@@ -389,7 +389,7 @@ else {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Text.Json</span><span class="p">;</span>
@@ -415,13 +415,20 @@ else {
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>| Framework | How it improves decision-making | Best suited for |
-|---|---|---|
-| **1. Weighted Decision Matrix** | Lists alternatives, establishes evaluation criteria, assigns importance weights, and scores each option. This makes trade-offs explicit and reduces reliance on intuition or a single attractive feature. | Selecting vendors, hiring candidates, choosing projects, or comparing products. |
-| **2. Decision Tree and Expected Value Analysis** | Maps possible choices, outcomes, probabilities, and consequences. Calculating expected values helps compare options under uncertainty and clarifies where additional information would be valuable. | Investment decisions, medical choices, business strategy, and risk management. |
-| **3. OODA Loop—Observe, Orient, Decide, Act** | Encourages a continuous cycle of gathering information, interpreting changing conditions, making a decision, and adapting based on results. It prevents decisions from becoming static when circumstances change. | Crisis response, competitive environments, operations, and rapidly changing markets. |
-| **4. Six Thinking Hats** | Separates different modes of thought: facts, emotions, cautions, benefits, creativity, and process. By considering each perspective deliberately, teams reduce groupthink and generate more balanced judgments. | Team meetings, strategic planning, innovation, and resolving complex disagreements. |
-| **5. Premortem Analysis** | Assumes a decision has failed and asks participants to explain why. This surfaces hidden risks, weak assumptions, implementation problems, and unintended consequences before action is taken. | Major projects, product launches, policy decisions, and high-stakes investments. |
+<pre>1. **Rational Decision-Making Model**  
+   Involves defining the problem, gathering information, identifying alternatives, evaluating consequences, and selecting the best option. It supports logical, systematic analysis and is useful for complex decisions where time and information are available.
+
+2. **Weighted Decision Matrix**  
+   Compares alternatives against selected criteria, assigning each criterion a level of importance and scoring each option. This reduces bias and makes trade-offs explicit, especially when choosing suppliers, technologies, projects, or job candidates.
+
+3. **Cost–Benefit Analysis**  
+   Estimates and compares the expected costs, benefits, risks, and returns of different choices. It helps decision-makers judge whether an option creates sufficient value and is particularly useful for investments, policies, and resource-allocation decisions.
+
+4. **SWOT Analysis**  
+   Examines an option or organization’s **Strengths, Weaknesses, Opportunities, and Threats**. By combining internal and external perspectives, it improves strategic reasoning and helps identify advantages, vulnerabilities, and potential risks.
+
+5. **OODA Loop**  
+   Stands for **Observe, Orient, Decide, Act**. It emphasizes continuously collecting information, interpreting changing conditions, making a timely decision, and adjusting based on results. This framework is valuable in uncertain or fast-moving situations such as emergencies, competition, and crisis management.
 </pre>
 </div>
 </div>
@@ -465,15 +472,20 @@ else {
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>| Framework | How it improves analysis and reasoning | Useful scenarios |
-|---|---|---|
-| **1. Rational Decision-Making Model** | Uses a structured sequence: define the problem, establish criteria, generate alternatives, evaluate options, choose, implement, and review. It reduces impulsive decisions and makes assumptions explicit. | Strategic planning, hiring, budgeting, and other situations with clear objectives and time to analyze. |
-| **2. Weighted Decision Matrix** | Compares alternatives against multiple criteria, assigning each criterion a weight based on importance. This makes trade-offs visible and limits the influence of one attractive but less important feature. | Vendor selection, product choices, project prioritization, and career or investment decisions. |
-| **3. Decision Tree and Expected-Value Analysis** | Maps possible choices, outcomes, probabilities, and consequences. Expected values help compare options when outcomes are uncertain, while the visual structure clarifies risks and dependencies. | Insurance, medical treatment choices, investment decisions, product launches, and “build versus buy” choices. |
-| **4. OODA Loop** | The cycle—**Observe, Orient, Decide, Act**—supports rapid decisions by continuously incorporating new information and adjusting actions. It discourages rigid adherence to an outdated plan. | Crisis management, military or emergency operations, competitive business environments, and fast-moving projects. |
-| **5. Cynefin Framework** | Classifies situations as **clear, complicated, complex, chaotic, or disorderly**, then recommends an appropriate decision approach. It helps prevent applying a rigid analytical method to problems that require experimentation or rapid action. | Organizational change, innovation, public policy, crises, and problems involving unclear cause-and-effect relationships. |
+<pre>1. **Rational Decision-Making Model**  
+   This structured process involves defining the problem, gathering information, identifying alternatives, evaluating them against clear criteria, selecting an option, and reviewing the outcome. It improves clarity and reduces impulsive choices, making it useful for well-defined business, operational, or personal decisions.
 
-Together, these frameworks support different needs: structured evaluation, comparison of alternatives, uncertainty analysis, rapid adaptation, and selecting the right reasoning style for the situation.</pre>
+2. **Weighted Decision Matrix**  
+   Alternatives are scored against important criteria, with each criterion assigned a weight based on its importance. This makes trade-offs explicit and helps reduce personal bias. It is particularly useful for selecting vendors, hiring candidates, choosing projects, or comparing products.
+
+3. **Cost–Benefit and Expected-Value Analysis**  
+   This framework compares the expected benefits, costs, risks, and probabilities associated with each option. It encourages decision-makers to consider both short- and long-term consequences. It works well for investments, budgeting, policy choices, and decisions involving uncertainty.
+
+4. **SWOT and Scenario Planning**  
+   SWOT examines strengths, weaknesses, opportunities, and threats, while scenario planning considers how different future conditions could affect the decision. Together, they support strategic thinking by incorporating both internal capabilities and external uncertainty. They are useful for business strategy, market entry, and organizational planning.
+
+5. **OODA Loop**  
+   The OODA cycle—**Observe, Orient, Decide, Act**—emphasizes rapid learning and continuous adjustment. Decision-makers assess changing conditions, interpret them in context, act, and then revise their approach based on new information. It is especially valuable in emergencies, competitive environments, project management, and other fast-moving situations.</pre>
 </div>
 </div>
 </div>
@@ -497,7 +509,7 @@ Together, these frameworks support different needs: structured evaluation, compa
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// A new decision prompt to help with describing decision-making frameworks using table Markdown format</span>
@@ -529,34 +541,34 @@ Together, these frameworks support different needs: structured evaluation, compa
 <tr>
 <th>Decision-Making Framework</th>
 <th>How It Enhances Analysis and Reasoning</th>
-<th>Useful Scenarios</th>
+<th>Suitable Scenarios</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>SWOT Analysis</td>
-<td>Examines strengths, weaknesses, opportunities, and threats to provide a balanced view of internal capabilities and external conditions.</td>
-<td>Strategic planning, business initiatives, and competitive analysis</td>
-</tr>
-<tr>
-<td>Cost–Benefit Analysis</td>
-<td>Compares expected advantages with costs, risks, and resource requirements to assess whether an option creates sufficient value.</td>
-<td>Investments, project selection, and policy decisions</td>
+<td>Evaluates strengths, weaknesses, opportunities, and threats to provide a balanced view of internal capabilities and external conditions.</td>
+<td>Strategic planning, business decisions, project evaluation</td>
 </tr>
 <tr>
 <td>Decision Matrix</td>
-<td>Scores alternatives against weighted criteria, making trade-offs explicit and reducing the influence of personal bias.</td>
-<td>Vendor selection, hiring, product choices, and prioritization</td>
+<td>Compares alternatives against weighted criteria, making trade-offs explicit and reducing the influence of intuition or bias.</td>
+<td>Vendor selection, hiring, product choices, prioritization</td>
 </tr>
 <tr>
-<td>First-Principles Thinking</td>
-<td>Breaks a complex problem into fundamental facts and assumptions, then rebuilds solutions from the ground up.</td>
-<td>Innovation, technical challenges, and unfamiliar problems</td>
+<td>Cost–Benefit Analysis</td>
+<td>Systematically compares expected benefits with financial, operational, and opportunity costs to assess overall value.</td>
+<td>Investments, policy choices, technology adoption, resource allocation</td>
+</tr>
+<tr>
+<td>OODA Loop</td>
+<td>Encourages an iterative cycle of observing conditions, orienting to context, deciding, and acting, allowing decisions to adapt as new information emerges.</td>
+<td>Crisis management, competitive environments, operations, time-sensitive decisions</td>
 </tr>
 <tr>
 <td>Scenario Planning</td>
-<td>Explores multiple plausible future conditions and evaluates how each option performs under different circumstances.</td>
-<td>Long-term strategy, uncertainty, risk management, and crisis preparation</td>
+<td>Explores multiple plausible future situations and tests how decisions perform under different assumptions and uncertainties.</td>
+<td>Long-term strategy, risk management, market uncertainty, organizational planning</td>
 </tr>
 </tbody>
 </table>
@@ -596,7 +608,7 @@ Together, these frameworks support different needs: structured evaluation, compa
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [7]:</div>
+<div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Declare new chat options setting MaxOutputTokens and ResponseFormat to JSON explicitly</span>
@@ -630,24 +642,24 @@ Together, these frameworks support different needs: structured evaluation, compa
 <pre>{
   "frameworks": [
     {
-      "name": "SWOT Analysis",
-      "description": "Evaluates strengths, weaknesses, opportunities, and threats. It supports strategic decisions by combining internal capabilities with external conditions and revealing risks or areas for advantage."
-    },
-    {
-      "name": "Weighted Decision Matrix",
-      "description": "Compares options against defined criteria, assigning importance weights and scores. It improves objectivity and transparency when choosing among alternatives with multiple competing factors."
-    },
-    {
       "name": "Cost-Benefit Analysis",
-      "description": "Estimates and compares the expected costs and benefits of each option. It supports resource-allocation decisions by clarifying trade-offs, financial implications, and potential returns."
+      "description": "Compares the expected advantages and disadvantages of each option, often by estimating costs, benefits, risks, and returns. It supports rational prioritization when resources are limited or outcomes can be quantified."
     },
     {
-      "name": "OODA Loop",
-      "description": "Organizes decisions into four stages: Observe, Orient, Decide, and Act. It helps individuals and teams make adaptive decisions in dynamic or time-sensitive environments by incorporating feedback and updating actions."
+      "name": "SWOT Analysis",
+      "description": "Examines an option or situation through strengths, weaknesses, opportunities, and threats. It improves strategic reasoning by combining internal capabilities with external conditions."
     },
     {
-      "name": "Premortem Analysis",
-      "description": "Assumes that a proposed decision has failed and asks why it failed. This encourages people to identify hidden risks, challenge assumptions, and develop mitigation plans before implementation."
+      "name": "Decision Tree Analysis",
+      "description": "Maps choices, possible outcomes, probabilities, and consequences in a branching structure. It helps clarify complex decisions under uncertainty and makes assumptions and potential risks easier to evaluate."
+    },
+    {
+      "name": "Multi-Criteria Decision Analysis",
+      "description": "Evaluates alternatives against several criteria, such as cost, quality, feasibility, and social impact, using weights or scores. It supports balanced decisions when no single factor determines the best option."
+    },
+    {
+      "name": "The OODA Loop",
+      "description": "Uses an iterative cycle of Observe, Orient, Decide, and Act. It strengthens decision-making in fast-changing environments by encouraging continuous learning, adaptation, and rapid response to new information."
     }
   ]
 }
@@ -696,7 +708,7 @@ Together, these frameworks support different needs: structured evaluation, compa
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [8]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Create a System Prompt instruction to override the default system prompt</span>
@@ -754,7 +766,7 @@ Together, these frameworks support different needs: structured evaluation, compa
 <th style="text-align:right">Rank</th>
 <th>Decision framework</th>
 <th>Core question</th>
-<th>Simple steps</th>
+<th>Simple application steps</th>
 <th>Best for</th>
 <th>Quick example</th>
 </tr>
@@ -762,43 +774,43 @@ Together, these frameworks support different needs: structured evaluation, compa
 <tbody>
 <tr>
 <td style="text-align:right">1</td>
-<td><strong>Pros-and-cons matrix</strong></td>
-<td>“What are the benefits and drawbacks of each option?”</td>
-<td>1. List options<br/>2. Identify key advantages and disadvantages<br/>3. Rate each factor from 1–5<br/>4. Choose the strongest overall option</td>
-<td>Everyday choices with a few clear alternatives</td>
-<td>Comparing two restaurants, phones, or travel options</td>
+<td><strong>Cost–Benefit Analysis</strong></td>
+<td>“Do the expected benefits outweigh the costs?”</td>
+<td>List key benefits and costs; estimate their value; compare totals; choose the option with the stronger net benefit.</td>
+<td>Purchases, projects, time commitments, and competing priorities</td>
+<td>Buy a faster laptop if its productivity benefits over two years exceed its price and setup costs.</td>
 </tr>
 <tr>
 <td style="text-align:right">2</td>
-<td><strong>Weighted decision matrix</strong></td>
-<td>“Which option performs best against what matters most?”</td>
-<td>1. Define decision criteria<br/>2. Assign each criterion an importance weight totaling 100%<br/>3. Score each option from 1–5<br/>4. Multiply scores by weights and add the results</td>
-<td>Decisions involving multiple priorities or trade-offs</td>
-<td>Choosing a job based on salary, flexibility, growth, and commute</td>
+<td><strong>Decision Matrix</strong></td>
+<td>“Which option performs best across the factors that matter?”</td>
+<td>List options; choose evaluation criteria; assign importance weights; score each option from 1–5; calculate weighted scores.</td>
+<td>Comparing products, jobs, vendors, travel plans, or strategic options</td>
+<td>Compare apartments using rent, commute, safety, space, and amenities, weighted by personal importance.</td>
 </tr>
 <tr>
 <td style="text-align:right">3</td>
-<td><strong>80/20 rule</strong></td>
-<td>“Which small number of actions will create most of the value?”</td>
-<td>1. List possible actions or problems<br/>2. Estimate their likely impact<br/>3. Focus on the top 20% producing roughly 80% of results<br/>4. Review whether the impact matches expectations</td>
-<td>Prioritizing tasks, problems, or opportunities</td>
-<td>Focusing on the few customers, tasks, or habits that matter most</td>
+<td><strong>80/20 Rule (Pareto Principle)</strong></td>
+<td>“Which few actions will create most of the impact?”</td>
+<td>Identify the small number of causes, tasks, or customers likely to drive most results; prioritize them; defer or eliminate low-impact work.</td>
+<td>Time management, problem-solving, sales, and productivity</td>
+<td>Focus first on the two tasks that will resolve most of the project’s risk.</td>
 </tr>
 <tr>
 <td style="text-align:right">4</td>
-<td><strong>Reversibility test</strong></td>
-<td>“Can I easily undo this decision if it goes poorly?”</td>
-<td>1. Determine whether the decision is reversible<br/>2. If reversible, act quickly and learn from results<br/>3. If difficult to reverse, gather more information and plan safeguards<br/>4. Set a review point</td>
-<td>Avoiding overanalysis while managing risk</td>
-<td>Trying a software subscription versus buying a house</td>
+<td><strong>Reversible vs. Irreversible Decisions</strong></td>
+<td>“Can I change this decision later?”</td>
+<td>Classify the decision; act quickly on reversible choices; analyze carefully, seek advice, and set safeguards for irreversible choices.</td>
+<td>Everyday choices, hiring, investments, commitments, and major purchases</td>
+<td>Test a software subscription for one month before making a long-term contract commitment.</td>
 </tr>
 <tr>
 <td style="text-align:right">5</td>
-<td><strong>Expected-value decision</strong></td>
-<td>“Which option has the best likely outcome after considering probability and impact?”</td>
-<td>1. Identify possible outcomes<br/>2. Estimate the probability of each outcome<br/>3. Estimate the value or cost of each outcome<br/>4. Multiply probability × impact<br/>5. Choose the option with the best expected result</td>
-<td>Decisions involving uncertainty, risk, or potential losses</td>
-<td>Deciding whether to pay for insurance or invest in a new opportunity</td>
+<td><strong>Expected Value and Risk Analysis</strong></td>
+<td>“What is the likely value after considering uncertainty?”</td>
+<td>Identify possible outcomes; estimate each probability; estimate the payoff or loss; multiply probability by outcome; compare expected values and downside risk.</td>
+<td>Uncertain choices, investments, insurance, experiments, and business decisions</td>
+<td>Choose a project with a 60% chance of earning $10,000 and a 40% chance of losing $2,000: expected value = $5,200.</td>
 </tr>
 </tbody>
 </table>
@@ -834,7 +846,7 @@ Together, these frameworks support different needs: structured evaluation, compa
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [9]:</div>
+<div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-csharp"><pre><span></span><span class="c1">// Create a system prompt instruction to override the default system prompt</span>
@@ -916,20 +928,12 @@ Together, these frameworks support different needs: structured evaluation, compa
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_markdown rendered_html output_subarea">
-<table>
-<thead>
-<tr>
-<th>Recommendation</th>
-<th>Rationale</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Enroll directly in the well-regarded four-year university, while beginning with an intentional exploration plan and strict borrowing limits.</strong></td>
-<td>Alex values building a professional network, gaining relevant experience, and establishing relationships with professors early. She is not primarily motivated by the social experience, but the four-year university offers earlier access to internships, research, campus organizations, and career services. Although community college would reduce costs and provide flexibility while she explores majors, transferring could disrupt academic continuity and delay the network and experience Alex wants. Since the family can afford the university and cost is only a medium concern, direct enrollment is the stronger overall choice—provided Alex takes introductory courses across business, psychology, and the arts, meets regularly with academic and career advisors, and avoids unnecessary student loans.</td>
-</tr>
-</tbody>
-</table>
+<p>| Decision | Recommendation | Rationale |
+|---|---|---|
+| College pathway | <strong>Alex should enroll directly at the well-regarded four-year university.</strong> | The family can afford the higher cost, and Alex places meaningful value on building an early professional network, gaining internships or research experience, and maintaining academic continuity. Although she is uncertain about her major, the four-year university gives her access to broader advising, courses, professors, campus organizations, and career resources that can support exploration without requiring a disruptive transfer. |
+| Managing major uncertainty | Alex should use her first year to deliberately explore business, psychology, and the arts before committing fully to a major. She should meet regularly with academic and career advisors and choose broadly applicable introductory courses. |
+| Managing financial risk | She should establish a maximum acceptable loan amount before enrolling, compare financial-aid offers, and avoid unnecessary borrowing. If changing majors would significantly extend graduation, she should reassess promptly rather than continue accumulating costs. |
+| Overall decision logic | Direct enrollment best supports Alex’s long-term goals of graduating with relevant experience and a strong network while preserving flexibility to explore. Community college would reduce cost and provide low-risk exploration, but it could delay access to the relationships, internships, and institutional opportunities Alex values most. |</p>
 </div>
 </div>
 </div>
