@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decision Assurance | Decision Intelligence</title>
+  <meta name="description" content="Building justified confidence through decision readiness, execution integrity, and outcome validation and learning.">
+  <meta name="author" content="Bart Czernicki">
+  <meta name="robots" content="index, follow">
+  <meta name="book-version" content="0.6-preview.20260812">
+  
+  <link rel="canonical" href="https://www.decisionintelligencebook.ai/chapters/1i-decision-assurance.html">
+  <meta property="og:url" content="https://www.decisionintelligencebook.ai/chapters/1i-decision-assurance.html">
+  <meta property="og:title" content="Decision Assurance | Decision Intelligence">
+  <meta property="og:description" content="Building justified confidence through decision readiness, execution integrity, and outcome validation and learning.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Decision Intelligence with AI">
+  <meta property="og:image" content="https://www.decisionintelligencebook.ai/Images/DecisionIntelligenceFramework/DecisionIntelligence-Cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Decision Assurance | Decision Intelligence">
+  <meta name="twitter:description" content="Building justified confidence through decision readiness, execution integrity, and outcome validation and learning.">
+  <meta name="twitter:image" content="https://www.decisionintelligencebook.ai/Images/DecisionIntelligenceFramework/DecisionIntelligence-Cover.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Decision Assurance | Decision Intelligence","url":"https://www.decisionintelligencebook.ai/chapters/1i-decision-assurance.html","description":"Building justified confidence through decision readiness, execution integrity, and outcome validation and learning.","image":"https://www.decisionintelligencebook.ai/Images/DecisionIntelligenceFramework/DecisionIntelligence-Cover.png","author":{"@type":"Person","name":"Bart Czernicki","url":"https://github.com/bartczernicki"},"isPartOf":{"@type":"Book","name":"Decision Intelligence with AI","url":"https://www.decisionintelligencebook.ai/"}}</script>
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('di-theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../pagefind/pagefind-component-ui.css">
+</head>
+<body data-page="1i-decision-assurance.html">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <button class="nav-toggle" type="button" aria-label="Open chapter navigation" aria-expanded="false">Menu</button>
+  
+<aside class="book-sidebar" aria-label="Book navigation">
+  <a class="book-brand" href="../index.html">
+    <img src="../Images/Logos/DecisionIntelligenceLogo.png" alt="Decision Intelligence logo">
+    <span class="book-brand-text">
+      <span>Decision Intelligence with AI</span>
+      <span class="book-version">Version 0.6-preview.20260812</span>
+    </span>
+  </a>
+  <div class="sidebar-actions" data-pagefind-ignore="all">
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+      <span class="theme-toggle-icon" aria-hidden="true">☀</span>
+    </button>
+    <a class="source-link" href="https://github.com/bartczernicki/decision-intelligence-with-ai" target="_blank" rel="noopener noreferrer">
+      <span>Source</span>
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.22c0 4.52 2.87 8.35 6.84 9.71.5.09.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.51.47-3.16-.62-3.36-1.19-.11-.29-.6-1.19-1.03-1.43-.35-.19-.85-.66-.01-.67.79-.01 1.35.74 1.54 1.05.9 1.55 2.34 1.11 2.91.85.09-.67.35-1.11.64-1.37-2.22-.26-4.55-1.14-4.55-5.05 0-1.11.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.71 0 0 .84-.27 2.75 1.05A9.28 9.28 0 0 1 12 6.99c.85 0 1.71.12 2.51.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.4.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.79-4.57 5.05.36.32.68.93.68 1.89 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.05 10.05 0 0 0 22 12.22C22 6.58 17.52 2 12 2Z"/>
+      </svg>
+    </a>
+  </div>
+  <div class="pagefind-search-shell" data-pagefind-ignore="all">
+    <span class="search-label">Search book</span>
+    <pagefind-modal-trigger button-text="Search the book"></pagefind-modal-trigger>
+    <pagefind-modal></pagefind-modal>
+  </div>
+  <nav class="chapter-nav" aria-label="Chapters">
+    <a class="chapter-link" href="../index.html" data-title="chapters overview"><span class="chapter-code">TOC</span><span>Chapters</span></a><div class="chapter-group"><img src="../Images/Logos/DecisionIntelligenceLogo.png" alt="" aria-hidden="true"><span>Decision Intelligence</span></div><a class="chapter-link" href="../chapters/1a-introducing-the-decision-intelligence-framework.html" data-title="1a decision intelligence introducing the decision intelligence framework"><span class="chapter-code">1A</span><span>Introducing the Decision Intelligence Framework</span></a><a class="chapter-link" href="../chapters/1b-decision-framing.html" data-title="1b decision intelligence decision framing"><span class="chapter-code">1B</span><span>Decision Framing</span></a><a class="chapter-link" href="../chapters/1c-gathering-intelligence.html" data-title="1c decision intelligence gathering intelligence"><span class="chapter-code">1C</span><span>Gathering Intelligence</span></a><a class="chapter-link" href="../chapters/1d-decision-execution.html" data-title="1d decision intelligence decision execution"><span class="chapter-code">1D</span><span>Decision Execution</span></a><a class="chapter-link" href="../chapters/1e-decision-execution-with-intuition.html" data-title="1e decision intelligence decision execution with intuition"><span class="chapter-code">1E</span><span>Decision Execution with Intuition</span></a><a class="chapter-link" href="../chapters/1f-decision-execution-with-decision-rules.html" data-title="1f decision intelligence decision execution with decision rules"><span class="chapter-code">1F</span><span>Decision Execution with Decision Rules</span></a><a class="chapter-link" href="../chapters/1g-decision-execution-with-quantitative-methods.html" data-title="1g decision intelligence decision execution with quantitative methods"><span class="chapter-code">1G</span><span>Decision Execution with Quantitative Methods</span></a><a class="chapter-link" href="../chapters/1h-decision-communication.html" data-title="1h decision intelligence decision communication"><span class="chapter-code">1H</span><span>Decision Communication</span></a><a class="chapter-link active" href="../chapters/1i-decision-assurance.html" data-title="1i decision intelligence decision assurance"><span class="chapter-code">1I</span><span>Decision Assurance</span></a><a class="chapter-link" href="../chapters/1j-enterprise-decision-intelligence.html" data-title="1j decision intelligence enterprise decision intelligence"><span class="chapter-code">1J</span><span>Enterprise Decision Intelligence</span></a><a class="chapter-link" href="../chapters/1k-applying-the-decision-intelligence-framework.html" data-title="1k decision intelligence applying the decision intelligence framework"><span class="chapter-code">1K</span><span>Applying the Decision Intelligence Framework</span></a><div class="chapter-group"><img src="../Images/Logos/DecisionIntelligenceWorkshopLogo.png" alt="" aria-hidden="true"><span>Workshop (Setup)</span></div><a class="chapter-link" href="../chapters/2a-code-execution-requirements.html" data-title="2a workshop (setup) code execution requirements"><span class="chapter-code">2A</span><span>Code Execution Requirements</span></a><a class="chapter-link" href="../chapters/2b-about-microsoft-ai-extensions.html" data-title="2b workshop (setup) about microsoft ai extensions"><span class="chapter-code">2B</span><span>About Microsoft AI Extensions</span></a><a class="chapter-link" href="../chapters/2c-microsoft-agent-framework.html" data-title="2c workshop (setup) microsoft agent framework"><span class="chapter-code">2C</span><span>Microsoft Agent Framework</span></a><div class="chapter-group"><img src="../Images/Logos/DecisionIntelligenceWorkshopExercisesLogo.png" alt="" aria-hidden="true"><span>Workshop (AI Extensions)</span></div><a class="chapter-link" href="../chapters/3a-simple-decision-prompts.html" data-title="3a workshop (ai extensions) simple decision prompts"><span class="chapter-code">3A</span><span>Simple Decision Prompts</span></a><a class="chapter-link" href="../chapters/3b-decisions-with-chat-completions-and-responses-apis.html" data-title="3b workshop (ai extensions) decisions with chat completions &amp; responses apis"><span class="chapter-code">3B</span><span>Decisions with Chat Completions &amp; Responses APIs</span></a><a class="chapter-link" href="../chapters/3c-decisions-with-reusable-prompts-and-native-net-functions.html" data-title="3c workshop (ai extensions) decisions with reusable prompts and native .net functions"><span class="chapter-code">3C</span><span>Decisions with Reusable Prompts and Native .NET Functions</span></a><a class="chapter-link" href="../chapters/3d-private-ai-decision-intelligence.html" data-title="3d workshop (ai extensions) private ai decision intelligence"><span class="chapter-code">3D</span><span>Private AI Decision Intelligence</span></a><div class="chapter-group"><img src="../Images/Logos/DecisionIntelligence-DecisionFraming-Logo.png" alt="" aria-hidden="true"><span>Decision Framing</span></div><a class="chapter-link" href="../chapters/4a-six-thinking-hats.html" data-title="4a decision framing six thinking hats"><span class="chapter-code">4A</span><span>Six Thinking Hats</span></a><div class="chapter-group"><img src="../Images/Logos/DecisionIntelligence-GatheringIntelligence-Logo.png" alt="" aria-hidden="true"><span>Gathering Intelligence</span></div><a class="chapter-link" href="../chapters/5b-collective-intelligence.html" data-title="5b gathering intelligence collective intelligence"><span class="chapter-code">5B</span><span>Collective Intelligence</span></a><div class="chapter-group"><img src="../Images/Logos/DecisionIntelligenceAppendixLogo.png" alt="" aria-hidden="true"><span>Appendix</span></div><a class="chapter-link" href="../chapters/10a-book-resources.html" data-title="10a appendix book resources"><span class="chapter-code">10A</span><span>Book Resources</span></a><a class="chapter-link" href="../chapters/10b-decision-quotes.html" data-title="10b appendix decision quotes"><span class="chapter-code">10B</span><span>Decision Quotes</span></a><a class="chapter-link" href="../chapters/10c-glossary.html" data-title="10c appendix glossary"><span class="chapter-code">10C</span><span>Glossary</span></a>
+  </nav>
+</aside>
+<div class="nav-backdrop" data-close-nav></div>
+
+  <main id="main-content" class="book-main">
+    
+<article class="chapter-page">
+  <div data-pagefind-body>
+  <header class="chapter-header">
+    <a class="back-link" href="../index.html">Back to chapters</a>
+    <p class="eyebrow">Chapter 1I</p>
+    <h1>Decision Assurance</h1>
+  </header>
+  
+<nav class="chapter-toc" aria-label="Chapter table of contents">
+  <strong>On this page</strong>
+  <a class="toc-h3" href="#Introducing-Decision-Assurance">Introducing Decision Assurance</a><a class="toc-h4" href="#Three-Layers-of-Decision-Assurance">Three Layers of Decision Assurance</a><a class="toc-h4" href="#Reasonable-Confidence-and-Outcome-Bias">Reasonable Confidence and Outcome Bias</a><a class="toc-h4" href="#Build-an-Assurance-Ready-Decision-Record">Build an Assurance-Ready Decision Record</a><a class="toc-h3" href="#Quantitative-Evidence-for-Decision-Assurance">Quantitative Evidence for Decision Assurance</a><a class="toc-h4" href="#Calibration---Does-Confidence-Match-Reality?">Calibration - Does Confidence Match Reality?</a><a class="toc-h4" href="#Brier-Scores---Measuring-Probability-Errors">Brier Scores - Measuring Probability Errors</a><a class="toc-h4" href="#Log-Loss---The-Cost-of-Confident-Errors">Log Loss - The Cost of Confident Errors</a><a class="toc-h3" href="#Decision-Assurance-Scenario---Same-Accuracy,-Different-Probability-Quality">Decision Assurance Scenario - Same Accuracy, Different Probability Quality</a><a class="toc-h4" href="#Calculating-the-Aggregate-Scores">Calculating the Aggregate Scores</a><a class="toc-h3" href="#Turning-Assurance-Evidence-into-Action">Turning Assurance Evidence into Action</a><a class="toc-h3" href="#Decision-Assurance-with-Generative-AI">Decision Assurance with Generative AI</a>
+</nav>
+
+  <section class="notebook-content">
+    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="display: flex; align-items: center;">
+<img loading="lazy" alt="" src="../Images/Logos/DecisionIntelligenceLogo.png" style="margin-right: 10px;" width="60px"/>
+<span style="font-size: 1.5em; font-weight: bold;">Decision Intelligence – Decision Assurance</span>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="../Images/DecisionIntelligence-DecisionAssurance.png" style="display: block; margin: auto;" width="700px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Introducing-Decision-Assurance">Introducing Decision Assurance<a class="anchor-link" href="#Introducing-Decision-Assurance">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Making a decision does not stop the world from changing. You choose a route to work, then discover traffic ahead. A team chooses a project schedule, then encounters an unexpected dependency. The original choice may have made sense, but new evidence can change what makes sense next.</p>
+<p><strong>Decision assurance is the risk-proportionate practice of building and maintaining justified confidence that a decision is ready, executed as intended, and evaluated for improvement.</strong> It begins before action, continues while the decision is carried out, and uses outcomes to strengthen future decisions. Monitoring is one important assurance activity, but assurance also includes evidence, challenge, controls, clear responsibilities, and agreed responses when conditions change.</p>
+<p>Assurance provides reasonable confidence, not certainty and not a guarantee of a favorable outcome. The effort should match the stakes: choosing a lunch location may need only a quick check, while an expensive, irreversible, regulated, or AI-automated decision deserves stronger evidence and more independent challenge. The UK government's <a href="https://www.gov.uk/government/publications/orange-book/the-orange-book-management-of-risk-principles-and-concepts"><em>Orange Book: Management of Risk – Principles and Concepts</em></a> similarly connects assurance with confidence in the design, application, and effectiveness of controls used to manage risk and achieve objectives.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Imagine sailing toward an island. Choosing the destination is decision framing. Checking the weather is gathering intelligence. Setting the course is decision execution. Explaining the plan to the crew is decision communication. Decision assurance asks whether we have enough justified confidence to begin and continue the journey. Before departure, we check the route, weather evidence, boat, responsibilities, and conditions that would make us turn back. While sailing, we verify that the crew follows the plan and watch for signals that require a course change. Afterward, we compare the journey with our expectations and carry the lessons into the next voyage.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="../Images/DecisionIntelligenceFramework/DecisionMonitoring-SailBoatAdjusting.png" style="display: block; margin: auto;" width="600px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Three-Layers-of-Decision-Assurance">Three Layers of Decision Assurance<a class="anchor-link" href="#Three-Layers-of-Decision-Assurance">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>On the boat, <strong>decision readiness</strong> means checking the destination, route, weather assumptions, crew responsibilities, and acceptable risks before departure. <strong>Execution integrity</strong> means confirming that the chosen course is actually followed, recording deviations, and responding when agreed thresholds are crossed. <strong>Outcome validation and learning</strong> means comparing the actual journey with the expected destination, timing, costs, and consequences, then improving the current or next voyage.</p>
+<p>Evidence arrives at different times. Some information can prevent a weak decision before departure. Some calls for a correction while we are still sailing. Other lessons become clear only after we reach shore. Decision assurance connects all three moments rather than waiting for the final outcome.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The same three layers apply to human intuition, simple decision rules, quantitative models, and AI-assisted decisions. Each layer asks a different assurance question and requires evidence that is appropriate to the stakes.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Assurance Layer</th>
+<th style="text-align:left">Core Question</th>
+<th style="text-align:left">Practices and Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>1. Decision Readiness</strong></td>
+<td style="text-align:left">Is the decision fit to proceed?</td>
+<td style="text-align:left">Review the objective, framing, alternatives, evidence, assumptions, uncertainty, risks, success criteria, owner, and decision rights.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>2. Execution Integrity</strong></td>
+<td style="text-align:left">Is the approved decision being carried out as intended?</td>
+<td style="text-align:left">Confirm actions, responsibilities, controls, and communication; record overrides and deviations; monitor leading indicators and escalation thresholds.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>3. Outcome Validation and Learning</strong></td>
+<td style="text-align:left">Is the decision achieving its objective, and what should change?</td>
+<td style="text-align:left">Compare results with expectations, measure benefits, costs, forecast accuracy, and unintended consequences, then assign corrective actions and feed lessons into later decisions.</td>
+</tr>
+</tbody>
+</table>
+<p>In <a href="https://www.amazon.com/Decision-Quality-Creation-Better-Business/dp/1119144671/"><em>Decision Quality</em></a>, Carl Spetzler, Hannah Winter, and Jennifer Meyer highlight elements that support readiness: useful alternatives, reliable information, clear trade-offs, and sound reasoning. The feedback emphasis in J. Edward Russo and Paul J.H. Schoemaker's <a href="https://www.amazon.com/Decision-Traps-Barriers-Decision-Making-Overcome/dp/0671726099/"><em>Decision Traps</em></a> helps us use later evidence to improve how we decide. <strong>Assurance becomes useful when evidence supports a clear action: proceed, proceed with conditions, revise, escalate, pause, or stop.</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Reasonable-Confidence-and-Outcome-Bias">Reasonable Confidence and Outcome Bias<a class="anchor-link" href="#Reasonable-Confidence-and-Outcome-Bias">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Suppose a team estimates an 80% chance of finishing a project on time and decides to proceed because the expected benefits justify the possible delay. The project finishes late. That result alone cannot tell us whether the decision was bad or whether assurance failed. A 20% possibility was always part of the forecast, and choosing another option might have created greater costs. Assurance asks whether the estimate was supportable, the risks and success criteria were clear, the authorized action was followed, and the result was evaluated honestly.</p>
+<p>Annie Duke makes this distinction in <a href="https://www.amazon.com/Thinking-in-Bets-Annie-Duke-audiobook/dp/B078SBSBW3/"><em>Thinking in Bets</em></a>: the quality of a decision and its outcome are different things. For our project, that means reviewing what was known when the team chose its staffing plan, rather than rewriting the reasoning after seeing the delay.</p>
+<p>For a human decision-maker, separating the process from the result takes deliberate effort. We may praise a risky shortcut when it happens to work, then criticize a careful choice when it encounters bad luck. Judging the choice only by how it ended is <strong>outcome bias</strong>. Review the evidence, alternatives, and assumptions available when the staffing decision was made alongside the actual delay and its consequences. This gives the team a fairer basis for learning what to change.</p>
+<p><strong>Calibration, Brier scores, and log loss provide quantitative assurance evidence about the probabilities behind our decisions.</strong> They compare forecasts with observed outcomes and give us feedback for improving future estimates. They do not prove that the objective was correct, the decision process was sound, the action was implemented properly, or the benefits justified the costs. Those claims require additional evidence.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Build-an-Assurance-Ready-Decision-Record">Build an Assurance-Ready Decision Record<a class="anchor-link" href="#Build-an-Assurance-Ready-Decision-Record">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Decision records are materialized decisions: durable artifacts capturing what was decided, why it was considered ready, how it was performed, and what happened afterward.</strong> They preserve the frame, alternatives, evidence, assumptions, method, recommendation, authorization, and action. The recommendation and action may differ, especially when a person changes or overrides an AI recommendation. Recording both makes that distinction visible and allows execution integrity to be checked.</p>
+<p>For people, memory is an unreliable substitute for this record. After a project is late, it can feel as though the warning signs were obvious all along. We may remember successful predictions more readily than mistakes. Recording expectations before the outcome helps counter <strong>hindsight and selective memory</strong>, so the review can use the information we actually had at the time.</p>
+<p>A decision record supports all three assurance layers: it documents readiness before approval, preserves execution evidence while action is underway, and connects outcomes with learning afterward. For our project example, an assurance-ready record could contain:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Record Item</th>
+<th style="text-align:left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Decision, owner, and decision rights</td>
+<td style="text-align:left">The project lead is authorized to approve the staffing plan and is accountable for the decision.</td>
+</tr>
+<tr>
+<td style="text-align:left">Risk and assurance level</td>
+<td style="text-align:left">Treat the decision as moderate risk because delay has customer and cost consequences; require a documented review and one peer challenger.</td>
+</tr>
+<tr>
+<td style="text-align:left">Recommendation and source</td>
+<td style="text-align:left">The project manager recommends keeping the current team after reviewing the delivery options. Record whether the recommendation came from a person, rule, model, or AI system.</td>
+</tr>
+<tr>
+<td style="text-align:left">Alternatives considered</td>
+<td style="text-align:left">Keep the current team, add an engineer, or reduce the release scope.</td>
+</tr>
+<tr>
+<td style="text-align:left">Decision method and criteria</td>
+<td style="text-align:left">Compare delivery risk, cost, scope, customer impact, and reversibility before selecting the staffing plan.</td>
+</tr>
+<tr>
+<td style="text-align:left">Forecast and timestamp</td>
+<td style="text-align:left">On September 1, estimate an 80% probability of finishing on time.</td>
+</tr>
+<tr>
+<td style="text-align:left">Evidence, provenance, assumptions, and rationale</td>
+<td style="text-align:left">Record the comparable-project history and supplier schedule, where each item came from, and when it was current; assume requirements remain stable and the supplier delivers by September 15.</td>
+</tr>
+<tr>
+<td style="text-align:left">Readiness criteria and challenge</td>
+<td style="text-align:left">Confirm that the evidence is current, all three alternatives were compared, the supplier assumption was challenged, and the expected benefit justifies the remaining delay risk.</td>
+</tr>
+<tr>
+<td style="text-align:left">Authorized action, controls, and overrides</td>
+<td style="text-align:left">Confirm the staffing allocation and communicate the agreed scope and deadline; record approvals, deviations, and any later human override.</td>
+</tr>
+<tr>
+<td style="text-align:left">Leading indicators and escalation triggers</td>
+<td style="text-align:left">Review supplier progress weekly; escalate if a milestone slips by more than two business days or the on-time forecast falls below 65%.</td>
+</tr>
+<tr>
+<td style="text-align:left">Resolution criteria and deadline</td>
+<td style="text-align:left">All agreed acceptance tests pass by September 30 at 5 p.m.; use the dated acceptance report as evidence.</td>
+</tr>
+<tr>
+<td style="text-align:left">Actual outcome and consequences</td>
+<td style="text-align:left">Record whether the criterion was met, plus delivery costs and customer impact.</td>
+</tr>
+<tr>
+<td style="text-align:left">Assurance gaps, corrective action, and lessons</td>
+<td style="text-align:left">Record which assumptions held, what surprised us, whether a control failed, who owns the response, and what to change before the next decision.</td>
+</tr>
+</tbody>
+</table>
+<p>The record grows as the decision moves from readiness through action to validation. Preserve the original context, assurance criteria, and forecast, then attach dated updates, actions, outcomes, and lessons. If new evidence changes the probability, keep both the original estimate and the revision. This shows what was known at each decision point and why confidence changed.</p>
+<p>Independent challenge can make assurance more credible by exposing blind spots or conflicts of interest, but it should be proportionate. A quick personal choice may need only a self-check; a high-stakes or irreversible decision may justify a peer reviewer, specialist, approval gate, or independent evaluator. The decision owner still owns the decision.</p>
+<p>Define the outcome before scoring it. “The project went well” is too vague to resolve consistently. A dated acceptance criterion gives everyone the same event to evaluate and helps prevent changing the meaning of success after seeing the result.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Quantitative-Evidence-for-Decision-Assurance">Quantitative Evidence for Decision Assurance<a class="anchor-link" href="#Quantitative-Evidence-for-Decision-Assurance">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Decision records capture what we expected, why we believed the decision was ready, how it was carried out, and what actually happened. Math helps us turn some of that evidence into measurements we can compare. Instead of relying on an impression that our decisions are improving, we can examine how often forecasts match reality, measure the size of probability errors, and compare results across similar decisions. <strong>Quantitative assurance evidence uses reproducible measurements to test specific claims about decision performance.</strong> It gives both human and AI decision-makers a consistent way to check expectations against outcomes.</p>
+<p>This matters because confidence and memory alone can give us a misleading picture of performance. A person may remember several successful predictions while overlooking repeated overconfidence, and an AI system may produce convincing explanations while assigning unreliable probabilities. Calibration examines whether stated probabilities match observed frequencies. Brier scores and log loss measure probability errors across resolved forecasts. Together, these tools help test whether probability estimates are becoming more dependable. Their assurance claim is deliberately narrow: the quality of the decision process, execution fidelity, case difficulty, and the costs and benefits of the resulting actions still require separate evidence.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Calibration---Does-Confidence-Match-Reality?">Calibration - Does Confidence Match Reality?<a class="anchor-link" href="#Calibration---Does-Confidence-Match-Reality?">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Suppose a project lead regularly assigns a 70% chance of finishing on time. Over many comparable projects, we would expect approximately 70 out of every 100 to meet their deadline. <strong>Calibration means that forecast probabilities line up with how often events actually happen.</strong> We can check this whether the probabilities come from a person, a decision rule, or an AI model.</p>
+<p>Consider three hypothetical sets of forecasts about on-time delivery. Each set contains 100 projects, and each forecast in a set assigns the same probability:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Forecast Probability</th>
+<th style="text-align:right">Expected On-Time Projects out of 100</th>
+<th style="text-align:right">Observed On-Time Projects</th>
+<th style="text-align:left">Interpretation for This Group</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">70%</td>
+<td style="text-align:right">70</td>
+<td style="text-align:right">70</td>
+<td style="text-align:left">The forecast matches the observed frequency.</td>
+</tr>
+<tr>
+<td style="text-align:left">90%</td>
+<td style="text-align:right">90</td>
+<td style="text-align:right">70</td>
+<td style="text-align:left">The forecaster was too confident about on-time delivery.</td>
+</tr>
+<tr>
+<td style="text-align:left">60%</td>
+<td style="text-align:right">60</td>
+<td style="text-align:right">80</td>
+<td style="text-align:left">The forecaster was too cautious about on-time delivery.</td>
+</tr>
+</tbody>
+</table>
+<p>The second row suggests overconfidence about finishing on time; the third suggests underconfidence. For probabilities below 50%, remember which outcome the forecaster favors: a 10% chance of finishing on time also means a 90% chance of being late. Real results fluctuate, so even a group of 100 projects cannot prove that a forecaster is calibrated.</p>
+<p>A forecast of 70% does not promise that seven of the next ten projects will succeed. With small samples, the observed rate can vary considerably. Also, ten projects sharing one supplier may provide less independent evidence than ten projects with unrelated dependencies. <strong>Calibration is a pattern to investigate across repeated observations, not a verdict from one result.</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To check calibration across a wider range of forecasts, group them into probability ranges and compare the average forecast with the observed event frequency in each group. A <strong>calibration curve</strong>, also called a reliability diagram, plots those two quantities. Points near the diagonal indicate agreement. Always check how many observations sit behind each point, since a group of five projects provides much less evidence than a group of 500. The <a href="https://scikit-learn.org/stable/modules/calibration.html">scikit-learn probability calibration guide</a> explains this approach.</p>
+<p>Simply counting correct “on time” or “late” labels gives us <strong>classification accuracy</strong>. Calibration tells us whether the probabilities themselves match what happens. We also want to distinguish projects that are likely to finish on time from projects that need help. That ability is called <strong>discrimination</strong>. Always forecasting the historical on-time rate might be calibrated across a stable population, while telling us little about which individual projects are most likely to be late.</p>
+<p>For human forecasters, this is a useful check on both overconfidence and underconfidence. A project lead may feel certain because a plan is familiar, while another may give cautious estimates even when similar projects usually succeed. Record those probabilities and compare them with later results. Over repeated decisions, each person can see where their confidence needs adjustment. Someone who is well calibrated on familiar projects may still need practice when estimating work in a new domain.</p>
+<p>This is where the feedback habits described by Philip E. Tetlock and Dan Gardner in <a href="https://www.amazon.com/Superforecasting-Science-Prediction-Philip-Tetlock/dp/0804136718/"><em>Superforecasting</em></a> become useful. Record a probability, review the result, and update your expectations as evidence arrives. Repeating that process gives us a way to practice forecasting and find out whether we are improving.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Brier-Scores---Measuring-Probability-Errors">Brier Scores - Measuring Probability Errors<a class="anchor-link" href="#Brier-Scores---Measuring-Probability-Errors">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>An 80% forecast and a 95% forecast both say that finishing on time is more likely than being late. But they leave very different amounts of room for a delay. We need a way to measure that difference once the outcome is known. <strong>The Brier score measures the average squared difference between forecast probabilities and binary outcomes.</strong></p>
+<p>For our project, let $p$ be the probability of finishing on time, expressed as a decimal. Let $y = 1$ if the project finishes on time and $y = 0$ if it is late. An 80% forecast gives us $p = 0.80$. Subtract the outcome from that probability, then square the difference:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Actual Outcome</th>
+<th style="text-align:left">Calculation</th>
+<th style="text-align:right">Squared Error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">On time: y = 1</td>
+<td style="text-align:left">(0.80 − 1)²</td>
+<td style="text-align:right">0.0400</td>
+</tr>
+<tr>
+<td style="text-align:left">Late: y = 0</td>
+<td style="text-align:left">(0.80 − 0)²</td>
+<td style="text-align:right">0.6400</td>
+</tr>
+</tbody>
+</table>
+<p>Now raise the forecast to 95%. The error becomes 0.0025 when the project finishes on time, but 0.9025 when it is late. Greater confidence earns a smaller error when correct and a larger error when wrong.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Both rows use the same calculation:</p>
+<p>$$
+(p-y)^2
+$$</p>
+<p>Once we have $N$ resolved forecasts, add their squared errors and divide by $N$ to get the average:</p>
+<p>$$
+\text{Brier score} = \frac{1}{N}\sum_{i=1}^{N}(p_i-y_i)^2
+$$</p>
+<p>We use the <strong>binary 0–1 convention</strong>, where lower is better. Zero means the forecasts assigned certainty to the outcomes that occurred. One is the worst possible score. Some sources add errors across both outcome categories and report a 0–2 scale, so check the convention before comparing numbers. The <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.brier_score_loss.html">Brier score documentation</a> describes both conventions.</p>
+<p>A 50% forecast produces an error of 0.25 either way. That makes it a useful arithmetic reference, but not a universal benchmark: an established historical event rate can be a more informative baseline. A score of 0.16 also does <strong>not</strong> mean “16% of decisions were wrong.” It is an average squared probability error, not a percentage of incorrect labels.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Log-Loss---The-Cost-of-Confident-Errors">Log Loss - The Cost of Confident Errors<a class="anchor-link" href="#Log-Loss---The-Cost-of-Confident-Errors">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now imagine a forecaster who repeatedly says a project is almost certain to finish on time. When a project is late, that forecast left very little room for what actually happened. <strong>Log loss measures the negative logarithm of the probability assigned to the observed outcome.</strong> It gives a particularly large penalty when that outcome was assigned almost no probability.</p>
+<p>Use the same $p$ for the probability of finishing on time and $y$ for the outcome. At $p = 0.80$, an on-time project was assigned probability 0.80, while a late project was assigned probability $1-p = 0.20$. Log loss takes the natural logarithm of whichever probability matches the outcome, then reverses the sign. We write the natural logarithm as $\ln$.</p>
+<p>For example, an on-time project gives a loss of −ln(0.80) ≈ 0.2231. A late project gives −ln(0.20) ≈ 1.6094. The table below shows what happens as the forecast becomes more confident:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Forecast of On-Time Delivery</th>
+<th style="text-align:right">Loss if On Time</th>
+<th style="text-align:right">Loss if Late</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">80%</td>
+<td style="text-align:right">−ln(0.80) ≈ 0.2231</td>
+<td style="text-align:right">−ln(0.20) ≈ 1.6094</td>
+</tr>
+<tr>
+<td style="text-align:left">95%</td>
+<td style="text-align:right">−ln(0.95) ≈ 0.0513</td>
+<td style="text-align:right">−ln(0.05) ≈ 2.9957</td>
+</tr>
+<tr>
+<td style="text-align:left">99%</td>
+<td style="text-align:right">−ln(0.99) ≈ 0.0101</td>
+<td style="text-align:right">−ln(0.01) ≈ 4.6052</td>
+</tr>
+</tbody>
+</table>
+<p>Notice how the penalty for a late project increases as the forecast leaves less room for that possibility. You do not need to calculate logarithms in your head to see the lesson: <strong>being confidently wrong carries a large penalty under log loss.</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For an on-time project, the individual loss is $-\ln(p)$. For a late project, it is $-\ln(1-p)$. Across $N$ resolved forecasts, the formula selects the appropriate loss for each outcome and averages the results:</p>
+<p>$$
+\text{Log loss} = -\frac{1}{N}\sum_{i=1}^{N}\left[y_i\ln(p_i)+(1-y_i)\ln(1-p_i)\right]
+$$</p>
+<p>The <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html">log loss documentation</a> uses this definition and the natural logarithm convention.</p>
+<p><strong>Lower log loss is better. It starts at zero and has no finite upper limit.</strong> Assigning probability one to the observed outcome gives zero loss. Assigning zero probability to what occurs gives an infinite theoretical loss. Software commonly clips probabilities slightly away from zero and one so the calculation stays finite. That handles the numerical problem, but the forecast still needs to account for outcomes that could occur.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Decision-Assurance-Scenario---Same-Accuracy,-Different-Probability-Quality">Decision Assurance Scenario - Same Accuracy, Different Probability Quality<a class="anchor-link" href="#Decision-Assurance-Scenario---Same-Accuracy,-Different-Probability-Quality">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Imagine two forecasters evaluating the same ten projects before their outcomes are known. Forecaster A assigns every project an 80% chance of finishing on time. Forecaster B assigns every project 95%. Both use a 50% threshold to produce an “on time” label. Eventually, eight projects finish on time and two finish late.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Resolved Projects</th>
+<th style="text-align:right">Number of Projects</th>
+<th style="text-align:right">Outcome y</th>
+<th style="text-align:right">Forecaster A</th>
+<th style="text-align:right">Forecaster B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Projects 1–8</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">0.80 each</td>
+<td style="text-align:right">0.95 each</td>
+</tr>
+<tr>
+<td style="text-align:left">Projects 9–10</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0.80 each</td>
+<td style="text-align:right">0.95 each</td>
+</tr>
+</tbody>
+</table>
+<p>Both forecasters have <strong>80% classification accuracy</strong> because both labeled all ten projects “on time.” But their probabilities expressed different expectations about delays. Scoring those probabilities reveals the difference.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Calculating-the-Aggregate-Scores">Calculating the Aggregate Scores<a class="anchor-link" href="#Calculating-the-Aggregate-Scores">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For the Brier score, multiply each individual squared error by the number of matching outcomes, add the errors, and divide by ten:</p>
+<p>$$
+\text{Brier}_{A} = \frac{8(0.80-1)^2+2(0.80-0)^2}{10}
+= \frac{8(0.04)+2(0.64)}{10} = 0.1600
+$$</p>
+<p>$$
+\text{Brier}_{B} = \frac{8(0.95-1)^2+2(0.95-0)^2}{10}
+= \frac{8(0.0025)+2(0.9025)}{10} = 0.1825
+$$</p>
+<p>For log loss, average the negative log probabilities of the observed outcomes:</p>
+<p>$$
+\text{Log loss}_{A} = -\frac{8\ln(0.80)+2\ln(0.20)}{10} \approx 0.5004
+$$</p>
+<p>$$
+\text{Log loss}_{B} = -\frac{8\ln(0.95)+2\ln(0.05)}{10} \approx 0.6402
+$$</p>
+<p>The logarithms are calculated at full precision before rounding the final averages.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Assurance Measure</th>
+<th style="text-align:right">Forecaster A: 80%</th>
+<th style="text-align:right">Forecaster B: 95%</th>
+<th style="text-align:left">Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Classification accuracy</td>
+<td style="text-align:right">80%</td>
+<td style="text-align:right">80%</td>
+<td style="text-align:left">Both produce the same labels.</td>
+</tr>
+<tr>
+<td style="text-align:left">Brier score</td>
+<td style="text-align:right">0.1600</td>
+<td style="text-align:right">0.1825</td>
+<td style="text-align:left">A has lower average squared probability error.</td>
+</tr>
+<tr>
+<td style="text-align:left">Log loss</td>
+<td style="text-align:right">0.5004</td>
+<td style="text-align:right">0.6402</td>
+<td style="text-align:left">A assigns the observed outcomes higher probability overall.</td>
+</tr>
+</tbody>
+</table>
+<p>Forecaster B receives smaller losses on the eight on-time projects, but the two late projects outweigh that advantage. <strong>A scores better on this particular set of outcomes.</strong> This is a hypothetical arithmetic illustration, not evidence that ten observations establish reliable calibration or that 80% is the right probability for future projects.</p>
+<p>These scores reward honest probabilities over repeated forecasts. If you knew the true probability of each event, reporting it would give the lowest expected loss. This property is what makes Brier score and log loss <strong>proper scoring rules</strong>. However, a lower score can reflect better separation of likely and unlikely events, as well as better calibration. The uncertainty of the events also affects the scores. Check the probability groups alongside the overall score to understand what improved. The <a href="https://scikit-learn.org/stable/modules/calibration.html">calibration guide</a> explains these differences.</p>
+<p>For assurance, the supported conclusion is limited but useful: on this resolved set, A's probabilities fit the outcomes better under both scoring rules. It is not evidence that A used a better decision process in every respect or that A will outperform B on future projects.</p>
+<p>Also, neither score measures the value of the staffing decision directly. Avoiding a delay might require expensive extra capacity. Choosing whether to buy that capacity requires the probability estimate together with the costs, benefits, and available alternatives.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Turning-Assurance-Evidence-into-Action">Turning Assurance Evidence into Action<a class="anchor-link" href="#Turning-Assurance-Evidence-into-Action">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img loading="lazy" alt="" src="../Images/DecisionIntelligenceFramework/DecisionMonitoring-ScientistInspection.png" style="display: block; margin: auto;" width="600px"/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Decision assurance becomes valuable when evidence changes what we do next. A scientist examining an experiment compares what was expected with what actually happened, checks the method, and states the limits of the conclusion. A decision-maker can do the same: Were delays random surprises, did we repeatedly underestimate supplier dependencies, or was the approved plan not followed?</p>
+<p>For the project lead, measuring supplier delays is useful if it helps decide when to add a contingency. That connection between measurement and action is a practical lesson from Douglas W. Hubbard's <a href="https://www.amazon.com/How-Measure-Anything-Intangibles-Business/dp/1118539273/"><em>How to Measure Anything</em></a>. Choose measurements that help answer the decision in front of you.</p>
+<p>The human side of this review matters too. If every missed forecast is treated as a personal failure, people may become reluctant to record uncertainty or acknowledge mistakes. Pressure to sound certain can also encourage probabilities that reflect what a manager wants to hear. Review the recorded evidence and reasoning, allow people to explain what surprised them, and agree on a specific improvement with an owner. People can be accountable for following a sound process without being expected to predict every outcome correctly.</p>
+<p>A practical assurance cycle can follow these steps:</p>
+<ol>
+<li><strong>State the assurance question and possible action.</strong> Decide whether the evidence will support proceeding, proceeding with conditions, revising, escalating, pausing, or stopping. A review without a decision it can influence easily becomes ceremony.</li>
+<li><strong>Resolve and validate the evidence consistently.</strong> Match outcomes to the recorded criteria, check provenance and execution records, and keep unresolved cases separate. Show how many forecasts have resolved because early results may not represent the full group.</li>
+<li><strong>Compare with a meaningful baseline and look for patterns.</strong> Score the current approach and a historical base-rate forecast on the same cases. Review probability groups, project types, time periods, and sample sizes before reacting. A worsening score might reflect harder projects or changing conditions rather than a weaker process.</li>
+<li><strong>Choose and own the response.</strong> If supplier-dependent projects are consistently overestimated, gather better supplier evidence, revise the probabilities, add a contingency rule, or escalate the decision. Record the response, owner, due date, and remaining uncertainty.</li>
+<li><strong>Evaluate the change on later outcomes.</strong> Preserve the earlier record and compare the revised approach on new cases. Improving a score on the same observations used to design the change is not sufficient evidence of improvement.</li>
+</ol>
+<p>When comparing forecasts, also keep the lead time consistent. A prediction made one day before delivery has more information than one made three months earlier. Mixing them can make a forecasting process appear to improve simply because it is predicting closer to the outcome.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A run of late projects might reveal a supplier problem, or it might reflect normal variation. Nate Silver explores the difficulty of separating useful evidence from noise in <a href="https://www.amazon.com/Signal-Noise-Many-Predictions-Fail-but/dp/0143125087/"><em>The Signal and the Noise</em></a>. For our project reviews, the lesson is to investigate repeated patterns, account for uncertainty, and update when conditions change.</p>
+<p>Track decision consequences alongside forecast scores: delivery costs, customer outcomes, and the cost of interventions. If extra staffing improves delivery rates, record that action too. Outcomes reflect what people actually did; we cannot directly observe what the same project would have done under a different staffing plan. This helps prevent attributing every improvement to a better forecast.</p>
+<p>Assurance evidence can return to any earlier step of the Decision Intelligence Framework. We might need a different frame, better information, a revised execution rule, clearer communication, or a different objective. Sometimes the appropriate response is to keep the current approach and collect more evidence.</p>
+<p>Confidence should also be refreshed when something material changes: the objective, evidence, assumptions, environment, model, responsible people, or action. Assurance is therefore maintained across the decision lifecycle rather than awarded once and forgotten.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Decision-Assurance-with-Generative-AI">Decision Assurance with Generative AI<a class="anchor-link" href="#Decision-Assurance-with-Generative-AI">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Generative AI can produce recommendations, probability estimates, explanations, and tool-driven actions, so the decisions it supports need assurance across their lifecycle. A fluent explanation does not establish that the evidence is reliable, the forecast is calibrated, the action is authorized, or the result is worthwhile. The <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">NIST AI Risk Management Framework Core</a> organizes AI risk work around Govern, Map, Measure, and Manage and emphasizes continuous activity across the AI lifecycle. That guidance can inform practical decision assurance without turning every use of AI into a formal audit.</p>
+<p><strong>Assure decision readiness.</strong> Define the intended use, affected people, objective, risk tolerance, and conditions under which AI should not be used. Record the evidence and assumptions supplied to the model, their provenance and freshness, relevant model and prompt versions, tools, the recommendation, and any probability forecast. Evaluate representative cases before use and compare with an appropriate human, rule-based, or historical baseline. Higher-stakes uses may warrant specialist or independent challenge.</p>
+<p><strong>Assure execution integrity.</strong> Record the model inputs and outputs needed for review, tool calls, validation and guardrail results, the recommendation presented to a person, and the action actually taken. Define who may approve, change, or override the recommendation and when the case must be escalated. Monitor operational signals such as invalid outputs, missing evidence, tool failures, overrides, or a material change in context. A successful model response is not proof that the authorized decision was carried out correctly.</p>
+<p>Return to the ten-project example, where eight projects finished on time and two were late. Forecasting 80% for every project gives a <strong>Brier score of 0.1600 and log loss of 0.5004</strong>, whether those estimates came from a project lead, a Generative AI model, or a person working with AI. Forecasting 95% gives <strong>0.1825 and 0.6402</strong>, respectively. Both sets still have 80% classification accuracy under the same 50% threshold. The calculations depend on the probabilities and outcomes, not on who produced the forecasts. The small example illustrates the arithmetic; it does not establish that either people or AI are generally better calibrated.</p>
+<p>For a useful human-versus-AI comparison, score the same cases using the same outcome criteria and forecast lead time, and account for differences in the information available. Keep the original forecasts when people revise an AI estimate or when new evidence arrives. Otherwise, we may end up comparing an early human forecast with an AI forecast made after most of the uncertainty has disappeared.</p>
+<p><strong>Validate outcomes and learn.</strong> Define the event and deadline clearly, compare recorded forecasts with verified results, and track benefits, costs, harms, and unintended consequences. If an AI repeatedly assigns approximately 70% probability to comparable events, check whether approximately 70% occur over many observations. Brier scores and log loss test the probabilities of resolved events; reviewing evidence quality, reasoning, controls, and execution remains separate. Establish triggers to revise, restrict, escalate, pause, or stop the AI-assisted workflow when evidence no longer supports confidence.</p>
+<p>Use the records to investigate repeated errors and decide what to change. The AI may need better evidence, a revised prompt, a different tool, stronger validation, narrower authorization, or a change to the decision rule around its recommendation. Record the change and evaluate it on later cases using the same outcome criteria and scoring methods. Saving feedback does not itself improve a model, and a more persuasive explanation does not demonstrate better decisions.</p>
+<p>Generative AI can also help people review the records. For example, a project lead could ask: <em>“Review these resolved forecasts and their scores. Identify recurring assumptions in delayed projects, distinguish recorded facts from possible explanations, and suggest one change to evaluate next month.”</em> The model can organize the review and suggest patterns to investigate; the lead still checks the supporting records and decides which improvement to test.</p>
+<p><strong>Decision assurance improves decision-making when confidence is supported by explicit claims, proportionate evidence, responsible execution, and honest learning.</strong> It does not remove uncertainty; it makes the basis, limits, and consequences of acting under uncertainty easier to understand and improve.</p>
+</div>
+</div>
+</div>
+
+  </section>
+  </div>
+  <nav class="chapter-pager" aria-label="Chapter navigation">
+    <a class="pager-link" data-prev-chapter href="1h-decision-communication.html"><span>Previous</span><strong>Decision Communication</strong></a>
+    <a class="pager-link align-right" data-next-chapter href="1j-enterprise-decision-intelligence.html"><span>Next</span><strong>Enterprise Decision Intelligence</strong></a>
+  </nav>
+</article>
+
+  </main>
+  <script type="module" src="../pagefind/pagefind-component-ui.js"></script>
+  <script src="../assets/site.js"></script>
+</body>
+</html>

@@ -61,11 +61,15 @@
       "include_in_build": true
     },
     {
-      "file": "1i - Decision Intelligence - Applying the Decision Intelligence Framework.ipynb",
+      "file": "1i - Decision Intelligence - Decision Assurance.ipynb",
       "include_in_build": true
     },
     {
       "file": "1j - Decision Intelligence - Enterprise Decision Intelligence.ipynb",
+      "include_in_build": true
+    },
+    {
+      "file": "1k - Decision Intelligence - Applying the Decision Intelligence Framework.ipynb",
       "include_in_build": true
     },
     {

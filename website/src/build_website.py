@@ -32,8 +32,9 @@ NOTEBOOK_DESCRIPTIONS = {
     "1f - Decision Intelligence - Decision Execution with Decision Rules.ipynb": "Reusable rules, heuristics, and domain-specific patterns for consistent decisions.",
     "1g - Decision Intelligence - Decision Execution with Quantitative Methods.ipynb": "Using probability, measurement, and simulation to make better quantitative choices.",
     "1h - Decision Intelligence - Decision Communication.ipynb": "Communicating decisions so people understand the conclusion, rationale, and action.",
-    "1i - Decision Intelligence - Applying the Decision Intelligence Framework.ipynb": "An end-to-end example that brings the framework components together.",
-    "1j - Decision Intelligence - Enterprise Decision Intelligence.ipynb": "How decision systems become repeatable, observable, explainable, and scalable.",
+    "1i - Decision Intelligence - Decision Assurance.ipynb": "Building justified confidence through decision readiness, execution integrity, and outcome validation and learning.",
+    "1j - Decision Intelligence - Enterprise Decision Intelligence.ipynb": "How enterprise decision systems support decision readiness, execution integrity, and outcome validation and learning at scale.",
+    "1k - Decision Intelligence - Applying the Decision Intelligence Framework.ipynb": "An end-to-end example that brings all five framework components together, including Decision Assurance.",
 }
 
 
@@ -141,7 +142,7 @@ BOOK_TITLE = "Decision Intelligence with AI"
 SITE_URL = str(CONFIG.get("site_url", "")).strip().rstrip("/")
 SITE_DESCRIPTION = (
     "A practical Decision Intelligence with AI workshop covering decision framing, "
-    "intelligence gathering, execution, communication, and generative AI decision workflows."
+    "intelligence gathering, execution, communication, assurance, and generative AI decision workflows."
 )
 AUTHOR_NAME = "Bart Czernicki"
 AUTHOR_URL = "https://github.com/bartczernicki"
@@ -732,7 +733,42 @@ def write_assets() -> None:
 
 
 def generate_pagefind() -> None:
-    run(["npx", "-y", "pagefind", "--site", "website/dist"])
+    npx = shutil.which("npx")
+    if npx is None:
+        raise SystemExit("Pagefind requires Node.js and npm with npx available on PATH.")
+    run([npx, "-y", "pagefind", "--site", "website/dist"])
+
+
+def write_legacy_redirect() -> None:
+    target = "1k-applying-the-decision-intelligence-framework.html"
+    if not (CHAPTERS_DIR / target).exists():
+        return
+
+    canonical = absolute_url(f"chapters/{target}")
+    redirect = f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="{escape(canonical, quote=True)}">
+  <title>Applying the Decision Intelligence Framework has moved</title>
+</head>
+<body data-pagefind-ignore="all">
+  <p>This chapter is now <a id="chapter-link" href="{target}">1k: Applying the Decision Intelligence Framework</a>.</p>
+  <script>
+    const target = new URL({json.dumps(target)}, window.location.href);
+    target.search = window.location.search;
+    target.hash = window.location.hash;
+    document.getElementById('chapter-link').href = target.href;
+    window.location.replace(target.href);
+  </script>
+</body>
+</html>
+"""
+    (CHAPTERS_DIR / "1i-applying-the-decision-intelligence-framework.html").write_text(
+        redirect, encoding="utf-8"
+    )
 
 
 def validate_links() -> None:
@@ -763,6 +799,8 @@ def main() -> None:
     write_seo_files()
     write_assets()
     generate_pagefind()
+    # Generate compatibility pages after indexing so they never appear in search.
+    write_legacy_redirect()
     validate_links()
     print(f"Built website {BOOK_VERSION} with {len(CHAPTERS)} chapters and Pagefind search.")
 
