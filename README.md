@@ -14,7 +14,7 @@ Contents:
 
 ## About 
 
-Navigating decisions effectively is important, serving as a key differentiator for successful individuals. Therefore, decision-making ability is regarded by executives as one of the most highly desired business skills! However, effective and quality decision-making is not simple. Perhaps the intersection of Decision Theory and Generative AI can help.
+Decision-making ability is regarded by executives as one of the most highly desired business skills! However, effective and quality decision execution is not simple. This is where the intersection of Decision Theory and Generative AI can help.
 
 This **Decision Intelligence with AI** workshop is an interactive course that is paired with an upcoming book called **"Decision Intelligence with AI"**. This course was designed with a focus on three key areas:  
 * Illustration of important Decision-Making concepts 
