@@ -1,5 +1,5 @@
 {
-  "book_version": "0.6-preview.20260812",
+  "book_version": "0.7-preview.20261104",
   "site_url": "https://www.decisionintelligencebook.ai",
   "chapter_groups": [
     {
@@ -98,6 +98,10 @@
     },
     {
       "file": "3d - Workshop (AI Extensions) - Private AI Decision Intelligence.ipynb",
+      "include_in_build": true
+    },
+    {
+      "file": "4x - Workshop (AI Extensions) - Premortem (What-If) Decision Analysis.ipynb",
       "include_in_build": true
     },
     {

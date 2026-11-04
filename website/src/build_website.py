@@ -277,6 +277,16 @@ def remove_blocks_by_class(
     return "".join(result)
 
 
+def remove_notebook_runtime_outputs(html: str) -> str:
+    """Drop .NET Interactive startup output from the static reading edition."""
+    return remove_blocks_by_class(
+        html,
+        "output_area",
+        lambda block: "dotnet-interactive-this-cell-" in block
+        and re.search(r"<script\b", block, re.IGNORECASE) is not None,
+    )
+
+
 def remove_warning_outputs(html: str) -> str:
     html = remove_blocks_by_class(
         html,
@@ -326,6 +336,7 @@ def tag_case_study_blockquotes(html: str) -> str:
 def normalize_notebook_html(html: str) -> str:
     html = html.replace('alt="No description has been provided for this image"', 'alt=""')
     html = re.sub(r"<img(?![^>]*\bloading=)", '<img loading="lazy"', html)
+    html = remove_notebook_runtime_outputs(html)
     html = remove_warning_outputs(html)
     html = tag_case_study_blockquotes(html)
     return html
