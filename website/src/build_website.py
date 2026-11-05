@@ -546,7 +546,7 @@ def page_shell(
     (function () {{
       try {{
         var saved = localStorage.getItem('di-theme');
-        var theme = (saved === 'light' || saved === 'dark') ? saved : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        var theme = (saved === 'light' || saved === 'dark') ? saved : 'light';
         document.documentElement.dataset.theme = theme;
       }} catch (error) {{
         document.documentElement.dataset.theme = 'light';
