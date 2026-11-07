@@ -8,6 +8,22 @@ This folder contains the source automation and generated output for the static w
 - `src/build_website_config.json` controls the book version, production site URL, and which notebooks are included.
 - `dist/` contains the generated static website.
 
+## Heading Dividers
+
+To add centered three-dot breaks above Markdown headings in every notebook, run:
+
+```bash
+python3 website/src/format_notebook_dividers.py
+```
+
+The formatter preserves existing content and notebook data, replaces horizontal rules directly above headings, and skips code and HTML blocks. It is safe to run again after adding new headings. Check for pending formatting without changing files with:
+
+```bash
+python3 website/src/format_notebook_dividers.py --check
+```
+
+The notebook markup provides centered text dots in notebook viewers. The website stylesheet supplies the dot size, spacing, and theme colors. Formatting is explicit; the website build reads notebooks without rewriting them.
+
 ## Build
 
 From the repository root:

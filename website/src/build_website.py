@@ -835,6 +835,22 @@ This folder contains the source automation and generated output for the static w
 - `src/build_website_config.json` controls the book version, production site URL, and which notebooks are included.
 - `dist/` contains the generated static website.
 
+## Heading Dividers
+
+To add centered three-dot breaks above Markdown headings in every notebook, run:
+
+```bash
+python3 website/src/format_notebook_dividers.py
+```
+
+The formatter preserves existing content and notebook data, replaces horizontal rules directly above headings, and skips code and HTML blocks. It is safe to run again after adding new headings. Check for pending formatting without changing files with:
+
+```bash
+python3 website/src/format_notebook_dividers.py --check
+```
+
+The notebook markup provides centered text dots in notebook viewers. The website stylesheet supplies the dot size, spacing, and theme colors. Formatting is explicit; the website build reads notebooks without rewriting them.
+
 ## Build
 
 From the repository root:
@@ -1311,6 +1327,30 @@ body[data-page="10c-glossary.html"] .chapter-toc a:hover { border-color: var(--a
 .notebook-content h2,
 .notebook-content h3,
 .notebook-content h4 { position: relative; margin-top: 1.7em; scroll-margin-top: 24px; }
+.notebook-content .text_cell_render .section-break {
+  height: 4px;
+  margin: 36px 0 24px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0;
+  line-height: 0;
+  break-inside: avoid;
+  break-after: avoid;
+}
+.notebook-content .text_cell_render .section-break::before {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 4px;
+  margin-inline: auto;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: -28px 0 0 currentColor, 28px 0 0 currentColor;
+}
+.notebook-content .text_cell_render .section-break + :is(h1, h2, h3, h4, h5, h6) {
+  margin-top: 0;
+  break-before: avoid;
+}
 .notebook-content blockquote {
   margin: 28px 0;
   padding: 20px 24px;
@@ -1518,6 +1558,13 @@ body[data-page="10c-glossary.html"] .chapter-toc a:hover { border-color: var(--a
   .notebook-content table { display: table; table-layout: fixed; overflow: visible; }
   .notebook-content th,
   .notebook-content td { min-width: 0; overflow-wrap: anywhere; }
+  .notebook-content .text_cell_render .section-break {
+    height: auto;
+    font-size: 1rem;
+    line-height: 1;
+    letter-spacing: 2px;
+  }
+  .notebook-content .text_cell_render .section-break::before { display: none; }
 }
 """
 
