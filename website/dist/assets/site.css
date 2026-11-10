@@ -418,9 +418,44 @@ body[data-page="10c-glossary.html"] .chapter-toc a:hover { border-color: var(--a
 .notebook-content p { margin: 0 0 1.15em; }
 .notebook-content li + li { margin-top: 0.35em; }
 .notebook-content img { max-width: 100%; height: auto; }
-.notebook-content h2,
-.notebook-content h3,
-.notebook-content h4 { position: relative; margin-top: 1.7em; scroll-margin-top: 24px; }
+.notebook-content :is(h1, h2, h3, h4, h5, h6) { position: relative; margin-top: 1.7em; scroll-margin-top: 24px; }
+.notebook-section,
+.section-body { min-width: 0; }
+.section-body { display: flow-root; }
+.notebook-content .section-body[hidden],
+.notebook-content .section-hidden-count[hidden] { display: none; }
+.section-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-inline-end: 6px;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background: transparent;
+  color: var(--muted);
+  vertical-align: middle;
+  cursor: pointer;
+}
+.section-toggle:hover { background: var(--panel-subtle); color: var(--accent); }
+.section-toggle-icon { display: block; font-family: var(--sans); font-size: 1rem; line-height: 1; }
+.section-toggle[aria-expanded="false"] .section-toggle-icon { transform: rotate(-90deg); }
+.section-hidden-count {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin: -12px 0 24px 50px;
+  padding: 5px 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.section-hidden-count:hover { color: var(--accent); text-decoration: underline; }
 .notebook-content .text_cell_render .section-break {
   height: 4px;
   margin: 36px 0 24px;
@@ -633,16 +668,17 @@ body[data-page="10c-glossary.html"] .chapter-toc a:hover { border-color: var(--a
   .back-link,
   .chapter-pager,
   .chapter-toc,
+  .section-toggle,
+  .section-hidden-count,
   .section-copy,
   .skip-link { display: none !important; }
+  .notebook-content .section-body[hidden] { display: block !important; }
   .book-main { margin-left: 0; }
   .book-hero,
   .book-contents,
   .chapter-page { width: 100%; max-width: none; padding: 0; }
   .chapter-header,
-  .notebook-content h2,
-  .notebook-content h3,
-  .notebook-content h4 { break-after: avoid; }
+  .notebook-content :is(h1, h2, h3, h4, h5, h6) { break-after: avoid; }
   a { color: var(--ink); text-decoration: underline; }
   .notebook-content blockquote,
   .notebook-content table,
